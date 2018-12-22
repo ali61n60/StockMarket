@@ -20,11 +20,11 @@ namespace StockMarket
             InitializeComponent();
         }
 
-
-       private List<StockPointData> ReadData()
+        //PARK1
+       private List<StockPointData> ReadData(string fileName)
         {
             List<StockPointData> listA = new List<StockPointData>();
-            using (var reader = new StreamReader(@"C:\Users\test\Documents\TseClient 2.0\ghadir.csv",Encoding.Unicode))
+            using (var reader = new StreamReader(fileName, Encoding.Unicode))
             {                
                 StockPointData tempPoint;
                 
@@ -56,40 +56,94 @@ namespace StockMarket
 
         private void button1_Click(object sender, EventArgs e)
         {
-           var listData= ReadData();
-            listData.RemoveAt(0);
-            Series price = new Series("price"); // <<== make sure to name the series "price"
-            chart1.Series.Add(price);
+            string ghadir = @"C:\Users\test\Documents\TseClient 2.0\GDIR1.csv";
+            string sharak = @"C:\Users\test\Documents\TseClient 2.0\PARK1.csv";
+            ClearChartSeries();
+            AddChartSeries();
+            ConfigureChartSeries();
 
-            // Set series chart type
-            chart1.Series["price"].ChartType = SeriesChartType.Candlestick;
+            List<StockPointData> listGhadir = ReadData(ghadir);
+            listGhadir.RemoveAt(0);
+            
+            List<StockPointData> listSharak = ReadData(sharak);
+            listSharak.RemoveAt(0);
 
-            // Set the style of the open-close marks
-            chart1.Series["price"]["OpenCloseStyle"] = "Triangle";
-
-            // Show both open and close marks
-            chart1.Series["price"]["ShowOpenClose"] = "Both";
-
-            // Set point width
-            chart1.Series["price"]["PointWidth"] = "1.0";
-
-            // Set colors bars
-            chart1.Series["price"]["PriceUpColor"] = "Green"; // <<== use text indexer for series
-            chart1.Series["price"]["PriceDownColor"] = "Red"; // <<== use text indexer for series
-
-            for (int i = 0; i < listData.Count; i++)
+            List<StockPointData> listGhadirSharakRatio = new List<StockPointData>();
+            for(int i=0;i<listGhadir.Count && i < listSharak.Count; i++)
             {
-                // adding date and high
-                chart1.Series["price"].Points.AddXY(i, double.Parse(listData[i].MaxPrice));
-                // adding low
-                double low = double.Parse(listData[i].MinPrice);
-                chart1.Series["price"].Points[i].YValues[1] = low;
-                //adding open
-                chart1.Series["price"].Points[i].YValues[2] = double.Parse(listData[i].FirstPrice);
-                // adding close
-                chart1.Series["price"].Points[i].YValues[3] = double.Parse(listData[i].LastPrice);
+                if(double.Parse(listSharak[i].FinalPrice)!=0)
+                {
+                    StockPointData ratioPoint = new StockPointData();
+                    double gadir = double.Parse(listGhadir[i].FinalPrice);
+                    double sharak2 = double.Parse(listSharak[i].FinalPrice);
+                    double finalPrice = 10000*gadir / sharak2;
+                    ratioPoint.FinalPrice = finalPrice.ToString();
+                    listGhadirSharakRatio.Add(ratioPoint);
+                }
             }
+            
+            AddData("Ghadir", listGhadir);
+            AddData("Sharak", listSharak);
+            AddData("Ratio", listGhadirSharakRatio);
 
+            
+
+        }
+
+        private void AddData(string seriesName, List<StockPointData> listData)
+        {
+            for (int i = 0; i < listData.Count; i++)
+            {                
+                // adding date and high
+                chart1.Series[seriesName].Points.AddXY(i, double.Parse(listData[i].FinalPrice));
+                // adding low
+                //chart1.Series[seriesName].Points[i].YValues[1] = double.Parse(listData[i].MinPrice);
+                //adding open
+                //chart1.Series[seriesName].Points[i].YValues[2] = double.Parse(listData[i].FirstPrice);
+                // adding close
+                //chart1.Series[seriesName].Points[i].YValues[3] = double.Parse(listData[i].LastPrice);
+            }
+        }
+
+        private void ConfigureChartSeries()
+        {
+            // Set series chart type
+
+            foreach(var sery in chart1.Series)
+            {
+                sery.ChartType = SeriesChartType.Line;
+
+                // Set the style of the open-close marks
+                sery["OpenCloseStyle"] = "Triangle";
+
+                // Show both open and close marks
+                sery["ShowOpenClose"] = "Both";
+
+                // Set point width
+                sery["PointWidth"] = "1.0";
+
+                // Set colors bars
+                sery["PriceUpColor"] = "Green"; // <<== use text indexer for series
+                sery["PriceDownColor"] = "Red"; // <<== use text indexer for series
+            }
+            
+        }
+
+        private void AddChartSeries()
+        {
+            Series ghadirSerires = new Series("Ghadir");
+            chart1.Series.Add(ghadirSerires);
+
+            Series sharakSeries = new Series("Sharak");
+            chart1.Series.Add(sharakSeries);
+
+            Series ratioSeries = new Series("Ratio");
+            chart1.Series.Add(ratioSeries);
+        }
+
+        private void ClearChartSeries()
+        {
+            chart1.Series.Clear();
         }
     }
 }
