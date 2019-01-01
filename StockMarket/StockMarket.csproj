@@ -84,6 +84,10 @@
       <Project>{f7fd4f43-71f7-4fda-9fd5-cdf69e66c8a8}</Project>
       <Name>ModelStd</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ServiceStd\ServiceStd.csproj">
+      <Project>{7179a795-c60d-41f7-b153-6f02a9c05754}</Project>
+      <Name>ServiceStd</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

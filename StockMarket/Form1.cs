@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows.Forms;
-using System.IO;
 using System.Windows.Forms.DataVisualization.Charting;
 using ModelStd;
+using ModelStd.IRepository;
+using ServiceStd;
 
 namespace StockMarket
 {
     public partial class Form1 : Form
     {
+        StocksInformation stocksInformation;
         public Form1()
         {
             InitializeComponent();
@@ -18,17 +19,24 @@ namespace StockMarket
 
         private void init()
         {
+            stocksInformation = new StocksInformation();
             initCumboBoxStocksName();
         }
 
         private void initCumboBoxStocksName()
-        {
-
+        {            
+            foreach(string stockName in stocksInformation.GetAllStocksName())
+            {
+                comboBox1.Items.Add(stockName);
+            }
+            comboBox1.SelectedIndex = 0;
+            
         }
         
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string stockName= comboBox1.SelectedItem.ToString();
             string ghadir = @"C:\Users\test\Documents\TseClient 2.0\GDIR1.csv";
             string sharak = @"C:\Users\test\Documents\TseClient 2.0\PARK1.csv";
             ClearChartSeries();
