@@ -37,7 +37,15 @@ namespace RepositoryStd.FileSystem
                     string[] values = line.Split(',');
                     tempPoint = new PointData();
                     tempPoint.StockName = values[0];
-                    tempPoint.Date = DateTime.ParseExact(values[1], "yyyyMMdd", CultureInfo.InvariantCulture) ;
+                    try
+                    {
+                        tempPoint.Date = DateTime.ParseExact(values[1], "yyyyMMdd", CultureInfo.InvariantCulture);
+                    }
+                    catch (Exception ex)
+                    {
+                        continue;
+                    }
+                    
                     tempPoint.FirstPrice = values[2];
                     tempPoint.MaxPrice = values[3];
                     tempPoint.MinPrice = values[4];
@@ -54,7 +62,7 @@ namespace RepositoryStd.FileSystem
                     listA.Add(tempPoint);
                 }
             }
-            listA.RemoveAt(0);//delete first line which contains header data
+           // listA.RemoveAt(0);//delete first line which contains header data
             return listA;
         }
     }

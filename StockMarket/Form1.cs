@@ -72,7 +72,7 @@ namespace StockMarket
             for (int i = 0; i < listData.Count; i++)
             {                
                 // adding date and high
-                chart1.Series[seriesName].Points.AddXY(i, double.Parse(listData[i].FinalPrice));
+                chart1.Series[seriesName].Points.AddXY(listData[i].Date, double.Parse(listData[i].FinalPrice));
                 // adding low
                 //chart1.Series[seriesName].Points[i].YValues[1] = double.Parse(listData[i].MinPrice);
                 //adding open
