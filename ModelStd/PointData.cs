@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModelStd
 {
-    public class StockPointData
+    public class PointData
     {
         public string StockName { get; set; }
         public string Date { get; set; }

@@ -16,38 +16,7 @@ namespace StockMarket
         }
 
         //PARK1
-       private List<StockPointData> ReadData(string fileName)
-        {
-            List<StockPointData> listA = new List<StockPointData>();
-            using (var reader = new StreamReader(fileName, Encoding.Unicode))
-            {                
-                StockPointData tempPoint;
-                
-                while (!reader.EndOfStream)
-                {
-                    string line = reader.ReadLine();
-                    string[] values = line.Split(',');
-                    tempPoint = new StockPointData();
-                    tempPoint.StockName = values[0];
-                    tempPoint.Date = values[1];
-                    tempPoint.FirstPrice = values[2];
-                    tempPoint.MaxPrice = values[3];
-                    tempPoint.MinPrice = values[4];
-                    tempPoint.FinalPrice = values[5];
-                    tempPoint.Voume = values[6];
-                    tempPoint.Value = values[7];
-                    tempPoint.NumberOfDeals = values[8];
-                    tempPoint.YesterdayPrice = values[9];
-                    tempPoint.CompanyCode = values[10];
-                    tempPoint.LatinName = values[11];
-                    tempPoint.CompanyName = values[12];
-                    tempPoint.Date2 = values[13];
-                    tempPoint.LastPrice = values[14];
-                    listA.Add(tempPoint);                    
-                }
-            }
-            return listA;
-        }
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -57,18 +26,18 @@ namespace StockMarket
             AddChartSeries();
             ConfigureChartSeries();
 
-            List<StockPointData> listGhadir = ReadData(ghadir);
+            List<PointData> listGhadir = ReadData(ghadir);
             listGhadir.RemoveAt(0);
             
-            List<StockPointData> listSharak = ReadData(sharak);
+            List<PointData> listSharak = ReadData(sharak);
             listSharak.RemoveAt(0);
 
-            List<StockPointData> listGhadirSharakRatio = new List<StockPointData>();
+            List<PointData> listGhadirSharakRatio = new List<PointData>();
             for(int i=0;i<listGhadir.Count && i < listSharak.Count; i++)
             {
                 if(double.Parse(listSharak[i].FinalPrice)!=0)
                 {
-                    StockPointData ratioPoint = new StockPointData();
+                    PointData ratioPoint = new PointData();
                     double gadir = double.Parse(listGhadir[i].FinalPrice);
                     double sharak2 = double.Parse(listSharak[i].FinalPrice);
                     double finalPrice = 10000*gadir / sharak2;
@@ -85,7 +54,7 @@ namespace StockMarket
 
         }
 
-        private void AddData(string seriesName, List<StockPointData> listData)
+        private void AddData(string seriesName, List<PointData> listData)
         {
             for (int i = 0; i < listData.Count; i++)
             {                
@@ -139,6 +108,11 @@ namespace StockMarket
         private void ClearChartSeries()
         {
             chart1.Series.Clear();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

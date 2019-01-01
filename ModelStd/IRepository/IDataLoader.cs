@@ -4,10 +4,8 @@ using System.Text;
 
 namespace ModelStd.IRepository
 {
-    public interface IStocksInfo
+    public interface IDataLoader
     {
-        List<string> GetAllStocksName();
-        string GetDirectoryPath();
+        List<PointData> GetStockData(string stockName);
     }
-
 }
