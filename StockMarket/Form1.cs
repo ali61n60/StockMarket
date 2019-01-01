@@ -37,17 +37,13 @@ namespace StockMarket
         private void button1_Click(object sender, EventArgs e)
         {
             string stockName= comboBox1.SelectedItem.ToString();
-            string ghadir = @"C:\Users\test\Documents\TseClient 2.0\GDIR1.csv";
-            string sharak = @"C:\Users\test\Documents\TseClient 2.0\PARK1.csv";
-            ClearChartSeries();
-            AddChartSeries();
-            ConfigureChartSeries();
+            List<PointData> listStockData= stocksInformation.GetStockData(stockName);
+            clearChartSeries();
+            addChartSeries(stockName);
+            configureChartSeries();
+            addData(stockName, listStockData);
 
-            //List<PointData> listGhadir = ReadData(ghadir);
-           // listGhadir.RemoveAt(0);
-            
-           // List<PointData> listSharak = ReadData(sharak);
-          //  listSharak.RemoveAt(0);
+           
 
             //List<PointData> listGhadirSharakRatio = new List<PointData>();
             //for(int i=0;i<listGhadir.Count && i < listSharak.Count; i++)
@@ -71,7 +67,7 @@ namespace StockMarket
 
         }
 
-        private void AddData(string seriesName, List<PointData> listData)
+        private void addData(string seriesName, List<PointData> listData)
         {
             for (int i = 0; i < listData.Count; i++)
             {                
@@ -86,7 +82,7 @@ namespace StockMarket
             }
         }
 
-        private void ConfigureChartSeries()
+        private void configureChartSeries()
         {
             // Set series chart type
 
@@ -110,19 +106,13 @@ namespace StockMarket
             
         }
 
-        private void AddChartSeries()
+        private void addChartSeries(string name)
         {
-            Series ghadirSerires = new Series("Ghadir");
-            chart1.Series.Add(ghadirSerires);
-
-            Series sharakSeries = new Series("Sharak");
-            chart1.Series.Add(sharakSeries);
-
-            Series ratioSeries = new Series("Ratio");
-            chart1.Series.Add(ratioSeries);
+            Series serires = new Series(name);
+            chart1.Series.Add(serires);            
         }
 
-        private void ClearChartSeries()
+        private void clearChartSeries()
         {
             chart1.Series.Clear();
         }

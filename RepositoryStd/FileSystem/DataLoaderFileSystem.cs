@@ -2,12 +2,13 @@
 using ModelStd.IRepository;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
 
 namespace RepositoryStd.FileSystem
 {
-    public class DataLoader : IDataLoader
+    public class DataLoaderFileSystem : IDataLoader
     {
         public List<PointData> GetStockData(string stockName)
         {
@@ -36,7 +37,7 @@ namespace RepositoryStd.FileSystem
                     string[] values = line.Split(',');
                     tempPoint = new PointData();
                     tempPoint.StockName = values[0];
-                    tempPoint.Date = values[1];
+                    tempPoint.Date = DateTime.ParseExact(values[1], "yyyyMMdd", CultureInfo.InvariantCulture) ;
                     tempPoint.FirstPrice = values[2];
                     tempPoint.MaxPrice = values[3];
                     tempPoint.MinPrice = values[4];

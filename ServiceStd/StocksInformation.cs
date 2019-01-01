@@ -1,4 +1,5 @@
-﻿using ModelStd.IRepository;
+﻿using ModelStd;
+using ModelStd.IRepository;
 using RepositoryStd.FileSystem;
 using System.Collections.Generic;
 
@@ -11,6 +12,12 @@ namespace ServiceStd
             IStocksInfo stocksInfo = new StocksInfoHandWritten();
 
             return stocksInfo.GetAllStocksName();
+        }
+
+        public List<PointData> GetStockData(string stockName)
+        {
+            IDataLoader dataLoader = new DataLoaderFileSystem();
+            return dataLoader.GetStockData(stockName);
         }
     }
 }

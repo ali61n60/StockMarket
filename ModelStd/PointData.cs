@@ -9,7 +9,7 @@ namespace ModelStd
     public class PointData
     {
         public string StockName { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public string FirstPrice { get; set; }
         public string MaxPrice { get; set; }
         public string MinPrice { get; set; }
