@@ -13,10 +13,19 @@ namespace StockMarket
         public Form1()
         {
             InitializeComponent();
+            init();
         }
 
-        //PARK1
-       
+        private void init()
+        {
+            initCumboBoxStocksName();
+        }
+
+        private void initCumboBoxStocksName()
+        {
+
+        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -26,29 +35,29 @@ namespace StockMarket
             AddChartSeries();
             ConfigureChartSeries();
 
-            List<PointData> listGhadir = ReadData(ghadir);
-            listGhadir.RemoveAt(0);
+            //List<PointData> listGhadir = ReadData(ghadir);
+           // listGhadir.RemoveAt(0);
             
-            List<PointData> listSharak = ReadData(sharak);
-            listSharak.RemoveAt(0);
+           // List<PointData> listSharak = ReadData(sharak);
+          //  listSharak.RemoveAt(0);
 
-            List<PointData> listGhadirSharakRatio = new List<PointData>();
-            for(int i=0;i<listGhadir.Count && i < listSharak.Count; i++)
-            {
-                if(double.Parse(listSharak[i].FinalPrice)!=0)
-                {
-                    PointData ratioPoint = new PointData();
-                    double gadir = double.Parse(listGhadir[i].FinalPrice);
-                    double sharak2 = double.Parse(listSharak[i].FinalPrice);
-                    double finalPrice = 10000*gadir / sharak2;
-                    ratioPoint.FinalPrice = finalPrice.ToString();
-                    listGhadirSharakRatio.Add(ratioPoint);
-                }
-            }
+            //List<PointData> listGhadirSharakRatio = new List<PointData>();
+            //for(int i=0;i<listGhadir.Count && i < listSharak.Count; i++)
+            //{
+            //    if(double.Parse(listSharak[i].FinalPrice)!=0)
+            //    {
+            //        PointData ratioPoint = new PointData();
+            //        double gadir = double.Parse(listGhadir[i].FinalPrice);
+            //        double sharak2 = double.Parse(listSharak[i].FinalPrice);
+            //        double finalPrice = 10000*gadir / sharak2;
+            //        ratioPoint.FinalPrice = finalPrice.ToString();
+            //        listGhadirSharakRatio.Add(ratioPoint);
+            //    }
+            //}
             
-            AddData("Ghadir", listGhadir);
-            AddData("Sharak", listSharak);
-            AddData("Ratio", listGhadirSharakRatio);
+            //AddData("Ghadir", listGhadir);
+            //AddData("Sharak", listSharak);
+            //AddData("Ratio", listGhadirSharakRatio);
 
             
 
@@ -110,10 +119,7 @@ namespace StockMarket
             chart1.Series.Clear();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
 

@@ -53,6 +53,7 @@ namespace RepositoryStd.FileSystem
                     listA.Add(tempPoint);
                 }
             }
+            listA.RemoveAt(0);//delete first line which contains header data
             return listA;
         }
     }
