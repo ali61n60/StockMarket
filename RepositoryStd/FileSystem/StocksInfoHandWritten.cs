@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using ModelStd.IRepository;
 
 namespace RepositoryStd.FileSystem
@@ -7,15 +10,20 @@ namespace RepositoryStd.FileSystem
     {
         public List<string> GetAllStocksName()
         {
+            string directoryName = @"C:\Users\test\Documents\TseClient 2.0\";
+            string directory = System.IO.Path.GetDirectoryName(directoryName);
+            IEnumerable<string> files = System.IO.Directory.EnumerateFiles(directory, "*.*")
+                .Where(s => s.EndsWith(".csv", StringComparison.OrdinalIgnoreCase)
+                        || s.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase)
+                        || s.EndsWith(".tiff ", StringComparison.OrdinalIgnoreCase));
             List<string> listStocksName = new List<string>();
-            listStocksName.Add("GDIR1");
-            listStocksName.Add("PARK1");
-            listStocksName.Add("GOMZ1");
-            listStocksName.Add("PARS1");
-            listStocksName.Add("PRDZ1");
-            listStocksName.Add("PZGZ1");
-
-
+            foreach(string fileName in files)
+            {
+                
+                listStocksName.Add(Path.GetFileNameWithoutExtension(fileName));
+            }
+                
+            
             return listStocksName;
         }
 
