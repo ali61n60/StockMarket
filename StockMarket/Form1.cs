@@ -28,22 +28,29 @@ namespace StockMarket
             foreach(string stockName in stocksInformation.GetAllStocksName())
             {
                 comboBox1.Items.Add(stockName);
+                comboBox2.Items.Add(stockName);
             }
             comboBox1.SelectedIndex = 0;
-            
+            comboBox2.SelectedIndex = 0;
+
         }
         
 
         private void button1_Click(object sender, EventArgs e)
         {
             string stockName= comboBox1.SelectedItem.ToString();
-            List<PointData> listStockData= stocksInformation.GetStockData(stockName);
-            clearChartSeries();
+            showData(stockName);      
+        }
+
+        private void showData(string stockName)
+        {
+            List<PointData> listStockData = stocksInformation.GetStockData(stockName);
+            //clearChartSeries();
             addChartSeries(stockName);
             configureChartSeries();
             addData(stockName, listStockData);
 
-           
+
 
             //List<PointData> listGhadirSharakRatio = new List<PointData>();
             //for(int i=0;i<listGhadir.Count && i < listSharak.Count; i++)
@@ -58,13 +65,10 @@ namespace StockMarket
             //        listGhadirSharakRatio.Add(ratioPoint);
             //    }
             //}
-            
+
             //AddData("Ghadir", listGhadir);
             //AddData("Sharak", listSharak);
-            //AddData("Ratio", listGhadirSharakRatio);
-
-            
-
+            //AddData("Ratio", listGhadirSharakRatio);  
         }
 
         private void addData(string seriesName, List<PointData> listData)
@@ -117,7 +121,38 @@ namespace StockMarket
             chart1.Series.Clear();
         }
 
-       
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string stockName = comboBox2.SelectedItem.ToString();
+            showData(stockName);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string stockName1 = comboBox1.SelectedItem.ToString();
+            string stockName2 = comboBox2.SelectedItem.ToString();
+
+            List<PointData> listStockData1 = stocksInformation.GetStockData(stockName1);
+            List<PointData> listStockData2 = stocksInformation.GetStockData(stockName2);
+            List<PointData> listRatio = new List<PointData>();
+            foreach(PointData pointData in listStockData1)
+            {
+                DateTime date = pointData.Date;
+                PointData pointDataTemp = listStockData2.Find(x => x.Date == date);
+                if (pointDataTemp != null)
+                {
+                    PointData pointDataRatio = new PointData();
+                    pointDataRatio.Date = date;
+                    pointDataRatio.FinalPrice = (double.Parse( pointData.FinalPrice) /double.Parse( pointDataTemp.FinalPrice)).ToString();
+                    listRatio.Add(pointDataRatio);
+                }
+            }
+
+            clearChartSeries();
+            addChartSeries("Ratio");
+            configureChartSeries();
+            addData("Ratio", listRatio);
+        }
     }
 }
 

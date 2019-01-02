@@ -10,6 +10,11 @@ namespace RepositoryStd.FileSystem
             List<string> listStocksName = new List<string>();
             listStocksName.Add("GDIR1");
             listStocksName.Add("PARK1");
+            listStocksName.Add("GOMZ1");
+            listStocksName.Add("PARS1");
+            listStocksName.Add("PRDZ1");
+            listStocksName.Add("PZGZ1");
+
 
             return listStocksName;
         }
