@@ -33,18 +33,15 @@ namespace RepositoryStd.FileSystem
 
                 while (!reader.EndOfStream)
                 {
-                    string line = reader.ReadLine();
+                    try
+                    {
+                        string line = reader.ReadLine();
                     string[] values = line.Split(',');
                     tempPoint = new PointData();
                     tempPoint.StockName = values[0];
-                    try
-                    {
+                   
                         tempPoint.Date = DateTime.ParseExact(values[1], "yyyyMMdd", CultureInfo.InvariantCulture);
-                    }
-                    catch (Exception ex)
-                    {
-                        continue;
-                    }
+                    
                     
                     tempPoint.FirstPrice = values[2];
                     tempPoint.MaxPrice = values[3];
@@ -60,9 +57,14 @@ namespace RepositoryStd.FileSystem
                     tempPoint.Date2 = values[13];
                     tempPoint.LastPrice = values[14];
                     listA.Add(tempPoint);
+                    }
+                    catch (Exception ex)
+                    {
+                        continue;
+                    }
                 }
             }
-           // listA.RemoveAt(0);//delete first line which contains header data
+           
             return listA;
         }
     }
