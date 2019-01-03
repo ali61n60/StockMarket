@@ -2,6 +2,7 @@
 using ModelStd.IRepository;
 using RepositoryStd.FileSystem;
 using System.Collections.Generic;
+using ServiceStd.IOC;
 
 namespace ServiceStd
 {
@@ -9,14 +10,14 @@ namespace ServiceStd
     {
         public List<string> GetAllStocksName()
         {
-            IStocksInfo stocksInfo = new StocksInfoHandWritten();
+            IStocksInfo stocksInfo = Bootstrapper.container.GetInstance<IStocksInfo>();
 
             return stocksInfo.GetAllStocksName();
         }
 
         public List<PointData> GetStockData(string stockName)
         {
-            IDataLoader dataLoader = new DataLoaderFileSystem();
+            IDataLoader dataLoader = Bootstrapper.container.GetInstance<IDataLoader>();
             return dataLoader.GetStockData(stockName);
         }
     }
