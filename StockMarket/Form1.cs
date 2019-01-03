@@ -170,15 +170,37 @@ namespace StockMarket
         private void buttonPriceChange_Click(object sender, EventArgs e)
         {
             StockStatictics stockStatictics = new StockStatictics();
-            foreach(var item in comboBox1.Items)
+            List<Message> messages = new List<Message>();
+            Message tempMesage;
+            int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
+            foreach (var item in comboBox1.Items)
             {
                 string stockName = item.ToString();
-                int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
                 double priceChange = stockStatictics.PriceChangePercent(stockName, numberOfDays);
-                listBox1.Items.Add("for " + stockName + " in last " + numberOfDays + " days price channge is " + priceChange);
+                tempMesage = new Message();
+                tempMesage.StockName = stockName;
+                tempMesage.value = priceChange;
+                messages.Add(tempMesage);
+                
+            }
+            messages.Sort((m1, m2) => m1.value.CompareTo(m2.value));
+            foreach (Message message in messages)
+            {
+                listBox1.Items.Add(message.StockName + " in last " + numberOfDays + " days price channge is " + message.value);
             }
             
         }
+
+        private void buttonClearList_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+        }
+    }
+
+    class Message
+    {
+        public string StockName;
+        public double value;
     }
 }
 
