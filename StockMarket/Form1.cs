@@ -153,6 +153,32 @@ namespace StockMarket
             configureChartSeries();
             addData("Ratio", listRatio);
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            StockStatictics stockStatictics = new StockStatictics();
+            string stockName = comboBox1.SelectedItem.ToString();
+            int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
+            double maxPrice = stockStatictics.MaxPrice(stockName, numberOfDays);
+            double minPrice = stockStatictics.MinPrice(stockName, numberOfDays);
+            listBox1.Items.Add("for " + stockName + " in last " + numberOfDays + " days Max price is " + maxPrice + " and Min price is " + minPrice);
+            
+            
+
+        }
+
+        private void buttonPriceChange_Click(object sender, EventArgs e)
+        {
+            StockStatictics stockStatictics = new StockStatictics();
+            foreach(var item in comboBox1.Items)
+            {
+                string stockName = item.ToString();
+                int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
+                double priceChange = stockStatictics.PriceChangePercent(stockName, numberOfDays);
+                listBox1.Items.Add("for " + stockName + " in last " + numberOfDays + " days price channge is " + priceChange);
+            }
+            
+        }
     }
 }
 

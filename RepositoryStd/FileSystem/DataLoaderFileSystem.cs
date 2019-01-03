@@ -10,17 +10,24 @@ namespace RepositoryStd.FileSystem
 {
     public class DataLoaderFileSystem : IDataLoader
     {
+        private static Dictionary<string, List<PointData>> allStocksData = new Dictionary<string, List<PointData>>();
         public List<PointData> GetStockData(string stockName)
         {
-            List<PointData> listPointData;
+            if (allStocksData.ContainsKey(stockName))
+            {
+                return allStocksData[stockName];
+            }
+
+            List<PointData> listPointData=new List<PointData>();
             IStocksInfo stocksInfo = new StocksInfoHandWritten();
             List<string> allStocksName= stocksInfo.GetAllStocksName();
             if (!allStocksName.Contains(stockName))
-                throw new Exception("stock name is not in the list");
+                return listPointData;
+
             string fileName =stocksInfo.GetDirectoryPath()+stockName+".csv";
 
             listPointData = readData(fileName);
-
+            allStocksData.Add(stockName, listPointData);
             return listPointData;
         }
 

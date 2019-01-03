@@ -28,15 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.button1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.buttonPrice = new System.Windows.Forms.Button();
+            this.textBoxNumberOfDays = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonPriceChange = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,17 +60,17 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(43, 111);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(41, 152);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(722, 286);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(442, 286);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
@@ -105,11 +110,63 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // buttonPrice
+            // 
+            this.buttonPrice.Location = new System.Drawing.Point(125, 97);
+            this.buttonPrice.Name = "buttonPrice";
+            this.buttonPrice.Size = new System.Drawing.Size(109, 23);
+            this.buttonPrice.TabIndex = 6;
+            this.buttonPrice.Text = "Min Max Price";
+            this.buttonPrice.UseVisualStyleBackColor = true;
+            this.buttonPrice.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // textBoxNumberOfDays
+            // 
+            this.textBoxNumberOfDays.Location = new System.Drawing.Point(79, 99);
+            this.textBoxNumberOfDays.Name = "textBoxNumberOfDays";
+            this.textBoxNumberOfDays.Size = new System.Drawing.Size(40, 20);
+            this.textBoxNumberOfDays.TabIndex = 7;
+            this.textBoxNumberOfDays.Text = "7";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(32, 102);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Days";
+            // 
+            // buttonPriceChange
+            // 
+            this.buttonPriceChange.Location = new System.Drawing.Point(249, 96);
+            this.buttonPriceChange.Name = "buttonPriceChange";
+            this.buttonPriceChange.Size = new System.Drawing.Size(87, 23);
+            this.buttonPriceChange.TabIndex = 9;
+            this.buttonPriceChange.Text = "Price Change";
+            this.buttonPriceChange.UseVisualStyleBackColor = true;
+            this.buttonPriceChange.Click += new System.EventHandler(this.buttonPriceChange_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(519, 12);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(269, 420);
+            this.listBox1.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.buttonPriceChange);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxNumberOfDays);
+            this.Controls.Add(this.buttonPrice);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.button2);
@@ -120,6 +177,7 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -131,6 +189,11 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonPrice;
+        private System.Windows.Forms.TextBox textBoxNumberOfDays;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonPriceChange;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

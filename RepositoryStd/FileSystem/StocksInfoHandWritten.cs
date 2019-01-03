@@ -11,8 +11,8 @@ namespace RepositoryStd.FileSystem
         public List<string> GetAllStocksName()
         {
             string directoryName = @"C:\Users\test\Documents\TseClient 2.0\";
-            string directory = System.IO.Path.GetDirectoryName(directoryName);
-            IEnumerable<string> files = System.IO.Directory.EnumerateFiles(directory, "*.*")
+            string directory = Path.GetDirectoryName(GetDirectoryPath());
+            IEnumerable<string> files = Directory.EnumerateFiles(directory, "*.*")
                 .Where(s => s.EndsWith(".csv", StringComparison.OrdinalIgnoreCase)
                         || s.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase)
                         || s.EndsWith(".tiff ", StringComparison.OrdinalIgnoreCase));
