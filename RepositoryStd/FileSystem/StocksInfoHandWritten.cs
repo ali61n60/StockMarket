@@ -9,8 +9,7 @@ namespace RepositoryStd.FileSystem
     public class StocksInfoHandWritten : IStocksInfo
     {
         public List<string> GetAllStocksName()
-        {
-            string directoryName = @"C:\Users\test\Documents\TseClient 2.0\";
+        {            
             string directory = Path.GetDirectoryName(GetDirectoryPath());
             IEnumerable<string> files = Directory.EnumerateFiles(directory, "*.*")
                 .Where(s => s.EndsWith(".csv", StringComparison.OrdinalIgnoreCase)

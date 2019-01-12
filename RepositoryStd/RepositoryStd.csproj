@@ -8,8 +8,4 @@
     <ProjectReference Include="..\ModelStd\ModelStd.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Database\Context\Stock\" />
-  </ItemGroup>
-
 </Project>

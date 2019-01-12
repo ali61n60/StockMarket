@@ -1,10 +1,10 @@
 ﻿ namespace RepositoryStd.Database
 {
-    public class AdvertisementDataClass
+    public class StockDataClass
     {
         public string ConnectionString { get;}
 
-        public AdvertisementDataClass(string connectionString)
+        public StockDataClass(string connectionString)
         {
             ConnectionString = connectionString;
         }

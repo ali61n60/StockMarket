@@ -76,7 +76,7 @@ namespace RepositoryStd.FileSystem
                     tempPoint.LastPrice = values[14];
                     listA.Add(tempPoint);
                     }
-                    catch (Exception ex)
+                    catch (Exception )
                     {
                         continue;
                     }
