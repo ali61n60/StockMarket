@@ -7,5 +7,7 @@ namespace ModelStd.IRepository
     public interface IDataLoader
     {
         List<PointData> GetStockData(string stockName);
+        Dictionary<string, List<PointData>> GetAllStocksData();
+        void CreateRepository();
     }
 }

@@ -11,6 +11,17 @@ namespace RepositoryStd.FileSystem
     public class DataLoaderFileSystem : IDataLoader
     {
         private static Dictionary<string, List<PointData>> allStocksData = new Dictionary<string, List<PointData>>();
+
+        public void CreateRepository()
+        {
+            
+        }
+
+        public Dictionary<string, List<PointData>> GetAllStocksData()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<PointData> GetStockData(string stockName)
         {
             if (allStocksData.ContainsKey(stockName))

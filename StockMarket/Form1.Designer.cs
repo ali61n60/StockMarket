@@ -43,6 +43,7 @@
             this.buttonPriceChange = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonClearList = new System.Windows.Forms.Button();
+            this.CreateRepo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +72,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(442, 286);
+            this.chart1.Size = new System.Drawing.Size(545, 362);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
@@ -153,26 +154,36 @@
             this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(519, 12);
+            this.listBox1.Location = new System.Drawing.Point(622, 51);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(269, 420);
+            this.listBox1.Size = new System.Drawing.Size(269, 446);
             this.listBox1.TabIndex = 10;
             // 
             // buttonClearList
             // 
-            this.buttonClearList.Location = new System.Drawing.Point(438, 12);
+            this.buttonClearList.Location = new System.Drawing.Point(622, 12);
             this.buttonClearList.Name = "buttonClearList";
-            this.buttonClearList.Size = new System.Drawing.Size(75, 23);
+            this.buttonClearList.Size = new System.Drawing.Size(269, 33);
             this.buttonClearList.TabIndex = 11;
             this.buttonClearList.Text = "Clear List";
             this.buttonClearList.UseVisualStyleBackColor = true;
             this.buttonClearList.Click += new System.EventHandler(this.buttonClearList_Click);
             // 
+            // CreateRepo
+            // 
+            this.CreateRepo.Location = new System.Drawing.Point(521, 22);
+            this.CreateRepo.Name = "CreateRepo";
+            this.CreateRepo.Size = new System.Drawing.Size(75, 23);
+            this.CreateRepo.TabIndex = 12;
+            this.CreateRepo.Text = "CreateRepo";
+            this.CreateRepo.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(903, 526);
+            this.Controls.Add(this.CreateRepo);
             this.Controls.Add(this.buttonClearList);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.buttonPriceChange);
@@ -207,6 +218,7 @@
         private System.Windows.Forms.Button buttonPriceChange;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button buttonClearList;
+        private System.Windows.Forms.Button CreateRepo;
     }
 }
 
