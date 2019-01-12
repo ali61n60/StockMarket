@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using ModelStd.DB;
 using RepositoryStd.Database;
 
-namespace RepositoryStd.Context.AD
+namespace RepositoryStd
 {
     public class StockDbContext : DbContext
     {
@@ -22,7 +21,12 @@ namespace RepositoryStd.Context.AD
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(_connectionString,
-                x => x.MigrationsHistoryTable("__MigrationsHistory", "stock"));
+                x => {
+                    x.MigrationsHistoryTable("__MigrationsHistory", "stock");
+                    x.MigrationsAssembly("MainMvc");
+
+
+                    });
         }
 
         public virtual DbSet<StockName> StockNames { get; set; }
