@@ -43,7 +43,7 @@
             this.buttonPriceChange = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonClearList = new System.Windows.Forms.Button();
-            this.CreateRepo = new System.Windows.Forms.Button();
+            this.ButtonUpdateStockName = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,7 +104,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(408, 64);
+            this.button3.Location = new System.Drawing.Point(342, 64);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 5;
@@ -169,21 +169,22 @@
             this.buttonClearList.UseVisualStyleBackColor = true;
             this.buttonClearList.Click += new System.EventHandler(this.buttonClearList_Click);
             // 
-            // CreateRepo
+            // ButtonUpdateStockName
             // 
-            this.CreateRepo.Location = new System.Drawing.Point(521, 22);
-            this.CreateRepo.Name = "CreateRepo";
-            this.CreateRepo.Size = new System.Drawing.Size(75, 23);
-            this.CreateRepo.TabIndex = 12;
-            this.CreateRepo.Text = "CreateRepo";
-            this.CreateRepo.UseVisualStyleBackColor = true;
+            this.ButtonUpdateStockName.Location = new System.Drawing.Point(376, 17);
+            this.ButtonUpdateStockName.Name = "ButtonUpdateStockName";
+            this.ButtonUpdateStockName.Size = new System.Drawing.Size(162, 23);
+            this.ButtonUpdateStockName.TabIndex = 12;
+            this.ButtonUpdateStockName.Text = "Update Stock Name in Table";
+            this.ButtonUpdateStockName.UseVisualStyleBackColor = true;
+            this.ButtonUpdateStockName.Click += new System.EventHandler(this.ButtonUpdateStockName_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(903, 526);
-            this.Controls.Add(this.CreateRepo);
+            this.Controls.Add(this.ButtonUpdateStockName);
             this.Controls.Add(this.buttonClearList);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.buttonPriceChange);
@@ -218,7 +219,7 @@
         private System.Windows.Forms.Button buttonPriceChange;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button buttonClearList;
-        private System.Windows.Forms.Button CreateRepo;
+        private System.Windows.Forms.Button ButtonUpdateStockName;
     }
 }
 

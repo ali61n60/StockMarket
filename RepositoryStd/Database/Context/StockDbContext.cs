@@ -23,7 +23,7 @@ namespace RepositoryStd
             optionsBuilder.UseSqlServer(_connectionString,
                 x => {
                     x.MigrationsHistoryTable("__MigrationsHistory", "stock");
-                    x.MigrationsAssembly("MainMvc");
+                   // x.MigrationsAssembly("ModelStd");
 
 
                     });

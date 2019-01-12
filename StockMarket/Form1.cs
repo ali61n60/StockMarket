@@ -195,6 +195,11 @@ namespace StockMarket
         {
             listBox1.Items.Clear();
         }
+
+        private void ButtonUpdateStockName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     class Message
