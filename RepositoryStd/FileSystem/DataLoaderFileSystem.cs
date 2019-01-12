@@ -40,7 +40,7 @@ namespace RepositoryStd.FileSystem
             listPointData = readData(fileName);
             allStocksData.Add(stockName, listPointData);
             return listPointData;
-        }
+        }  
 
         private List<PointData> readData(string fileName)
         {
