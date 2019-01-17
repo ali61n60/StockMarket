@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ModelStd.IRepository
 {
-    p interface IStocksName
+    public interface IStocksName
     {
     }
 }

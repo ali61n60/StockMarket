@@ -133,8 +133,13 @@ namespace StockMarket
             string stockName2 = comboBox2.SelectedItem.ToString();
 
             List<PointData> listStockData1 = stocksInformation.GetStockData(stockName1);
+            listStockData1.Sort((a, b) => a.Date.CompareTo(b.Date));
             List<PointData> listStockData2 = stocksInformation.GetStockData(stockName2);
+            listStockData2.Sort((a, b) => a.Date.CompareTo(b.Date));
             List<PointData> listRatio = new List<PointData>();
+            double maxRatio = 1;
+            double lastRatio = 0.5;
+            double ratio=0.1;
             foreach(PointData pointData in listStockData1)
             {
                 DateTime date = pointData.Date;
@@ -143,11 +148,19 @@ namespace StockMarket
                 {
                     PointData pointDataRatio = new PointData();
                     pointDataRatio.Date = date;
-                    pointDataRatio.FinalPrice = (double.Parse( pointData.FinalPrice) /double.Parse( pointDataTemp.FinalPrice)).ToString();
+                    ratio= double.Parse(pointData.FinalPrice) / double.Parse(pointDataTemp.FinalPrice);
+                    if (ratio > maxRatio)
+                        maxRatio = ratio;
+                    pointDataRatio.FinalPrice = ratio.ToString();
                     listRatio.Add(pointDataRatio);
                 }
             }
-
+            lastRatio = ratio;
+            double percentToMax = (maxRatio - lastRatio) * 100 / maxRatio;
+            listBox1.Items.Clear();
+            listBox1.Items.Add("MaxRatio= " + maxRatio);
+            listBox1.Items.Add("CurrentRatio= " + lastRatio);
+            listBox1.Items.Add("percnt to max= " + percentToMax);
             clearChartSeries();
             addChartSeries("Ratio");
             configureChartSeries();

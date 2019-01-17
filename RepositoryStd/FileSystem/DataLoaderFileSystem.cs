@@ -70,11 +70,13 @@ namespace RepositoryStd.FileSystem
                     tempPoint.NumberOfDeals = values[8];
                     tempPoint.YesterdayPrice = values[9];
                     tempPoint.CompanyCode = values[10];
-                    tempPoint.LatinName = values[11];
-                    tempPoint.CompanyName = values[12];
-                    tempPoint.Date2 = values[13];
-                    tempPoint.LastPrice = values[14];
                     listA.Add(tempPoint);
+                    continue;
+                    tempPoint.LatinName = values[11];
+                    tempPoint.CompanyName = values[12] ??"noCompanyName" ;
+                    tempPoint.Date2 = values[13] ?? "20000101";
+                    tempPoint.LastPrice = values[14] ?? "0";
+                    
                     }
                     catch (Exception )
                     {
