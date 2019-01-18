@@ -11,4 +11,8 @@
     <ProjectReference Include="..\ModelStd\ModelStd.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="FileSystem\CSVFiles\" />
+  </ItemGroup>
+
 </Project>
