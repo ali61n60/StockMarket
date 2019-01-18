@@ -29,7 +29,7 @@ namespace RepositoryStd.FileSystem
        
         public string GetDirectoryPath()
         {
-            return @"C:\Users\test\Source\Repos\StockMarket\RepositoryStd\FileSystem\CSVFiles";
+            return @"C:\Users\test\Source\Repos\StockMarket\RepositoryStd\FileSystem\CSVFiles\";
             //return @"C:\Users\test\Documents\TseClient 2.0\";
         }
     }
