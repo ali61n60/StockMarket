@@ -7,10 +7,14 @@ using System.Text;
 namespace ModelStd.DB
 {
     [Table("Dividend", Schema = "stock")]
-    class Dividend
+    public class Dividend
     {        
-        [Column("stockId")]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Column("id")]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Column("stockId")]        
         public int StockId { get; set; }
 
         [Column("date")]
@@ -20,6 +24,8 @@ namespace ModelStd.DB
         [Column("value")]
         [Required]
         public double Value { get; set; }
+
+        public virtual StockName StockName { get; set; }
 
     }
 }

@@ -7,8 +7,14 @@ using System.Text;
 namespace ModelStd.DB
 {
     [Table("TradeData", Schema = "stock")]
-    class TradeData
+    public class TradeData
     {
+
+        [Column("id")]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
         [Column("stockId")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int StockId { get; set; }
@@ -40,6 +46,8 @@ namespace ModelStd.DB
         [Column("final")]
         [Required]
         public double Final { get; set; }
+
+        public virtual StockName StockName { get; set; }
 
     }
 }

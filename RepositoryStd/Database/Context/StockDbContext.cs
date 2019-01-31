@@ -23,13 +23,13 @@ namespace RepositoryStd
             optionsBuilder.UseSqlServer(_connectionString,
                 x => {
                     x.MigrationsHistoryTable("__MigrationsHistory", "stock");
-                   // x.MigrationsAssembly("ModelStd");
-
-
                     });
         }
 
         public virtual DbSet<StockName> StockNames { get; set; }
+        public virtual DbSet<Dividend> Dividends { get; set; }
+        public virtual DbSet<CapitalIncrease> CapitalIncreases { get; set; }
+        public virtual DbSet<TradeData> TradeDatas { get; set; }
 
         //public virtual DbSet<AdAttributeTransportation> AdAttributeTransportation { get; set; }
         //public virtual DbSet<AdPrivilege> AdPrivilege { get; set; }
@@ -59,6 +59,34 @@ namespace RepositoryStd
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("stock");
+
+
+            //modelBuilder.Entity<Brand>(entity =>
+            //{
+            //    entity.HasKey(e => e.BrandId)
+            //        .HasName("PK_CarBrand");
+            //});
+
+            //modelBuilder.Entity<CarModel>(entity =>
+            //{
+            //    entity.HasKey(e => e.ModelId)
+            //        .HasName("PK_CarModel");
+
+            //    entity.HasOne(carModel => carModel.Brand)
+            //        .WithMany(brand => brand.CarModels)
+            //        .HasForeignKey(carModel => carModel.BrandId)
+            //        .OnDelete(DeleteBehavior.Cascade)
+            //        .HasConstraintName("FK_CarModel_CarBrand");
+            //});
+
+            modelBuilder.Entity<Dividend>(entity =>
+            {
+                entity.HasOne(dividend => dividend.StockName)
+                .WithMany(stock => stock.Dividends)
+                .HasForeignKey(dividend => dividend.StockId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_Dividend_StockName");
+            });
 
             //modelBuilder.Entity<AdAttributeTransportation>(entity =>
             //{

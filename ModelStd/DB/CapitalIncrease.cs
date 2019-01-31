@@ -7,8 +7,14 @@ using System.Text;
 namespace ModelStd.DB
 {
     [Table("CapitalIncrease", Schema = "stock")]
-    class CapitalIncrease
+    public class CapitalIncrease
     {
+
+        [Column("id")]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
         [Column("stockId")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int StockId { get; set; }
@@ -28,6 +34,8 @@ namespace ModelStd.DB
         [Column("savingPercent")]
         [Required]
         public double SavingPercent { get; set; }
+
+        public virtual StockName StockName { get; set; }
 
     }
 }
