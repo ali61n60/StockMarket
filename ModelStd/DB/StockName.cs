@@ -16,6 +16,11 @@ namespace ModelStd.DB
         [Required]
         [MaxLength(150)]
         public string StockSymbol { get; set; }
+
+        [Column("stockName")]
+        [Required]
+        [MaxLength(150)]
+        public string Name { get; set; }
     }
 }
 
