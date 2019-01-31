@@ -35,7 +35,7 @@ namespace ModelStd.DB
         [Required]
         public double SavingPercent { get; set; }
 
-        public virtual StockName StockName { get; set; }
+        public virtual StockInfo StockInfo { get; set; }
 
     }
 }

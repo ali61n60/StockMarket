@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RepositoryStd;
 
 namespace RepositoryStd.Migrations
 {
     [DbContext(typeof(StockDbContext))]
-    partial class StockDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190131195421_step4")]
+    partial class step4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,24 +79,14 @@ namespace RepositoryStd.Migrations
                     b.Property<int>("StockId")
                         .HasColumnName("stockId");
 
-                    b.Property<string>("NameLatin")
+                    b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnName("nameLatin")
+                        .HasColumnName("stockName")
                         .HasMaxLength(150);
 
-                    b.Property<string>("NamePersian")
+                    b.Property<string>("StockSymbol")
                         .IsRequired()
-                        .HasColumnName("namePersian")
-                        .HasMaxLength(150);
-
-                    b.Property<string>("SymbolLatin")
-                        .IsRequired()
-                        .HasColumnName("symbolLatin")
-                        .HasMaxLength(150);
-
-                    b.Property<string>("SymbolPersian")
-                        .IsRequired()
-                        .HasColumnName("symbolPersian")
+                        .HasColumnName("stockSymbol")
                         .HasMaxLength(150);
 
                     b.HasKey("StockId");
@@ -124,17 +116,11 @@ namespace RepositoryStd.Migrations
                     b.Property<double>("Min")
                         .HasColumnName("min");
 
-                    b.Property<int>("NumberOfDeals")
-                        .HasColumnName("numberOfDeals");
-
                     b.Property<double>("Open")
                         .HasColumnName("open");
 
                     b.Property<int>("StockId")
                         .HasColumnName("stockId");
-
-                    b.Property<double>("Value")
-                        .HasColumnName("value");
 
                     b.Property<int>("Volume")
                         .HasColumnName("volume");
@@ -148,7 +134,7 @@ namespace RepositoryStd.Migrations
 
             modelBuilder.Entity("ModelStd.DB.CapitalIncrease", b =>
                 {
-                    b.HasOne("ModelStd.DB.StockInfo", "StockInfo")
+                    b.HasOne("ModelStd.DB.StockInfo", "StockName")
                         .WithMany()
                         .HasForeignKey("StockId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -156,16 +142,16 @@ namespace RepositoryStd.Migrations
 
             modelBuilder.Entity("ModelStd.DB.Dividend", b =>
                 {
-                    b.HasOne("ModelStd.DB.StockInfo", "StockInfo")
+                    b.HasOne("ModelStd.DB.StockInfo", "StockName")
                         .WithMany("Dividends")
                         .HasForeignKey("StockId")
-                        .HasConstraintName("FK_Dividend_StockInfo")
+                        .HasConstraintName("FK_Dividend_StockName")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ModelStd.DB.TradeData", b =>
                 {
-                    b.HasOne("ModelStd.DB.StockInfo", "StockInfo")
+                    b.HasOne("ModelStd.DB.StockInfo", "StockName")
                         .WithMany()
                         .HasForeignKey("StockId")
                         .OnDelete(DeleteBehavior.Cascade);

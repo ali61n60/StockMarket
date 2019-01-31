@@ -8,7 +8,5 @@ namespace ModelStd.IRepository
     {
         List<PointData> GetStockData(string stockName);
         Dictionary<string, List<PointData>> GetAllStocksData();
-        void CreateRepository();
-        
     }
 }

@@ -4,23 +4,33 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelStd.DB
 {
-    [Table("StocksName",Schema ="stock")]
-    public class StockName
+    [Table("StocksInfo",Schema ="stock")]
+    public class StockInfo
     {
         [Key]
         [Column("stockId")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int StockId { get; set; }
-
-        [Column("stockSymbol")]
+                     
+        [Column("symbolLatin")]
         [Required]
         [MaxLength(150)]
-        public string StockSymbol { get; set; }
+        public string SymbolLatin { get; set; }
 
-        [Column("stockName")]
+        [Column("nameLatin")]
         [Required]
         [MaxLength(150)]
-        public string Name { get; set; }
+        public string NameLatin { get; set; }
+
+        [Column("namePersian")]
+        [Required]
+        [MaxLength(150)]
+        public string NamePersian { get; set; }
+
+        [Column("symbolPersian")]
+        [Required]
+        [MaxLength(150)]
+        public string SymbolPersian { get; set; }
 
         public virtual ICollection<Dividend> Dividends { get; set; }
     }

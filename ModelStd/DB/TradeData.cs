@@ -47,7 +47,15 @@ namespace ModelStd.DB
         [Required]
         public double Final { get; set; }
 
-        public virtual StockName StockName { get; set; }
+        [Column("value")]
+        [Required]
+        public double Value { get; set; }
 
+        [Column("numberOfDeals")]
+        [Required]
+        public int NumberOfDeals { get; set; }
+
+        public virtual StockInfo StockInfo { get; set; }
+        
     }
 }

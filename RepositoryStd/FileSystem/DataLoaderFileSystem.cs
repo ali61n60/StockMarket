@@ -12,11 +12,7 @@ namespace RepositoryStd.FileSystem
     {
         private static Dictionary<string, List<PointData>> allStocksData = new Dictionary<string, List<PointData>>();
 
-        public void CreateRepository()
-        {
-            
-        }
-
+       
         public Dictionary<string, List<PointData>> GetAllStocksData()
         {
             throw new NotImplementedException();
@@ -70,13 +66,18 @@ namespace RepositoryStd.FileSystem
                     tempPoint.NumberOfDeals = values[8];
                     tempPoint.YesterdayPrice = values[9];
                     tempPoint.CompanyCode = values[10];
-                    listA.Add(tempPoint);
-                    continue;
+
+                        if (values.Length < 11)
+                        {
+                            listA.Add(tempPoint);
+                            continue;
+                        }
                     tempPoint.LatinName = values[11];
                     tempPoint.CompanyName = values[12] ??"noCompanyName" ;
                     tempPoint.Date2 = values[13] ?? "20000101";
                     tempPoint.LastPrice = values[14] ?? "0";
-                    
+                    listA.Add(tempPoint);
+
                     }
                     catch (Exception )
                     {
