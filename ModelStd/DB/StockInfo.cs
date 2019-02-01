@@ -32,6 +32,12 @@ namespace ModelStd.DB
         [MaxLength(150)]
         public string SymbolPersian { get; set; }
 
+        [Column("groupId")]        
+        [Required]
+        public int GroupId { get; set; }
+
+        public virtual StockGroup StockGroup { get; set; }
+
         public virtual ICollection<Dividend> Dividends { get; set; }
     }
 }

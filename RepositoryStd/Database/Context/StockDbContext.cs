@@ -30,6 +30,7 @@ namespace RepositoryStd
         public virtual DbSet<Dividend> Dividends { get; set; }
         public virtual DbSet<CapitalIncrease> CapitalIncreases { get; set; }
         public virtual DbSet<TradeData> TradeDatas { get; set; }
+        public virtual DbSet<StockGroup> StockGroups { get; set; }
 
         //public virtual DbSet<AdAttributeTransportation> AdAttributeTransportation { get; set; }
         //public virtual DbSet<AdPrivilege> AdPrivilege { get; set; }
@@ -84,9 +85,26 @@ namespace RepositoryStd
                 entity.HasOne(dividend => dividend.StockInfo)
                 .WithMany(stock => stock.Dividends)
                 .HasForeignKey(dividend => dividend.StockId)
-                .OnDelete(DeleteBehavior.Cascade)
+                .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_Dividend_StockInfo");
             });
+
+            modelBuilder.Entity<StockInfo>(entity =>
+            {
+                entity.HasOne(stockInfo => stockInfo.StockGroup)
+                
+                .WithMany(stockGroup => stockGroup.Stocks)
+                
+                .HasForeignKey(stockInfo => stockInfo.GroupId)
+                
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_StockInfo_StockGroup");
+            });
+
+                       
+                
+
+
 
             //modelBuilder.Entity<AdAttributeTransportation>(entity =>
             //{

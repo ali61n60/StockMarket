@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RepositoryStd;
 
 namespace RepositoryStd.Migrations
 {
     [DbContext(typeof(StockDbContext))]
-    partial class StockDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190131235012_step8")]
+    partial class step8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -117,8 +119,6 @@ namespace RepositoryStd.Migrations
 
                     b.HasKey("StockId");
 
-                    b.HasIndex("GroupId");
-
                     b.ToTable("StocksInfo","stock");
                 });
 
@@ -180,16 +180,7 @@ namespace RepositoryStd.Migrations
                         .WithMany("Dividends")
                         .HasForeignKey("StockId")
                         .HasConstraintName("FK_Dividend_StockInfo")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("ModelStd.DB.StockInfo", b =>
-                {
-                    b.HasOne("ModelStd.DB.StockGroup", "StockGroup")
-                        .WithMany("Stocks")
-                        .HasForeignKey("GroupId")
-                        .HasConstraintName("FK_StockInfo_StockGroup")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ModelStd.DB.TradeData", b =>
