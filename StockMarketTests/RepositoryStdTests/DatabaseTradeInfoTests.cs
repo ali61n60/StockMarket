@@ -16,7 +16,7 @@ namespace StockMarketTests.RepositoryStdTests
         }
 
         [Test]
-        public void GetAllStocksName()
+        public void UpdateDatabaseTradeInfoFromCSVFilesTest()
         {
             DatabaseTradeInfo databaseTradeInfo = new DatabaseTradeInfo();
             databaseTradeInfo.InsertTradeInfoFromCSVFilesIntoDatabse();
