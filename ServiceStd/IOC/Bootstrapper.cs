@@ -1,4 +1,5 @@
 ﻿using ModelStd.IRepository;
+using RepositoryStd.Database;
 using RepositoryStd.FileSystem;
 using StructureMap;
 
@@ -12,8 +13,8 @@ namespace ServiceStd.IOC
         {
             container = new Container(x =>
             {
-                x.For<IStocksInfo>().Use<StocksInfoHandWritten>();
-                x.For<IDataLoader>().Use<DataLoaderFileSystem>();
+                x.For<IStocksInfo>().Use<DatabaseStockInfo>();
+                x.For<IDataLoader>().Use<DataLoaderDatabase>();
                 //x.ForConcreteType<Repository.Repository>().Configure.Singleton();
                 //x.For<IAdApi>().Use<AdApi>();
                // x.For<ISharedPreferences>().Use(PreferenceManager.GetDefaultSharedPreferences(Application.Context));

@@ -52,30 +52,29 @@ namespace RepositoryStd.FileSystem
                         string line = reader.ReadLine();
                     string[] values = line.Split(',');
                     tempPoint = new PointData();
-                    tempPoint.StockName = values[0];
+                    
                    
                         tempPoint.Date = DateTime.ParseExact(values[1], "yyyyMMdd", CultureInfo.InvariantCulture);
                     
                     
-                    tempPoint.FirstPrice = values[2];
-                    tempPoint.MaxPrice = values[3];
-                    tempPoint.MinPrice = values[4];
-                    tempPoint.FinalPrice = values[5];
-                    tempPoint.Voume = values[6];
-                    tempPoint.Value = values[7];
-                    tempPoint.NumberOfDeals = values[8];
-                    tempPoint.YesterdayPrice = values[9];
-                    tempPoint.CompanyCode = values[10];
+                    tempPoint.Open =double.Parse(values[2]);
+                    tempPoint.Max = double.Parse(values[3]);
+                    tempPoint.Min = double.Parse(values[4]);
+                    tempPoint.Final = double.Parse(values[5]);
+                    tempPoint.Volume = int.Parse(values[6]);
+                    tempPoint.Value = double.Parse(values[7]);
+                    tempPoint.NumberOfDeals = int.Parse(values[8]);
+                    tempPoint.YesterdayPrice = double.Parse(values[9]);
+                    
 
                         if (values.Length < 11)
                         {
                             listA.Add(tempPoint);
                             continue;
                         }
-                    tempPoint.LatinName = values[11];
-                    tempPoint.CompanyName = values[12] ??"noCompanyName" ;
-                    tempPoint.Date2 = values[13] ?? "20000101";
-                    tempPoint.LastPrice = values[14] ?? "0";
+                    
+                   
+                    tempPoint.Close = double.Parse(values[14] ?? "0");
                     listA.Add(tempPoint);
 
                     }

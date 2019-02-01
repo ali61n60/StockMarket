@@ -41,7 +41,7 @@ namespace ModelStd.DB
 
         [Column("max")]
         [Required]
-        public double Max { get; set;}
+        public double Max { get; set; }
 
         [Column("final")]
         [Required]
@@ -55,7 +55,36 @@ namespace ModelStd.DB
         [Required]
         public int NumberOfDeals { get; set; }
 
+        public void FillFromPointData(PointData pointData)
+        {            
+            Close = pointData.Close;
+            Date = pointData.Date;
+            Final = pointData.Final;
+            Max = pointData.Max;
+            Min = pointData.Min;
+            NumberOfDeals = pointData.NumberOfDeals;
+            Open = pointData.Open;
+            Value = pointData.Value;
+            Volume = pointData.Volume;
+        }
+
+        public PointData GetPointDate()
+        {
+            PointData pointData = new PointData();
+            pointData.Close = Close;
+            pointData.Date = Date;
+            pointData.Final = Final;
+            pointData.Max = Max;
+            pointData.Min = Min;
+            pointData.NumberOfDeals = NumberOfDeals;
+            pointData.Open = Open;
+            pointData.Value = Value;
+            pointData.Volume = Volume;
+
+            return pointData;
+        }
+
         public virtual StockInfo StockInfo { get; set; }
-        
+
     }
 }

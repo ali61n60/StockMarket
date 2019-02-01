@@ -20,7 +20,7 @@ namespace ServiceStd
             stockData.Sort((p1, p2) =>  p2.Date.CompareTo(p1.Date));
             for (int i=0;i<stockData.Count && i < numberOfDays; i++)
             {
-                double tempMax = double.Parse(stockData[i].MaxPrice);
+                double tempMax = stockData[i].Max;
                 if (tempMax > result)
                     result = tempMax;
             }
@@ -39,7 +39,7 @@ namespace ServiceStd
             stockData.Sort((p1, p2) => p2.Date.CompareTo(p1.Date));
             for (int i = 0; i < stockData.Count && i < numberOfDays; i++)
             {
-                double tempMin = double.Parse(stockData[i].MinPrice);
+                double tempMin = stockData[i].Min;
                 if (tempMin < result)
                     result = tempMin;
             }

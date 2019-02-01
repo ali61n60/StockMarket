@@ -76,7 +76,7 @@ namespace StockMarket
             for (int i = 0; i < listData.Count; i++)
             {                
                 // adding date and high
-                chart1.Series[seriesName].Points.AddXY(listData[i].Date, double.Parse(listData[i].FinalPrice));
+                chart1.Series[seriesName].Points.AddXY(listData[i].Date, listData[i].Final);
                 // adding low
                 //chart1.Series[seriesName].Points[i].YValues[1] = double.Parse(listData[i].MinPrice);
                 //adding open
@@ -148,10 +148,10 @@ namespace StockMarket
                 {
                     PointData pointDataRatio = new PointData();
                     pointDataRatio.Date = date;
-                    ratio= double.Parse(pointData.FinalPrice) / double.Parse(pointDataTemp.FinalPrice);
+                    ratio= pointData.Final / pointDataTemp.Final;
                     if (ratio > maxRatio)
                         maxRatio = ratio;
-                    pointDataRatio.FinalPrice = ratio.ToString();
+                    pointDataRatio.Final = ratio;
                     listRatio.Add(pointDataRatio);
                 }
             }

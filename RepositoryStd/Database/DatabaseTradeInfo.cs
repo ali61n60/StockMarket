@@ -34,16 +34,8 @@ namespace RepositoryStd.Database
                     {
                         TradeData newTradeData = new TradeData();
                         newTradeData.StockId = stock.StockId;
-                        newTradeData.Date = pointData.Date;
-                        newTradeData.Close =double.Parse(pointData.LastPrice);
-                        newTradeData.Final= double.Parse(pointData.FinalPrice);
-                        newTradeData.Max = double.Parse(pointData.MaxPrice);
-                        newTradeData.Min = double.Parse(pointData.MinPrice);
-                        newTradeData.Open = double.Parse(pointData.FirstPrice);
-                        newTradeData.Value = double.Parse(pointData.Value);
-                        newTradeData.Volume = int.Parse(pointData.Voume);
-                        newTradeData.NumberOfDeals = int.Parse(pointData.NumberOfDeals);
-
+                        newTradeData.FillFromPointData(pointData);
+                        
                         listTradeDataDatabase.Add(newTradeData);
                         stockDbContext.TradeDatas.Add(newTradeData);
                     }
