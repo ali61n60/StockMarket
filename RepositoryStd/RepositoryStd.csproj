@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Database\DatabaseMdfFiles\" />
     <Folder Include="FileSystem\CSVFiles\" />
   </ItemGroup>
 
