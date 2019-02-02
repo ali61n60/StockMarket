@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ModelStd.DB
+namespace ModelStd.DB.Stock
 {
     [Table("StocksInfo",Schema ="stock")]
     public class StockInfo

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
-namespace ModelStd.DB
+namespace ModelStd.DB.Stock
 {
     [Table("CapitalIncrease", Schema = "stock")]
     public class CapitalIncrease

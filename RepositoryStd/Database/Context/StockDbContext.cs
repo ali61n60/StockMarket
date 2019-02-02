@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ModelStd.DB;
+using ModelStd.DB.Stock;
 using RepositoryStd.Database;
 
 namespace RepositoryStd
