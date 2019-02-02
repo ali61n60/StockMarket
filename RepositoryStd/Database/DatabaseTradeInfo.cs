@@ -1,16 +1,8 @@
 ﻿using ModelStd;
-using ModelStd.DB;
 using RepositoryStd.FileSystem;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
-using System.Data;
-using System.Data.SqlClient;
-using System.Threading.Tasks;
-
-
+using ModelStd.DB.Stock;
 
 namespace RepositoryStd.Database
 {

@@ -1,9 +1,8 @@
-﻿using ModelStd.DB;
+﻿using ModelStd.DB.Stock;
 using ModelStd.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace RepositoryStd.Database
 {
