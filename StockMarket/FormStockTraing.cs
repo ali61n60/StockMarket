@@ -1,4 +1,5 @@
 ﻿using ModelStd.DB;
+using ModelStd.DB.Stock;
 using RepositoryStd;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace StockMarket
 {
     public partial class FormStockTraing : Form
     {
+        List<Shareholder> listShareholder;
+        List<StockInfo> listStockInfo;
         public FormStockTraing()
         {
             InitializeComponent();
@@ -23,17 +26,28 @@ namespace StockMarket
         private void init()
         {
             initComboboxName();
+            initComboboxStockInfo();
         }
 
         private void initComboboxName()
         {
             StockDbContext stockDbContext = new StockDbContext();
-            List<Shareholder> shareholders = stockDbContext.Shareholders.ToList();
-            foreach(Shareholder s in shareholders)
+            listShareholder = stockDbContext.Shareholders.ToList();
+            foreach(Shareholder s in listShareholder)
             {
                 comboBoxName.Items.Add(s.Name);
             }
             
+        }
+
+        private void initComboboxStockInfo()
+        {
+            StockDbContext stockDbContext = new StockDbContext();
+            listStockInfo = stockDbContext.StockInfos.ToList();
+            foreach (StockInfo s in listStockInfo)
+            {
+                comboBoxStockInfo.Items.Add(s.NamePersian);
+            }
         }
     }
 }
