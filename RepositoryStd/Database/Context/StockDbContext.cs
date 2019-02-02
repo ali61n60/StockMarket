@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ModelStd.DB;
 using ModelStd.DB.Stock;
 using RepositoryStd.Database;
 
@@ -31,6 +32,9 @@ namespace RepositoryStd
         public virtual DbSet<CapitalIncrease> CapitalIncreases { get; set; }
         public virtual DbSet<TradeData> TradeDatas { get; set; }
         public virtual DbSet<StockGroup> StockGroups { get; set; }
+        public virtual DbSet<Shareholder> Shareholders { get; set; }
+        public virtual DbSet<StockTrading> StockTradings { get; set; }
+
 
         //public virtual DbSet<AdAttributeTransportation> AdAttributeTransportation { get; set; }
         //public virtual DbSet<AdPrivilege> AdPrivilege { get; set; }
@@ -101,8 +105,22 @@ namespace RepositoryStd
                 .HasConstraintName("FK_StockInfo_StockGroup");
             });
 
-                       
-                
+            modelBuilder.Entity<StockTrading>(entity =>
+            {
+                entity.HasOne(stockTrading => stockTrading.Shareholder)
+                    .WithMany(shareHolder => shareHolder.StockTradings)
+                    .HasForeignKey(stockTrading => stockTrading.ShareholderId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK_StockTrading_Shareholder");
+
+                entity.HasOne(stockTrading => stockTrading.StockInfo)
+                    .WithMany(stockInfo => stockInfo.StockTradings)
+                    .HasForeignKey(stockTrading => stockTrading.StockId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK_StockTrading_StockInfo");
+            });
+
+
 
 
 
@@ -213,7 +231,7 @@ namespace RepositoryStd
             //        .HasForeignKey(emailMessage => emailMessage.UserId);
             //});
 
-           
+
             //modelBuilder.Entity<LetMeKnow>(entity =>
             //{
             //    entity.HasKey(letMeKnow=>letMeKnow.Id)
@@ -238,7 +256,7 @@ namespace RepositoryStd
             //    entity.HasKey(transportaion => transportaion.Id)
             //    .HasName("PK_LetMeKnowAttributeTransportaion");
 
-                
+
 
             //    entity.HasOne(transportation => transportation.LetMeKnow)
             //        .WithOne(letMeKnow => letMeKnow.LetMeKnowAttributeTransportaion)
@@ -296,7 +314,7 @@ namespace RepositoryStd
             //        .HasMaxLength(150);
             //});
 
-           
+
             //modelBuilder.Entity<SimilarAds>(entity =>
             // {
             //     entity.HasKey(e => new { e.AdId, e.SimilarAdId })

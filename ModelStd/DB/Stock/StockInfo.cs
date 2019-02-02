@@ -39,6 +39,7 @@ namespace ModelStd.DB.Stock
         public virtual StockGroup StockGroup { get; set; }
 
         public virtual ICollection<Dividend> Dividends { get; set; }
+        public virtual ICollection<StockTrading> StockTradings { get; set; }
     }
 }
 
