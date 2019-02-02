@@ -26,7 +26,7 @@ namespace StockMarket
         private void init()
         {
             initComboboxName();
-            initComboboxStockInfo();
+            initComboboxStockInfo();            
         }
 
         private void initComboboxName()
@@ -48,6 +48,43 @@ namespace StockMarket
             {
                 comboBoxStockInfo.Items.Add(s.NamePersian);
             }
+        }
+
+        private void buttonSubmit_Click(object sender, EventArgs e)
+        {
+            StockDbContext stockDbContext = new StockDbContext();
+            Shareholder shareholder = listShareholder.Find(s => s.Name == comboBoxName.SelectedItem.ToString());
+            StockInfo stockInfo = listStockInfo.Find(s => s.NamePersian == comboBoxStockInfo.SelectedItem.ToString());
+
+            TradeType tradeType = radioButtonBuy.Checked ? TradeType.Buy : TradeType.Sell;
+            int volume = int.Parse(textBoxVolume.Text);
+            double pricePerShare = double.Parse(textBoxPricePerShare.Text);
+            double totalPrice = double.Parse(textBoxTotalPrice.Text);
+            DateTime date = dateTimePicker1.Value.Date;
+
+            StockTrading newStockTrading = new StockTrading();
+            newStockTrading.ShareholderId = shareholder.Id;
+            newStockTrading.StockId = stockInfo.StockId;
+            newStockTrading.TradeType = tradeType;
+            newStockTrading.Volume = volume;
+            newStockTrading.PricePerShare = pricePerShare;
+            newStockTrading.TotalPrice = totalPrice;
+            newStockTrading.Date = date;
+
+            try
+            {
+                stockDbContext.StockTradings.Add(newStockTrading);
+                stockDbContext.SaveChanges();
+                labelMessage.Text = "OK" + DateTime.Now.ToLongTimeString();
+            }
+            catch(Exception ex)
+            {
+                labelMessage.Text = ex.Message;
+            }
+            
+
+            
+
         }
     }
 }
