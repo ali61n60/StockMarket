@@ -16,7 +16,7 @@ namespace StockMarket
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormStockTraing());
+            Application.Run(new Form1());
         }
     }
 }

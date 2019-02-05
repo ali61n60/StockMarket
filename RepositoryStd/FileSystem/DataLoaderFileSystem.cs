@@ -64,7 +64,7 @@ namespace RepositoryStd.FileSystem
                     tempPoint.Volume = int.Parse(values[6]);
                     tempPoint.Value = double.Parse(values[7]);
                     tempPoint.NumberOfDeals = int.Parse(values[8]);
-                    tempPoint.YesterdayPrice = double.Parse(values[9]);
+                   // tempPoint.YesterdayPrice = double.Parse(values[9]);
                     
 
                         if (values.Length < 11)

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.button1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -44,12 +44,13 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonClearList = new System.Windows.Forms.Button();
             this.ButtonUpdateStockName = new System.Windows.Forms.Button();
+            this.buttonAverage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(67, 64);
+            this.button1.Location = new System.Drawing.Point(12, 54);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -62,16 +63,16 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(41, 152);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(794, 362);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -124,7 +125,7 @@
             // 
             // textBoxNumberOfDays
             // 
-            this.textBoxNumberOfDays.Location = new System.Drawing.Point(79, 99);
+            this.textBoxNumberOfDays.Location = new System.Drawing.Point(79, 110);
             this.textBoxNumberOfDays.Name = "textBoxNumberOfDays";
             this.textBoxNumberOfDays.Size = new System.Drawing.Size(40, 20);
             this.textBoxNumberOfDays.TabIndex = 7;
@@ -133,7 +134,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 102);
+            this.label1.Location = new System.Drawing.Point(38, 110);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 8;
@@ -177,11 +178,22 @@
             this.ButtonUpdateStockName.UseVisualStyleBackColor = true;
             this.ButtonUpdateStockName.Click += new System.EventHandler(this.ButtonUpdateStockName_Click);
             // 
+            // buttonAverage
+            // 
+            this.buttonAverage.Location = new System.Drawing.Point(12, 81);
+            this.buttonAverage.Name = "buttonAverage";
+            this.buttonAverage.Size = new System.Drawing.Size(75, 23);
+            this.buttonAverage.TabIndex = 13;
+            this.buttonAverage.Text = "Average";
+            this.buttonAverage.UseVisualStyleBackColor = true;
+            this.buttonAverage.Click += new System.EventHandler(this.buttonAverage_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(903, 526);
+            this.Controls.Add(this.buttonAverage);
             this.Controls.Add(this.ButtonUpdateStockName);
             this.Controls.Add(this.buttonClearList);
             this.Controls.Add(this.listBox1);
@@ -218,6 +230,7 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button buttonClearList;
         private System.Windows.Forms.Button ButtonUpdateStockName;
+        private System.Windows.Forms.Button buttonAverage;
     }
 }
 

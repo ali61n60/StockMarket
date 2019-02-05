@@ -5,6 +5,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using ModelStd;
 using ModelStd.IRepository;
 using ServiceStd;
+using ServiceStd.Indicators;
 
 namespace StockMarket
 {
@@ -24,8 +25,8 @@ namespace StockMarket
         }
 
         private void initCumboBoxStocksName()
-        {            
-            foreach(string stockName in stocksInformation.GetAllStocksName())
+        {
+            foreach (string stockName in stocksInformation.GetAllStocksName())
             {
                 comboBox1.Items.Add(stockName);
                 comboBox2.Items.Add(stockName);
@@ -34,47 +35,26 @@ namespace StockMarket
             comboBox2.SelectedIndex = 0;
 
         }
-        
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string stockName= comboBox1.SelectedItem.ToString();
-            showData(stockName);      
+            string stockName = comboBox1.SelectedItem.ToString();
+            showData(stockName);
         }
 
         private void showData(string stockName)
         {
             List<PointData> listStockData = stocksInformation.GetStockData(stockName);
-            //clearChartSeries();
             addChartSeries(stockName);
             configureChartSeries();
             addData(stockName, listStockData);
-
-
-
-            //List<PointData> listGhadirSharakRatio = new List<PointData>();
-            //for(int i=0;i<listGhadir.Count && i < listSharak.Count; i++)
-            //{
-            //    if(double.Parse(listSharak[i].FinalPrice)!=0)
-            //    {
-            //        PointData ratioPoint = new PointData();
-            //        double gadir = double.Parse(listGhadir[i].FinalPrice);
-            //        double sharak2 = double.Parse(listSharak[i].FinalPrice);
-            //        double finalPrice = 10000*gadir / sharak2;
-            //        ratioPoint.FinalPrice = finalPrice.ToString();
-            //        listGhadirSharakRatio.Add(ratioPoint);
-            //    }
-            //}
-
-            //AddData("Ghadir", listGhadir);
-            //AddData("Sharak", listSharak);
-            //AddData("Ratio", listGhadirSharakRatio);  
         }
 
         private void addData(string seriesName, List<PointData> listData)
         {
             for (int i = 0; i < listData.Count; i++)
-            {                
+            {
                 // adding date and high
                 chart1.Series[seriesName].Points.AddXY(listData[i].Date, listData[i].Final);
                 // adding low
@@ -90,7 +70,7 @@ namespace StockMarket
         {
             // Set series chart type
 
-            foreach(var sery in chart1.Series)
+            foreach (var sery in chart1.Series)
             {
                 sery.ChartType = SeriesChartType.Line;
 
@@ -107,13 +87,13 @@ namespace StockMarket
                 sery["PriceUpColor"] = "Green"; // <<== use text indexer for series
                 sery["PriceDownColor"] = "Red"; // <<== use text indexer for series
             }
-            
+
         }
 
         private void addChartSeries(string name)
         {
             Series serires = new Series(name);
-            chart1.Series.Add(serires);            
+            chart1.Series.Add(serires);
         }
 
         private void clearChartSeries()
@@ -139,8 +119,8 @@ namespace StockMarket
             List<PointData> listRatio = new List<PointData>();
             double maxRatio = 1;
             double lastRatio = 0.5;
-            double ratio=0.1;
-            foreach(PointData pointData in listStockData1)
+            double ratio = 0.1;
+            foreach (PointData pointData in listStockData1)
             {
                 DateTime date = pointData.Date;
                 PointData pointDataTemp = listStockData2.Find(x => x.Date == date);
@@ -148,7 +128,7 @@ namespace StockMarket
                 {
                     PointData pointDataRatio = new PointData();
                     pointDataRatio.Date = date;
-                    ratio= pointData.Final / pointDataTemp.Final;
+                    ratio = pointData.Final / pointDataTemp.Final;
                     if (ratio > maxRatio)
                         maxRatio = ratio;
                     pointDataRatio.Final = ratio;
@@ -175,8 +155,8 @@ namespace StockMarket
             double maxPrice = stockStatictics.MaxPrice(stockName, numberOfDays);
             double minPrice = stockStatictics.MinPrice(stockName, numberOfDays);
             listBox1.Items.Add("for " + stockName + " in last " + numberOfDays + " days Max price is " + maxPrice + " and Min price is " + minPrice);
-            
-            
+
+
 
         }
 
@@ -194,14 +174,14 @@ namespace StockMarket
                 tempMesage.StockName = stockName;
                 tempMesage.value = priceChange;
                 messages.Add(tempMesage);
-                
+
             }
             messages.Sort((m1, m2) => m1.value.CompareTo(m2.value));
             foreach (Message message in messages)
             {
                 listBox1.Items.Add(message.StockName + " in last " + numberOfDays + " days price channge is " + message.value);
             }
-            
+
         }
 
         private void buttonClearList_Click(object sender, EventArgs e)
@@ -212,6 +192,22 @@ namespace StockMarket
         private void ButtonUpdateStockName_Click(object sender, EventArgs e)
         {
 
+        }
+
+        int average = 7;
+        private void buttonAverage_Click(object sender, EventArgs e)
+        {
+            string stockName = comboBox1.SelectedItem.ToString();
+            List<PointData> listStockData = stocksInformation.GetStockData(stockName);
+
+            
+            List<PointData> listMovingAverage = new Averages().MovingAverage(listStockData, average);
+
+            
+            addChartSeries("MA[" + average + "]" + stockName);
+            configureChartSeries();
+            addData("MA[" + average + "]" + stockName, listMovingAverage);
+            average+=10;
         }
     }
 

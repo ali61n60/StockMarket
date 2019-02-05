@@ -7,7 +7,23 @@ using System.Threading.Tasks;
 namespace ModelStd
 {
     public class PointData
-    {                
+    {
+        public static PointData Zero
+        {
+            get
+            {
+                PointData pointDataZero = new PointData();
+                pointDataZero.Close = 0;
+                pointDataZero.Final = 0;
+                pointDataZero.Max = 0;
+                pointDataZero.Min = 0;
+                pointDataZero.Open = 0;
+                pointDataZero.Value = 0;
+                pointDataZero.Volume = 0;
+
+                return pointDataZero; 
+            }
+        }
         public DateTime Date { get; set; }
 
         public double Open { get; set; }
@@ -22,8 +38,6 @@ namespace ModelStd
         public double Value { get; set; }
 
         public int NumberOfDeals { get; set; }
-        public double YesterdayPrice { get; set; }        
-               
 
     }
 }
