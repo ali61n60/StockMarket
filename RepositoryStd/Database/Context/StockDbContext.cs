@@ -5,6 +5,7 @@ using RepositoryStd.Database;
 
 namespace RepositoryStd
 {
+    //Methanol http://www.sunsirs.com/uk/prodetail-429.html
     public class StockDbContext : DbContext
     {
         private readonly string _connectionString;
