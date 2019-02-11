@@ -17,15 +17,16 @@ namespace RepositoryStd
 
         public StockDbContext()
         {
-            _connectionString =StockDataClass.DefaultConnectionString();
+            _connectionString = StockDataClass.DefaultConnectionString();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(_connectionString,
-                x => {
+                x =>
+                {
                     x.MigrationsHistoryTable("__MigrationsHistory", "stock");
-                    });
+                });
         }
 
         public virtual DbSet<StockInfo> StockInfos { get; set; }
@@ -35,6 +36,9 @@ namespace RepositoryStd
         public virtual DbSet<StockGroup> StockGroups { get; set; }
         public virtual DbSet<Shareholder> Shareholders { get; set; }
         public virtual DbSet<StockTrading> StockTradings { get; set; }
+
+        public virtual DbSet<StockList> StockList { get; set; }
+        public virtual DbSet<StockListStockInfo> StockListStockInfos { get; set; }
 
 
         //public virtual DbSet<AdAttributeTransportation> AdAttributeTransportation { get; set; }
@@ -60,8 +64,8 @@ namespace RepositoryStd
         //public virtual DbSet<SimilarAds> SimilarAds { get; set; }
         //public virtual DbSet<SmsMessage> SmsMessages { get; set; }
         //public virtual DbSet<Temperature> Temperatures { get; set; }
-        
-        
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("stock");
@@ -97,11 +101,11 @@ namespace RepositoryStd
             modelBuilder.Entity<StockInfo>(entity =>
             {
                 entity.HasOne(stockInfo => stockInfo.StockGroup)
-                
+
                 .WithMany(stockGroup => stockGroup.Stocks)
-                
+
                 .HasForeignKey(stockInfo => stockInfo.GroupId)
-                
+
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_StockInfo_StockGroup");
             });
@@ -121,6 +125,20 @@ namespace RepositoryStd
                     .HasConstraintName("FK_StockTrading_StockInfo");
             });
 
+
+            modelBuilder.Entity<StockListStockInfo>()
+                .HasKey(s => new { s.ListId, s.StockInfoId });
+
+            modelBuilder.Entity<StockListStockInfo>()
+              .HasOne<StockList>(sc => sc.StockList)
+              .WithMany(s => s.StockListStockInfo)
+              .HasForeignKey(sc => sc.ListId);
+
+
+            modelBuilder.Entity<StockListStockInfo>()
+                .HasOne<StockInfo>(sc => sc.StockInfo)
+                .WithMany(s => s.StockListStockInfo)
+                .HasForeignKey(sc => sc.StockInfoId);
 
 
 
