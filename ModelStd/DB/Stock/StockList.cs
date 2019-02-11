@@ -9,6 +9,11 @@ namespace ModelStd.DB.Stock
     [Table("StockList", Schema = "stock")]
     public class StockList
     {
+        public StockList()
+        {
+            StockListStockInfo = new HashSet<StockListStockInfo>();
+        }
+
         [Key]
         [Column("id")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

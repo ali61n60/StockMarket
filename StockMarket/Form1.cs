@@ -6,6 +6,10 @@ using ModelStd;
 using ModelStd.IRepository;
 using ServiceStd;
 using ServiceStd.Indicators;
+using RepositoryStd;
+using System.Linq;
+using ModelStd.DB.Stock;
+using Microsoft.EntityFrameworkCore;
 
 namespace StockMarket
 {
@@ -21,9 +25,20 @@ namespace StockMarket
         private void init()
         {
             stocksInformation = new StocksInformation();
+            initComboBoxList();
             initCumboBoxStocksName();
         }
 
+        private void initComboBoxList()
+        {
+            
+            StockDbContext dbContext = new StockDbContext();
+            List<StockList> stockList = dbContext.StockList.ToList();
+            foreach(StockList s in stockList)
+            {
+                comboBoxList1.Items.Add(s.Name);
+            }
+        }
         private void initCumboBoxStocksName()
         {
             foreach (string stockName in stocksInformation.GetAllStocksName())
@@ -208,6 +223,22 @@ namespace StockMarket
             configureChartSeries();
             addData("MA[" + average + "]" + stockName, listMovingAverage);
             average+=10;
+        }
+
+        private void comboBoxList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            StockDbContext stockDbContext = new StockDbContext();
+            string selectdListName = comboBoxList1.SelectedItem.ToString();
+            var temp = stockDbContext.StockList.Where(s => s.Name == selectdListName);
+            int listId = stockDbContext.StockList.Where(s => s.Name == selectdListName).First().Id;
+            List<StockListStockInfo> stockListStockInfo = stockDbContext.StockListStockInfos
+                .Include(s=>s.StockInfo)
+                .Where(s => s.ListId == listId).ToList();
+            comboBox1.Items.Clear();
+            foreach (StockListStockInfo s in stockListStockInfo)
+            {
+                comboBox1.Items.Add(s.StockInfo.NamePersian);
+            }
         }
     }
 

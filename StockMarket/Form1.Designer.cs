@@ -45,12 +45,13 @@
             this.buttonClearList = new System.Windows.Forms.Button();
             this.ButtonUpdateStockName = new System.Windows.Forms.Button();
             this.buttonAverage = new System.Windows.Forms.Button();
+            this.comboBoxList1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 54);
+            this.button1.Location = new System.Drawing.Point(13, 133);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -67,27 +68,27 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(41, 152);
+            this.chart1.Location = new System.Drawing.Point(41, 270);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(794, 362);
+            this.chart1.Size = new System.Drawing.Size(788, 407);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 27);
+            this.comboBox1.Location = new System.Drawing.Point(12, 88);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 2;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(234, 64);
+            this.button2.Location = new System.Drawing.Point(235, 143);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -105,7 +106,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(357, 64);
+            this.button3.Location = new System.Drawing.Point(358, 143);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 5;
@@ -115,7 +116,7 @@
             // 
             // buttonPrice
             // 
-            this.buttonPrice.Location = new System.Drawing.Point(125, 97);
+            this.buttonPrice.Location = new System.Drawing.Point(126, 176);
             this.buttonPrice.Name = "buttonPrice";
             this.buttonPrice.Size = new System.Drawing.Size(109, 23);
             this.buttonPrice.TabIndex = 6;
@@ -125,7 +126,7 @@
             // 
             // textBoxNumberOfDays
             // 
-            this.textBoxNumberOfDays.Location = new System.Drawing.Point(79, 110);
+            this.textBoxNumberOfDays.Location = new System.Drawing.Point(80, 189);
             this.textBoxNumberOfDays.Name = "textBoxNumberOfDays";
             this.textBoxNumberOfDays.Size = new System.Drawing.Size(40, 20);
             this.textBoxNumberOfDays.TabIndex = 7;
@@ -134,7 +135,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 110);
+            this.label1.Location = new System.Drawing.Point(39, 189);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 8;
@@ -142,7 +143,7 @@
             // 
             // buttonPriceChange
             // 
-            this.buttonPriceChange.Location = new System.Drawing.Point(249, 96);
+            this.buttonPriceChange.Location = new System.Drawing.Point(250, 175);
             this.buttonPriceChange.Name = "buttonPriceChange";
             this.buttonPriceChange.Size = new System.Drawing.Size(87, 23);
             this.buttonPriceChange.TabIndex = 9;
@@ -160,7 +161,7 @@
             // 
             // buttonClearList
             // 
-            this.buttonClearList.Location = new System.Drawing.Point(357, 102);
+            this.buttonClearList.Location = new System.Drawing.Point(358, 181);
             this.buttonClearList.Name = "buttonClearList";
             this.buttonClearList.Size = new System.Drawing.Size(149, 28);
             this.buttonClearList.TabIndex = 11;
@@ -180,7 +181,7 @@
             // 
             // buttonAverage
             // 
-            this.buttonAverage.Location = new System.Drawing.Point(12, 81);
+            this.buttonAverage.Location = new System.Drawing.Point(13, 160);
             this.buttonAverage.Name = "buttonAverage";
             this.buttonAverage.Size = new System.Drawing.Size(75, 23);
             this.buttonAverage.TabIndex = 13;
@@ -188,11 +189,21 @@
             this.buttonAverage.UseVisualStyleBackColor = true;
             this.buttonAverage.Click += new System.EventHandler(this.buttonAverage_Click);
             // 
+            // comboBoxList1
+            // 
+            this.comboBoxList1.FormattingEnabled = true;
+            this.comboBoxList1.Location = new System.Drawing.Point(13, 27);
+            this.comboBoxList1.Name = "comboBoxList1";
+            this.comboBoxList1.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxList1.TabIndex = 14;
+            this.comboBoxList1.SelectedIndexChanged += new System.EventHandler(this.comboBoxList1_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(903, 526);
+            this.ClientSize = new System.Drawing.Size(897, 689);
+            this.Controls.Add(this.comboBoxList1);
             this.Controls.Add(this.buttonAverage);
             this.Controls.Add(this.ButtonUpdateStockName);
             this.Controls.Add(this.buttonClearList);
@@ -231,6 +242,7 @@
         private System.Windows.Forms.Button buttonClearList;
         private System.Windows.Forms.Button ButtonUpdateStockName;
         private System.Windows.Forms.Button buttonAverage;
+        private System.Windows.Forms.ComboBox comboBoxList1;
     }
 }
 

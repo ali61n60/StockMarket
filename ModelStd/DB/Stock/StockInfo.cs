@@ -4,9 +4,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelStd.DB.Stock
 {
-    [Table("StocksInfo",Schema ="stock")]
+    [Table("StocksInfo", Schema = "stock")]
     public class StockInfo
     {
+        public StockInfo()
+        {
+            StockListStockInfo = new HashSet<StockListStockInfo>();
+        }
+
         [Key]
         [Column("stockId")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
