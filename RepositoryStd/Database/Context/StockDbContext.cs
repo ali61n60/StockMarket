@@ -6,6 +6,9 @@ using RepositoryStd.Database;
 namespace RepositoryStd
 {
     //Methanol http://www.sunsirs.com/uk/prodetail-429.html
+    //مدل تنزیل جریانات نقدی (DCF)
+    //مدل تنزیل سود نقدی( FCFE)
+
     public class StockDbContext : DbContext
     {
         private readonly string _connectionString;
