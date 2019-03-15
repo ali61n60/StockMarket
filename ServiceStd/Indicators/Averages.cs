@@ -16,10 +16,6 @@ namespace ServiceStd.Indicators
                 return movingAverage;
             }
 
-            //for (int i = 0; i < number; i++)
-            //{
-            //    movingAverage.Add(PointData.Zero);
-            //}
             for (int i = number; i < data.Count; i++)
             {
                 double closeSum = 0, finalSum = 0, maxSum = 0, minSum = 0, openSum = 0, valueSum = 0;
@@ -47,7 +43,7 @@ namespace ServiceStd.Indicators
                 pointDataAverage.Open = openSum / number;
                 pointDataAverage.Value = valueSum / number;
                 pointDataAverage.Volume = (int)(volumeSum / number);
-                
+
                 movingAverage.Add(pointDataAverage);
             }
 

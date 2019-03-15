@@ -240,6 +240,19 @@ namespace StockMarket
                 comboBox1.Items.Add(s.StockInfo.NamePersian);
             }
         }
+
+        private void buttonAverageVolume_Click(object sender, EventArgs e)
+        {
+            string stockName = comboBox1.SelectedItem.ToString();
+            List<PointData> listStockData = stocksInformation.GetStockData(stockName);
+
+            int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
+
+            Volume volume = new Volume();
+            int averageVolume = volume.CalculateAverageVolume(listStockData, numberOfDays);
+
+            listBox1.Items.Add(stockName + " Average Volume in Last " + numberOfDays + " Day[s] is " + averageVolume);
+        }
     }
 
     class Message
