@@ -8,12 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="FileSystem\CSVFiles\**" />
-    <EmbeddedResource Remove="FileSystem\CSVFiles\**" />
-    <None Remove="FileSystem\CSVFiles\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ModelStd\ModelStd.csproj" />
   </ItemGroup>
 
