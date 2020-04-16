@@ -1,9 +1,5 @@
 ﻿using NUnit.Framework;
 using RepositoryStd.Database;
-using ServiceStd;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace StockMarketTests.RepositoryStdTests
 {

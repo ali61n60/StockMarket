@@ -253,6 +253,11 @@ namespace StockMarket
 
             listBox1.Items.Add(stockName + " Average Volume in Last " + numberOfDays + " Day[s] is " + averageVolume);
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     class Message
