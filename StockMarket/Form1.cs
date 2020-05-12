@@ -10,6 +10,11 @@ using RepositoryStd;
 using System.Linq;
 using ModelStd.DB.Stock;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
+using System.Text;
+using System.Net.Http;
+using System.Net;
+using System.IO.Compression;
 
 namespace StockMarket
 {
@@ -258,6 +263,8 @@ namespace StockMarket
         {
 
         }
+
+       
     }
 
     class Message

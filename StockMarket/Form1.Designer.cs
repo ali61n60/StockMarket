@@ -75,7 +75,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(788, 407);
+            this.chart1.Size = new System.Drawing.Size(981, 407);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
@@ -160,7 +160,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(558, 17);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(269, 121);
+            this.listBox1.Size = new System.Drawing.Size(462, 121);
             this.listBox1.TabIndex = 10;
             // 
             // buttonClearList
@@ -216,7 +216,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 689);
+            this.ClientSize = new System.Drawing.Size(1090, 689);
             this.Controls.Add(this.buttonAverageVolume);
             this.Controls.Add(this.comboBoxList1);
             this.Controls.Add(this.buttonAverage);
