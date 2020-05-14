@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace RepositoryStd.Database
 {
-    public class DatabaseStockInfo : IStocksInfo
+    public class DatabaseStockInfo : ISymbolInfo
     {
-        public List<string> GetAllStocksName()
+        public List<string> GetAllSymbolsName()
         {
             List<string> listStockName = new List<string>();
             StockDbContext stockDbContext = new StockDbContext();

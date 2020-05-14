@@ -4,9 +4,9 @@ using System.Text;
 
 namespace ModelStd.IRepository
 {
-    public interface IStocksInfo
+    public interface ISymbolInfo
     {
-        List<string> GetAllStocksName();
+        List<string> GetAllSymbolsName();
         string GetDirectoryPath();
     }
 

@@ -47,20 +47,4 @@ namespace ModelStd.DB.Stock
         public virtual ICollection<StockTrading> StockTradings { get; set; }
         public virtual ICollection<StockListStockInfo> StockListStockInfo { get; set; }
     }
-}
-
-
-
-        //public Brand()
-        //{
-        //    CarModels = new HashSet<CarModel>();
-        //    LetMeKnowAttributeTransportaion = new HashSet<LetMeKnowAttributeTransportaion>();
-        //}
-
-        //[Column("brandName")]
-        //[Required]
-        //[MaxLength(150)]
-        //public string BrandName { get; set; }
-
-        //public virtual ICollection<CarModel> CarModels { get; set; }
- 
+}      

@@ -6,9 +6,9 @@ using ModelStd.IRepository;
 
 namespace RepositoryStd.FileSystem
 {
-    public class StocksInfoHandWritten : IStocksInfo
+    public class StocksInfoHandWritten : ISymbolInfo
     {
-        public List<string> GetAllStocksName()
+        public List<string> GetAllSymbolsName()
         {            
             string directory = Path.GetDirectoryName(GetDirectoryPath());
             IEnumerable<string> files = Directory.EnumerateFiles(directory, "*.*")

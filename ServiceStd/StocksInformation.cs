@@ -10,9 +10,9 @@ namespace ServiceStd
     {
         public List<string> GetAllStocksName()
         {
-            IStocksInfo stocksInfo = Bootstrapper.container.GetInstance<IStocksInfo>();
+            ISymbolInfo stocksInfo = Bootstrapper.container.GetInstance<ISymbolInfo>();
 
-            return stocksInfo.GetAllStocksName();
+            return stocksInfo.GetAllSymbolsName();
         }
 
         public List<PointData> GetStockData(string stockName)
