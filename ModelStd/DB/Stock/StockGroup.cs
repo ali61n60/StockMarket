@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ModelStd.DB.Stock
 {
-    [Table("StockGroup", Schema = "stock")]
+    [Table("SymbolGroup", Schema = "stock")]
     public class SymbolGroup
     {
         [Column("groupId")]

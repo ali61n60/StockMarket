@@ -10,7 +10,7 @@ using RepositoryStd;
 namespace RepositoryStd.Migrations
 {
     [DbContext(typeof(StockDbContext))]
-    [Migration("20200514165736_step13")]
+    [Migration("20200514212321_step13")]
     partial class step13
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -168,7 +168,7 @@ namespace RepositoryStd.Migrations
 
                     b.HasKey("GroupId");
 
-                    b.ToTable("SymbolGroup","stock");
+                    b.ToTable("StockGroup","stock");
                 });
 
             modelBuilder.Entity("ModelStd.DB.Stock.TradeData", b =>
@@ -274,8 +274,7 @@ namespace RepositoryStd.Migrations
                     b.HasOne("ModelStd.DB.Stock.SymbolGroup", "StockGroup")
                         .WithMany("Stocks")
                         .HasForeignKey("GroupId")
-                        .HasConstraintName("FK_StockInfo_StockGroup")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ModelStd.DB.Stock.StockListStockInfo", b =>

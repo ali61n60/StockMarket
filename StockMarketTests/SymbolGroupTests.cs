@@ -20,12 +20,7 @@ namespace StockMarketTests
 
             string path = @"c:\temp\SymbolGroup.txt";
             File.WriteAllText(path, "\\[StockDb].[stock].[SymbolGroup]" + Environment.NewLine);
-            
-
-            string appendText = "This is extra text" + Environment.NewLine;
-            File.AppendAllText(path, appendText);
-
-            
+                                              
 
             foreach (SymbolGroup symbolGroup in symbolGroups)
             {
