@@ -20,7 +20,7 @@ namespace RepositoryStd
 
         public StockDbContext()
         {
-            _connectionString = StockDataClass.DefaultConnectionString();
+            _connectionString = DatabaseInfoClass.DefaultConnectionString();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -36,7 +36,7 @@ namespace RepositoryStd
         public virtual DbSet<Dividend> Dividends { get; set; }
         public virtual DbSet<CapitalIncrease> CapitalIncreases { get; set; }
         public virtual DbSet<TradeData> TradeDatas { get; set; }
-        public virtual DbSet<SymbolGroup> StockGroups { get; set; }
+        public virtual DbSet<SymbolGroup> SymbolGroups { get; set; }
         public virtual DbSet<Shareholder> Shareholders { get; set; }
         public virtual DbSet<StockTrading> StockTradings { get; set; }
 

@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using ModelStd.DB.Stock;
 using NUnit.Framework;
+using RepositoryStd;
+using System.IO;
 
 namespace StockMarketTests
 {
@@ -11,7 +15,25 @@ namespace StockMarketTests
         [Test]
         public void Can_Create_Text_File_For_Building_Table_Data()
         {
+            StockDbContext dbContext = new StockDbContext();
+            SymbolGroup[] symbolGroups= dbContext.SymbolGroups.ToArray();
 
+            string path = @"c:\temp\SymbolGroup.txt";
+            File.WriteAllText(path, "\\[StockDb].[stock].[SymbolGroup]" + Environment.NewLine);
+            
+
+            string appendText = "This is extra text" + Environment.NewLine;
+            File.AppendAllText(path, appendText);
+
+            
+
+            foreach (SymbolGroup symbolGroup in symbolGroups)
+            {
+                string newDataRow = "INSERT INTO [StockDb].[stock].[StockGroup]  VALUES ("+
+                    symbolGroup.GroupId+",'"+symbolGroup.groupName+"')";
+                File.AppendAllText(path, newDataRow+Environment.NewLine);
+            }
+            Assert.That(symbolGroups.Length > 0);
         }
     }
 }
