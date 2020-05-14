@@ -13,9 +13,9 @@ namespace ModelStd.DB.Stock
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Column("stockId")]
+        [Column("symbolId")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int StockId { get; set; }
+        public int SymbolId { get; set; }
 
         [Column("date")]
         [Required]
@@ -33,7 +33,7 @@ namespace ModelStd.DB.Stock
         [Required]
         public double SavingPercent { get; set; }
 
-        public virtual Symbol StockInfo { get; set; }
+        public virtual Symbol Symbol { get; set; }
 
     }
 }

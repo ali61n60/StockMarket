@@ -18,14 +18,14 @@ namespace RepositoryStd.Database
             foreach(Symbol stock in listStocksInfo)
             {                
                 List<PointData> listTradeDataFileSystem =  dataLoaderFileSystem.GetStockData(stock.SymbolLatin);
-                List<TradeData> listTradeDataDatabase = stockDbContext.TradeDatas.Where(tradeData => tradeData.StockId == stock.StockId).ToList<TradeData>();
+                List<TradeData> listTradeDataDatabase = stockDbContext.TradeDatas.Where(tradeData => tradeData.SymbolId == stock.Id).ToList<TradeData>();
                 //add new data from file system to database
                 foreach(PointData pointData in listTradeDataFileSystem)
                 {
                     if(!listTradeDataDatabase.Any(tradeData=>tradeData.Date==pointData.Date))
                     {
                         TradeData newTradeData = new TradeData();
-                        newTradeData.StockId = stock.StockId;
+                        newTradeData.SymbolId = stock.Id;
                         newTradeData.FillFromPointData(pointData);
                         
                         listTradeDataDatabase.Add(newTradeData);

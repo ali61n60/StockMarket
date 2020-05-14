@@ -237,12 +237,12 @@ namespace StockMarket
             var temp = stockDbContext.StockList.Where(s => s.Name == selectdListName);
             int listId = stockDbContext.StockList.Where(s => s.Name == selectdListName).First().Id;
             List<StockListStockInfo> stockListStockInfo = stockDbContext.StockListStockInfos
-                .Include(s=>s.StockInfo)
+                .Include(s=>s.Symbol)
                 .Where(s => s.ListId == listId).ToList();
             comboBox1.Items.Clear();
             foreach (StockListStockInfo s in stockListStockInfo)
             {
-                comboBox1.Items.Add(s.StockInfo.NamePersian);
+                comboBox1.Items.Add(s.Symbol.NamePersian);
             }
         }
 

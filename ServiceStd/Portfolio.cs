@@ -17,11 +17,11 @@ namespace ServiceStd
            List<StockTrading> shareholderTrades= stockDbContext.StockTradings.Where(stockTrading => stockTrading.ShareholderId == shareholderId).ToList();
             foreach (StockTrading stockTrading in shareholderTrades)
             {
-                if (!shareholderPortfolio.ContainsKey(stockTrading.StockId))
+                if (!shareholderPortfolio.ContainsKey(stockTrading.SymbolId))
                 {
-                    shareholderPortfolio.Add(stockTrading.StockId,0);
+                    shareholderPortfolio.Add(stockTrading.SymbolId,0);
                 }
-                shareholderPortfolio[stockTrading.StockId] += stockTrading.Volume;
+                shareholderPortfolio[stockTrading.SymbolId] += stockTrading.Volume;
             }
 
         }

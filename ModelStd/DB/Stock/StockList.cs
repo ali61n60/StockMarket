@@ -39,9 +39,9 @@ namespace ModelStd.DB.Stock
 
         [Column("stockInfoId")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int StockInfoId { get; set; }
+        public int SymbolId { get; set; }
 
-        public Symbol StockInfo { get; set; }
+        public Symbol Symbol { get; set; }
 
     }
 }

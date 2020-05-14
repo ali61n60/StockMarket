@@ -24,7 +24,7 @@ namespace StockMarketTests
 
             foreach (Symbol symbol in symbols)
             {
-                string newDataRow = $"INSERT INTO [StockDb].[stock].[Symbol]  VALUES ({symbol.StockId} , '{symbol.SymbolPersian}','{ symbol.SymbolLatin}'"+
+                string newDataRow = $"INSERT INTO [StockDb].[stock].[Symbol]  VALUES ({symbol.Id} , '{symbol.SymbolPersian}','{ symbol.SymbolLatin}'"+
                     $" '{symbol.NameLatin}' , '{symbol.NamePersian}' , {symbol.GroupId})";
                 File.AppendAllText(path, newDataRow + Environment.NewLine);
             }

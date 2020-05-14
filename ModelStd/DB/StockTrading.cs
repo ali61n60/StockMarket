@@ -19,9 +19,9 @@ namespace ModelStd.DB
         [Required]
         public int ShareholderId { get; set; }
 
-        [Column("stockId")]
+        [Column("symbolId")]
         [Required]
-        public int StockId { get; set; }
+        public int SymbolId { get; set; }
 
         [Column("tradeType")]
         [Required]
@@ -45,7 +45,7 @@ namespace ModelStd.DB
 
 
         public virtual Shareholder Shareholder { get; set; }
-        public virtual Symbol StockInfo { get; set; }
+        public virtual Symbol Symbol { get; set; }
     }
 
     public enum TradeType

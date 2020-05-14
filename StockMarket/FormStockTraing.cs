@@ -64,7 +64,7 @@ namespace StockMarket
 
             StockTrading newStockTrading = new StockTrading();
             newStockTrading.ShareholderId = shareholder.Id;
-            newStockTrading.StockId = stockInfo.StockId;
+            newStockTrading.SymbolId = stockInfo.Id;
             newStockTrading.TradeType = tradeType;
             newStockTrading.Volume = volume;
             newStockTrading.PricePerShare = pricePerShare;

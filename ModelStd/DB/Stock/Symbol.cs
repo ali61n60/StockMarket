@@ -13,9 +13,9 @@ namespace ModelStd.DB.Stock
         }
 
         [Key]
-        [Column("stockId")]
+        [Column("id")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int StockId { get; set; }
+        public int Id { get; set; }
                      
         [Column("symbolLatin")]
         [Required]
@@ -41,7 +41,7 @@ namespace ModelStd.DB.Stock
         [Required]
         public int GroupId { get; set; }
 
-        public virtual SymbolGroup StockGroup { get; set; }
+        public virtual SymbolGroup SymbolGroup { get; set; }
 
         public virtual ICollection<Dividend> Dividends { get; set; }
         public virtual ICollection<StockTrading> StockTradings { get; set; }

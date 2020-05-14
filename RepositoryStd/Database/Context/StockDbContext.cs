@@ -53,23 +53,23 @@ namespace RepositoryStd
            
             modelBuilder.Entity<Dividend>(entity =>
             {
-                entity.HasOne(dividend => dividend.StockInfo)
+                entity.HasOne(dividend => dividend.Symbol)
                 .WithMany(stock => stock.Dividends)
-                .HasForeignKey(dividend => dividend.StockId)
-                ;//.OnDelete(DeleteBehavior.Restrict)
-                //.HasConstraintName("FK_Dividend_StockInfo");
+                .HasForeignKey(dividend => dividend.SymbolId)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_Dividend_Symbol");
             });
 
             modelBuilder.Entity<Symbol>(entity =>
             {
-                entity.HasOne(stockInfo => stockInfo.StockGroup)
+                entity.HasOne(stockInfo => stockInfo.SymbolGroup)
 
                 .WithMany(stockGroup => stockGroup.Symbols)
 
                 .HasForeignKey(stockInfo => stockInfo.GroupId)
                 
                 .OnDelete(DeleteBehavior.Restrict)
-                .HasConstraintName("FK_StockInfo_StockGroup");
+                .HasConstraintName("FK_Symbol_SymbolGroup");
             });
 
             modelBuilder.Entity<StockTrading>(entity =>
@@ -80,16 +80,16 @@ namespace RepositoryStd
                     .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK_StockTrading_Shareholder");
 
-                entity.HasOne(stockTrading => stockTrading.StockInfo)
+                entity.HasOne(stockTrading => stockTrading.Symbol)
                     .WithMany(stockInfo => stockInfo.StockTradings)
-                    .HasForeignKey(stockTrading => stockTrading.StockId);
-                    //.OnDelete(DeleteBehavior.Restrict)
-                    //.HasConstraintName("FK_StockTrading_StockInfo");
+                    .HasForeignKey(stockTrading => stockTrading.SymbolId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK_StockTrading_Symbol");
             });
 
 
             modelBuilder.Entity<StockListStockInfo>()
-                .HasKey(s => new { s.ListId, s.StockInfoId });
+                .HasKey(s => new { s.ListId, s.SymbolId });
 
             modelBuilder.Entity<StockListStockInfo>()
               .HasOne<StockList>(sc => sc.StockList)
@@ -98,9 +98,9 @@ namespace RepositoryStd
 
 
             modelBuilder.Entity<StockListStockInfo>()
-                .HasOne<Symbol>(sc => sc.StockInfo)
+                .HasOne<Symbol>(sc => sc.Symbol)
                 .WithMany(s => s.StockListStockInfo)
-                .HasForeignKey(sc => sc.StockInfoId);
+                .HasForeignKey(sc => sc.SymbolId);
         }
     }
 }

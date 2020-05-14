@@ -20,8 +20,8 @@ namespace RepositoryStd.Database
             List<PointData> listPointData = new List<PointData>();
             StockDbContext stockDbContext = new StockDbContext();
             var tradeDataForStockName= stockDbContext.TradeDatas
-                .Include(tradeData => tradeData.StockInfo)
-                .Where(tradeData => tradeData.StockInfo.NamePersian == stockName);
+                .Include(tradeData => tradeData.Symbol)
+                .Where(tradeData => tradeData.Symbol.NamePersian == stockName);
 
             foreach(TradeData tradeData in tradeDataForStockName)
             {                              
