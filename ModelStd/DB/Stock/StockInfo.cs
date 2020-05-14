@@ -41,7 +41,7 @@ namespace ModelStd.DB.Stock
         [Required]
         public int GroupId { get; set; }
 
-        public virtual StockGroup StockGroup { get; set; }
+        public virtual SymbolGroup StockGroup { get; set; }
 
         public virtual ICollection<Dividend> Dividends { get; set; }
         public virtual ICollection<StockTrading> StockTradings { get; set; }
