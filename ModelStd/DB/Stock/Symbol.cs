@@ -42,6 +42,7 @@ namespace ModelStd.DB.Stock
         public int GroupId { get; set; }
 
         public virtual SymbolGroup SymbolGroup { get; set; }
+        public virtual LiveDataUrl LiveDataUrl { get; set; }
 
         public virtual ICollection<Dividend> Dividends { get; set; }
         public virtual ICollection<StockTrading> StockTradings { get; set; }

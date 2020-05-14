@@ -33,10 +33,13 @@ namespace RepositoryStd
         }
 
         public virtual DbSet<Symbol> Symbols { get; set; }
+        public virtual DbSet<SymbolGroup> SymbolGroups { get; set; }
+        public virtual DbSet<LiveDataUrl> LiveDataUrls { get; set; }
+
         public virtual DbSet<Dividend> Dividends { get; set; }
         public virtual DbSet<CapitalIncrease> CapitalIncreases { get; set; }
         public virtual DbSet<TradeData> TradeDatas { get; set; }
-        public virtual DbSet<SymbolGroup> SymbolGroups { get; set; }
+        
         public virtual DbSet<Shareholder> Shareholders { get; set; }
         public virtual DbSet<StockTrading> StockTradings { get; set; }
 
@@ -44,13 +47,22 @@ namespace RepositoryStd
         public virtual DbSet<StockListStockInfo> StockListStockInfos { get; set; }
 
 
-                protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
             modelBuilder.HasDefaultSchema("stock");
 
+            modelBuilder.Entity<Symbol>(entity =>
+            {
+                entity.HasOne(symbol => symbol.SymbolGroup)
+                .WithMany(symbolGroup => symbolGroup.Symbols)
+                .HasForeignKey(symbol => symbol.GroupId)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_Symbol_SymbolGroup");
+            });
 
            
+
             modelBuilder.Entity<Dividend>(entity =>
             {
                 entity.HasOne(dividend => dividend.Symbol)
@@ -60,17 +72,7 @@ namespace RepositoryStd
                 .HasConstraintName("FK_Dividend_Symbol");
             });
 
-            modelBuilder.Entity<Symbol>(entity =>
-            {
-                entity.HasOne(stockInfo => stockInfo.SymbolGroup)
-
-                .WithMany(stockGroup => stockGroup.Symbols)
-
-                .HasForeignKey(stockInfo => stockInfo.GroupId)
-                
-                .OnDelete(DeleteBehavior.Restrict)
-                .HasConstraintName("FK_Symbol_SymbolGroup");
-            });
+            
 
             modelBuilder.Entity<StockTrading>(entity =>
             {
