@@ -12,10 +12,10 @@ namespace RepositoryStd.Database
         {
             DataLoaderFileSystem dataLoaderFileSystem = new DataLoaderFileSystem();
             StockDbContext stockDbContext = new StockDbContext();//todo use ioc
-            List<StockInfo> listStocksInfo = stockDbContext.StockInfos.ToList<StockInfo>();
+            List<Symbol> listStocksInfo = stockDbContext.Symbols.ToList<Symbol>();
 
             //for each stock search for csv file
-            foreach(StockInfo stock in listStocksInfo)
+            foreach(Symbol stock in listStocksInfo)
             {                
                 List<PointData> listTradeDataFileSystem =  dataLoaderFileSystem.GetStockData(stock.SymbolLatin);
                 List<TradeData> listTradeDataDatabase = stockDbContext.TradeDatas.Where(tradeData => tradeData.StockId == stock.StockId).ToList<TradeData>();

@@ -16,7 +16,7 @@ namespace StockMarket
     public partial class FormStockTraing : Form
     {
         List<Shareholder> listShareholder;
-        List<StockInfo> listStockInfo;
+        List<Symbol> listStockInfo;
         public FormStockTraing()
         {
             InitializeComponent();
@@ -43,8 +43,8 @@ namespace StockMarket
         private void initComboboxStockInfo()
         {
             StockDbContext stockDbContext = new StockDbContext();
-            listStockInfo = stockDbContext.StockInfos.ToList();
-            foreach (StockInfo s in listStockInfo)
+            listStockInfo = stockDbContext.Symbols.ToList();
+            foreach (Symbol s in listStockInfo)
             {
                 comboBoxStockInfo.Items.Add(s.NamePersian);
             }
@@ -54,7 +54,7 @@ namespace StockMarket
         {
             StockDbContext stockDbContext = new StockDbContext();
             Shareholder shareholder = listShareholder.Find(s => s.Name == comboBoxName.SelectedItem.ToString());
-            StockInfo stockInfo = listStockInfo.Find(s => s.NamePersian == comboBoxStockInfo.SelectedItem.ToString());
+            Symbol stockInfo = listStockInfo.Find(s => s.NamePersian == comboBoxStockInfo.SelectedItem.ToString());
 
             TradeType tradeType = radioButtonBuy.Checked ? TradeType.Buy : TradeType.Sell;
             int volume = int.Parse(textBoxVolume.Text);

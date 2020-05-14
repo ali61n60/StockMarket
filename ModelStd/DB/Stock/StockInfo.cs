@@ -4,10 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelStd.DB.Stock
 {
-    [Table("StocksInfo", Schema = "stock")]
-    public class StockInfo
+    [Table("Symbol", Schema = "stock")]
+    public class Symbol
     {
-        public StockInfo()
+        public Symbol()
         {
             StockListStockInfo = new HashSet<StockListStockInfo>();
         }

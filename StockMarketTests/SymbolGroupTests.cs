@@ -25,7 +25,7 @@ namespace StockMarketTests
             foreach (SymbolGroup symbolGroup in symbolGroups)
             {
                 string newDataRow = "INSERT INTO [StockDb].[stock].[StockGroup]  VALUES ("+
-                    symbolGroup.GroupId+",'"+symbolGroup.groupName+"')";
+                    symbolGroup.Id+",'"+symbolGroup.Name+"')";
                 File.AppendAllText(path, newDataRow+Environment.NewLine);
             }
             Assert.That(symbolGroups.Length > 0);

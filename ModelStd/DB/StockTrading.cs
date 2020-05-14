@@ -45,7 +45,7 @@ namespace ModelStd.DB
 
 
         public virtual Shareholder Shareholder { get; set; }
-        public virtual StockInfo StockInfo { get; set; }
+        public virtual Symbol StockInfo { get; set; }
     }
 
     public enum TradeType

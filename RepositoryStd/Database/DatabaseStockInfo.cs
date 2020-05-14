@@ -12,9 +12,9 @@ namespace RepositoryStd.Database
         {
             List<string> listStockName = new List<string>();
             StockDbContext stockDbContext = new StockDbContext();
-            List<StockInfo> listStockInfo = stockDbContext.StockInfos.ToList();
+            List<Symbol> listStockInfo = stockDbContext.Symbols.ToList();
 
-            foreach(StockInfo stock in listStockInfo)
+            foreach(Symbol stock in listStockInfo)
             {
                 listStockName.Add(stock.NamePersian);
             }

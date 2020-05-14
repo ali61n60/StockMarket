@@ -32,7 +32,7 @@ namespace RepositoryStd
                 });
         }
 
-        public virtual DbSet<StockInfo> StockInfos { get; set; }
+        public virtual DbSet<Symbol> Symbols { get; set; }
         public virtual DbSet<Dividend> Dividends { get; set; }
         public virtual DbSet<CapitalIncrease> CapitalIncreases { get; set; }
         public virtual DbSet<TradeData> TradeDatas { get; set; }
@@ -56,15 +56,15 @@ namespace RepositoryStd
                 entity.HasOne(dividend => dividend.StockInfo)
                 .WithMany(stock => stock.Dividends)
                 .HasForeignKey(dividend => dividend.StockId)
-                .OnDelete(DeleteBehavior.Restrict)
-                .HasConstraintName("FK_Dividend_StockInfo");
+                ;//.OnDelete(DeleteBehavior.Restrict)
+                //.HasConstraintName("FK_Dividend_StockInfo");
             });
 
-            modelBuilder.Entity<StockInfo>(entity =>
+            modelBuilder.Entity<Symbol>(entity =>
             {
                 entity.HasOne(stockInfo => stockInfo.StockGroup)
 
-                .WithMany(stockGroup => stockGroup.Stocks)
+                .WithMany(stockGroup => stockGroup.Symbols)
 
                 .HasForeignKey(stockInfo => stockInfo.GroupId)
                 
@@ -82,9 +82,9 @@ namespace RepositoryStd
 
                 entity.HasOne(stockTrading => stockTrading.StockInfo)
                     .WithMany(stockInfo => stockInfo.StockTradings)
-                    .HasForeignKey(stockTrading => stockTrading.StockId)
-                    .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("FK_StockTrading_StockInfo");
+                    .HasForeignKey(stockTrading => stockTrading.StockId);
+                    //.OnDelete(DeleteBehavior.Restrict)
+                    //.HasConstraintName("FK_StockTrading_StockInfo");
             });
 
 
@@ -98,7 +98,7 @@ namespace RepositoryStd
 
 
             modelBuilder.Entity<StockListStockInfo>()
-                .HasOne<StockInfo>(sc => sc.StockInfo)
+                .HasOne<Symbol>(sc => sc.StockInfo)
                 .WithMany(s => s.StockListStockInfo)
                 .HasForeignKey(sc => sc.StockInfoId);
         }

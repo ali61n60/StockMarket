@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RepositoryStd;
 
 namespace RepositoryStd.Migrations
 {
     [DbContext(typeof(StockDbContext))]
-    partial class StockDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200514223453_step16")]
+    partial class step16
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -151,20 +153,20 @@ namespace RepositoryStd.Migrations
 
                     b.HasIndex("GroupId");
 
-                    b.ToTable("Symbol","stock");
+                    b.ToTable("StocksInfo","stock");
                 });
 
             modelBuilder.Entity("ModelStd.DB.Stock.SymbolGroup", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("GroupId")
                         .HasColumnName("id");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("groupName")
                         .IsRequired()
                         .HasColumnName("name")
                         .HasMaxLength(150);
 
-                    b.HasKey("Id");
+                    b.HasKey("GroupId");
 
                     b.ToTable("SymbolGroup","stock");
                 });
@@ -263,7 +265,8 @@ namespace RepositoryStd.Migrations
                     b.HasOne("ModelStd.DB.Stock.Symbol", "StockInfo")
                         .WithMany("Dividends")
                         .HasForeignKey("StockId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasConstraintName("FK_Dividend_StockInfo")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("ModelStd.DB.Stock.StockListStockInfo", b =>
@@ -307,7 +310,8 @@ namespace RepositoryStd.Migrations
                     b.HasOne("ModelStd.DB.Stock.Symbol", "StockInfo")
                         .WithMany("StockTradings")
                         .HasForeignKey("StockId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasConstraintName("FK_StockTrading_StockInfo")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }

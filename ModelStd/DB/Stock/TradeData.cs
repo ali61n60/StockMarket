@@ -82,7 +82,7 @@ namespace ModelStd.DB.Stock
             return pointData;
         }
 
-        public virtual StockInfo StockInfo { get; set; }
+        public virtual Symbol StockInfo { get; set; }
 
     }
 }

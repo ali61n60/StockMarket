@@ -9,17 +9,17 @@ namespace ModelStd.DB.Stock
     [Table("SymbolGroup", Schema = "stock")]
     public class SymbolGroup
     {
-        [Column("groupId")]
+        [Column("id")]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int GroupId { get; set; }
+        public int Id { get; set; }
 
-        [Column("groupName")]
+        [Column("name")]
         [Required]
         [MaxLength(150)]
-        public string groupName { get; set; }
+        public string Name { get; set; }
 
-        public virtual ICollection<StockInfo> Stocks { get; set; }
+        public virtual ICollection<Symbol> Symbols { get; set; }
 
     }
 }

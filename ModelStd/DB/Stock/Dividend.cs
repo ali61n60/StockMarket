@@ -23,7 +23,7 @@ namespace ModelStd.DB.Stock
         [Required]
         public double Value { get; set; }
 
-        public virtual StockInfo StockInfo { get; set; }
+        public virtual Symbol StockInfo { get; set; }
 
     }
 }
