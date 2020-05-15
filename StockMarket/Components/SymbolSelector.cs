@@ -17,7 +17,7 @@ namespace StockMarket.Components
         private List<Symbol> symbols;
         private List<CustomGroup> customGroups;
 
-        //public Symbol SelectedSymbol { get { return comboBoxSymbol.SelectedValue} }
+        
         public SymbolSelector()
         {
             InitializeComponent();

@@ -42,9 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxName = new System.Windows.Forms.ComboBox();
             this.panelSold = new System.Windows.Forms.Panel();
-            this.symbolSelector1 = new StockMarket.Components.SymbolSelector();
             this.panelBought = new System.Windows.Forms.Panel();
-            this.symbolSelector2 = new StockMarket.Components.SymbolSelector();
             this.labelVolume2 = new System.Windows.Forms.Label();
             this.textBoxVolumeBought = new System.Windows.Forms.TextBox();
             this.labelPricePerShare2 = new System.Windows.Forms.Label();
@@ -52,6 +50,8 @@
             this.textBoxPricePerShareBought = new System.Windows.Forms.TextBox();
             this.labelBought = new System.Windows.Forms.Label();
             this.textBoxTotalPriceBought = new System.Windows.Forms.TextBox();
+            this.symbolSelector2 = new StockMarket.Components.SymbolSelector();
+            this.symbolSelector1 = new StockMarket.Components.SymbolSelector();
             this.panelSold.SuspendLayout();
             this.panelBought.SuspendLayout();
             this.SuspendLayout();
@@ -180,16 +180,8 @@
             this.panelSold.Controls.Add(this.textBoxTotalPriceSold);
             this.panelSold.Location = new System.Drawing.Point(40, 119);
             this.panelSold.Name = "panelSold";
-            this.panelSold.Size = new System.Drawing.Size(306, 217);
+            this.panelSold.Size = new System.Drawing.Size(378, 217);
             this.panelSold.TabIndex = 35;
-            // 
-            // symbolSelector1
-            // 
-            this.symbolSelector1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.symbolSelector1.Location = new System.Drawing.Point(63, 3);
-            this.symbolSelector1.Name = "symbolSelector1";
-            this.symbolSelector1.Size = new System.Drawing.Size(198, 77);
-            this.symbolSelector1.TabIndex = 31;
             // 
             // panelBought
             // 
@@ -201,18 +193,10 @@
             this.panelBought.Controls.Add(this.textBoxPricePerShareBought);
             this.panelBought.Controls.Add(this.labelBought);
             this.panelBought.Controls.Add(this.textBoxTotalPriceBought);
-            this.panelBought.Location = new System.Drawing.Point(426, 119);
+            this.panelBought.Location = new System.Drawing.Point(511, 108);
             this.panelBought.Name = "panelBought";
-            this.panelBought.Size = new System.Drawing.Size(306, 217);
+            this.panelBought.Size = new System.Drawing.Size(390, 217);
             this.panelBought.TabIndex = 36;
-            // 
-            // symbolSelector2
-            // 
-            this.symbolSelector2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.symbolSelector2.Location = new System.Drawing.Point(73, 10);
-            this.symbolSelector2.Name = "symbolSelector2";
-            this.symbolSelector2.Size = new System.Drawing.Size(198, 77);
-            this.symbolSelector2.TabIndex = 31;
             // 
             // labelVolume2
             // 
@@ -273,6 +257,22 @@
             this.textBoxTotalPriceBought.Size = new System.Drawing.Size(121, 20);
             this.textBoxTotalPriceBought.TabIndex = 30;
             this.textBoxTotalPriceBought.Text = "0";
+            // 
+            // symbolSelector2
+            // 
+            this.symbolSelector2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.symbolSelector2.Location = new System.Drawing.Point(73, 10);
+            this.symbolSelector2.Name = "symbolSelector2";
+            this.symbolSelector2.Size = new System.Drawing.Size(282, 77);
+            this.symbolSelector2.TabIndex = 31;
+            // 
+            // symbolSelector1
+            // 
+            this.symbolSelector1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.symbolSelector1.Location = new System.Drawing.Point(63, 3);
+            this.symbolSelector1.Name = "symbolSelector1";
+            this.symbolSelector1.Size = new System.Drawing.Size(288, 77);
+            this.symbolSelector1.TabIndex = 31;
             // 
             // StockExchange
             // 

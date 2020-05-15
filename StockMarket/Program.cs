@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,8 +17,7 @@ namespace StockMarket
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StockExchange());
-            //Application.Run(new Form1());
+            Application.Run(new StockExchange());            
         }
-    }
+    }      
 }

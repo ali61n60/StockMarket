@@ -79,7 +79,7 @@
             this.Controls.Add(this.labelSymbol);
             this.Controls.Add(this.labelGroup);
             this.Name = "SymbolSelector";
-            this.Size = new System.Drawing.Size(271, 77);
+            this.Size = new System.Drawing.Size(297, 77);
             this.ResumeLayout(false);
             this.PerformLayout();
 
