@@ -168,6 +168,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Finance\finance.xlsx" />
+    <None Include="Finance\Translation\Completed.docx" />
+    <None Include="Finance\Translation\Completed.pdf" />
+    <None Include="Finance\Translation\Computer Security of Instrumentation and Control Systems at Nuclear Facilities.pdf" />
+    <None Include="Finance\Translation\TranslatedDocument.docx" />
+    <None Include="Finance\Translation\TranslationSection1-2-3.docx" />
+    <None Include="Finance\Translation\TranslationSection1-2-3.pdf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
