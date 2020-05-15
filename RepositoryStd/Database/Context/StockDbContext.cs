@@ -36,6 +36,8 @@ namespace RepositoryStd
         public virtual DbSet<SymbolGroup> SymbolGroups { get; set; }
         public virtual DbSet<LiveDataUrl> LiveDataUrls { get; set; }
 
+        public virtual DbSet<StockExchange> StockExchanges { get; set; }
+
         public virtual DbSet<Dividend> Dividends { get; set; }
         public virtual DbSet<CapitalIncrease> CapitalIncreases { get; set; }
         public virtual DbSet<TradeData> TradeDatas { get; set; }
@@ -61,7 +63,26 @@ namespace RepositoryStd
                 .HasConstraintName("FK_Symbol_SymbolGroup");
             });
 
-           
+            modelBuilder.Entity<StockExchange>(entity=>
+            {
+                entity.HasOne<Symbol>(s => s.SoldSymbol)
+                .WithMany(s => s.SoldStockExchages)
+                .HasForeignKey(s=>s.SoldSymbolId)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_StockExchageSold_Symbol");
+            });
+
+            modelBuilder.Entity<StockExchange>(entity =>
+            {
+                entity.HasOne<Symbol>(s => s.BoughtSymbol)
+                .WithMany(s => s.BoughtStockExchages)
+                .HasForeignKey(s=>s.BoughtSymbolId)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_StockExchageBought_Symbol");
+            });
+
+
+
 
             modelBuilder.Entity<Dividend>(entity =>
             {

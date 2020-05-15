@@ -44,6 +44,9 @@ namespace ModelStd.DB.Stock
         public virtual SymbolGroup SymbolGroup { get; set; }
         public virtual LiveDataUrl LiveDataUrl { get; set; }
 
+        public virtual ICollection<StockExchange> SoldStockExchages { get; set; }
+        public virtual ICollection<StockExchange> BoughtStockExchages { get; set; }
+
         public virtual ICollection<Dividend> Dividends { get; set; }
         public virtual ICollection<StockTrading> StockTradings { get; set; }
         public virtual ICollection<StockListStockInfo> StockListStockInfo { get; set; }
