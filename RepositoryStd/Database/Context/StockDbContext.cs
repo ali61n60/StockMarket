@@ -45,8 +45,8 @@ namespace RepositoryStd
         public virtual DbSet<Shareholder> Shareholders { get; set; }
         public virtual DbSet<StockTrading> StockTradings { get; set; }
 
-        public virtual DbSet<CustomGroup> StockList { get; set; }
-        public virtual DbSet<CustomGroupMember> StockListStockInfos { get; set; }
+        public virtual DbSet<CustomGroup> CustomGroups { get; set; }
+        public virtual DbSet<CustomGroupMember> CustomGroupMembers { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

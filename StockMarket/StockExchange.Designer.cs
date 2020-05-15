@@ -54,6 +54,7 @@
             this.labelBought = new System.Windows.Forms.Label();
             this.label1Symbol2 = new System.Windows.Forms.Label();
             this.textBoxTotalPriceBought = new System.Windows.Forms.TextBox();
+            
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -294,12 +295,13 @@
             this.textBoxTotalPriceBought.Size = new System.Drawing.Size(121, 20);
             this.textBoxTotalPriceBought.TabIndex = 30;
             this.textBoxTotalPriceBought.Text = "0";
+           
             // 
             // StockExchange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1222, 450);            
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dateTimePicker1);
@@ -347,5 +349,6 @@
         private System.Windows.Forms.Label labelBought;
         private System.Windows.Forms.Label label1Symbol2;
         private System.Windows.Forms.TextBox textBoxTotalPriceBought;
+        
     }
 }

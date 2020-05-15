@@ -59,6 +59,7 @@
             this.comboBoxGroup.Name = "comboBoxGroup";
             this.comboBoxGroup.Size = new System.Drawing.Size(121, 21);
             this.comboBoxGroup.TabIndex = 2;
+            this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
             // 
             // comboBoxSymbol
             // 
