@@ -132,6 +132,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\SymbolSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\SymbolSelector.Designer.cs">
+      <DependentUpon>SymbolSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
       <DependentUpon>StockExchange.cs</DependentUpon>
     </Compile>
     <Compile Include="TODO.cs" />
+    <EmbeddedResource Include="Components\SymbolSelector.resx">
+      <DependentUpon>SymbolSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

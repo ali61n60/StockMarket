@@ -45,8 +45,8 @@ namespace RepositoryStd
         public virtual DbSet<Shareholder> Shareholders { get; set; }
         public virtual DbSet<StockTrading> StockTradings { get; set; }
 
-        public virtual DbSet<StockList> StockList { get; set; }
-        public virtual DbSet<StockListStockInfo> StockListStockInfos { get; set; }
+        public virtual DbSet<CustomGroup> StockList { get; set; }
+        public virtual DbSet<CustomGroupMember> StockListStockInfos { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -111,16 +111,16 @@ namespace RepositoryStd
             });
 
 
-            modelBuilder.Entity<StockListStockInfo>()
-                .HasKey(s => new { s.ListId, s.SymbolId });
+            modelBuilder.Entity<CustomGroupMember>()
+                .HasKey(s => new { s.GroupId, s.SymbolId });
 
-            modelBuilder.Entity<StockListStockInfo>()
-              .HasOne<StockList>(sc => sc.StockList)
-              .WithMany(s => s.StockListStockInfo)
-              .HasForeignKey(sc => sc.ListId);
+            modelBuilder.Entity<CustomGroupMember>()
+              .HasOne<CustomGroup>(sc => sc.StockList)
+              .WithMany(s => s.CustomGroupMembers)
+              .HasForeignKey(sc => sc.GroupId);
 
 
-            modelBuilder.Entity<StockListStockInfo>()
+            modelBuilder.Entity<CustomGroupMember>()
                 .HasOne<Symbol>(sc => sc.Symbol)
                 .WithMany(s => s.StockListStockInfo)
                 .HasForeignKey(sc => sc.SymbolId);

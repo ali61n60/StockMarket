@@ -38,8 +38,8 @@ namespace StockMarket
         {
             
             StockDbContext dbContext = new StockDbContext();
-            List<StockList> stockList = dbContext.StockList.ToList();
-            foreach(StockList s in stockList)
+            List<CustomGroup> stockList = dbContext.StockList.ToList();
+            foreach(CustomGroup s in stockList)
             {
                 comboBoxList1.Items.Add(s.Name);
             }
@@ -236,11 +236,11 @@ namespace StockMarket
             string selectdListName = comboBoxList1.SelectedItem.ToString();
             var temp = stockDbContext.StockList.Where(s => s.Name == selectdListName);
             int listId = stockDbContext.StockList.Where(s => s.Name == selectdListName).First().Id;
-            List<StockListStockInfo> stockListStockInfo = stockDbContext.StockListStockInfos
+            List<CustomGroupMember> stockListStockInfo = stockDbContext.StockListStockInfos
                 .Include(s=>s.Symbol)
-                .Where(s => s.ListId == listId).ToList();
+                .Where(s => s.GroupId == listId).ToList();
             comboBox1.Items.Clear();
-            foreach (StockListStockInfo s in stockListStockInfo)
+            foreach (CustomGroupMember s in stockListStockInfo)
             {
                 comboBox1.Items.Add(s.Symbol.NamePersian);
             }

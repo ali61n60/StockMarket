@@ -9,7 +9,7 @@ namespace ModelStd.DB.Stock
     {
         public Symbol()
         {
-            StockListStockInfo = new HashSet<StockListStockInfo>();
+            StockListStockInfo = new HashSet<CustomGroupMember>();
         }
 
         [Key]
@@ -49,6 +49,6 @@ namespace ModelStd.DB.Stock
 
         public virtual ICollection<Dividend> Dividends { get; set; }
         public virtual ICollection<StockTrading> StockTradings { get; set; }
-        public virtual ICollection<StockListStockInfo> StockListStockInfo { get; set; }
+        public virtual ICollection<CustomGroupMember> StockListStockInfo { get; set; }
     }
 }      

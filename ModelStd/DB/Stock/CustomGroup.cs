@@ -6,12 +6,12 @@ using System.Text;
 
 namespace ModelStd.DB.Stock
 {
-    [Table("StockList", Schema = "stock")]
-    public class StockList
+    [Table("CustomGroup", Schema = "stock")]
+    public class CustomGroup
     {
-        public StockList()
+        public CustomGroup()
         {
-            StockListStockInfo = new HashSet<StockListStockInfo>();
+            CustomGroupMembers = new HashSet<CustomGroupMember>();
         }
 
         [Key]
@@ -24,20 +24,20 @@ namespace ModelStd.DB.Stock
         [MaxLength(150)]
         public string Name { get; set; }
 
-        public virtual ICollection<StockListStockInfo> StockListStockInfo { get; set; }
+        public virtual ICollection<CustomGroupMember> CustomGroupMembers { get; set; }
     }
 
-    [Table("StockListStockInfo", Schema = "stock")]
-    public class StockListStockInfo
+    [Table("customGroupMember", Schema = "stock")]
+    public class CustomGroupMember
     {
         
-        [Column("listId")]
+        [Column("groupId")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ListId { get; set; }
+        public int GroupId { get; set; }
 
-        public StockList StockList { get; set; }
+        public CustomGroup StockList { get; set; }
 
-        [Column("stockInfoId")]
+        [Column("symbolId")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int SymbolId { get; set; }
 
