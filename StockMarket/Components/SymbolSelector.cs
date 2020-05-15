@@ -29,7 +29,7 @@ namespace StockMarket.Components
 
         private void init()
         {
-            initCumboboxGroup();           
+            //initCumboboxGroup();           
 
         }
 
