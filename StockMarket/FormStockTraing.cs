@@ -16,7 +16,7 @@ namespace StockMarket
     public partial class FormStockTraing : Form
     {
         List<Shareholder> listShareholder;
-        List<Symbol> listStockInfo;
+        List<Symbol> listSymbol;
         public FormStockTraing()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace StockMarket
         private void init()
         {
             initComboboxName();
-            initComboboxStockInfo();            
+            initComboboxSymbols();            
         }
 
         private void initComboboxName()
@@ -36,15 +36,14 @@ namespace StockMarket
             foreach(Shareholder s in listShareholder)
             {
                 comboBoxName.Items.Add(s.Name);
-            }
-            
+            }            
         }
 
-        private void initComboboxStockInfo()
+        private void initComboboxSymbols()
         {
             StockDbContext stockDbContext = new StockDbContext();
-            listStockInfo = stockDbContext.Symbols.ToList();
-            foreach (Symbol s in listStockInfo)
+            listSymbol = stockDbContext.Symbols.ToList();
+            foreach (Symbol s in listSymbol)
             {
                 comboBoxStockInfo.Items.Add(s.NamePersian);
             }
@@ -54,7 +53,7 @@ namespace StockMarket
         {
             StockDbContext stockDbContext = new StockDbContext();
             Shareholder shareholder = listShareholder.Find(s => s.Name == comboBoxName.SelectedItem.ToString());
-            Symbol stockInfo = listStockInfo.Find(s => s.NamePersian == comboBoxStockInfo.SelectedItem.ToString());
+            Symbol stockInfo = listSymbol.Find(s => s.NamePersian == comboBoxStockInfo.SelectedItem.ToString());
 
             TradeType tradeType = radioButtonBuy.Checked ? TradeType.Buy : TradeType.Sell;
             int volume = int.Parse(textBoxVolume.Text);
@@ -81,10 +80,6 @@ namespace StockMarket
             {
                 labelMessage.Text = ex.Message;
             }
-            
-
-            
-
         }
     }
 }

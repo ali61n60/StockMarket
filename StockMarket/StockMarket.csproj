@@ -168,6 +168,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StockExchange.resx">
+      <DependentUpon>StockExchange.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Finance\finance.xlsx" />
     <None Include="Finance\Translation\Completed.docx" />
     <None Include="Finance\Translation\Completed.pdf" />
