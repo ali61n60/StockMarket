@@ -19,7 +19,7 @@ namespace StockMarket
         private string GhadirUrl = "http://www.tsetmc.com/tsev2/data/instinfofast.aspx?i=26014913469567886&c=39+";
         private string ZagrosUrl = "http://www.tsetmc.com/tsev2/data/instinfodata.aspx?i=13235547361447092&c=44+";
 
-        bool runRatio = true;
+        bool runRatio = false;
 
         public FormRatio()
         {
@@ -34,38 +34,48 @@ namespace StockMarket
 
         private void run()
         {
-            double ghadirPrice;
-            double zagrosPrice;
-            double parsPrice;
+            ReturnData ghadirPrice;
+            ReturnData zagrosPrice;
+            ReturnData parsPrice;
+            string formatter = "#,#.0000#;(#,#.0000#)";
             while (runRatio)
             {
+                try
+                {
                 ghadirPrice = GetPrice(GhadirUrl);
                 zagrosPrice = GetPrice(ZagrosUrl);
                 parsPrice = GetPrice(ParsUrl);
-                try
+
+                if (ghadirPrice.resultOk && zagrosPrice.resultOk && parsPrice.resultOk)
                 {
-                    labelGhGh.Text = (ghadirPrice / ghadirPrice).ToString();
-                    labelGhPa.Text = (ghadirPrice / parsPrice).ToString();
-                    labelGhZa.Text = (ghadirPrice / zagrosPrice).ToString();
-                    labelPaGh.Text = (parsPrice / ghadirPrice).ToString();
-                    labelPaPa.Text = (parsPrice / parsPrice).ToString();
-                    labelPaZa.Text = (parsPrice / zagrosPrice).ToString();
-                    labelZaGh.Text = (zagrosPrice / ghadirPrice).ToString();
-                    labelZaPa.Text = (zagrosPrice / parsPrice).ToString();
-                    labelZaZa.Text = (zagrosPrice / zagrosPrice).ToString();
+                        labelGhGh.Invoke((MethodInvoker)delegate {
+                            labelGhGh.Text = (ghadirPrice.price / ghadirPrice.price).ToString(formatter);
+                            labelGhPa.Text = (ghadirPrice.price / parsPrice.price).ToString(formatter);
+                            labelGhZa.Text = (ghadirPrice.price / zagrosPrice.price).ToString(formatter);
+                            labelPaGh.Text = (parsPrice.price / ghadirPrice.price).ToString(formatter);
+                            labelPaPa.Text = "ghadr=" + ghadirPrice.price + " , zagros=" + zagrosPrice.price + "  ,pars=" + parsPrice.price+" , "+DateTime.Now.ToString();
+                            labelPaZa.Text = (parsPrice.price / zagrosPrice.price).ToString(formatter);
+                            labelZaGh.Text = (zagrosPrice.price / ghadirPrice.price).ToString(formatter);
+                            labelZaPa.Text = (zagrosPrice.price / parsPrice.price).ToString(formatter);
+                            labelZaZa.Text = (zagrosPrice.price / zagrosPrice.price).ToString(formatter);
+
+                        });
+
+
+                    }
                 }
                 catch(Exception ex)
                 {
 
                 }
-                
-                
+
+                Thread.Sleep(5000);
 
             }
 
         }
 
-        private double GetPrice(string url)
+        private ReturnData GetPrice(string url)
         {
             try
             {
@@ -74,25 +84,24 @@ namespace StockMarket
 
                 SymbolData symbolData = symbolDataTask.Result;
 
-                return double.Parse(symbolData.TransactionPrice);
+                return new ReturnData()
+                {
+                    price = double.Parse(symbolData.TransactionPrice),
+                    resultOk = true
+                };
             }
             catch (Exception ex)
             {
-                return 1;
+               return new ReturnData()
+                {
+                    price = 1,
+                    resultOk = false
+                };
             }
             
         }
 
-        private void GetZagros()
-        {
-
-        }
-
-        private void GetPars()
-        {
-
-        }
-
+        
         private void buttonController_Click(object sender, EventArgs e)
         {
             if (runRatio)
@@ -107,5 +116,11 @@ namespace StockMarket
                 startLoop();
             }
         }
+    }
+
+    class ReturnData
+    {
+        public double price;
+        public bool resultOk;
     }
 }
