@@ -18,6 +18,7 @@ namespace StockMarketTests
         {
             //SymbolLiveData symbolLiveData = new SymbolLiveData("("http://www.tsetmc.com/tsev2/data/instinfodata.aspx?i=6110133418282108&c=44+");
             StockDbContext stockDbContext =new StockDbContext();
+            List<Symbol> symbols = stockDbContext.Symbols.ToList();
             List<LiveDataUrl> liveDataUrls= stockDbContext.LiveDataUrls.ToList();
             SymbolLiveData symbolLiveData = new SymbolLiveData(liveDataUrls.First(a=>a.SymbolId==1).Url);
             Task<SymbolData> symbolDataTask = symbolLiveData.GetLiveDataAsync();

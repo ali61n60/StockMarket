@@ -8,7 +8,8 @@ namespace StockMarket
 {
     class TODO
     {
-        //Create text code from database data of symbolInfo and symbolGroup tables
+        //Add livedataurl data into the table
+        //crate a form to show live data
         //Add forms to edit symbol info and symbol groups
     }
 }

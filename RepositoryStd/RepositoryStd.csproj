@@ -12,6 +12,7 @@
     <Compile Remove="Migrations\20200514225230_step18.cs" />
     <Compile Remove="Migrations\20200514233353_step19.cs" />
     <Compile Remove="Migrations\20200514233614_step19.cs" />
+    <Compile Remove="Migrations\20200515001101_step20.cs" />
   </ItemGroup>
 
   <ItemGroup>

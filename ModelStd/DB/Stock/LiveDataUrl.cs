@@ -27,7 +27,7 @@ namespace ModelStd.DB.Stock
         [Required]
         public int SymbolId { get; set; }
 
-        public virtual Symbol Symbol { get; set; }
+      //  public virtual Symbol Symbol { get; set; }
 
 
 
