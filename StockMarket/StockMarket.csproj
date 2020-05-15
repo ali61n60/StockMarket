@@ -146,6 +146,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StockExchange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockExchange.Designer.cs">
+      <DependentUpon>StockExchange.cs</DependentUpon>
+    </Compile>
     <Compile Include="TODO.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

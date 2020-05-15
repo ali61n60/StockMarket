@@ -10,6 +10,7 @@ namespace StockMarket
     {
         //Add livedataurl data into the table
         //crate a form to show live data
+        //create a form to insert stock exchange data
         //Add forms to edit symbol info and symbol groups
     }
 }
