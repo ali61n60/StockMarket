@@ -39,24 +39,21 @@
             this.textBoxVolumeSold = new System.Windows.Forms.TextBox();
             this.labelVolume1 = new System.Windows.Forms.Label();
             this.labelSold = new System.Windows.Forms.Label();
-            this.comboBoxSymbolSold = new System.Windows.Forms.ComboBox();
-            this.labelSybmol1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxName = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelSold = new System.Windows.Forms.Panel();
+            this.symbolSelector1 = new StockMarket.Components.SymbolSelector();
+            this.panelBought = new System.Windows.Forms.Panel();
+            this.symbolSelector2 = new StockMarket.Components.SymbolSelector();
             this.labelVolume2 = new System.Windows.Forms.Label();
             this.textBoxVolumeBought = new System.Windows.Forms.TextBox();
             this.labelPricePerShare2 = new System.Windows.Forms.Label();
             this.labelTotalPrice2 = new System.Windows.Forms.Label();
             this.textBoxPricePerShareBought = new System.Windows.Forms.TextBox();
-            this.comboBoxSymbolBought = new System.Windows.Forms.ComboBox();
             this.labelBought = new System.Windows.Forms.Label();
-            this.label1Symbol2 = new System.Windows.Forms.Label();
             this.textBoxTotalPriceBought = new System.Windows.Forms.TextBox();
-            
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panelSold.SuspendLayout();
+            this.panelBought.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -153,23 +150,6 @@
             this.labelSold.TabIndex = 22;
             this.labelSold.Text = "Sold";
             // 
-            // comboBoxSymbolSold
-            // 
-            this.comboBoxSymbolSold.FormattingEnabled = true;
-            this.comboBoxSymbolSold.Location = new System.Drawing.Point(126, 33);
-            this.comboBoxSymbolSold.Name = "comboBoxSymbolSold";
-            this.comboBoxSymbolSold.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxSymbolSold.TabIndex = 21;
-            // 
-            // labelSybmol1
-            // 
-            this.labelSybmol1.AutoSize = true;
-            this.labelSybmol1.Location = new System.Drawing.Point(25, 41);
-            this.labelSybmol1.Name = "labelSybmol1";
-            this.labelSybmol1.Size = new System.Drawing.Size(41, 13);
-            this.labelSybmol1.TabIndex = 20;
-            this.labelSybmol1.Text = "Symbol";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -187,37 +167,52 @@
             this.comboBoxName.Size = new System.Drawing.Size(121, 21);
             this.comboBoxName.TabIndex = 18;
             // 
-            // panel1
+            // panelSold
             // 
-            this.panel1.Controls.Add(this.labelVolume1);
-            this.panel1.Controls.Add(this.textBoxVolumeSold);
-            this.panel1.Controls.Add(this.labelPricePerShare1);
-            this.panel1.Controls.Add(this.labelTotalPrice1);
-            this.panel1.Controls.Add(this.textBoxPricePerShareSold);
-            this.panel1.Controls.Add(this.comboBoxSymbolSold);
-            this.panel1.Controls.Add(this.labelSold);
-            this.panel1.Controls.Add(this.labelSybmol1);
-            this.panel1.Controls.Add(this.textBoxTotalPriceSold);
-            this.panel1.Location = new System.Drawing.Point(40, 119);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(306, 217);
-            this.panel1.TabIndex = 35;
+            this.panelSold.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panelSold.Controls.Add(this.symbolSelector1);
+            this.panelSold.Controls.Add(this.labelVolume1);
+            this.panelSold.Controls.Add(this.textBoxVolumeSold);
+            this.panelSold.Controls.Add(this.labelPricePerShare1);
+            this.panelSold.Controls.Add(this.labelTotalPrice1);
+            this.panelSold.Controls.Add(this.textBoxPricePerShareSold);
+            this.panelSold.Controls.Add(this.labelSold);
+            this.panelSold.Controls.Add(this.textBoxTotalPriceSold);
+            this.panelSold.Location = new System.Drawing.Point(40, 119);
+            this.panelSold.Name = "panelSold";
+            this.panelSold.Size = new System.Drawing.Size(306, 217);
+            this.panelSold.TabIndex = 35;
             // 
-            // panel2
+            // symbolSelector1
             // 
-            this.panel2.Controls.Add(this.labelVolume2);
-            this.panel2.Controls.Add(this.textBoxVolumeBought);
-            this.panel2.Controls.Add(this.labelPricePerShare2);
-            this.panel2.Controls.Add(this.labelTotalPrice2);
-            this.panel2.Controls.Add(this.textBoxPricePerShareBought);
-            this.panel2.Controls.Add(this.comboBoxSymbolBought);
-            this.panel2.Controls.Add(this.labelBought);
-            this.panel2.Controls.Add(this.label1Symbol2);
-            this.panel2.Controls.Add(this.textBoxTotalPriceBought);
-            this.panel2.Location = new System.Drawing.Point(426, 119);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(306, 217);
-            this.panel2.TabIndex = 36;
+            this.symbolSelector1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.symbolSelector1.Location = new System.Drawing.Point(63, 3);
+            this.symbolSelector1.Name = "symbolSelector1";
+            this.symbolSelector1.Size = new System.Drawing.Size(198, 77);
+            this.symbolSelector1.TabIndex = 31;
+            // 
+            // panelBought
+            // 
+            this.panelBought.Controls.Add(this.symbolSelector2);
+            this.panelBought.Controls.Add(this.labelVolume2);
+            this.panelBought.Controls.Add(this.textBoxVolumeBought);
+            this.panelBought.Controls.Add(this.labelPricePerShare2);
+            this.panelBought.Controls.Add(this.labelTotalPrice2);
+            this.panelBought.Controls.Add(this.textBoxPricePerShareBought);
+            this.panelBought.Controls.Add(this.labelBought);
+            this.panelBought.Controls.Add(this.textBoxTotalPriceBought);
+            this.panelBought.Location = new System.Drawing.Point(426, 119);
+            this.panelBought.Name = "panelBought";
+            this.panelBought.Size = new System.Drawing.Size(306, 217);
+            this.panelBought.TabIndex = 36;
+            // 
+            // symbolSelector2
+            // 
+            this.symbolSelector2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.symbolSelector2.Location = new System.Drawing.Point(73, 10);
+            this.symbolSelector2.Name = "symbolSelector2";
+            this.symbolSelector2.Size = new System.Drawing.Size(198, 77);
+            this.symbolSelector2.TabIndex = 31;
             // 
             // labelVolume2
             // 
@@ -262,14 +257,6 @@
             this.textBoxPricePerShareBought.TabIndex = 29;
             this.textBoxPricePerShareBought.Text = "0";
             // 
-            // comboBoxSymbolBought
-            // 
-            this.comboBoxSymbolBought.FormattingEnabled = true;
-            this.comboBoxSymbolBought.Location = new System.Drawing.Point(126, 33);
-            this.comboBoxSymbolBought.Name = "comboBoxSymbolBought";
-            this.comboBoxSymbolBought.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxSymbolBought.TabIndex = 21;
-            // 
             // labelBought
             // 
             this.labelBought.AutoSize = true;
@@ -279,15 +266,6 @@
             this.labelBought.TabIndex = 22;
             this.labelBought.Text = "Bought";
             // 
-            // label1Symbol2
-            // 
-            this.label1Symbol2.AutoSize = true;
-            this.label1Symbol2.Location = new System.Drawing.Point(25, 41);
-            this.label1Symbol2.Name = "label1Symbol2";
-            this.label1Symbol2.Size = new System.Drawing.Size(41, 13);
-            this.label1Symbol2.TabIndex = 20;
-            this.label1Symbol2.Text = "Symbol";
-            // 
             // textBoxTotalPriceBought
             // 
             this.textBoxTotalPriceBought.Location = new System.Drawing.Point(126, 171);
@@ -295,15 +273,14 @@
             this.textBoxTotalPriceBought.Size = new System.Drawing.Size(121, 20);
             this.textBoxTotalPriceBought.TabIndex = 30;
             this.textBoxTotalPriceBought.Text = "0";
-           
             // 
             // StockExchange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1222, 450);            
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1222, 450);
+            this.Controls.Add(this.panelBought);
+            this.Controls.Add(this.panelSold);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.buttonSubmit);
@@ -312,10 +289,10 @@
             this.Controls.Add(this.comboBoxName);
             this.Name = "StockExchange";
             this.Text = "StockExchange";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panelSold.ResumeLayout(false);
+            this.panelSold.PerformLayout();
+            this.panelBought.ResumeLayout(false);
+            this.panelBought.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,21 +311,18 @@
         private System.Windows.Forms.TextBox textBoxVolumeSold;
         private System.Windows.Forms.Label labelVolume1;
         private System.Windows.Forms.Label labelSold;
-        private System.Windows.Forms.ComboBox comboBoxSymbolSold;
-        private System.Windows.Forms.Label labelSybmol1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxName;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelSold;
+        private System.Windows.Forms.Panel panelBought;
         private System.Windows.Forms.Label labelVolume2;
         private System.Windows.Forms.TextBox textBoxVolumeBought;
         private System.Windows.Forms.Label labelPricePerShare2;
         private System.Windows.Forms.Label labelTotalPrice2;
         private System.Windows.Forms.TextBox textBoxPricePerShareBought;
-        private System.Windows.Forms.ComboBox comboBoxSymbolBought;
         private System.Windows.Forms.Label labelBought;
-        private System.Windows.Forms.Label label1Symbol2;
         private System.Windows.Forms.TextBox textBoxTotalPriceBought;
-        
+        private Components.SymbolSelector symbolSelector1;
+        private Components.SymbolSelector symbolSelector2;
     }
 }

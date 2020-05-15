@@ -21,13 +21,15 @@ namespace StockMarket.Components
         public SymbolSelector()
         {
             InitializeComponent();
-            init();
+            if (!DesignMode)
+            {
+                init();
+            }
         }
 
         private void init()
         {
-            initCumboboxGroup();
-            
+            initCumboboxGroup();           
 
         }
 

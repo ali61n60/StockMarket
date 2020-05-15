@@ -1,5 +1,6 @@
 ﻿using ModelStd.DB;
 using RepositoryStd;
+using StockMarket.Components;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace StockMarket
 {
     public partial class StockExchange : Form
     {
+       
         List<Shareholder> listShareholder;
         public StockExchange()
         {
@@ -23,10 +25,12 @@ namespace StockMarket
 
         private void init()
         {
+            
             initComboboxName();
            // initComboboxStockInfo();
         }
 
+        
         private void initComboboxName()
         {
             StockDbContext stockDbContext = new StockDbContext();

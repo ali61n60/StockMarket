@@ -46,7 +46,7 @@
             // labelSymbol
             // 
             this.labelSymbol.AutoSize = true;
-            this.labelSymbol.Location = new System.Drawing.Point(7, 62);
+            this.labelSymbol.Location = new System.Drawing.Point(7, 45);
             this.labelSymbol.Name = "labelSymbol";
             this.labelSymbol.Size = new System.Drawing.Size(41, 13);
             this.labelSymbol.TabIndex = 1;
@@ -57,28 +57,29 @@
             this.comboBoxGroup.FormattingEnabled = true;
             this.comboBoxGroup.Location = new System.Drawing.Point(63, 11);
             this.comboBoxGroup.Name = "comboBoxGroup";
-            this.comboBoxGroup.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxGroup.Size = new System.Drawing.Size(205, 21);
             this.comboBoxGroup.TabIndex = 2;
             this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
             // 
             // comboBoxSymbol
             // 
             this.comboBoxSymbol.FormattingEnabled = true;
-            this.comboBoxSymbol.Location = new System.Drawing.Point(63, 59);
+            this.comboBoxSymbol.Location = new System.Drawing.Point(63, 42);
             this.comboBoxSymbol.Name = "comboBoxSymbol";
-            this.comboBoxSymbol.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSymbol.Size = new System.Drawing.Size(205, 21);
             this.comboBoxSymbol.TabIndex = 3;
             // 
             // SymbolSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Controls.Add(this.comboBoxSymbol);
             this.Controls.Add(this.comboBoxGroup);
             this.Controls.Add(this.labelSymbol);
             this.Controls.Add(this.labelGroup);
             this.Name = "SymbolSelector";
-            this.Size = new System.Drawing.Size(222, 103);
+            this.Size = new System.Drawing.Size(271, 77);
             this.ResumeLayout(false);
             this.PerformLayout();
 
