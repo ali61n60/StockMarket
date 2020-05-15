@@ -17,7 +17,7 @@ namespace StockMarket
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormStockExchange());            
+            Application.Run(new FormRatio());            
         }
     }      
 }

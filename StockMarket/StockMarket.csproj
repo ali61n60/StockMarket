@@ -172,6 +172,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormRatio.resx">
+      <DependentUpon>FormRatio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormStockTraing.resx">
       <DependentUpon>FormStockTraing.cs</DependentUpon>
     </EmbeddedResource>
