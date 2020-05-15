@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ModelStd.DB.Stock;
 using RepositoryStd;
@@ -17,19 +12,17 @@ namespace StockMarket.Components
         private List<Symbol> symbols;
         private List<CustomGroup> customGroups;
 
-        
+
         public SymbolSelector()
         {
             InitializeComponent();
-            if (!DesignMode)
-            {
-                init();
-            }
+            //init();
+
         }
 
         private void init()
         {
-            //initCumboboxGroup();           
+            initCumboboxGroup();
 
         }
 
@@ -46,7 +39,7 @@ namespace StockMarket.Components
 
         private void comboBoxGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
