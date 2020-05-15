@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace StockMarket
 {
-    public partial class StockExchange : Form
+    public partial class FormStockExchange : Form
     {
        
         List<Shareholder> listShareholder;
-        public StockExchange()
+        public FormStockExchange()
         {
             InitializeComponent();
             init();
@@ -27,9 +27,9 @@ namespace StockMarket
         {
             
             initComboboxName();
-           // initComboboxStockInfo();
+            initSold();
+            initBought();
         }
-
         
         private void initComboboxName()
         {
@@ -39,11 +39,39 @@ namespace StockMarket
             {
                 comboBoxName.Items.Add(s.Name);
             }
-
             if (comboBoxName.Items.Count > 0)
             {
                 comboBoxName.SelectedIndex = 0;
             }
+        }
+
+        private void initSold()
+        {
+            symbolSelectorSold.Init();
+        }
+
+        private void initBought()
+        {
+            symbolSelectorBought.Init();
+        }
+
+        private void buttonSubmit_Click(object sender, EventArgs e)
+        {
+            //todo get data from form fields and put it in the database
+            StockDbContext dbContext = new StockDbContext();
+            FormStockExchange newStockExchange = new FormStockExchange();
+            try
+            {
+                newStockExchange.
+                //dbContext.StockExchanges.Add(null);
+
+                labelMessage.Text = "Done at " + DateTime.Now.ToString();
+            }
+            catch(Exception ex)
+            {
+
+            }
+            
 
         }
     }

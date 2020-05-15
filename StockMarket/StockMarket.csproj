@@ -145,6 +145,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRatio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRatio.Designer.cs">
+      <DependentUpon>FormRatio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormStockTraing.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,11 +159,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StockExchange.cs">
+    <Compile Include="FormStockExchange.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StockExchange.Designer.cs">
-      <DependentUpon>StockExchange.cs</DependentUpon>
+    <Compile Include="FormStockExchange.Designer.cs">
+      <DependentUpon>FormStockExchange.cs</DependentUpon>
     </Compile>
     <Compile Include="TODO.cs" />
     <EmbeddedResource Include="Components\SymbolSelector.resx">
@@ -179,8 +185,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="StockExchange.resx">
-      <DependentUpon>StockExchange.cs</DependentUpon>
+    <EmbeddedResource Include="FormStockExchange.resx">
+      <DependentUpon>FormStockExchange.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Finance\finance.xlsx" />
     <None Include="Finance\Translation\Completed.docx" />

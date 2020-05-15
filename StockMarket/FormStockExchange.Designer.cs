@@ -1,6 +1,6 @@
 ﻿namespace StockMarket
 {
-    partial class StockExchange
+    partial class FormStockExchange
     {
         /// <summary>
         /// Required designer variable.
@@ -42,9 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxName = new System.Windows.Forms.ComboBox();
             this.panelSold = new System.Windows.Forms.Panel();
-            this.symbolSelector1 = new StockMarket.Components.SymbolSelector();
             this.panelBought = new System.Windows.Forms.Panel();
-            this.symbolSelector2 = new StockMarket.Components.SymbolSelector();
             this.labelVolume2 = new System.Windows.Forms.Label();
             this.textBoxVolumeBought = new System.Windows.Forms.TextBox();
             this.labelPricePerShare2 = new System.Windows.Forms.Label();
@@ -52,6 +50,8 @@
             this.textBoxPricePerShareBought = new System.Windows.Forms.TextBox();
             this.labelBought = new System.Windows.Forms.Label();
             this.textBoxTotalPriceBought = new System.Windows.Forms.TextBox();
+            this.symbolSelectorBought = new StockMarket.Components.SymbolSelector();
+            this.symbolSelectorSold = new StockMarket.Components.SymbolSelector();
             this.panelSold.SuspendLayout();
             this.panelBought.SuspendLayout();
             this.SuspendLayout();
@@ -80,6 +80,7 @@
             this.buttonSubmit.TabIndex = 32;
             this.buttonSubmit.Text = "Submit";
             this.buttonSubmit.UseVisualStyleBackColor = true;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
             // label7
             // 
@@ -170,7 +171,7 @@
             // panelSold
             // 
             this.panelSold.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panelSold.Controls.Add(this.symbolSelector1);
+            this.panelSold.Controls.Add(this.symbolSelectorSold);
             this.panelSold.Controls.Add(this.labelVolume1);
             this.panelSold.Controls.Add(this.textBoxVolumeSold);
             this.panelSold.Controls.Add(this.labelPricePerShare1);
@@ -183,17 +184,9 @@
             this.panelSold.Size = new System.Drawing.Size(378, 217);
             this.panelSold.TabIndex = 35;
             // 
-            // symbolSelector1
-            // 
-            this.symbolSelector1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.symbolSelector1.Location = new System.Drawing.Point(63, 3);
-            this.symbolSelector1.Name = "symbolSelector1";
-            this.symbolSelector1.Size = new System.Drawing.Size(288, 77);
-            this.symbolSelector1.TabIndex = 31;
-            // 
             // panelBought
             // 
-            this.panelBought.Controls.Add(this.symbolSelector2);
+            this.panelBought.Controls.Add(this.symbolSelectorBought);
             this.panelBought.Controls.Add(this.labelVolume2);
             this.panelBought.Controls.Add(this.textBoxVolumeBought);
             this.panelBought.Controls.Add(this.labelPricePerShare2);
@@ -205,14 +198,6 @@
             this.panelBought.Name = "panelBought";
             this.panelBought.Size = new System.Drawing.Size(390, 217);
             this.panelBought.TabIndex = 36;
-            // 
-            // symbolSelector2
-            // 
-            this.symbolSelector2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.symbolSelector2.Location = new System.Drawing.Point(73, 10);
-            this.symbolSelector2.Name = "symbolSelector2";
-            this.symbolSelector2.Size = new System.Drawing.Size(282, 77);
-            this.symbolSelector2.TabIndex = 31;
             // 
             // labelVolume2
             // 
@@ -274,6 +259,22 @@
             this.textBoxTotalPriceBought.TabIndex = 30;
             this.textBoxTotalPriceBought.Text = "0";
             // 
+            // symbolSelectorBought
+            // 
+            this.symbolSelectorBought.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.symbolSelectorBought.Location = new System.Drawing.Point(73, 10);
+            this.symbolSelectorBought.Name = "symbolSelectorBought";
+            this.symbolSelectorBought.Size = new System.Drawing.Size(282, 77);
+            this.symbolSelectorBought.TabIndex = 31;
+            // 
+            // symbolSelectorSold
+            // 
+            this.symbolSelectorSold.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.symbolSelectorSold.Location = new System.Drawing.Point(63, 3);
+            this.symbolSelectorSold.Name = "symbolSelectorSold";
+            this.symbolSelectorSold.Size = new System.Drawing.Size(288, 77);
+            this.symbolSelectorSold.TabIndex = 31;
+            // 
             // StockExchange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,7 +323,7 @@
         private System.Windows.Forms.TextBox textBoxPricePerShareBought;
         private System.Windows.Forms.Label labelBought;
         private System.Windows.Forms.TextBox textBoxTotalPriceBought;
-        private Components.SymbolSelector symbolSelector1;
-        private Components.SymbolSelector symbolSelector2;
+        private Components.SymbolSelector symbolSelectorSold;
+        private Components.SymbolSelector symbolSelectorBought;
     }
 }

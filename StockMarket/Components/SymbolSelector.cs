@@ -9,18 +9,17 @@ namespace StockMarket.Components
 {
     public partial class SymbolSelector : UserControl
     {
-        private List<Symbol> symbols;
+        private List<CustomGroupMember> groupMembers;
         private List<CustomGroup> customGroups;
 
 
         public SymbolSelector()
         {
-            InitializeComponent();
-            //init();
+            InitializeComponent();           
 
         }
 
-        private void init()
+        public void Init()
         {
             initCumboboxGroup();
 
@@ -35,11 +34,27 @@ namespace StockMarket.Components
                 comboBoxGroup.Items.Add(group.Name);
             }
             comboBoxGroup.SelectedIndex = 0;
+            comboBoxGroup_SelectedIndexChanged(null, null);
         }
 
         private void comboBoxGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
+            StockDbContext stockDbContext = new StockDbContext();
+            comboBoxSymbol.Items.Clear();
+            groupMembers = stockDbContext.CustomGroupMembers.Where(
+                member => member.GroupId == customGroups[comboBoxGroup.SelectedIndex].Id).ToList();
+            foreach(CustomGroupMember groupMember in groupMembers)
+            {
+                comboBoxSymbol.Items.Add(stockDbContext.Symbols.First(s=>s.Id==groupMember.SymbolId).NamePersian);
+            }
+            comboBoxSymbol.SelectedIndex = 0;
+            Symbol temp= GetSelectedSymbol();
+        }
 
+        public Symbol GetSelectedSymbol()
+        {
+            StockDbContext stockDbContext = new StockDbContext();
+            return stockDbContext.Symbols.First(s => s.NamePersian == comboBoxSymbol.SelectedItem.ToString());
         }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RepositoryStd;
 
 namespace RepositoryStd.Migrations
 {
     [DbContext(typeof(StockDbContext))]
-    partial class StockDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200515194209_step23")]
+    partial class step23
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -142,9 +144,9 @@ namespace RepositoryStd.Migrations
 
             modelBuilder.Entity("ModelStd.DB.Stock.StockExchange", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("Id2")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("id")
+                        .HasColumnName("id2")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("BoughtSymbolId")
@@ -168,7 +170,7 @@ namespace RepositoryStd.Migrations
                     b.Property<int>("SoldSymbolVolume")
                         .HasColumnName("soldSymbolVolume");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id2");
 
                     b.HasIndex("BoughtSymbolId");
 
