@@ -44,6 +44,11 @@
             this.labelZaPa = new System.Windows.Forms.Label();
             this.labelZaZa = new System.Windows.Forms.Label();
             this.buttonController = new System.Windows.Forms.Button();
+            this.labelSummary = new System.Windows.Forms.Label();
+            this.labelGhZaBest = new System.Windows.Forms.Label();
+            this.labelGhPaBest = new System.Windows.Forms.Label();
+            this.textBoxGhZaBest = new System.Windows.Forms.TextBox();
+            this.textBoxGhPaBest = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelVaGhdirC
@@ -58,7 +63,7 @@
             // labelGhPa
             // 
             this.labelGhPa.AutoSize = true;
-            this.labelGhPa.Location = new System.Drawing.Point(266, 28);
+            this.labelGhPa.Location = new System.Drawing.Point(273, 28);
             this.labelGhPa.Name = "labelGhPa";
             this.labelGhPa.Size = new System.Drawing.Size(13, 13);
             this.labelGhPa.TabIndex = 2;
@@ -130,7 +135,7 @@
             // labelZaGh
             // 
             this.labelZaGh.AutoSize = true;
-            this.labelZaGh.Location = new System.Drawing.Point(90, 75);
+            this.labelZaGh.Location = new System.Drawing.Point(101, 75);
             this.labelZaGh.Name = "labelZaGh";
             this.labelZaGh.Size = new System.Drawing.Size(13, 13);
             this.labelZaGh.TabIndex = 10;
@@ -139,7 +144,7 @@
             // labelPaPa
             // 
             this.labelPaPa.AutoSize = true;
-            this.labelPaPa.Location = new System.Drawing.Point(266, 117);
+            this.labelPaPa.Location = new System.Drawing.Point(273, 117);
             this.labelPaPa.Name = "labelPaPa";
             this.labelPaPa.Size = new System.Drawing.Size(13, 13);
             this.labelPaPa.TabIndex = 11;
@@ -166,7 +171,7 @@
             // labelZaPa
             // 
             this.labelZaPa.AutoSize = true;
-            this.labelZaPa.Location = new System.Drawing.Point(266, 75);
+            this.labelZaPa.Location = new System.Drawing.Point(273, 75);
             this.labelZaPa.Name = "labelZaPa";
             this.labelZaPa.Size = new System.Drawing.Size(13, 13);
             this.labelZaPa.TabIndex = 14;
@@ -191,11 +196,59 @@
             this.buttonController.UseVisualStyleBackColor = true;
             this.buttonController.Click += new System.EventHandler(this.buttonController_Click);
             // 
+            // labelSummary
+            // 
+            this.labelSummary.AutoSize = true;
+            this.labelSummary.Location = new System.Drawing.Point(28, 170);
+            this.labelSummary.Name = "labelSummary";
+            this.labelSummary.Size = new System.Drawing.Size(50, 13);
+            this.labelSummary.TabIndex = 17;
+            this.labelSummary.Text = "Summery";
+            // 
+            // labelGhZaBest
+            // 
+            this.labelGhZaBest.AutoSize = true;
+            this.labelGhZaBest.Location = new System.Drawing.Point(28, 209);
+            this.labelGhZaBest.Name = "labelGhZaBest";
+            this.labelGhZaBest.Size = new System.Drawing.Size(62, 13);
+            this.labelGhZaBest.TabIndex = 18;
+            this.labelGhZaBest.Text = "Gh/Za best";
+            // 
+            // labelGhPaBest
+            // 
+            this.labelGhPaBest.AutoSize = true;
+            this.labelGhPaBest.Location = new System.Drawing.Point(28, 254);
+            this.labelGhPaBest.Name = "labelGhPaBest";
+            this.labelGhPaBest.Size = new System.Drawing.Size(62, 13);
+            this.labelGhPaBest.TabIndex = 19;
+            this.labelGhPaBest.Text = "Gh/Pa best";
+            // 
+            // textBoxGhZaBest
+            // 
+            this.textBoxGhZaBest.Location = new System.Drawing.Point(95, 206);
+            this.textBoxGhZaBest.Name = "textBoxGhZaBest";
+            this.textBoxGhZaBest.Size = new System.Drawing.Size(100, 20);
+            this.textBoxGhZaBest.TabIndex = 20;
+            this.textBoxGhZaBest.Text = "0.08804226";
+            // 
+            // textBoxGhPaBest
+            // 
+            this.textBoxGhPaBest.Location = new System.Drawing.Point(95, 251);
+            this.textBoxGhPaBest.Name = "textBoxGhPaBest";
+            this.textBoxGhPaBest.Size = new System.Drawing.Size(100, 20);
+            this.textBoxGhPaBest.TabIndex = 21;
+            this.textBoxGhPaBest.Text = "0.084470195";
+            // 
             // FormRatio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBoxGhPaBest);
+            this.Controls.Add(this.textBoxGhZaBest);
+            this.Controls.Add(this.labelGhPaBest);
+            this.Controls.Add(this.labelGhZaBest);
+            this.Controls.Add(this.labelSummary);
             this.Controls.Add(this.buttonController);
             this.Controls.Add(this.labelZaZa);
             this.Controls.Add(this.labelZaPa);
@@ -237,5 +290,10 @@
         private System.Windows.Forms.Label labelZaPa;
         private System.Windows.Forms.Label labelZaZa;
         private System.Windows.Forms.Button buttonController;
+        private System.Windows.Forms.Label labelSummary;
+        private System.Windows.Forms.Label labelGhZaBest;
+        private System.Windows.Forms.Label labelGhPaBest;
+        private System.Windows.Forms.TextBox textBoxGhZaBest;
+        private System.Windows.Forms.TextBox textBoxGhPaBest;
     }
 }

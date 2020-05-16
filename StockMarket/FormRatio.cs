@@ -1,23 +1,17 @@
 ﻿using ModelStd.LiveData;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StockMarket
 {
-    
+
     public partial class FormRatio : Form
     {
-        private string ParsUrl = "http://www.tsetmc.com/tsev2/data/instinfodata.aspx?i=6110133418282108&c=44+";
-        private string GhadirUrl = "http://www.tsetmc.com/tsev2/data/instinfofast.aspx?i=26014913469567886&c=39+";
-        private string ZagrosUrl = "http://www.tsetmc.com/tsev2/data/instinfodata.aspx?i=13235547361447092&c=44+";
+        private string ParsUrl = "http://www.tsetmc.ir/tsev2/data/instinfodata.aspx?i=6110133418282108&c=44+";
+        private string GhadirUrl = "http://www.tsetmc.ir/tsev2/data/instinfofast.aspx?i=26014913469567886&c=39+";
+        private string ZagrosUrl = "http://www.tsetmc.ir/tsev2/data/instinfodata.aspx?i=13235547361447092&c=44+";
 
         bool runRatio = false;
 
@@ -37,6 +31,8 @@ namespace StockMarket
             ReturnData ghadirPrice;
             ReturnData zagrosPrice;
             ReturnData parsPrice;
+            double GhZaBest = double.Parse(textBoxGhZaBest.Text);
+            double GhPaBest = double.Parse(textBoxGhPaBest.Text);
             string formatter = "#,#.0000#;(#,#.0000#)";
             while (runRatio)
             {
@@ -49,30 +45,43 @@ namespace StockMarket
                 if (ghadirPrice.resultOk && zagrosPrice.resultOk && parsPrice.resultOk)
                 {
                         labelGhGh.Invoke((MethodInvoker)delegate {
+                            
                             labelGhGh.Text = (ghadirPrice.price / ghadirPrice.price).ToString(formatter);
                             labelGhPa.Text = (ghadirPrice.price / parsPrice.price).ToString(formatter);
                             labelGhZa.Text = (ghadirPrice.price / zagrosPrice.price).ToString(formatter);
                             labelPaGh.Text = (parsPrice.price / ghadirPrice.price).ToString(formatter);
-                            labelPaPa.Text = "ghadr=" + ghadirPrice.price + " , zagros=" + zagrosPrice.price + "  ,pars=" + parsPrice.price+" , "+DateTime.Now.ToString();
+                            labelPaPa.Text = (parsPrice.price / parsPrice.price).ToString(formatter);
                             labelPaZa.Text = (parsPrice.price / zagrosPrice.price).ToString(formatter);
                             labelZaGh.Text = (zagrosPrice.price / ghadirPrice.price).ToString(formatter);
                             labelZaPa.Text = (zagrosPrice.price / parsPrice.price).ToString(formatter);
                             labelZaZa.Text = (zagrosPrice.price / zagrosPrice.price).ToString(formatter);
 
+                            labelSummary.Text= "ghadr=" + ghadirPrice.price + " , zagros=" + zagrosPrice.price + "  ,pars=" + parsPrice.price + " , " + DateTime.Now.ToString();
+                            if ((ghadirPrice.price / zagrosPrice.price) > GhZaBest || GhZaBest / (ghadirPrice.price / zagrosPrice.price) > 1.03)
+                            {
+                                labelSummary.Text += " ,GhZa";
+                            }
+                            if ((ghadirPrice.price / parsPrice.price) > GhPaBest || GhPaBest / (ghadirPrice.price / parsPrice.price) > 1.03)
+                            {
+                                labelSummary.Text += " ,GhPa";
+                            }
                         });
-
-
+                    }
+                    else
+                    {
+                        labelGhGh.Invoke((MethodInvoker)delegate {
+                            labelSummary.Text = "Error";
+                        });
                     }
                 }
                 catch(Exception ex)
                 {
-
+                    labelGhGh.Invoke((MethodInvoker)delegate {
+                        labelSummary.Text = ex.Message;
+                    });
                 }
-
                 Thread.Sleep(5000);
-
             }
-
         }
 
         private ReturnData GetPrice(string url)
