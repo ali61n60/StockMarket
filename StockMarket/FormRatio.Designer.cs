@@ -49,6 +49,8 @@
             this.labelGhPaBest = new System.Windows.Forms.Label();
             this.textBoxGhZaBest = new System.Windows.Forms.TextBox();
             this.textBoxGhPaBest = new System.Windows.Forms.TextBox();
+            this.labelGhPatoBest = new System.Windows.Forms.Label();
+            this.labelGhZatoBest = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelVaGhdirC
@@ -239,11 +241,31 @@
             this.textBoxGhPaBest.TabIndex = 21;
             this.textBoxGhPaBest.Text = "0.084470195";
             // 
+            // labelGhPatoBest
+            // 
+            this.labelGhPatoBest.AutoSize = true;
+            this.labelGhPatoBest.Location = new System.Drawing.Point(201, 254);
+            this.labelGhPatoBest.Name = "labelGhPatoBest";
+            this.labelGhPatoBest.Size = new System.Drawing.Size(13, 13);
+            this.labelGhPatoBest.TabIndex = 22;
+            this.labelGhPatoBest.Text = "1";
+            // 
+            // labelGhZatoBest
+            // 
+            this.labelGhZatoBest.AutoSize = true;
+            this.labelGhZatoBest.Location = new System.Drawing.Point(201, 209);
+            this.labelGhZatoBest.Name = "labelGhZatoBest";
+            this.labelGhZatoBest.Size = new System.Drawing.Size(13, 13);
+            this.labelGhZatoBest.TabIndex = 23;
+            this.labelGhZatoBest.Text = "1";
+            // 
             // FormRatio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelGhZatoBest);
+            this.Controls.Add(this.labelGhPatoBest);
             this.Controls.Add(this.textBoxGhPaBest);
             this.Controls.Add(this.textBoxGhZaBest);
             this.Controls.Add(this.labelGhPaBest);
@@ -295,5 +317,7 @@
         private System.Windows.Forms.Label labelGhPaBest;
         private System.Windows.Forms.TextBox textBoxGhZaBest;
         private System.Windows.Forms.TextBox textBoxGhPaBest;
+        private System.Windows.Forms.Label labelGhPatoBest;
+        private System.Windows.Forms.Label labelGhZatoBest;
     }
 }

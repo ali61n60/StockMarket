@@ -65,6 +65,8 @@ namespace StockMarket
                             {
                                 labelSummary.Text += " ,GhPa";
                             }
+                            labelGhZatoBest.Text = ((ghadirPrice.price / zagrosPrice.price) / GhZaBest).ToString()+"   ,"+(0.97- ((ghadirPrice.price / zagrosPrice.price) / GhZaBest))*100;
+                            labelGhPatoBest.Text= ((ghadirPrice.price / parsPrice.price) / GhPaBest).ToString() + "   ," + (0.97 - ((ghadirPrice.price / parsPrice.price) / GhPaBest)) * 100;
                         });
                     }
                     else
