@@ -231,7 +231,7 @@
             this.textBoxGhZaBest.Name = "textBoxGhZaBest";
             this.textBoxGhZaBest.Size = new System.Drawing.Size(100, 20);
             this.textBoxGhZaBest.TabIndex = 20;
-            this.textBoxGhZaBest.Text = "0.08804226";
+            this.textBoxGhZaBest.Text = "0.0803062";
             // 
             // textBoxGhPaBest
             // 

@@ -25,9 +25,10 @@ namespace StockMarket
             Thread loopTread = new Thread(() => run());
             loopTread.Start();
         }
-
+        int numberOfCalls = 0;
         private void run()
         {
+            
             ReturnData ghadirPrice;
             ReturnData zagrosPrice;
             ReturnData parsPrice;
@@ -56,7 +57,7 @@ namespace StockMarket
                             labelZaPa.Text = (zagrosPrice.price / parsPrice.price).ToString(formatter);
                             labelZaZa.Text = (zagrosPrice.price / zagrosPrice.price).ToString(formatter);
 
-                            labelSummary.Text= "ghadr=" + ghadirPrice.price + " , zagros=" + zagrosPrice.price + "  ,pars=" + parsPrice.price + " , " + DateTime.Now.ToString();
+                            labelSummary.Text= numberOfCalls+" ,ghadr=" + ghadirPrice.price + " , zagros=" + zagrosPrice.price + "  ,pars=" + parsPrice.price + " , " + DateTime.Now.ToString();
                             if ((ghadirPrice.price / zagrosPrice.price) > GhZaBest || GhZaBest / (ghadirPrice.price / zagrosPrice.price) > 1.03)
                             {
                                 labelSummary.Text += " ,GhZa";
@@ -72,7 +73,7 @@ namespace StockMarket
                     else
                     {
                         labelGhGh.Invoke((MethodInvoker)delegate {
-                            labelSummary.Text = "Error";
+                            labelSummary.Text = numberOfCalls+ " ,Error";
                         });
                     }
                 }
@@ -82,12 +83,13 @@ namespace StockMarket
                         labelSummary.Text = ex.Message;
                     });
                 }
-                Thread.Sleep(5000);
+                Thread.Sleep(20000);
             }
         }
 
         private ReturnData GetPrice(string url)
         {
+            numberOfCalls++;
             try
             {
                 SymbolLiveData symbolLiveData = new SymbolLiveData(url);
