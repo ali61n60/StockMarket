@@ -83,7 +83,7 @@ namespace StockMarket
                         labelSummary.Text = ex.Message;
                     });
                 }
-                Thread.Sleep(3000);
+                Thread.Sleep(5000);
             }
         }
 
