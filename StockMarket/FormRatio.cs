@@ -73,7 +73,7 @@ namespace StockMarket
                     else
                     {
                         labelGhGh.Invoke((MethodInvoker)delegate {
-                            labelSummary.Text = numberOfCalls+ " ,Error";
+                            labelSummary.Text += numberOfCalls+ " ,Error";
                         });
                     }
                 }
@@ -83,7 +83,7 @@ namespace StockMarket
                         labelSummary.Text = ex.Message;
                     });
                 }
-                Thread.Sleep(5000);
+                Thread.Sleep(15000);
             }
         }
 
