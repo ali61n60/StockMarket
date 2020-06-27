@@ -195,6 +195,14 @@
     <None Include="Finance\Translation\Completed.docx" />
     <None Include="Finance\Translation\Completed.pdf" />
     <None Include="Finance\Translation\Computer Security of Instrumentation and Control Systems at Nuclear Facilities.pdf" />
+    <None Include="Finance\Translation\ComputerSecurity\Completed.docx" />
+    <None Include="Finance\Translation\ComputerSecurity\Completed.pdf" />
+    <None Include="Finance\Translation\ComputerSecurity\Computer Security of Instrumentation and Control Systems at Nuclear Facilities.pdf" />
+    <None Include="Finance\Translation\ComputerSecurity\TranslatedDocument.docx" />
+    <None Include="Finance\Translation\ComputerSecurity\TranslatedDocument.zip" />
+    <None Include="Finance\Translation\ComputerSecurity\TranslationSection1-2-3.docx" />
+    <None Include="Finance\Translation\ComputerSecurity\TranslationSection1-2-3.pdf" />
+    <None Include="Finance\Translation\Illicit_Trade_Networks\Illicit_Trade_Networks_Vol1_Connecting_the_Dots_February_202.pdf" />
     <None Include="Finance\Translation\TranslatedDocument.docx" />
     <None Include="Finance\Translation\TranslationSection1-2-3.docx" />
     <None Include="Finance\Translation\TranslationSection1-2-3.pdf" />
