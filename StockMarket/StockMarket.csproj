@@ -191,6 +191,7 @@
     <EmbeddedResource Include="FormStockExchange.resx">
       <DependentUpon>FormStockExchange.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Finance\Davood\4_5773799255558848732.pdf" />
     <None Include="Finance\finance.xlsx" />
     <None Include="Finance\MofidTrader\help_mofidtrader.pdf" />
     <None Include="Finance\MofidTrader\mofidtrader5-reference.pdf" />
