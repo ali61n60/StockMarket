@@ -197,12 +197,6 @@
     <None Include="Finance\MofidTrader\help_mofidtrader.pdf" />
     <None Include="Finance\MofidTrader\mofidtrader5-reference.pdf" />
     <None Include="Finance\MofidTrader\recommendations.pdf" />
-    <None Include="Finance\Russia-2020\FormA-and-FormCNejatiChina.doc" />
-    <None Include="Finance\Russia-2020\FormA-and-FormCNejatiChina.pdf" />
-    <None Include="Finance\Russia-2020\insider threats_184033051_1552038859.pdf" />
-    <None Include="Finance\Russia-2020\InternationalTraningCourseOnPracticalOperationOfPhysicalProtectionSystemsAtNuclearFacilities28Sep6Oct2020Russian.docx" />
-    <None Include="Finance\Russia-2020\InternationalTraningCourseOnPracticalOperationOfPhysicalProtectionSystemsAtNuclearFacilities28Sep6Oct2020Russian.pdf" />
-    <None Include="Finance\Russia-2020\TrainingCourse_874818257.pdf" />
     <None Include="Finance\Translation\ComputerSecurity\Completed.docx" />
     <None Include="Finance\Translation\ComputerSecurity\Completed.pdf" />
     <None Include="Finance\Translation\ComputerSecurity\Computer Security of Instrumentation and Control Systems at Nuclear Facilities.pdf" />
