@@ -191,6 +191,7 @@
     <EmbeddedResource Include="FormStockExchange.resx">
       <DependentUpon>FormStockExchange.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Finance\ARM\Freescale_ARM_Cortex_M_Embedded_ElectroVolt.ir_.pdf" />
     <None Include="Finance\Davood\4_5773799255558848732.pdf" />
     <None Include="Finance\finance.xlsx" />
     <None Include="Finance\HB 1_1833973795.pdf" />
