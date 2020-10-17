@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace StockMarket
 {
 
@@ -15,6 +16,7 @@ namespace StockMarket
 
         bool runRatio = false;
 
+        
         public FormRatio()
         {
             InitializeComponent();                        
@@ -45,6 +47,7 @@ namespace StockMarket
 
                 if (ghadirPrice.resultOk && zagrosPrice.resultOk && parsPrice.resultOk)
                 {
+                        //TODO write data to excell file
                         labelGhGh.Invoke((MethodInvoker)delegate {
                             
                             labelGhGh.Text = (ghadirPrice.price / ghadirPrice.price).ToString(formatter);
@@ -128,7 +131,7 @@ namespace StockMarket
                 buttonController.Text = "Stop";
                 startLoop();
             }
-        }
+        }       
     }
 
     class ReturnData
