@@ -35,7 +35,6 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.buttonPrice = new System.Windows.Forms.Button();
             this.textBoxNumberOfDays = new System.Windows.Forms.TextBox();
@@ -43,10 +42,10 @@
             this.buttonPriceChange = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonClearList = new System.Windows.Forms.Button();
-            this.ButtonUpdateStockName = new System.Windows.Forms.Button();
             this.buttonAverage = new System.Windows.Forms.Button();
             this.comboBoxList1 = new System.Windows.Forms.ComboBox();
             this.buttonAverageVolume = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,14 +96,6 @@
             this.button2.Text = "Show";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(175, 27);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(195, 21);
-            this.comboBox2.TabIndex = 4;
             // 
             // button3
             // 
@@ -173,16 +164,6 @@
             this.buttonClearList.UseVisualStyleBackColor = true;
             this.buttonClearList.Click += new System.EventHandler(this.buttonClearList_Click);
             // 
-            // ButtonUpdateStockName
-            // 
-            this.ButtonUpdateStockName.Location = new System.Drawing.Point(376, 17);
-            this.ButtonUpdateStockName.Name = "ButtonUpdateStockName";
-            this.ButtonUpdateStockName.Size = new System.Drawing.Size(162, 23);
-            this.ButtonUpdateStockName.TabIndex = 12;
-            this.ButtonUpdateStockName.Text = "Update Stock Name in Table";
-            this.ButtonUpdateStockName.UseVisualStyleBackColor = true;
-            this.ButtonUpdateStockName.Click += new System.EventHandler(this.ButtonUpdateStockName_Click);
-            // 
             // buttonAverage
             // 
             this.buttonAverage.Location = new System.Drawing.Point(13, 160);
@@ -198,7 +179,7 @@
             this.comboBoxList1.FormattingEnabled = true;
             this.comboBoxList1.Location = new System.Drawing.Point(13, 27);
             this.comboBoxList1.Name = "comboBoxList1";
-            this.comboBoxList1.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxList1.Size = new System.Drawing.Size(310, 21);
             this.comboBoxList1.TabIndex = 14;
             this.comboBoxList1.SelectedIndexChanged += new System.EventHandler(this.comboBoxList1_SelectedIndexChanged);
             // 
@@ -212,15 +193,23 @@
             this.buttonAverageVolume.UseVisualStyleBackColor = true;
             this.buttonAverageVolume.Click += new System.EventHandler(this.buttonAverageVolume_Click);
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(202, 88);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1090, 689);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.buttonAverageVolume);
             this.Controls.Add(this.comboBoxList1);
             this.Controls.Add(this.buttonAverage);
-            this.Controls.Add(this.ButtonUpdateStockName);
             this.Controls.Add(this.buttonClearList);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.buttonPriceChange);
@@ -228,7 +217,6 @@
             this.Controls.Add(this.textBoxNumberOfDays);
             this.Controls.Add(this.buttonPrice);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.chart1);
@@ -247,7 +235,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button buttonPrice;
         private System.Windows.Forms.TextBox textBoxNumberOfDays;
@@ -255,10 +242,10 @@
         private System.Windows.Forms.Button buttonPriceChange;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button buttonClearList;
-        private System.Windows.Forms.Button ButtonUpdateStockName;
         private System.Windows.Forms.Button buttonAverage;
         private System.Windows.Forms.ComboBox comboBoxList1;
         private System.Windows.Forms.Button buttonAverageVolume;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
 

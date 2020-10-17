@@ -231,7 +231,7 @@
             this.textBoxGhZaBest.Name = "textBoxGhZaBest";
             this.textBoxGhZaBest.Size = new System.Drawing.Size(100, 20);
             this.textBoxGhZaBest.TabIndex = 20;
-            this.textBoxGhZaBest.Text = "0.077273115";
+            this.textBoxGhZaBest.Text = "0.093";
             // 
             // textBoxGhPaBest
             // 
@@ -239,7 +239,7 @@
             this.textBoxGhPaBest.Name = "textBoxGhPaBest";
             this.textBoxGhPaBest.Size = new System.Drawing.Size(100, 20);
             this.textBoxGhPaBest.TabIndex = 21;
-            this.textBoxGhPaBest.Text = "0.069131148";
+            this.textBoxGhPaBest.Text = "0.1";
             // 
             // labelGhPatoBest
             // 

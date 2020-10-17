@@ -3,18 +3,12 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using ModelStd;
-using ModelStd.IRepository;
 using ServiceStd;
 using ServiceStd.Indicators;
 using RepositoryStd;
 using System.Linq;
 using ModelStd.DB.Stock;
 using Microsoft.EntityFrameworkCore;
-using System.IO;
-using System.Text;
-using System.Net.Http;
-using System.Net;
-using System.IO.Compression;
 
 namespace StockMarket
 {
@@ -209,10 +203,7 @@ namespace StockMarket
             listBox1.Items.Clear();
         }
 
-        private void ButtonUpdateStockName_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         int average = 7;
         private void buttonAverage_Click(object sender, EventArgs e)
@@ -240,9 +231,11 @@ namespace StockMarket
                 .Include(s=>s.Symbol)
                 .Where(s => s.GroupId == listId).ToList();
             comboBox1.Items.Clear();
+            comboBox2.Items.Clear();
             foreach (CustomGroupMember s in stockListStockInfo)
             {
                 comboBox1.Items.Add(s.Symbol.NamePersian);
+                comboBox2.Items.Add(s.Symbol.NamePersian);
             }
         }
 
