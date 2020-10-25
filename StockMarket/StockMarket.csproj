@@ -196,6 +196,7 @@
     <None Include="Finance\ARM\Freescale_ARM_Cortex_M_Embedded_ElectroVolt.ir_.pdf" />
     <None Include="Finance\ARM\Programming-with-Stm32-Getting-Started-with-the-Nucleo.pdf" />
     <None Include="Finance\ARM\STemWin\dm00089670-getting-started-with-stemwin-library-stmicroelectronics.pdf" />
+    <None Include="Finance\ARM\STM32F103C8T6.pdf" />
     <None Include="Finance\ARM\StmArmProgrammingMazidi\F3F5201B437D2DD109230C412BC44D4E.pdf" />
     <None Include="Finance\ARM\StmArmProgrammingMazidi\STM32 Arm Programming for Embedded Systems.azw3" />
     <None Include="Finance\ARM\StmArmProgrammingMazidi\STM32 Arm Programming for Embedded Systems.pdf" />
