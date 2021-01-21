@@ -200,6 +200,8 @@
     <None Include="Finance\ARM\StmArmProgrammingMazidi\F3F5201B437D2DD109230C412BC44D4E.pdf" />
     <None Include="Finance\ARM\StmArmProgrammingMazidi\STM32 Arm Programming for Embedded Systems.azw3" />
     <None Include="Finance\ARM\StmArmProgrammingMazidi\STM32 Arm Programming for Embedded Systems.pdf" />
+    <None Include="Finance\Asp\Unlock-Pro ASP.NET Core MVC.pdf" />
+    <None Include="Finance\Asp\Web Scalability for Startup Engineers.pdf" />
     <None Include="Finance\Davood\4_5773799255558848732.pdf" />
     <None Include="Finance\EmbededLinux\esys.ir_Embedded.Linux.System.Design.and.Development.pdf" />
     <None Include="Finance\EmbededLinux\Linux-Driver-Development-for-Embedded-Processors-Second-Edition-www.EBooksWorld.ir.pdf" />
@@ -210,15 +212,6 @@
     <None Include="Finance\MofidTrader\help_mofidtrader.pdf" />
     <None Include="Finance\MofidTrader\mofidtrader5-reference.pdf" />
     <None Include="Finance\MofidTrader\recommendations.pdf" />
-    <None Include="Finance\Translation\ComputerSecurity\Completed.docx" />
-    <None Include="Finance\Translation\ComputerSecurity\Completed.pdf" />
-    <None Include="Finance\Translation\ComputerSecurity\Computer Security of Instrumentation and Control Systems at Nuclear Facilities.pdf" />
-    <None Include="Finance\Translation\ComputerSecurity\TranslatedDocument.docx" />
-    <None Include="Finance\Translation\ComputerSecurity\TranslatedDocument.zip" />
-    <None Include="Finance\Translation\ComputerSecurity\TranslationSection1-2-3.docx" />
-    <None Include="Finance\Translation\ComputerSecurity\TranslationSection1-2-3.pdf" />
-    <None Include="Finance\Translation\Illicit_Trade_Networks\Illicit_Trade_Networks_Vol1_Connecting_the_Dots_February_202.pdf" />
-    <None Include="Finance\Translation\Illicit_Trade_Networks\TranslatedDocument.docx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
