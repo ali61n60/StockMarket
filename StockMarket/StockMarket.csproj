@@ -212,6 +212,8 @@
     <None Include="Finance\MofidTrader\help_mofidtrader.pdf" />
     <None Include="Finance\MofidTrader\mofidtrader5-reference.pdf" />
     <None Include="Finance\MofidTrader\recommendations.pdf" />
+    <None Include="Finance\Resume\AliNejatResumeV10En.doc" />
+    <None Include="Finance\Resume\ToBeCreated.docx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
