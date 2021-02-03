@@ -13,6 +13,7 @@ namespace StockMVC.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            ViewBag.Title = "Ali Nejati Is Working Hard";
             return View();
         }
     }
