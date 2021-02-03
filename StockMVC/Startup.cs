@@ -23,7 +23,7 @@ namespace StockMVC
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
             }
 
             app.UseMvcWithDefaultRoute();
