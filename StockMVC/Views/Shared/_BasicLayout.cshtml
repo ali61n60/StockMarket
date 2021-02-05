@@ -3,18 +3,13 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <title>@ViewBag.Title</title>
-    <style>
-        #mainDiv {
-            padding: 20px;
-            border: solid medium black;
-            font-size: 20 pt
-        }
-    </style>
+    
 </head>
 <body>
     <h1>Product Information</h1>
-    <div id="mainDiv">
+    <div class="bg-danger">
         @RenderBody()
     </div>
 </body>

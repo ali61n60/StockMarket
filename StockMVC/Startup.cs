@@ -23,8 +23,11 @@ namespace StockMVC
         {
             if (env.IsDevelopment())
             {
-                //app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage();
             }
+
+            app.UseStaticFiles();
+            app.UseNodeModules(env.ContentRootPath);
 
             app.UseMvcWithDefaultRoute();
         }
