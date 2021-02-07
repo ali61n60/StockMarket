@@ -12,8 +12,11 @@ namespace StockMVC.Controllers
     {
         // GET: /<controller>/
         public IActionResult Index()
-        {           
+        {
             return View();
+
+            //returning static html files
+            //return File("/html/demo.html", "text/html");
         }
     }
 }
