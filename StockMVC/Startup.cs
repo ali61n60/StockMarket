@@ -27,7 +27,7 @@ namespace StockMVC
             }
 
             app.UseStaticFiles();
-            app.UseNodeModules(env.ContentRootPath);
+          //  app.UseNodeModules(env.ContentRootPath);
 
             app.UseMvcWithDefaultRoute();
         }
