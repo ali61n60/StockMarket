@@ -8,6 +8,10 @@ namespace StockMarket
 {
     class TODO
     {
+        //برنامه برای سنکرون کردن اطلاعات 2 عدد دیتا بیس
+        //
+
+
         //Add livedataurl data into the table
         //crate a form to show live data
         //create a form to insert stock exchange data
