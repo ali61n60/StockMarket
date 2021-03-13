@@ -10,7 +10,7 @@ namespace RepositoryStd.FileSystem
     {
         public List<string> GetAllSymbolsName()
         {            
-            string directory = Path.GetDirectoryName(GetDirectoryPath());
+            string directory = Path.GetDirectoryName(CsvFilesPath());
             IEnumerable<string> files = Directory.EnumerateFiles(directory, "*.*")
                 .Where(s => s.EndsWith(".csv", StringComparison.OrdinalIgnoreCase)
                         || s.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase)
@@ -27,7 +27,7 @@ namespace RepositoryStd.FileSystem
         }
 
        
-        public string GetDirectoryPath()
+        public string CsvFilesPath()
         {
             //return @"E:\Ali\Projects\Website\WebAliNejati\Last\StockMarket\RepositoryStd\FileSystem\CSVFiles\";//work
             //return @"C:\Users\test\Source\Repos\StockMarket\RepositoryStd\FileSystem\CSVFiles\";//desktop

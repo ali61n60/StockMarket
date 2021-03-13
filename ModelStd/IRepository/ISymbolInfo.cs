@@ -7,7 +7,7 @@ namespace ModelStd.IRepository
     public interface ISymbolInfo
     {
         List<string> GetAllSymbolsName();
-        string GetDirectoryPath();
+        string CsvFilesPath();
     }
 
 }

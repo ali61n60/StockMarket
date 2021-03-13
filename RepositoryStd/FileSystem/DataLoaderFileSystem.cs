@@ -31,7 +31,7 @@ namespace RepositoryStd.FileSystem
             if (!allStocksName.Contains(stockName))
                 return listPointData;
 
-            string fileName =stocksInfo.GetDirectoryPath()+stockName+".csv";
+            string fileName =stocksInfo.CsvFilesPath()+stockName+".csv";
 
             listPointData = readData(fileName);
             allStocksData.Add(stockName, listPointData);

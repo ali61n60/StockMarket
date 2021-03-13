@@ -23,7 +23,7 @@ namespace RepositoryStd.Database
             return listStockName;
         }
 
-        public string GetDirectoryPath()
+        public string CsvFilesPath()
         {
             throw new NotImplementedException("No Need For Directory. This is a database implementation, not a file system");
         }

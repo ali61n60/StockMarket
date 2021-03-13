@@ -26,6 +26,7 @@ namespace StockMVC
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStatusCodePages();
             app.UseStaticFiles();
           //  app.UseNodeModules(env.ContentRootPath);
 
