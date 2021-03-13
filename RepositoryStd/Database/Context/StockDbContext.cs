@@ -9,6 +9,10 @@ namespace RepositoryStd
     //مدل تنزیل جریانات نقدی (DCF)
     //مدل تنزیل سود نقدی( FCFE)
 
+    //add-migration -name step25 -c StockDbContext
+    //remove-migration
+    //update-database
+
     public class StockDbContext : DbContext
     {
         private readonly string _connectionString;
