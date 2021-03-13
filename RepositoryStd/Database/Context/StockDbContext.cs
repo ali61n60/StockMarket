@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ModelStd.DB;
 using ModelStd.DB.Stock;
+using ModelStd.DB.Product;
 using RepositoryStd.Database;
 
 namespace RepositoryStd
@@ -52,6 +53,9 @@ namespace RepositoryStd
         public virtual DbSet<CustomGroup> CustomGroups { get; set; }
         public virtual DbSet<CustomGroupMember> CustomGroupMembers { get; set; }
 
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductGroup> ProductGroups { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -67,6 +71,7 @@ namespace RepositoryStd
                 .HasConstraintName("FK_Symbol_SymbolGroup");
             });
 
+            
             modelBuilder.Entity<StockExchange>(entity=>
             {
                 entity.HasOne<Symbol>(s => s.SoldSymbol)
@@ -86,8 +91,6 @@ namespace RepositoryStd
             });
 
 
-
-
             modelBuilder.Entity<Dividend>(entity =>
             {
                 entity.HasOne(dividend => dividend.Symbol)
@@ -98,7 +101,6 @@ namespace RepositoryStd
             });
 
             
-
             modelBuilder.Entity<StockTrading>(entity =>
             {
                 entity.HasOne(stockTrading => stockTrading.Shareholder)
@@ -128,6 +130,16 @@ namespace RepositoryStd
                 .HasOne<Symbol>(sc => sc.Symbol)
                 .WithMany(s => s.StockListStockInfo)
                 .HasForeignKey(sc => sc.SymbolId);
+
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.HasOne(p => p.ProductGroup)
+                .WithMany(productGroup => productGroup.Products)
+                .HasForeignKey(p => p.GroupId)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_Product_ProductGroup");
+            });
+
         }
     }
 }
