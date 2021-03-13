@@ -7,7 +7,7 @@ using ModelStd.DB.Stock;
 
 namespace ModelStd.DB
 {
-    [Table("StockTrading", Schema = "stock")]
+    [Table("Trades", Schema = "stock")]
     public class StockTrading
     {
         [Key]
