@@ -6,13 +6,18 @@ using System.Linq;
 
 namespace RepositoryStd.Database
 {
-    public class DatabaseStockInfo : ISymbolInfo
+    public class DatabaseSymbolInfo : ISymbolInfo
     {
+        StockDbContext _stockDbContext;
+        public DatabaseSymbolInfo(StockDbContext stockDbContext)
+        {
+            _stockDbContext = stockDbContext;
+        }
+
         public List<string> GetAllSymbolsName()
         {
             List<string> listStockName = new List<string>();
-            StockDbContext stockDbContext = new StockDbContext();
-            List<Symbol> listStockInfo = stockDbContext.Symbols.ToList();
+            List<Symbol> listStockInfo = _stockDbContext.Symbols.ToList();
 
             foreach(Symbol stock in listStockInfo)
             {

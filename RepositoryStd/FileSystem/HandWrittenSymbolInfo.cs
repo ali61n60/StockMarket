@@ -6,7 +6,7 @@ using ModelStd.IRepository;
 
 namespace RepositoryStd.FileSystem
 {
-    public class StocksInfoHandWritten : ISymbolInfo
+    public class HandWrittenSymbolInfo : ISymbolInfo
     {
         public List<string> GetAllSymbolsName()
         {            

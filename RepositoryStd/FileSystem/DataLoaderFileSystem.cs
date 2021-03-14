@@ -26,7 +26,7 @@ namespace RepositoryStd.FileSystem
             }
 
             List<PointData> listPointData=new List<PointData>();
-            ISymbolInfo stocksInfo = new StocksInfoHandWritten();
+            ISymbolInfo stocksInfo = new HandWrittenSymbolInfo();
             List<string> allStocksName= stocksInfo.GetAllSymbolsName();
             if (!allStocksName.Contains(stockName))
                 return listPointData;
