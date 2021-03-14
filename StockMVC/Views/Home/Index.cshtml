@@ -1,5 +1,29 @@
-﻿@{
-    ViewBag.Title = "Ali Nejati Is Working Hard On View";
+﻿@model List<string>
+@{
+    ViewBag.Title = "Ali Nejati Is Working Hard On View";    
 }
 
 <h4>Welcome to StockMvc, Developing</h4>
+<div class="row">
+    <div class="col-sm-4">
+
+    </div>
+    <div class="col-sm-4">
+        <table class="table table-striped">
+            <thead>
+                <tr>Symbol Name</tr>
+            </thead>
+            <tbody>
+                @foreach (string name in Model)
+                {
+                    <tr><td>@name</td></tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-4">
+
+    </div>
+
+</div>
