@@ -12,14 +12,22 @@ namespace StockMVC.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
-            //Get All Symbols data
-            ISymbolInfo symbolInfo= Bootstrapper.container.GetInstance<ISymbolInfo>();
-            List<string> symbolNames= symbolInfo.GetAllSymbolsName();
+        ISymbolInfo _symbolInfo;
+        public int PageSize = 4;
 
-            return View(symbolNames);
+        public HomeController()
+        {
+             _symbolInfo = Bootstrapper.container.GetInstance<ISymbolInfo>();
+        }
+
+        // GET: /<controller>/
+        public IActionResult Index(int productPage = 1)
+        {
+            //Get All Symbols data            
+            List<string> symbolNames= _symbolInfo.GetAllSymbolsName();
+            
+             
+            return View(symbolNames.Skip((productPage - 1) * PageSize).Take(PageSize));
 
             //returning static html files
             //return File("/html/demo.html", "text/html");

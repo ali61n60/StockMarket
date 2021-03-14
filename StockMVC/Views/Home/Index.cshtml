@@ -9,18 +9,14 @@
 
     </div>
     <div class="col-sm-4">
-        <table class="table table-striped">
-            <thead>
-                <tr>Symbol Name</tr>
-            </thead>
-            <tbody>
-                @foreach (string name in Model)
-                {
-                    <tr><td>@name</td></tr>
-                }
+        @foreach (string name in Model)
+        {
+            <div>
+                <h3>@name</h3>                
+            </div>
+        }
 
-            </tbody>
-        </table>
+        
     </div>
     <div class="col-sm-4">
 
