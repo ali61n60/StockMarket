@@ -14,4 +14,4 @@ namespace StockMVC.Models.ViewModels
         (int)Math.Ceiling((decimal)TotalItems / ItemsPerPage);
     }
 }
-}
+

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ModelStd.IRepository;
 using ServiceStd.IOC;
+using StockMVC.Models.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,7 +14,7 @@ namespace StockMVC.Controllers
     public class HomeController : Controller
     {
         ISymbolInfo _symbolInfo;
-        public int PageSize = 4;
+        public int PageSize = 10;
 
         public HomeController()
         {
@@ -25,10 +26,17 @@ namespace StockMVC.Controllers
         {
             //Get All Symbols data            
             List<string> symbolNames= _symbolInfo.GetAllSymbolsName();
-            IEnumerable<string> model = symbolNames.Skip((productPage - 1) * PageSize).Take(PageSize);
-
-
-            return View(model);
+            IEnumerable<string> symbols = symbolNames.Skip((productPage - 1) * PageSize).Take(PageSize);
+            
+            SymbolListViewModel viewModel = new SymbolListViewModel();
+            viewModel.Symbols = symbols;
+            viewModel.PagingInfo = new PagingInfo
+            {
+                CurrentPage = productPage,
+                ItemsPerPage = PageSize,
+                TotalItems = symbolNames.Count()
+            };
+            return View(viewModel);
 
             //returning static html files
             //return File("/html/demo.html", "text/html");

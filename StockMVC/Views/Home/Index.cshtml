@@ -1,4 +1,4 @@
-﻿@model IEnumerable<string>
+﻿@model SymbolListViewModel
 @{
     ViewBag.Title = "Ali Nejati Is Working Hard On View";    
 }
@@ -9,14 +9,14 @@
 
     </div>
     <div class="col-sm-4">
-        @foreach (string name in Model)
+        @foreach (string name in Model.Symbols)
         {
             <div>
-                <h3>@name</h3>                
+                <h3>@name</h3>
             </div>
         }
+        <div page-model="@Model.PagingInfo" page-action="Index"></div>
 
-        
     </div>
     <div class="col-sm-4">
 
