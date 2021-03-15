@@ -25,9 +25,10 @@ namespace StockMVC.Controllers
         {
             //Get All Symbols data            
             List<string> symbolNames= _symbolInfo.GetAllSymbolsName();
-            
-             
-            return View(symbolNames.Skip((productPage - 1) * PageSize).Take(PageSize));
+            IEnumerable<string> model = symbolNames.Skip((productPage - 1) * PageSize).Take(PageSize);
+
+
+            return View(model);
 
             //returning static html files
             //return File("/html/demo.html", "text/html");
