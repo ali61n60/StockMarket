@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using RepositoryStd;
@@ -36,7 +37,7 @@ namespace StockMVC
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -45,8 +46,16 @@ namespace StockMVC
 
             app.UseStatusCodePages();
             app.UseStaticFiles();
-          //  app.UseNodeModules(env.ContentRootPath);
+            //  app.UseNodeModules(env.ContentRootPath);
+                     
 
+         
+            app.UseMvc(endpoints =>
+            {
+                endpoints.MapRoute("pagination",
+                    "Products/Page{productPage}",
+                    new { Controller = "Home", action = "Index" });
+            });
             app.UseMvcWithDefaultRoute();
         }
     }
