@@ -6,13 +6,7 @@
 <h4>Welcome to StockMvc, Developing</h4>
         @foreach (string name in Model.Symbols)
         {
-            <div class="card card-outline-primary m-1 p-1">
-                <div class="bg-faded p-1">
-                    <h4>
-                        @name
-                    </h4>
-                </div>
-            </div>
+            <partial name="SymbolSummary" model="name" />
         }
         <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
              page-class="btn" page-class-normal="btn-outline-dark"
