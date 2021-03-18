@@ -4,22 +4,22 @@
 }
 
 <h4>Welcome to StockMvc, Developing</h4>
-<div class="row">
-    <div class="col-sm-4">
-
-    </div>
-    <div class="col-sm-4">
         @foreach (string name in Model.Symbols)
         {
-            <div>
-                <h3>@name</h3>
+            <div class="card card-outline-primary m-1 p-1">
+                <div class="bg-faded p-1">
+                    <h4>
+                        @name
+                    </h4>
+                </div>
             </div>
         }
-        <div page-model="@Model.PagingInfo" page-action="Index"></div>
+        <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
+             page-class="btn" page-class-normal="btn-outline-dark"
+             page-class-selected="btn-primary" class="btn-group pull-right m-1">
+        </div>
+        
 
-    </div>
-    <div class="col-sm-4">
+   
 
-    </div>
 
-</div>
