@@ -5,7 +5,7 @@ namespace ModelStd.IRepository
 {
     public interface ISymbolInfo
     {
-        List<Symbol> GetAllSymbolsName();        
+        List<Symbol> GetAllSymbols();        
     }
 
 }

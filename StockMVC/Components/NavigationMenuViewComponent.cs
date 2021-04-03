@@ -1,14 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using ModelStd;
+using ModelStd.IRepository;
+using ServiceStd.IOC;
 
 namespace StockMVC.Components
 {
     public class NavigationMenuViewComponent: ViewComponent
     {
-        public string Invoke()
+        private ISymbolInfo symbolInfo;
+
+        public NavigationMenuViewComponent()
         {
-            return "Hello from the Nav View Component";
+            symbolInfo = Bootstrapper.container.GetInstance<ISymbolInfo>();
+        }
+        public IViewComponentResult Invoke()
+        {
+            return View(symbolInfo.GetAllSymbols()
+                .Select(x => x.SymbolGroup.Name)
+                .Distinct()
+                .OrderBy(x => x));                             
         }
     }
 }

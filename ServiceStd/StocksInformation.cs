@@ -13,7 +13,7 @@ namespace ServiceStd
         {
             ISymbolInfo stocksInfo = Bootstrapper.container.GetInstance<ISymbolInfo>();
             List<string> allNames = new List<string>();
-            allNames.AddRange(stocksInfo.GetAllSymbolsName().Select(x => x.NamePersian));
+            allNames.AddRange(stocksInfo.GetAllSymbols().Select(x => x.NamePersian));
             return allNames;
         }
 

@@ -26,7 +26,7 @@ namespace StockMVC.Controllers
         {
             //Get All Symbols data            
             List<string> symbolNames = new List<string>();
-            symbolNames.AddRange( _symbolInfo.GetAllSymbolsName().Select(x=>x.NamePersian));
+            symbolNames.AddRange( _symbolInfo.GetAllSymbols().Select(x=>x.NamePersian));
             IEnumerable<string> symbols = symbolNames.Skip((productPage - 1) * PageSize).Take(PageSize);
             
             SymbolListViewModel viewModel = new SymbolListViewModel();

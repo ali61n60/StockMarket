@@ -14,15 +14,12 @@ namespace RepositoryStd.Database
             _stockDbContext = stockDbContext;
         }
 
-        public List<Symbol> GetAllSymbolsName()
+        public List<Symbol> GetAllSymbols()
         {
-            List<string> listStockName = new List<string>();
+           
             List<Symbol> listStockInfo = _stockDbContext.Symbols.ToList();
 
-            foreach(Symbol stock in listStockInfo)
-            {
-                listStockName.Add(stock.NamePersian);
-            }
+           
 
 
             return listStockInfo;

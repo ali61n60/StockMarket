@@ -10,7 +10,7 @@ namespace RepositoryStd.FileSystem
 {
     public class HandWrittenSymbolInfo : ISymbolInfo
     {
-        public List<Symbol> GetAllSymbolsName()
+        public List<Symbol> GetAllSymbols()
         {            
             string directory = Path.GetDirectoryName(DatabaseInfoClass.CsvFilesPath());
             IEnumerable<string> files = Directory.EnumerateFiles(directory, "*.*")

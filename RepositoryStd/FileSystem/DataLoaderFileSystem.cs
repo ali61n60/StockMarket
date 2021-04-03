@@ -31,7 +31,7 @@ namespace RepositoryStd.FileSystem
             ISymbolInfo stocksInfo = new HandWrittenSymbolInfo();
 
             List<string> allStocksName = new List<string>();
-            allStocksName.AddRange(stocksInfo.GetAllSymbolsName().Select(x=>x.NamePersian));
+            allStocksName.AddRange(stocksInfo.GetAllSymbols().Select(x=>x.NamePersian));
             if (!allStocksName.Contains(stockName))
                 return listPointData;
 
