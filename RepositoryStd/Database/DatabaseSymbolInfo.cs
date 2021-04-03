@@ -14,7 +14,7 @@ namespace RepositoryStd.Database
             _stockDbContext = stockDbContext;
         }
 
-        public List<string> GetAllSymbolsName()
+        public List<Symbol> GetAllSymbolsName()
         {
             List<string> listStockName = new List<string>();
             List<Symbol> listStockInfo = _stockDbContext.Symbols.ToList();
@@ -25,7 +25,7 @@ namespace RepositoryStd.Database
             }
 
 
-            return listStockName;
+            return listStockInfo;
         }       
     }
 }

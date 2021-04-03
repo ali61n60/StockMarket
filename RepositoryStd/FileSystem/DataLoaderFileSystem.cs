@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using System.Linq;
 
 namespace RepositoryStd.FileSystem
 {
@@ -28,7 +29,9 @@ namespace RepositoryStd.FileSystem
 
             List<PointData> listPointData=new List<PointData>();
             ISymbolInfo stocksInfo = new HandWrittenSymbolInfo();
-            List<string> allStocksName= stocksInfo.GetAllSymbolsName();
+
+            List<string> allStocksName = new List<string>();
+            allStocksName.AddRange(stocksInfo.GetAllSymbolsName().Select(x=>x.NamePersian));
             if (!allStocksName.Contains(stockName))
                 return listPointData;
 

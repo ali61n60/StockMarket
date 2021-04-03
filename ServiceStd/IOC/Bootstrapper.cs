@@ -13,8 +13,8 @@ namespace ServiceStd.IOC
         {
             container = new Container(x =>
             {
-                //configureForDatabase(x);
-                  configureForFileSystem(x);
+                configureForDatabase(x);
+                //configureForFileSystem(x);
 
 
 
