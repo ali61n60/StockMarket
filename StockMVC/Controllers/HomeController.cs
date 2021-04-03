@@ -36,6 +36,7 @@ namespace StockMVC.Controllers
                 ItemsPerPage = PageSize,
                 TotalItems = symbolNames.Count()
             };
+            viewModel.CurrentCategory = "NotDecidedYet";
             return View(viewModel);
 
             //returning static html files

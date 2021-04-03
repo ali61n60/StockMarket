@@ -1,5 +1,6 @@
 ﻿using ModelStd;
 using ModelStd.IRepository;
+using RepositoryStd.Database;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -31,7 +32,7 @@ namespace RepositoryStd.FileSystem
             if (!allStocksName.Contains(stockName))
                 return listPointData;
 
-            string fileName =stocksInfo.CsvFilesPath()+stockName+".csv";
+            string fileName =DatabaseInfoClass.CsvFilesPath()+stockName+".csv";
 
             listPointData = readData(fileName);
             allStocksData.Add(stockName, listPointData);

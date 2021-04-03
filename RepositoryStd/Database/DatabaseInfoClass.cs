@@ -16,5 +16,13 @@
             //plesk3.tegrahost.com,2019 
 
         }
+
+        public static string CsvFilesPath()
+        {
+            //return @"E:\Ali\Projects\Website\WebAliNejati\Last\StockMarket\RepositoryStd\FileSystem\CSVFiles\";//work
+            //return @"C:\Users\test\Source\Repos\StockMarket\RepositoryStd\FileSystem\CSVFiles\";//desktop
+            return @"C:\Users\ali\Source\Repos\ali61n60\StockMarket\RepositoryStd\FileSystem\CSVFiles\";//laptop
+            //return @"C:\Users\test\Documents\TseClient 2.0\";
+        }
     }
 }

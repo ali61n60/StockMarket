@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using ModelStd.IRepository;
+using RepositoryStd.Database;
 
 namespace RepositoryStd.FileSystem
 {
@@ -10,7 +11,7 @@ namespace RepositoryStd.FileSystem
     {
         public List<string> GetAllSymbolsName()
         {            
-            string directory = Path.GetDirectoryName(CsvFilesPath());
+            string directory = Path.GetDirectoryName(DatabaseInfoClass.CsvFilesPath());
             IEnumerable<string> files = Directory.EnumerateFiles(directory, "*.*")
                 .Where(s => s.EndsWith(".csv", StringComparison.OrdinalIgnoreCase)
                         || s.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase)
@@ -27,12 +28,6 @@ namespace RepositoryStd.FileSystem
         }
 
        
-        public string CsvFilesPath()
-        {
-            //return @"E:\Ali\Projects\Website\WebAliNejati\Last\StockMarket\RepositoryStd\FileSystem\CSVFiles\";//work
-            //return @"C:\Users\test\Source\Repos\StockMarket\RepositoryStd\FileSystem\CSVFiles\";//desktop
-            return @"C:\Users\ali\Source\Repos\ali61n60\StockMarket\RepositoryStd\FileSystem\CSVFiles\";//laptop
-            //return @"C:\Users\test\Documents\TseClient 2.0\";
-        }
+        
     }
 }
