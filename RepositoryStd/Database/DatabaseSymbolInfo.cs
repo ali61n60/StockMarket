@@ -18,6 +18,10 @@ namespace RepositoryStd.Database
         {
            
             List<Symbol> listStockInfo = _stockDbContext.Symbols.ToList();
+            foreach(Symbol symbol in listStockInfo)
+            {
+                symbol.SymbolGroup = _stockDbContext.SymbolGroups.Where(x => x.Id == symbol.GroupId).FirstOrDefault();
+            }
 
            
 
