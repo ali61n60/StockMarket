@@ -17,10 +17,12 @@ namespace StockMVC.Components
         public IViewComponentResult Invoke()
         {
             ViewBag.SelectedSymbolGroup = RouteData?.Values["symbolGroup"];
+            if (ViewBag.SelectedSymbolGroup == null)
+                ViewBag.SelectedSymbolGroup = "-1";
             return View(symbolInfo.GetAllSymbols()
-                .Select(x => x.SymbolGroup.Name)
+                .Select(x => x.SymbolGroup)
                 .Distinct()
-                .OrderBy(x => x));                             
+                .OrderBy(x => x.Id));                             
         }
     }
 }

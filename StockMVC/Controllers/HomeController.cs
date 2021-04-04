@@ -27,7 +27,7 @@ namespace StockMVC.Controllers
         {
             //Get All Symbols data            
             List<Symbol> allSymbols = _symbolInfo.GetAllSymbols()
-                                     .Where(s=> symbolGroup==null || s.SymbolGroup.Name==symbolGroup)
+                                     .Where(s=> symbolGroup==null || s.SymbolGroup.Id==int.Parse(symbolGroup))
                                      .ToList();
             
             IEnumerable<Symbol> symbols = allSymbols.Skip((symbolPage - 1) * PageSize).Take(PageSize);
@@ -40,7 +40,7 @@ namespace StockMVC.Controllers
                 ItemsPerPage = PageSize,
                 TotalItems = symbolGroup == null ?
                             allSymbols.Count() :
-                            allSymbols.Where(s => s.SymbolGroup.Name == symbolGroup).Count()
+                            allSymbols.Where(s => s.SymbolGroup.Id == int.Parse(symbolGroup)).Count()
 
             };
             viewModel.CurrentSymbolGroup = symbolGroup;

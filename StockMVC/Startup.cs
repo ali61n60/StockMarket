@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using RepositoryStd;
 
@@ -44,20 +44,36 @@ namespace StockMVC
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseStatusCodePages();
             app.UseStaticFiles();
             //  app.UseNodeModules(env.ContentRootPath);
-                     
-
-         
+            
+                    
             app.UseMvc(endpoints =>
             {
-                endpoints.MapRoute("pagination",
-                    "Symbols/Page{productPage}",
+                
+
+                endpoints.MapRoute("symbolPageRoute",
+                    "{symbolGroup}/Page{symbolPage:int}",
                     new { Controller = "Home", action = "Index" });
+
+                endpoints.MapRoute("pageRoute",
+                    "Page{symbolPage:int}",
+                new { Controller = "Home", action = "Index", symbolPage = 1 });
+
+                endpoints.MapRoute("symbolRoute",
+                    "{symbolGroup}",
+                new { Controller = "Home", action = "Index", symbolPage = 1 });
+
+                endpoints.MapRoute("pagination",
+                "symbolGroup/Page{symbolPage}",
+                new { Controller = "Home", action = "Index", symbolPage = 1 });
+
+                endpoints.MapRoute("default",
+                    "",
+                    new { Controller = "Home", action = "Index", symbolPage = 1 });
             });
-            app.UseMvcWithDefaultRoute();
+           // app.UseMvcWithDefaultRoute();
         }
     }
 }

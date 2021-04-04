@@ -1,16 +1,17 @@
-﻿@model IEnumerable<string>
+﻿@model IEnumerable<SymbolGroup>
 <a class="btn btn-block btn-outline-secondary" asp-action="Index"
    asp-controller="Home" asp-route-symbolGroup="">
     Home
 </a>
-@foreach (string symbolGroup in Model)
+@foreach (SymbolGroup symbolGroup in Model)
 {
     <a class="btn btn-block
-       @(symbolGroup == ViewBag.SelectedSymbolGroup
+       @(symbolGroup.Id == int.Parse(ViewBag.SelectedSymbolGroup)
        ? "btn-primary": "btn-outline-secondary")"
-       asp-action="Index" asp-controller="Home"
-       asp-route-symbolGroup="@symbolGroup"
+       asp-action="Index" 
+       asp-controller="Home"
+       asp-route-symbolGroup="@symbolGroup.Id"
        asp-route-symbolPage="1">
-        @symbolGroup
+        @symbolGroup.Name
     </a>
 }
