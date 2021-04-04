@@ -9,6 +9,6 @@ namespace StockMVC.Models.ViewModels
     {
         public IEnumerable<string> Symbols { get; set; }
         public PagingInfo PagingInfo { get; set; }
-        public string CurrentCategory { get; set; }
+        public string CurrentSymbolGroup { get; set; }
     }
 }

@@ -38,7 +38,7 @@ namespace StockMVC.Infrastructure
             {
                 TagBuilder tag = new TagBuilder("a");
                 tag.Attributes["href"] = urlHelper.Action(PageAction,
-                new { productPage = i });
+                new { symbolPage = i });
                 if (PageClassesEnabled)
                 {
                     tag.AddCssClass(PageClass);

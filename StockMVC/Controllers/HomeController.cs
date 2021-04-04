@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ModelStd.DB.Stock;
 using ModelStd.IRepository;
 using ServiceStd.IOC;
 using StockMVC.Models.ViewModels;
@@ -22,22 +23,29 @@ namespace StockMVC.Controllers
         }
 
         // GET: /<controller>/
-        public IActionResult Index(int productPage = 1)
+        public IActionResult Index(string SymbolGroup, int symbolPage = 1)
         {
             //Get All Symbols data            
+            List<Symbol> allSymbols = _symbolInfo.GetAllSymbols()
+                                     .Where(s=> SymbolGroup==null || s.SymbolGroup.Name==SymbolGroup)
+                                     .ToList();
             List<string> symbolNames = new List<string>();
-            symbolNames.AddRange( _symbolInfo.GetAllSymbols().Select(x=>x.NamePersian));
-            IEnumerable<string> symbols = symbolNames.Skip((productPage - 1) * PageSize).Take(PageSize);
+
+            symbolNames.AddRange( allSymbols.Select(x=>x.NamePersian));
+            IEnumerable<string> symbols = symbolNames.Skip((symbolPage - 1) * PageSize).Take(PageSize);
             
             SymbolListViewModel viewModel = new SymbolListViewModel();
             viewModel.Symbols = symbols;
             viewModel.PagingInfo = new PagingInfo
             {
-                CurrentPage = productPage,
+                CurrentPage = symbolPage,
                 ItemsPerPage = PageSize,
-                TotalItems = symbolNames.Count()
+                TotalItems = SymbolGroup == null ?
+                            allSymbols.Count() :
+                            allSymbols.Where(s => s.SymbolGroup.Name == SymbolGroup).Count()
+
             };
-            viewModel.CurrentCategory = "NotDecidedYet";
+            viewModel.CurrentSymbolGroup = "NotDecidedYet";
             return View(viewModel);
 
             //returning static html files
