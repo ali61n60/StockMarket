@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModelStd.DB.Stock;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ namespace StockMVC.Models.ViewModels
 {
     public class SymbolListViewModel
     {
-        public IEnumerable<string> Symbols { get; set; }
+        public IEnumerable<Symbol> Symbols { get; set; }
         public PagingInfo PagingInfo { get; set; }
         public string CurrentSymbolGroup { get; set; }
     }

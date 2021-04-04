@@ -54,7 +54,7 @@ namespace StockMVC
             app.UseMvc(endpoints =>
             {
                 endpoints.MapRoute("pagination",
-                    "Products/Page{productPage}",
+                    "Symbols/Page{productPage}",
                     new { Controller = "Home", action = "Index" });
             });
             app.UseMvcWithDefaultRoute();

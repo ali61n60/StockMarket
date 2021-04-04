@@ -4,9 +4,9 @@
 }
 
 <h4>Welcome to StockMvc, Developing</h4>
-        @foreach (string name in Model.Symbols)
+        @foreach (Symbol symbol in Model.Symbols)
         {
-            <partial name="SymbolSummary" model="name" />
+            <partial name="SymbolSummary" model="symbol" />
         }
         <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
              page-class="btn" page-class-normal="btn-outline-dark"

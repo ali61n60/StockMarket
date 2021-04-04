@@ -23,16 +23,14 @@ namespace StockMVC.Controllers
         }
 
         // GET: /<controller>/
-        public IActionResult Index(string SymbolGroup, int symbolPage = 1)
+        public IActionResult Index(string symbolGroup, int symbolPage = 1)
         {
             //Get All Symbols data            
             List<Symbol> allSymbols = _symbolInfo.GetAllSymbols()
-                                     .Where(s=> SymbolGroup==null || s.SymbolGroup.Name==SymbolGroup)
+                                     .Where(s=> symbolGroup==null || s.SymbolGroup.Name==symbolGroup)
                                      .ToList();
-            List<string> symbolNames = new List<string>();
-
-            symbolNames.AddRange( allSymbols.Select(x=>x.NamePersian));
-            IEnumerable<string> symbols = symbolNames.Skip((symbolPage - 1) * PageSize).Take(PageSize);
+            
+            IEnumerable<Symbol> symbols = allSymbols.Skip((symbolPage - 1) * PageSize).Take(PageSize);
             
             SymbolListViewModel viewModel = new SymbolListViewModel();
             viewModel.Symbols = symbols;
@@ -40,12 +38,12 @@ namespace StockMVC.Controllers
             {
                 CurrentPage = symbolPage,
                 ItemsPerPage = PageSize,
-                TotalItems = SymbolGroup == null ?
+                TotalItems = symbolGroup == null ?
                             allSymbols.Count() :
-                            allSymbols.Where(s => s.SymbolGroup.Name == SymbolGroup).Count()
+                            allSymbols.Where(s => s.SymbolGroup.Name == symbolGroup).Count()
 
             };
-            viewModel.CurrentSymbolGroup = "NotDecidedYet";
+            viewModel.CurrentSymbolGroup = symbolGroup;
             return View(viewModel);
 
             //returning static html files

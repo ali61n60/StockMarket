@@ -3,14 +3,14 @@
    asp-controller="Home" asp-route-symbolGroup="">
     Home
 </a>
-@foreach (string category in Model)
+@foreach (string symbolGroup in Model)
 {
     <a class="btn btn-block
-       @(category == ViewBag.SelectedCategory
+       @(symbolGroup == ViewBag.SelectedSymbolGroup
        ? "btn-primary": "btn-outline-secondary")"
        asp-action="Index" asp-controller="Home"
-       asp-route-symbolGroup="@category"
+       asp-route-symbolGroup="@symbolGroup"
        asp-route-symbolPage="1">
-        @category
+        @symbolGroup
     </a>
 }

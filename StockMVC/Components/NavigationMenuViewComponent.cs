@@ -16,7 +16,7 @@ namespace StockMVC.Components
         }
         public IViewComponentResult Invoke()
         {
-            ViewBag.SelectedCategory = RouteData?.Values["category"];
+            ViewBag.SelectedSymbolGroup = RouteData?.Values["symbolGroup"];
             return View(symbolInfo.GetAllSymbols()
                 .Select(x => x.SymbolGroup.Name)
                 .Distinct()
