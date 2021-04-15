@@ -69,6 +69,10 @@ namespace StockMVC
                 "symbolGroup/Page{symbolPage}",
                 new { Controller = "Home", action = "Index", symbolPage = 1 });
 
+                endpoints.MapRoute("MvcDefault",
+                   "{Controller}/{action}",
+                   new {Controller="Home", action="Index" });
+
                 endpoints.MapRoute("default",
                     "",
                     new { Controller = "Home", action = "Index", symbolPage = 1 });

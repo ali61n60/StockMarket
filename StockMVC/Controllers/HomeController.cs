@@ -49,5 +49,10 @@ namespace StockMVC.Controllers
             //returning static html files
             //return File("/html/demo.html", "text/html");
         }
+
+        public IActionResult Cart()
+        {
+            return View();
+        }
     }
 }
