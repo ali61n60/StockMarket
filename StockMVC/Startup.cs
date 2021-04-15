@@ -34,6 +34,9 @@ namespace StockMVC
                 Configuration["ConnectionStrings:DefaultConnection"]);
             });
 
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +50,7 @@ namespace StockMVC
             app.UseStatusCodePages();
             app.UseStaticFiles();
             //  app.UseNodeModules(env.ContentRootPath);
-            
+            app.UseSession();
                     
             app.UseMvc(endpoints =>
             {
