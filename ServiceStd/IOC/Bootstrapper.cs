@@ -1,10 +1,8 @@
-﻿using ModelStd.Carts;
-using ModelStd.IRepository;
+﻿using ModelStd.IRepository;
 using RepositoryStd.Database;
 using RepositoryStd.FileSystem;
 using StructureMap;
-using System;
-using Microsoft.AspNetCore.Http;
+
 
 namespace ServiceStd.IOC
 {
@@ -41,8 +39,6 @@ namespace ServiceStd.IOC
         private static void configureForFileSystem(ConfigurationExpression x)
         {
             x.For<ISymbolInfo>().Use<HandWrittenSymbolInfo>();
-        }
-
-        
+        }        
     }
 }

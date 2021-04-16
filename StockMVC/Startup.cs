@@ -8,8 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using RepositoryStd;
 using ModelStd.Carts;
-using ServiceStd.IOC;
-using System;
 
 namespace StockMVC
 {

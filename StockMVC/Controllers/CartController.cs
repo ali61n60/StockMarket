@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using ModelStd.Carts;
 using ModelStd.DB.Stock;
-using ModelStd.Infrastructure;
 using ModelStd.IRepository;
 using ServiceStd.IOC;
 using StockMVC.Models.ViewModels;
@@ -41,8 +37,7 @@ namespace StockMVC.Controllers
             if (symbol != null) symbol.SymbolGroup = null; // self referencing problem
             
             Cart.AddItem(symbol, 1);
-
-            //return View(new CartViewModel() { Cart = Cart, ReturnUrl = returnUrl });
+                       
             return CartAction(returnUrl);
         }     
     }
