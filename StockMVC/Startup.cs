@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using RepositoryStd;
 using ModelStd.Carts;
+using ServiceStd.IOC;
+using System;
 
 namespace StockMVC
 {
@@ -35,8 +37,8 @@ namespace StockMVC
             services.AddDistributedMemoryCache();
             services.AddSession();
 
-            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            Bootstrapper.configureMvCRelated(services.BuildServiceProvider());
+            
 
         }
 

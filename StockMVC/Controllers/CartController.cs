@@ -21,16 +21,16 @@ namespace StockMVC.Controllers
         public Cart Cart { get; set; }
         public string ReturnUrl { get; set; }
 
-        public CartController()
+        public CartController(Cart cartService)
         {
             _symbolInfo = Bootstrapper.container.GetInstance<ISymbolInfo>();
+            Cart = cartService;
         }
 
         [HttpGet]
         public IActionResult CartAction(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";
-            Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
             return View(new CartViewModel() { Cart = Cart, ReturnUrl = ReturnUrl });
         }
 
@@ -40,15 +40,10 @@ namespace StockMVC.Controllers
             Symbol symbol = _symbolInfo.GetAllSymbols()
                 .FirstOrDefault(s => s.Id == Id);
             if (symbol != null) symbol.SymbolGroup = null;
-            Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
+            
             Cart.AddItem(symbol, 1);
-            HttpContext.Session.SetJson("cart", Cart);
+
             return View(new CartViewModel() { Cart = Cart, ReturnUrl = returnUrl });
-        }
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
-            return View();
-        }
+        }     
     }
 }

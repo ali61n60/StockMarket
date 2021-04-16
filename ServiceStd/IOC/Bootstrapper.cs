@@ -1,18 +1,22 @@
-﻿using ModelStd.IRepository;
+﻿using ModelStd.Carts;
+using ModelStd.IRepository;
 using RepositoryStd.Database;
 using RepositoryStd.FileSystem;
 using StructureMap;
+using System;
 
 namespace ServiceStd.IOC
 {
     public static class Bootstrapper
     {
         public static Container container;
+        public static ConfigurationExpression cx;
 
         static Bootstrapper()
         {
             container = new Container(x =>
             {
+                cx = x;
                 configureForDatabase(x);
                 //configureForFileSystem(x);
 
@@ -38,6 +42,19 @@ namespace ServiceStd.IOC
         private static void configureForFileSystem(ConfigurationExpression x)
         {
             x.For<ISymbolInfo>().Use<HandWrittenSymbolInfo>();
+        }
+
+        public static void configureMvCRelated(IServiceProvider services)
+        {
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+
+            cx.For<Cart>().UseInstance(SessionCart.GetCart(sp));
+
+
+
+
         }
     }
 }
