@@ -37,8 +37,9 @@ namespace StockMVC
             services.AddDistributedMemoryCache();
             services.AddSession();
 
-            Bootstrapper.configureMvCRelated(services.BuildServiceProvider());
-            
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 
         }
 

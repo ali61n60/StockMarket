@@ -17,7 +17,6 @@ namespace StockMVC.Controllers
     public class CartController : Controller
     {
         ISymbolInfo _symbolInfo;
-
         public Cart Cart { get; set; }
         public string ReturnUrl { get; set; }
 
@@ -39,11 +38,12 @@ namespace StockMVC.Controllers
         {
             Symbol symbol = _symbolInfo.GetAllSymbols()
                 .FirstOrDefault(s => s.Id == Id);
-            if (symbol != null) symbol.SymbolGroup = null;
+            if (symbol != null) symbol.SymbolGroup = null; // self referencing problem
             
             Cart.AddItem(symbol, 1);
 
-            return View(new CartViewModel() { Cart = Cart, ReturnUrl = returnUrl });
+            //return View(new CartViewModel() { Cart = Cart, ReturnUrl = returnUrl });
+            return CartAction(returnUrl);
         }     
     }
 }

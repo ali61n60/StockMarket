@@ -4,19 +4,18 @@ using RepositoryStd.Database;
 using RepositoryStd.FileSystem;
 using StructureMap;
 using System;
+using Microsoft.AspNetCore.Http;
 
 namespace ServiceStd.IOC
 {
     public static class Bootstrapper
     {
         public static Container container;
-        public static ConfigurationExpression cx;
-
+        
         static Bootstrapper()
         {
             container = new Container(x =>
             {
-                cx = x;
                 configureForDatabase(x);
                 //configureForFileSystem(x);
 
@@ -44,17 +43,6 @@ namespace ServiceStd.IOC
             x.For<ISymbolInfo>().Use<HandWrittenSymbolInfo>();
         }
 
-        public static void configureMvCRelated(IServiceProvider services)
-        {
-            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-
-            cx.For<Cart>().UseInstance(SessionCart.GetCart(sp));
-
-
-
-
-        }
+        
     }
 }
