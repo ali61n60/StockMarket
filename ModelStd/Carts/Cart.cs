@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ModelStd
+namespace ModelStd.Carts
 {
     public class Cart
     {
         public List<SymbolLine> Lines { get; set; } = new List<SymbolLine>();
-        public void AddItem(Symbol symbol, int quantity)
+        public virtual void AddItem(Symbol symbol, int quantity)
         {
             SymbolLine line = Lines
             .Where(s => s.Symbol.Id == symbol.Id)
@@ -27,11 +27,11 @@ namespace ModelStd
                 line.Quantity += quantity;
             }
         }
-        public void RemoveLine(Symbol symbol) =>
+        public virtual void RemoveLine(Symbol symbol) =>
         Lines.RemoveAll(l => l.Symbol.Id == symbol.Id);
         public decimal ComputeTotalValue() =>
         Lines.Sum(e => e.Symbol.GroupId * e.Quantity);
-        public void Clear() => Lines.Clear();
+        public virtual void Clear() => Lines.Clear();
     }
     public class SymbolLine
     {

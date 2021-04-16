@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ModelStd;
+using ModelStd.Carts;
 using ModelStd.DB.Stock;
 using ModelStd.IRepository;
 using ServiceStd.IOC;
 using StockMVC.Models.ViewModels;
-using StockMVC.Infrastructure;
+using ModelStd.Infrastructure;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

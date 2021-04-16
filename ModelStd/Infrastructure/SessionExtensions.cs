@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
-namespace StockMVC.Infrastructure
+namespace ModelStd.Infrastructure
 {
     public static class SessionExtensions
     {
