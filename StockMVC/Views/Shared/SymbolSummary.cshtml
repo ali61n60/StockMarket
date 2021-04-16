@@ -5,7 +5,7 @@
             @Model.NamePersian
         </h4>
     </div>
-    <form id="@Model.Id " asp-controller="Home" asp-action="CartAction" method="post">
+    <form id="@Model.Id " asp-controller="Cart" asp-action="CartAction" method="post">
         <input type="hidden" asp-for="Id" />
         <input type="hidden" name="returnUrl"
                value="@ViewContext.HttpContext.Request.PathAndQuery()" />
