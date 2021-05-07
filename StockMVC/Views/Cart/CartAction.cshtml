@@ -12,19 +12,30 @@
             <th>Item</th>
             <th class="text-right">Price</th>
             <th class="text-right">Subtotal</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var line in Model.Cart.Lines)
         {
-            <tr>
-                <td class="text-center">@line.Quantity</td>
-                <td class="text-left">@line.Symbol.NamePersian</td>
-                <td class="text-right">@line.Symbol.NameLatin</td>
-                <td class="text-right">
-                    @((line.Quantity * line.Symbol.GroupId).ToString())
-                </td>
-            </tr>
+        <tr>
+            <td class="text-center">@line.Quantity</td>
+            <td class="text-left">@line.Symbol.NamePersian</td>
+            <td class="text-right">@line.Symbol.NameLatin</td>
+            <td class="text-right">
+                @((line.Quantity * line.Symbol.GroupId).ToString())
+            </td>
+
+            <td class="text-center">
+                <form asp-controller="Cart" asp-action="Remove" method="post">
+                    <input type="hidden" name="SymbolID"
+                           value="@line.Symbol.Id" />
+                    <input type="hidden" name="returnUrl"
+                           value="@Model.ReturnUrl" />
+                    <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                </form>
+            </td>
+        </tr>
         }
     </tbody>
     <tfoot>
@@ -33,6 +44,7 @@
             <td class="text-right">
                 @Model.Cart.ComputeTotalValue().ToString()
             </td>
+            <td></td>
         </tr>
     </tfoot>
 </table>

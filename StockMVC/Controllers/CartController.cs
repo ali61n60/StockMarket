@@ -40,5 +40,12 @@ namespace StockMVC.Controllers
                        
             return CartAction(returnUrl);
         }     
+
+        [HttpPost]
+        public IActionResult Remove(int symbolId, string returnUrl)
+        {
+            Cart.RemoveLine(Cart.Lines.First(cl => cl.Symbol.Id== symbolId).Symbol);
+            return RedirectToPage( returnUrl);
+        }
     }
 }
