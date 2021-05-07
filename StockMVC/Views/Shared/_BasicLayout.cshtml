@@ -3,21 +3,30 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 
     <title>@ViewBag.Title</title>
 
 </head>
 <body>
+
     <div class="bg-dark text-white p-2">
-        <span class="navbar-brand ml-2">Elecontrol</span>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col navbar-brand">Elecontrol</div>
+                <div class="col-6 text-right">
+                    <vc:cart-summary />
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row m-1 p-1">
         <div id="categories" class="col-3">
-            <vc:navigation-menu />           
+            <vc:navigation-menu />
         </div>
         <div class="col-9">
             @RenderBody()
         </div>
-    </div>   
+    </div>
 </body>
 </html>
