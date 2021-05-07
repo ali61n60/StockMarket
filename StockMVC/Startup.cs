@@ -25,7 +25,10 @@ namespace StockMVC
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc(Option =>
+            {
+                Option.EnableEndpointRouting = false;
+            });
             
             services.AddDbContext<StockDbContext>(opts => {
                 opts.UseSqlServer(
@@ -58,8 +61,6 @@ namespace StockMVC
                     
             app.UseMvc(endpoints =>
             {
-                
-
                 endpoints.MapRoute("symbolPageRoute",
                     "{symbolGroup}/Page{symbolPage:int}",
                     new { Controller = "Home", action = "Index" });
@@ -83,7 +84,17 @@ namespace StockMVC
                 endpoints.MapRoute("default",
                     "",
                     new { Controller = "Home", action = "Index", symbolPage = 1 });
+
+               
             });
+
+            app.UseEndpoints(endpoints =>
+            {   
+                endpoints.MapBlazorHub();
+                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
+            });
+
+            
            // app.UseMvcWithDefaultRoute();
         }
     }
