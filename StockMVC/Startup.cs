@@ -25,16 +25,14 @@ namespace StockMVC
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(Option =>
-            {
-                Option.EnableEndpointRouting = false;
-            });
-            
+            services.AddControllersWithViews();
+
             services.AddDbContext<StockDbContext>(opts => {
                 opts.UseSqlServer(
                 Configuration["ConnectionStrings:DefaultConnection"]);
             });
 
+            services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddSession();
 
@@ -42,60 +40,55 @@ namespace StockMVC
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddServerSideBlazor();
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
         {
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            //  app.UseNodeModules(env.ContentRootPath);
             app.UseSession();
-                    
-            app.UseMvc(endpoints =>
+            app.UseRouting();
+                     
+
+            app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRoute("symbolPageRoute",
+                endpoints.MapControllerRoute("symbolPageRoute",
                     "{symbolGroup}/Page{symbolPage:int}",
                     new { Controller = "Home", action = "Index" });
 
-                endpoints.MapRoute("pageRoute",
+                endpoints.MapControllerRoute("pageRoute",
                     "Page{symbolPage:int}",
                 new { Controller = "Home", action = "Index", symbolPage = 1 });
 
-                endpoints.MapRoute("symbolRoute",
+                endpoints.MapControllerRoute("symbolRoute",
                     "{symbolGroup}",
                 new { Controller = "Home", action = "Index", symbolPage = 1 });
 
-                endpoints.MapRoute("pagination",
+                endpoints.MapControllerRoute("pagination",
                 "symbolGroup/Page{symbolPage}",
                 new { Controller = "Home", action = "Index", symbolPage = 1 });
 
-                endpoints.MapRoute("MvcDefault",
+                endpoints.MapControllerRoute("MvcDefault",
                    "{Controller}/{action}",
-                   new {Controller="Home", action="Index" });
+                   new { Controller = "Home", action = "Index" });
 
-                endpoints.MapRoute("default",
+                endpoints.MapControllerRoute("default",
                     "",
                     new { Controller = "Home", action = "Index", symbolPage = 1 });
-
-               
-            });
-
-            app.UseEndpoints(endpoints =>
-            {   
+                
+                endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
                 endpoints.MapBlazorHub();
-                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
+                endpoints.MapFallbackToPage("~/admin/{*catchall}", "/Admin/Index");
             });
 
             
-           // app.UseMvcWithDefaultRoute();
+           
         }
     }
 }
