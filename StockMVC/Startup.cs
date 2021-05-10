@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -84,7 +83,7 @@ namespace StockMVC
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
                 endpoints.MapBlazorHub();
-                endpoints.MapFallbackToPage("~/admin/{*catchall}", "/Admin/Index");
+                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
             });
 
             
