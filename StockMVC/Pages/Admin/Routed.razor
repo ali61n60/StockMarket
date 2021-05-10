@@ -1,10 +1,12 @@
-﻿<Router AppAssembly="typeof(Program).Assembly">
-    <Found>
-        <RouteView RouteData="@context" DefaultLayout="typeof(AdminLayout)" />       
+﻿<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <p>found</p>
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(AdminLayout)" />
     </Found>
     <NotFound>
-        <h4 class="bg-danger text-white text-center p-2">
-            No Matching Route Found
-        </h4>
+        <p>not found</p>
+        <LayoutView Layout="@typeof(AdminLayout)">
+            <p>Sorry, there's nothing at this address.</p>
+        </LayoutView>
     </NotFound>
 </Router>
