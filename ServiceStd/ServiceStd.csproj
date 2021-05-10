@@ -10,10 +10,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Accord" Version="3.8.0" />
-    <PackageReference Include="Accord.Controls" Version="3.8.0" />
     <PackageReference Include="Accord.MachineLearning" Version="3.8.0" />
     <PackageReference Include="StructureMap" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\test\.nuget\packages\accord\3.8.0\build\Accord.dll.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\test\.nuget\packages\accord\3.8.0\build\Accord.dll.config" />
   </ItemGroup>
 
 </Project>

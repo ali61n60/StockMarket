@@ -2,8 +2,8 @@
 {
     public class DatabaseInfoClass
     {
-        private static WhereAreYou whereAreYou = WhereAreYou.laptop;
-        private static DatabaseLocation databaseLocation = DatabaseLocation.server;
+        private static WhereAreYou whereAreYou = WhereAreYou.desktop;
+        private static DatabaseLocation databaseLocation = DatabaseLocation.local;
 
         public static string DefaultConnectionString()
         {
