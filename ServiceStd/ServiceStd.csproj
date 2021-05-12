@@ -14,12 +14,6 @@
     <PackageReference Include="StructureMap" Version="4.3.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Remove="C:\Users\test\.nuget\packages\accord\3.8.0\build\Accord.dll.config" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="C:\Users\test\.nuget\packages\accord\3.8.0\build\Accord.dll.config" />
-  </ItemGroup>
+  
 
 </Project>
