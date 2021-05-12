@@ -1,19 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.EntityFrameworkCore.Design.2.2.1\build\net461\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('..\packages\Microsoft.EntityFrameworkCore.Design.2.2.1\build\net461\Microsoft.EntityFrameworkCore.Design.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4D520E3B-E40D-4F0E-A4AD-1FF6DB9F9215}</ProjectGuid>
+    <ProjectGuid>{5A6356E7-FEDF-42E4-9DF5-75C8027A7DC9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>StockMarket</RootNamespace>
-    <AssemblyName>StockMarket</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>WindowsStock</RootNamespace>
+    <AssemblyName>WindowsStock</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -41,15 +39,6 @@
     </Reference>
     <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=2.2.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.2.2.1\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.EntityFrameworkCore.Design, Version=2.2.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Design.2.2.1\lib\net461\Microsoft.EntityFrameworkCore.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=2.2.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.2.2.1\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.EntityFrameworkCore.SqlServer, Version=2.2.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.EntityFrameworkCore.SqlServer.2.2.1\lib\netstandard2.0\Microsoft.EntityFrameworkCore.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
@@ -87,9 +76,6 @@
     <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap, Version=4.3.0.442, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\StructureMap.4.3.0\lib\net45\StructureMap.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
@@ -102,9 +88,6 @@
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.SqlClient, Version=4.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SqlClient.4.6.0\lib\net461\System.Data.SqlClient.dll</HintPath>
-    </Reference>
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -133,54 +116,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\SymbolSelector.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Components\SymbolSelector.Designer.cs">
-      <DependentUpon>SymbolSelector.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormRatio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormRatio.Designer.cs">
-      <DependentUpon>FormRatio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormStockExchange.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormStockExchange.Designer.cs">
-      <DependentUpon>FormStockExchange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormStockTraing.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormStockTraing.Designer.cs">
-      <DependentUpon>FormStockTraing.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TODO.cs" />
-    <EmbeddedResource Include="Components\SymbolSelector.resx">
-      <DependentUpon>SymbolSelector.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormRatio.resx">
-      <DependentUpon>FormRatio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormStockExchange.resx">
-      <DependentUpon>FormStockExchange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormStockTraing.resx">
-      <DependentUpon>FormStockTraing.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -191,32 +128,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Finance\ARM\C++ Complete Reference,3rd Ed.pdf" />
-    <None Include="Finance\ARM\Discovering_STM32_Microcontroller_ElectroVolt.ir_.pdf" />
-    <None Include="Finance\ARM\Freescale_ARM_Cortex_M_Embedded_ElectroVolt.ir_.pdf" />
-    <None Include="Finance\ARM\Programming-with-Stm32-Getting-Started-with-the-Nucleo.pdf" />
-    <None Include="Finance\ARM\STemWin\dm00089670-getting-started-with-stemwin-library-stmicroelectronics.pdf" />
-    <None Include="Finance\ARM\STM32F103C8T6.pdf" />
-    <None Include="Finance\ARM\StmArmProgrammingMazidi\F3F5201B437D2DD109230C412BC44D4E.pdf" />
-    <None Include="Finance\ARM\StmArmProgrammingMazidi\STM32 Arm Programming for Embedded Systems.azw3" />
-    <None Include="Finance\ARM\StmArmProgrammingMazidi\STM32 Arm Programming for Embedded Systems.pdf" />
-    <None Include="Finance\Asp\Pro ASP.NET Core 3, 8th Edition by Adam Freeman-Apress-9781484254394-EBooksWorld.ir.pdf" />
-    <None Include="Finance\Asp\Unlock-Pro ASP.NET Core MVC.pdf" />
-    <None Include="Finance\Asp\Web Scalability for Startup Engineers.pdf" />
-    <None Include="Finance\Davood\4_5773799255558848732.pdf" />
-    <None Include="Finance\EmbededLinux\esys.ir_Embedded.Linux.System.Design.and.Development.pdf" />
-    <None Include="Finance\EmbededLinux\Linux-Driver-Development-for-Embedded-Processors-Second-Edition-www.EBooksWorld.ir.pdf" />
-    <None Include="Finance\finance.xlsx" />
-    <None Include="Finance\HB 1_1833973795.pdf" />
-    <None Include="Finance\HomeRent1399.docx" />
-    <None Include="Finance\HomeRent1399.pdf" />
-    <None Include="Finance\Maryam\Examinations.docx" />
-    <None Include="Finance\MofidTrader\help_mofidtrader.pdf" />
-    <None Include="Finance\MofidTrader\mofidtrader5-reference.pdf" />
-    <None Include="Finance\MofidTrader\recommendations.pdf" />
-    <None Include="Finance\Resume\AliNejatResumeV10En.doc" />
-    <None Include="Finance\Resume\AliNejatResumeV10En.pdf" />
-    <None Include="Finance\Resume\ToBeCreated.docx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -229,9 +140,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ModelStd\ModelStd.csproj">
@@ -248,10 +157,4 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.EntityFrameworkCore.Design.2.2.1\build\net461\Microsoft.EntityFrameworkCore.Design.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.EntityFrameworkCore.Design.2.2.1\build\net461\Microsoft.EntityFrameworkCore.Design.props'))" />
-  </Target>
 </Project>

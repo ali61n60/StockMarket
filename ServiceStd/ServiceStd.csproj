@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -9,9 +9,8 @@
     <ProjectReference Include="..\RepositoryStd\RepositoryStd.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Accord.MachineLearning" Version="3.8.0" />
-    <PackageReference Include="StructureMap" Version="4.3.0" />
+  <ItemGroup>    
+    <PackageReference Include="StructureMap" Version="4.7.1" />
   </ItemGroup>
 
   
