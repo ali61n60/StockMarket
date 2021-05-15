@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using RepositoryStd;
 using ModelStd.Carts;
+using ModelStd.IRepository;
+using RepositoryStd.Database.Repository;
 
 namespace StockMVC
 {
@@ -24,6 +26,7 @@ namespace StockMVC
 
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddControllersWithViews();
 
             services.AddDbContext<StockDbContext>(opts => {
@@ -35,6 +38,7 @@ namespace StockMVC
             services.AddDistributedMemoryCache();
             services.AddSession();
 
+            services.AddScoped<IOrderRepository, EFOrderRepository>();
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -84,6 +88,8 @@ namespace StockMVC
                 endpoints.MapRazorPages();
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
+
+                endpoints.MapControllers();
             });
 
             

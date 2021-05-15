@@ -8,7 +8,7 @@ using System.Text;
 
 namespace RepositoryStd.Database.Repository
 {
-    class EFOrderRepository : IOrderRepository
+    public class EFOrderRepository : IOrderRepository
     {
         private StockDbContext context;
         public EFOrderRepository(StockDbContext ctx)

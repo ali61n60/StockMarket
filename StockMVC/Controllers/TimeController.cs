@@ -1,0 +1,38 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using ModelStd.DB.Product;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace StockMVC.Controllers
+{
+    [Route("api/[controller]")]
+    public class TimeController:ControllerBase
+    {
+
+        //http://localhost:5000/api/Time/2        
+        [HttpGet("{id}")]
+        public string GetProduct(long id, [FromServices] ILogger<TimeController> logger)
+        {
+            logger.LogDebug("GetProduct Action Invoked");
+            return "Ali: " + DateTime.Now.ToString() + "   " + HttpContext.Request.Headers.ToString();
+
+        }
+
+        //http://localhost:5000/api/Time/
+        [HttpGet]
+        public string GetTime()
+        {
+            return "GetTime()";
+        }
+
+        [HttpPost]
+        public void SaveProduct([FromBody] Product product)
+        {
+            
+        }
+    }
+}
+
