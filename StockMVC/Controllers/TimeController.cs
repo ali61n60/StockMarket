@@ -29,9 +29,9 @@ namespace StockMVC.Controllers
         }
 
         [HttpPost]
-        public void SaveProduct([FromBody] Product product)
+        public string SaveProduct([FromBody] Product product)
         {
-            
+            return "Ali: " + DateTime.Now.ToString() + "   " + HttpContext.Request.Headers.ToString();
         }
     }
 }
