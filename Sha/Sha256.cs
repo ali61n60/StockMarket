@@ -4,6 +4,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 
 namespace Sha2
 {
@@ -244,6 +245,20 @@ namespace Sha2
             }
             while (bytes_read == 8196);
 
+            return sha.GetHash();
+        }
+
+        public static ReadOnlyCollection<byte> HashString(string str)
+        {
+            Sha256 sha = new Sha256();
+            byte[] buf = new byte[8196];
+
+            ReadOnlyCollection<byte> byteData= new ReadOnlyCollection<byte>(Encoding.ASCII.GetBytes(str));
+            for(int i = 0; i < byteData.Count; i++)
+            {
+                buf[i] = byteData[i];
+            }
+            sha.AddData(buf, 0,(uint) byteData.Count);
             return sha.GetHash();
         }
     }
