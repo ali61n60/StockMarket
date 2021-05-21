@@ -10,6 +10,18 @@ namespace Sha2
 {
     public class Sha256
     {
+        private byte[] pending_block = new byte[64];
+        private uint pending_block_off = 0;
+        private UInt32[] uint_buffer = new UInt32[16];
+
+        private UInt64 bits_processed = 0;
+
+        private bool closed = false;
+
+        private UInt32[] H = new UInt32[8] {
+            0x6A09E667, 0xBB67AE85, 0x3C6EF372, 0xA54FF53A, 0x510E527F, 0x9B05688C, 0x1F83D9AB, 0x5BE0CD19
+        };
+
         private static readonly UInt32[] K = new UInt32[64] {
             0x428A2F98, 0x71374491, 0xB5C0FBCF, 0xE9B5DBA5, 0x3956C25B, 0x59F111F1, 0x923F82A4, 0xAB1C5ED5,
             0xD807AA98, 0x12835B01, 0x243185BE, 0x550C7DC3, 0x72BE5D74, 0x80DEB1FE, 0x9BDC06A7, 0xC19BF174,
@@ -29,12 +41,12 @@ namespace Sha2
 
         private static UInt32 ROTR(UInt32 x, byte n)
         {
-            Debug.Assert(n < 32);
+            Debug.Assert(n < 32);           
             return (x >> n) | (x << (32 - n));
         }
-
+        
         private static UInt32 Ch(UInt32 x, UInt32 y, UInt32 z)
-        {
+        {   
             return (x & y) ^ ((~x) & z);
         }
 
@@ -64,17 +76,7 @@ namespace Sha2
         }
 
 
-        private UInt32[] H = new UInt32[8] {
-            0x6A09E667, 0xBB67AE85, 0x3C6EF372, 0xA54FF53A, 0x510E527F, 0x9B05688C, 0x1F83D9AB, 0x5BE0CD19
-        };
-
-        private byte[] pending_block = new byte[64];
-        private uint pending_block_off = 0;
-        private UInt32[] uint_buffer = new UInt32[16];
-
-        private UInt64 bits_processed = 0;
-
-        private bool closed = false;
+        
 
         private void processBlock(UInt32[] M)
         {
@@ -192,7 +194,7 @@ namespace Sha2
                 for (uint i = 1; i <= 8; ++i)
                 {
                     padding[padding.Length - i] = (byte)size_temp;
-                    size_temp >>= 8;
+                     size_temp >>= 8;
                 }
 
                 AddData(padding, 0u, (uint)padding.Length);
@@ -201,7 +203,7 @@ namespace Sha2
 
                 closed = true;
             }
-
+            
             return Array.AsReadOnly(H);
         }
 

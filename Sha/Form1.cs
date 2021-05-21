@@ -30,7 +30,7 @@ namespace Sha
             ReadOnlyCollection<byte> hash1 = Sha256.HashFile(File.OpenRead(@"e:\tohash.txt"));
             ReadOnlyCollection<byte> hash2 = Sha256.HashString(data);
 
-            richTextBox1.Text = Util.ArrayToString(hash1)+"\n\n\n\n";
+            //richTextBox1.Text = Util.ArrayToString(hash1)+"\n\n\n\n";
             richTextBox1.Text += Util.ArrayToString(hash2);
 
 
