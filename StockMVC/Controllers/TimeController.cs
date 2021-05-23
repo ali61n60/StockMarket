@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StockMVC.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class TimeController:ControllerBase
     {
 
@@ -21,17 +21,22 @@ namespace StockMVC.Controllers
 
         }
 
-        //http://localhost:5000/api/Time/
-        [HttpGet]
-        public string GetTime()
-        {
-            return "GetTime()";
-        }
+        ////http://localhost:5000/api/Time/
+        //[HttpGet]
+        //public string GetTime()
+        //{
+        //    return "GetTime()";
+        //}
 
-        [HttpPost]
-        public string SaveProduct([FromBody] Product product)
+        //[HttpPost]
+        //public string SaveProduct([FromBody] Product product)
+        //{
+        //    return "Ali: " + DateTime.Now.ToString() + "   " + HttpContext.Request.Headers.ToString();
+        //}
+
+        public string SayHello()
         {
-            return "Ali: " + DateTime.Now.ToString() + "   " + HttpContext.Request.Headers.ToString();
+            return "Hello " + DateTime.Now.ToLongTimeString();
         }
     }
 }
