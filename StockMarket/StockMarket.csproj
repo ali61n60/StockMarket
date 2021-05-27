@@ -253,6 +253,10 @@
       <Name>ServiceStd</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Finance\Resume\20190702_122009.jpg" />
+    <Content Include="Finance\Resume\20190702_122017.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
