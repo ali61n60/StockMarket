@@ -61,78 +61,45 @@ namespace StockMVC
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
-            app.UseWebSockets();
-
+            
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapControllerRoute("symbolPageRoute",
-                //    "{symbolGroup}/Page{symbolPage:int}",
-                //    new { Controller = "Home", action = "Index" });
+                endpoints.MapControllerRoute("symbolPageRoute",
+                    "{symbolGroup}/Page{symbolPage:int}",
+                    new { Controller = "Home", action = "Index" });
 
-                //endpoints.MapControllerRoute("pageRoute",
-                //    "Page{symbolPage:int}",
-                //new { Controller = "Home", action = "Index", symbolPage = 1 });
+                endpoints.MapControllerRoute("pageRoute",
+                    "Page{symbolPage:int}",
+                new { Controller = "Home", action = "Index", symbolPage = 1 });
 
-                //endpoints.MapControllerRoute("symbolRoute",
-                //    "{symbolGroup}",
-                //new { Controller = "Home", action = "Index", symbolPage = 1 });
+                endpoints.MapControllerRoute("symbolRoute",
+                    "{symbolGroup}",
+                new { Controller = "Home", action = "Index", symbolPage = 1 });
 
-                //endpoints.MapControllerRoute("pagination",
-                //"symbolGroup/Page{symbolPage}",
-                //new { Controller = "Home", action = "Index", symbolPage = 1 });
+                endpoints.MapControllerRoute("pagination",
+                "symbolGroup/Page{symbolPage}",
+                new { Controller = "Home", action = "Index", symbolPage = 1 });
 
-                //endpoints.MapControllerRoute("MvcDefault",
-                //   "{Controller}/{action}",
-                //   new { Controller = "Home", action = "Index" });
+                endpoints.MapControllerRoute("MvcDefault",
+                   "{Controller}/{action}",
+                   new { Controller = "Home", action = "Index" });
 
-                //endpoints.MapControllerRoute("default",
-                //    "",
-                //    new { Controller = "Home", action = "Index", symbolPage = 1 });
-                
-                //endpoints.MapDefaultControllerRoute();
-                //endpoints.MapRazorPages();
-                //endpoints.MapBlazorHub();
-                //endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
+                endpoints.MapControllerRoute("default",
+                    "",
+                    new { Controller = "Home", action = "Index", symbolPage = 1 });
 
-                //endpoints.MapControllers();
+                endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
+                endpoints.MapBlazorHub();
+                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
+
+                endpoints.MapControllers();
             });
 
-            app.Use(async (context, next) =>
-            {
-                if (context.Request.Path == "/ws")
-                {
-                    if (!context.WebSockets.IsWebSocketRequest)
-                    {
-                        using (WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync())
-                        {
-                            await  Echo(context, webSocket);
-                        }
-                    }
-                    else
-                    {
-                        context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    }
-                }
-                else
-                {
-                    await next();
-                }
-
-            });
+           
 
         }
 
-        private async Task Echo(HttpContext context, WebSocket webSocket)
-        {
-            var buffer = new byte[1024 * 4];
-            WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-            while (!result.CloseStatus.HasValue)
-            {
-                await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
-
-                result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-            }
-            await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
-        }
+       
     }
 }
