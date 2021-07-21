@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.buttonSeries1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxStockList1 = new System.Windows.Forms.ComboBox();
             this.buttonSeries2 = new System.Windows.Forms.Button();
             this.buttonRatio = new System.Windows.Forms.Button();
             this.buttonPrice = new System.Windows.Forms.Button();
@@ -45,7 +45,7 @@
             this.buttonAverage = new System.Windows.Forms.Button();
             this.comboBoxStockGroup = new System.Windows.Forms.ComboBox();
             this.buttonAverageVolume = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxStockList2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,28 +64,27 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(41, 270);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(981, 407);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
-            // comboBox1
+            // comboBoxStockList1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(13, 63);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxStockList1.FormattingEnabled = true;
+            this.comboBoxStockList1.Location = new System.Drawing.Point(13, 63);
+            this.comboBoxStockList1.Name = "comboBoxStockList1";
+            this.comboBoxStockList1.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxStockList1.TabIndex = 2;
             // 
             // buttonSeries2
             // 
@@ -193,20 +192,20 @@
             this.buttonAverageVolume.UseVisualStyleBackColor = true;
             this.buttonAverageVolume.Click += new System.EventHandler(this.buttonAverageVolume_Click);
             // 
-            // comboBox2
+            // comboBoxStockList2
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(202, 63);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 16;
+            this.comboBoxStockList2.FormattingEnabled = true;
+            this.comboBoxStockList2.Location = new System.Drawing.Point(202, 63);
+            this.comboBoxStockList2.Name = "comboBoxStockList2";
+            this.comboBoxStockList2.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxStockList2.TabIndex = 16;
             // 
             // FormRatio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1090, 689);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBoxStockList2);
             this.Controls.Add(this.buttonAverageVolume);
             this.Controls.Add(this.comboBoxStockGroup);
             this.Controls.Add(this.buttonAverage);
@@ -218,7 +217,7 @@
             this.Controls.Add(this.buttonPrice);
             this.Controls.Add(this.buttonRatio);
             this.Controls.Add(this.buttonSeries2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxStockList1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.buttonSeries1);
             this.Name = "FormRatio";
@@ -233,7 +232,7 @@
 
         private System.Windows.Forms.Button buttonSeries1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxStockList1;
         private System.Windows.Forms.Button buttonSeries2;
         private System.Windows.Forms.Button buttonRatio;
         private System.Windows.Forms.Button buttonPrice;
@@ -245,7 +244,7 @@
         private System.Windows.Forms.Button buttonAverage;
         private System.Windows.Forms.ComboBox comboBoxStockGroup;
         private System.Windows.Forms.Button buttonAverageVolume;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxStockList2;
     }
 }
 

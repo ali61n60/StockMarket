@@ -46,11 +46,11 @@ namespace StockMarket
         {
             foreach (string stockName in stocksInformation.GetAllStocksName())
             {
-                comboBox1.Items.Add(stockName);
-                comboBox2.Items.Add(stockName);
+                comboBoxStockList1.Items.Add(stockName);
+                comboBoxStockList2.Items.Add(stockName);
             }
-            comboBox1.SelectedIndex = 0;
-            comboBox2.SelectedIndex = 0;
+            comboBoxStockList1.SelectedIndex = 0;
+            comboBoxStockList2.SelectedIndex = 0;
 
         }
 
@@ -62,7 +62,7 @@ namespace StockMarket
 
         private void buttonSeries1_Click(object sender, EventArgs e)
         {
-            string stockName = comboBox1.SelectedItem.ToString();
+            string stockName = comboBoxStockList1.SelectedItem.ToString();
             chartDrawer.Draw(stockName);            
         }
         
@@ -70,14 +70,14 @@ namespace StockMarket
 
         private void buttonSeries2_Click(object sender, EventArgs e)
         {
-            string stockName = comboBox2.SelectedItem.ToString();
+            string stockName = comboBoxStockList2.SelectedItem.ToString();
             chartDrawer.Draw(stockName);            
         }
 
         private void buttonRatio_Click(object sender, EventArgs e)
         {
-            string stockName1 = comboBox1.SelectedItem.ToString();
-            string stockName2 = comboBox2.SelectedItem.ToString();
+            string stockName1 = comboBoxStockList1.SelectedItem.ToString();
+            string stockName2 = comboBoxStockList2.SelectedItem.ToString();
 
             chartDrawer.DrawRatio(stockName1, stockName2);
 
@@ -87,7 +87,7 @@ namespace StockMarket
         private void button4_Click(object sender, EventArgs e)
         {
             StockStatictics stockStatictics = new StockStatictics();
-            string stockName = comboBox1.SelectedItem.ToString();
+            string stockName = comboBoxStockList1.SelectedItem.ToString();
             int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
             double maxPrice = stockStatictics.MaxPrice(stockName, numberOfDays);
             double minPrice = stockStatictics.MinPrice(stockName, numberOfDays);
@@ -103,7 +103,7 @@ namespace StockMarket
             List<Message> messages = new List<Message>();
             Message tempMesage;
             int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
-            foreach (var item in comboBox1.Items)
+            foreach (var item in comboBoxStockList1.Items)
             {
                 string stockName = item.ToString();
                 double priceChange = stockStatictics.PriceChangePercent(stockName, numberOfDays);
@@ -131,16 +131,16 @@ namespace StockMarket
         int average = 7;
         private void buttonAverage_Click(object sender, EventArgs e)
         {
-            string stockName = comboBox1.SelectedItem.ToString();
+            string stockName = comboBoxStockList1.SelectedItem.ToString();
             List<PointData> listStockData = stocksInformation.GetStockData(stockName);
 
             
             List<PointData> listMovingAverage = new Averages().MovingAverage(listStockData, average);
 
             
-            addChartSeries("MA[" + average + "]" + stockName);
-            configureChartSeries();
-            addData("MA[" + average + "]" + stockName, listMovingAverage);
+            //addChartSeries("MA[" + average + "]" + stockName);
+            //configureChartSeries();
+            //addData("MA[" + average + "]" + stockName, listMovingAverage);
             average+=10;
         }
 
@@ -153,18 +153,18 @@ namespace StockMarket
             List<CustomGroupMember> stockListStockInfo = stockDbContext.CustomGroupMembers
                 .Include(s=>s.Symbol)
                 .Where(s => s.GroupId == listId).ToList();
-            comboBox1.Items.Clear();
-            comboBox2.Items.Clear();
+            comboBoxStockList1.Items.Clear();
+            comboBoxStockList2.Items.Clear();
             foreach (CustomGroupMember s in stockListStockInfo)
             {
-                comboBox1.Items.Add(s.Symbol.NamePersian);
-                comboBox2.Items.Add(s.Symbol.NamePersian);
+                comboBoxStockList1.Items.Add(s.Symbol.NamePersian);
+                comboBoxStockList2.Items.Add(s.Symbol.NamePersian);
             }
         }
 
         private void buttonAverageVolume_Click(object sender, EventArgs e)
         {
-            string stockName = comboBox1.SelectedItem.ToString();
+            string stockName = comboBoxStockList1.SelectedItem.ToString();
             List<PointData> listStockData = stocksInformation.GetStockData(stockName);
 
             int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
@@ -174,13 +174,6 @@ namespace StockMarket
 
             listBox1.Items.Add(stockName + " Average Volume in Last " + numberOfDays + " Day[s] is " + averageVolume);
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-       
     }
 
     class Message
