@@ -1,6 +1,6 @@
 ﻿namespace StockMarket
 {
-    partial class FormStockTraing
+    partial class FormStockTrading
     {
         /// <summary>
         /// Required designer variable.
@@ -198,7 +198,7 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 17;
             // 
-            // FormStockTraing
+            // FormStockTrading
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -220,8 +220,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxName);
-            this.Name = "FormStockTraing";
-            this.Text = "FormStockTraing";
+            this.Name = "FormStockTrading";
+            this.Text = "FormStockTrading";
             this.ResumeLayout(false);
             this.PerformLayout();
 

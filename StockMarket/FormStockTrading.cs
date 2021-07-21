@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace StockMarket
 {
-    public partial class FormStockTraing : Form
+    public partial class FormStockTrading : Form
     {
         List<Shareholder> listShareholder;
         List<Symbol> listSymbol;
-        public FormStockTraing()
+        public FormStockTrading()
         {
             InitializeComponent();
             init();

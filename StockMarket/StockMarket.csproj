@@ -145,17 +145,17 @@
     <Compile Include="Components\SymbolSelector.Designer.cs">
       <DependentUpon>SymbolSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormRatio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormRatio.Designer.cs">
       <DependentUpon>FormRatio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLive.Designer.cs">
+      <DependentUpon>FormLive.cs</DependentUpon>
     </Compile>
     <Compile Include="FormStockExchange.cs">
       <SubType>Form</SubType>
@@ -163,11 +163,11 @@
     <Compile Include="FormStockExchange.Designer.cs">
       <DependentUpon>FormStockExchange.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormStockTraing.cs">
+    <Compile Include="FormStockTrading.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormStockTraing.Designer.cs">
-      <DependentUpon>FormStockTraing.cs</DependentUpon>
+    <Compile Include="FormStockTrading.Designer.cs">
+      <DependentUpon>FormStockTrading.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,17 +175,17 @@
     <EmbeddedResource Include="Components\SymbolSelector.resx">
       <DependentUpon>SymbolSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormRatio.resx">
       <DependentUpon>FormRatio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLive.resx">
+      <DependentUpon>FormLive.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStockExchange.resx">
       <DependentUpon>FormStockExchange.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStockTraing.resx">
-      <DependentUpon>FormStockTraing.cs</DependentUpon>
+    <EmbeddedResource Include="FormStockTrading.resx">
+      <DependentUpon>FormStockTrading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

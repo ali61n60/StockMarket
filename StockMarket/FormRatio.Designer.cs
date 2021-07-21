@@ -28,267 +28,202 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelVaGhdirC = new System.Windows.Forms.Label();
-            this.labelGhPa = new System.Windows.Forms.Label();
-            this.labelGhZa = new System.Windows.Forms.Label();
-            this.labelGhGh = new System.Windows.Forms.Label();
-            this.labelParsC = new System.Windows.Forms.Label();
-            this.labelZagrosC = new System.Windows.Forms.Label();
-            this.labelVaGhadirR = new System.Windows.Forms.Label();
-            this.labelZagrosR = new System.Windows.Forms.Label();
-            this.labelParsR = new System.Windows.Forms.Label();
-            this.labelZaGh = new System.Windows.Forms.Label();
-            this.labelPaPa = new System.Windows.Forms.Label();
-            this.labelPaZa = new System.Windows.Forms.Label();
-            this.labelPaGh = new System.Windows.Forms.Label();
-            this.labelZaPa = new System.Windows.Forms.Label();
-            this.labelZaZa = new System.Windows.Forms.Label();
-            this.buttonController = new System.Windows.Forms.Button();
-            this.labelSummary = new System.Windows.Forms.Label();
-            this.labelGhZaBest = new System.Windows.Forms.Label();
-            this.labelGhPaBest = new System.Windows.Forms.Label();
-            this.textBoxGhZaBest = new System.Windows.Forms.TextBox();
-            this.textBoxGhPaBest = new System.Windows.Forms.TextBox();
-            this.labelGhPatoBest = new System.Windows.Forms.Label();
-            this.labelGhZatoBest = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.button1 = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.buttonPrice = new System.Windows.Forms.Button();
+            this.textBoxNumberOfDays = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonPriceChange = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.buttonClearList = new System.Windows.Forms.Button();
+            this.buttonAverage = new System.Windows.Forms.Button();
+            this.comboBoxList1 = new System.Windows.Forms.ComboBox();
+            this.buttonAverageVolume = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
-            // labelVaGhdirC
+            // button1
             // 
-            this.labelVaGhdirC.AutoSize = true;
-            this.labelVaGhdirC.Location = new System.Drawing.Point(28, 28);
-            this.labelVaGhdirC.Name = "labelVaGhdirC";
-            this.labelVaGhdirC.Size = new System.Drawing.Size(51, 13);
-            this.labelVaGhdirC.TabIndex = 0;
-            this.labelVaGhdirC.Text = "VaGhadir";
+            this.button1.Location = new System.Drawing.Point(13, 133);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Show";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // labelGhPa
+            // chart1
             // 
-            this.labelGhPa.AutoSize = true;
-            this.labelGhPa.Location = new System.Drawing.Point(273, 28);
-            this.labelGhPa.Name = "labelGhPa";
-            this.labelGhPa.Size = new System.Drawing.Size(13, 13);
-            this.labelGhPa.TabIndex = 2;
-            this.labelGhPa.Text = "2";
+            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(41, 270);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(981, 407);
+            this.chart1.TabIndex = 1;
+            this.chart1.Text = "chart1";
             // 
-            // labelGhZa
+            // comboBox1
             // 
-            this.labelGhZa.AutoSize = true;
-            this.labelGhZa.Location = new System.Drawing.Point(182, 28);
-            this.labelGhZa.Name = "labelGhZa";
-            this.labelGhZa.Size = new System.Drawing.Size(13, 13);
-            this.labelGhZa.TabIndex = 3;
-            this.labelGhZa.Text = "1";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(12, 88);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // labelGhGh
+            // button2
             // 
-            this.labelGhGh.AutoSize = true;
-            this.labelGhGh.Location = new System.Drawing.Point(101, 28);
-            this.labelGhGh.Name = "labelGhGh";
-            this.labelGhGh.Size = new System.Drawing.Size(13, 13);
-            this.labelGhGh.TabIndex = 4;
-            this.labelGhGh.Text = "0";
+            this.button2.Location = new System.Drawing.Point(235, 143);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Show";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // labelParsC
+            // button3
             // 
-            this.labelParsC.AutoSize = true;
-            this.labelParsC.Location = new System.Drawing.Point(28, 117);
-            this.labelParsC.Name = "labelParsC";
-            this.labelParsC.Size = new System.Drawing.Size(28, 13);
-            this.labelParsC.TabIndex = 5;
-            this.labelParsC.Text = "Pars";
+            this.button3.Location = new System.Drawing.Point(358, 143);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Ratio";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // labelZagrosC
+            // buttonPrice
             // 
-            this.labelZagrosC.AutoSize = true;
-            this.labelZagrosC.Location = new System.Drawing.Point(28, 75);
-            this.labelZagrosC.Name = "labelZagrosC";
-            this.labelZagrosC.Size = new System.Drawing.Size(40, 13);
-            this.labelZagrosC.TabIndex = 6;
-            this.labelZagrosC.Text = "Zagros";
+            this.buttonPrice.Location = new System.Drawing.Point(126, 176);
+            this.buttonPrice.Name = "buttonPrice";
+            this.buttonPrice.Size = new System.Drawing.Size(109, 23);
+            this.buttonPrice.TabIndex = 6;
+            this.buttonPrice.Text = "Min Max Price";
+            this.buttonPrice.UseVisualStyleBackColor = true;
+            this.buttonPrice.Click += new System.EventHandler(this.button4_Click);
             // 
-            // labelVaGhadirR
+            // textBoxNumberOfDays
             // 
-            this.labelVaGhadirR.AutoSize = true;
-            this.labelVaGhadirR.Location = new System.Drawing.Point(101, 9);
-            this.labelVaGhadirR.Name = "labelVaGhadirR";
-            this.labelVaGhadirR.Size = new System.Drawing.Size(51, 13);
-            this.labelVaGhadirR.TabIndex = 7;
-            this.labelVaGhadirR.Text = "VaGhadir";
+            this.textBoxNumberOfDays.Location = new System.Drawing.Point(80, 189);
+            this.textBoxNumberOfDays.Name = "textBoxNumberOfDays";
+            this.textBoxNumberOfDays.Size = new System.Drawing.Size(40, 20);
+            this.textBoxNumberOfDays.TabIndex = 7;
+            this.textBoxNumberOfDays.Text = "7";
             // 
-            // labelZagrosR
+            // label1
             // 
-            this.labelZagrosR.AutoSize = true;
-            this.labelZagrosR.Location = new System.Drawing.Point(182, 9);
-            this.labelZagrosR.Name = "labelZagrosR";
-            this.labelZagrosR.Size = new System.Drawing.Size(40, 13);
-            this.labelZagrosR.TabIndex = 8;
-            this.labelZagrosR.Text = "Zagros";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(39, 189);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Days";
             // 
-            // labelParsR
+            // buttonPriceChange
             // 
-            this.labelParsR.AutoSize = true;
-            this.labelParsR.Location = new System.Drawing.Point(273, 9);
-            this.labelParsR.Name = "labelParsR";
-            this.labelParsR.Size = new System.Drawing.Size(28, 13);
-            this.labelParsR.TabIndex = 9;
-            this.labelParsR.Text = "Pars";
+            this.buttonPriceChange.Location = new System.Drawing.Point(250, 175);
+            this.buttonPriceChange.Name = "buttonPriceChange";
+            this.buttonPriceChange.Size = new System.Drawing.Size(87, 23);
+            this.buttonPriceChange.TabIndex = 9;
+            this.buttonPriceChange.Text = "Price Change";
+            this.buttonPriceChange.UseVisualStyleBackColor = true;
+            this.buttonPriceChange.Click += new System.EventHandler(this.buttonPriceChange_Click);
             // 
-            // labelZaGh
+            // listBox1
             // 
-            this.labelZaGh.AutoSize = true;
-            this.labelZaGh.Location = new System.Drawing.Point(101, 75);
-            this.labelZaGh.Name = "labelZaGh";
-            this.labelZaGh.Size = new System.Drawing.Size(13, 13);
-            this.labelZaGh.TabIndex = 10;
-            this.labelZaGh.Text = "3";
+            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(558, 17);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(462, 121);
+            this.listBox1.TabIndex = 10;
             // 
-            // labelPaPa
+            // buttonClearList
             // 
-            this.labelPaPa.AutoSize = true;
-            this.labelPaPa.Location = new System.Drawing.Point(273, 117);
-            this.labelPaPa.Name = "labelPaPa";
-            this.labelPaPa.Size = new System.Drawing.Size(13, 13);
-            this.labelPaPa.TabIndex = 11;
-            this.labelPaPa.Text = "8";
+            this.buttonClearList.Location = new System.Drawing.Point(358, 181);
+            this.buttonClearList.Name = "buttonClearList";
+            this.buttonClearList.Size = new System.Drawing.Size(149, 28);
+            this.buttonClearList.TabIndex = 11;
+            this.buttonClearList.Text = "Clear List";
+            this.buttonClearList.UseVisualStyleBackColor = true;
+            this.buttonClearList.Click += new System.EventHandler(this.buttonClearList_Click);
             // 
-            // labelPaZa
+            // buttonAverage
             // 
-            this.labelPaZa.AutoSize = true;
-            this.labelPaZa.Location = new System.Drawing.Point(182, 117);
-            this.labelPaZa.Name = "labelPaZa";
-            this.labelPaZa.Size = new System.Drawing.Size(13, 13);
-            this.labelPaZa.TabIndex = 12;
-            this.labelPaZa.Text = "7";
+            this.buttonAverage.Location = new System.Drawing.Point(13, 160);
+            this.buttonAverage.Name = "buttonAverage";
+            this.buttonAverage.Size = new System.Drawing.Size(75, 23);
+            this.buttonAverage.TabIndex = 13;
+            this.buttonAverage.Text = "Average";
+            this.buttonAverage.UseVisualStyleBackColor = true;
+            this.buttonAverage.Click += new System.EventHandler(this.buttonAverage_Click);
             // 
-            // labelPaGh
+            // comboBoxList1
             // 
-            this.labelPaGh.AutoSize = true;
-            this.labelPaGh.Location = new System.Drawing.Point(101, 117);
-            this.labelPaGh.Name = "labelPaGh";
-            this.labelPaGh.Size = new System.Drawing.Size(13, 13);
-            this.labelPaGh.TabIndex = 13;
-            this.labelPaGh.Text = "6";
+            this.comboBoxList1.FormattingEnabled = true;
+            this.comboBoxList1.Location = new System.Drawing.Point(13, 27);
+            this.comboBoxList1.Name = "comboBoxList1";
+            this.comboBoxList1.Size = new System.Drawing.Size(310, 21);
+            this.comboBoxList1.TabIndex = 14;
+            this.comboBoxList1.SelectedIndexChanged += new System.EventHandler(this.comboBoxList1_SelectedIndexChanged);
             // 
-            // labelZaPa
+            // buttonAverageVolume
             // 
-            this.labelZaPa.AutoSize = true;
-            this.labelZaPa.Location = new System.Drawing.Point(273, 75);
-            this.labelZaPa.Name = "labelZaPa";
-            this.labelZaPa.Size = new System.Drawing.Size(13, 13);
-            this.labelZaPa.TabIndex = 14;
-            this.labelZaPa.Text = "5";
+            this.buttonAverageVolume.Location = new System.Drawing.Point(25, 227);
+            this.buttonAverageVolume.Name = "buttonAverageVolume";
+            this.buttonAverageVolume.Size = new System.Drawing.Size(139, 23);
+            this.buttonAverageVolume.TabIndex = 15;
+            this.buttonAverageVolume.Text = "Average Volume";
+            this.buttonAverageVolume.UseVisualStyleBackColor = true;
+            this.buttonAverageVolume.Click += new System.EventHandler(this.buttonAverageVolume_Click);
             // 
-            // labelZaZa
+            // comboBox2
             // 
-            this.labelZaZa.AutoSize = true;
-            this.labelZaZa.Location = new System.Drawing.Point(182, 75);
-            this.labelZaZa.Name = "labelZaZa";
-            this.labelZaZa.Size = new System.Drawing.Size(13, 13);
-            this.labelZaZa.TabIndex = 15;
-            this.labelZaZa.Text = "4";
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(202, 88);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 16;
             // 
-            // buttonController
-            // 
-            this.buttonController.Location = new System.Drawing.Point(389, 13);
-            this.buttonController.Name = "buttonController";
-            this.buttonController.Size = new System.Drawing.Size(75, 23);
-            this.buttonController.TabIndex = 16;
-            this.buttonController.Text = "Start";
-            this.buttonController.UseVisualStyleBackColor = true;
-            this.buttonController.Click += new System.EventHandler(this.buttonController_Click);
-            // 
-            // labelSummary
-            // 
-            this.labelSummary.AutoSize = true;
-            this.labelSummary.Location = new System.Drawing.Point(28, 170);
-            this.labelSummary.Name = "labelSummary";
-            this.labelSummary.Size = new System.Drawing.Size(50, 13);
-            this.labelSummary.TabIndex = 17;
-            this.labelSummary.Text = "Summery";
-            // 
-            // labelGhZaBest
-            // 
-            this.labelGhZaBest.AutoSize = true;
-            this.labelGhZaBest.Location = new System.Drawing.Point(28, 209);
-            this.labelGhZaBest.Name = "labelGhZaBest";
-            this.labelGhZaBest.Size = new System.Drawing.Size(62, 13);
-            this.labelGhZaBest.TabIndex = 18;
-            this.labelGhZaBest.Text = "Gh/Za best";
-            // 
-            // labelGhPaBest
-            // 
-            this.labelGhPaBest.AutoSize = true;
-            this.labelGhPaBest.Location = new System.Drawing.Point(28, 254);
-            this.labelGhPaBest.Name = "labelGhPaBest";
-            this.labelGhPaBest.Size = new System.Drawing.Size(62, 13);
-            this.labelGhPaBest.TabIndex = 19;
-            this.labelGhPaBest.Text = "Gh/Pa best";
-            // 
-            // textBoxGhZaBest
-            // 
-            this.textBoxGhZaBest.Location = new System.Drawing.Point(95, 206);
-            this.textBoxGhZaBest.Name = "textBoxGhZaBest";
-            this.textBoxGhZaBest.Size = new System.Drawing.Size(100, 20);
-            this.textBoxGhZaBest.TabIndex = 20;
-            this.textBoxGhZaBest.Text = "0.093";
-            // 
-            // textBoxGhPaBest
-            // 
-            this.textBoxGhPaBest.Location = new System.Drawing.Point(95, 251);
-            this.textBoxGhPaBest.Name = "textBoxGhPaBest";
-            this.textBoxGhPaBest.Size = new System.Drawing.Size(100, 20);
-            this.textBoxGhPaBest.TabIndex = 21;
-            this.textBoxGhPaBest.Text = "0.1";
-            // 
-            // labelGhPatoBest
-            // 
-            this.labelGhPatoBest.AutoSize = true;
-            this.labelGhPatoBest.Location = new System.Drawing.Point(201, 254);
-            this.labelGhPatoBest.Name = "labelGhPatoBest";
-            this.labelGhPatoBest.Size = new System.Drawing.Size(13, 13);
-            this.labelGhPatoBest.TabIndex = 22;
-            this.labelGhPatoBest.Text = "1";
-            // 
-            // labelGhZatoBest
-            // 
-            this.labelGhZatoBest.AutoSize = true;
-            this.labelGhZatoBest.Location = new System.Drawing.Point(201, 209);
-            this.labelGhZatoBest.Name = "labelGhZatoBest";
-            this.labelGhZatoBest.Size = new System.Drawing.Size(13, 13);
-            this.labelGhZatoBest.TabIndex = 23;
-            this.labelGhZatoBest.Text = "1";
-            // 
-            // FormRatio
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.labelGhZatoBest);
-            this.Controls.Add(this.labelGhPatoBest);
-            this.Controls.Add(this.textBoxGhPaBest);
-            this.Controls.Add(this.textBoxGhZaBest);
-            this.Controls.Add(this.labelGhPaBest);
-            this.Controls.Add(this.labelGhZaBest);
-            this.Controls.Add(this.labelSummary);
-            this.Controls.Add(this.buttonController);
-            this.Controls.Add(this.labelZaZa);
-            this.Controls.Add(this.labelZaPa);
-            this.Controls.Add(this.labelPaGh);
-            this.Controls.Add(this.labelPaZa);
-            this.Controls.Add(this.labelPaPa);
-            this.Controls.Add(this.labelZaGh);
-            this.Controls.Add(this.labelParsR);
-            this.Controls.Add(this.labelZagrosR);
-            this.Controls.Add(this.labelVaGhadirR);
-            this.Controls.Add(this.labelZagrosC);
-            this.Controls.Add(this.labelParsC);
-            this.Controls.Add(this.labelGhGh);
-            this.Controls.Add(this.labelGhZa);
-            this.Controls.Add(this.labelGhPa);
-            this.Controls.Add(this.labelVaGhdirC);
-            this.Name = "FormRatio";
-            this.Text = "FormRatio";
+            this.ClientSize = new System.Drawing.Size(1090, 689);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.buttonAverageVolume);
+            this.Controls.Add(this.comboBoxList1);
+            this.Controls.Add(this.buttonAverage);
+            this.Controls.Add(this.buttonClearList);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.buttonPriceChange);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxNumberOfDays);
+            this.Controls.Add(this.buttonPrice);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.button1);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,28 +231,21 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labelVaGhdirC;
-        private System.Windows.Forms.Label labelGhPa;
-        private System.Windows.Forms.Label labelGhZa;
-        private System.Windows.Forms.Label labelGhGh;
-        private System.Windows.Forms.Label labelParsC;
-        private System.Windows.Forms.Label labelZagrosC;
-        private System.Windows.Forms.Label labelVaGhadirR;
-        private System.Windows.Forms.Label labelZagrosR;
-        private System.Windows.Forms.Label labelParsR;
-        private System.Windows.Forms.Label labelZaGh;
-        private System.Windows.Forms.Label labelPaPa;
-        private System.Windows.Forms.Label labelPaZa;
-        private System.Windows.Forms.Label labelPaGh;
-        private System.Windows.Forms.Label labelZaPa;
-        private System.Windows.Forms.Label labelZaZa;
-        private System.Windows.Forms.Button buttonController;
-        private System.Windows.Forms.Label labelSummary;
-        private System.Windows.Forms.Label labelGhZaBest;
-        private System.Windows.Forms.Label labelGhPaBest;
-        private System.Windows.Forms.TextBox textBoxGhZaBest;
-        private System.Windows.Forms.TextBox textBoxGhPaBest;
-        private System.Windows.Forms.Label labelGhPatoBest;
-        private System.Windows.Forms.Label labelGhZatoBest;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonPrice;
+        private System.Windows.Forms.TextBox textBoxNumberOfDays;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonPriceChange;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button buttonClearList;
+        private System.Windows.Forms.Button buttonAverage;
+        private System.Windows.Forms.ComboBox comboBoxList1;
+        private System.Windows.Forms.Button buttonAverageVolume;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
+
