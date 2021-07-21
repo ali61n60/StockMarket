@@ -9,12 +9,14 @@ using RepositoryStd;
 using System.Linq;
 using ModelStd.DB.Stock;
 using Microsoft.EntityFrameworkCore;
+using StockMarket.Chart;
 
 namespace StockMarket
 {
     public partial class FormRatio : Form
     {
         StocksInformation stocksInformation;
+        ChartDrawer chartDrawer ;
         public FormRatio()
         {
             InitializeComponent();
@@ -26,6 +28,7 @@ namespace StockMarket
             stocksInformation = new StocksInformation();
             initComboBoxList();
             initCumboBoxStocksName();
+            initChartDrawer();
         }
 
         private void initComboBoxList()
@@ -35,8 +38,9 @@ namespace StockMarket
             List<CustomGroup> stockList = dbContext.CustomGroups.ToList();
             foreach(CustomGroup s in stockList)
             {
-                comboBoxList1.Items.Add(s.Name);
+                comboBoxStockGroup.Items.Add(s.Name);
             }
+            comboBoxStockGroup.SelectedIndex = 0;
         }
         private void initCumboBoxStocksName()
         {
@@ -50,115 +54,34 @@ namespace StockMarket
 
         }
 
+        private void initChartDrawer()
+        {
+            chartDrawer = new ChartDrawer(chart1,stocksInformation);
+        }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void buttonSeries1_Click(object sender, EventArgs e)
         {
             string stockName = comboBox1.SelectedItem.ToString();
-            showData(stockName);
+            chartDrawer.Draw(stockName);            
         }
+        
+       
 
-        private void showData(string stockName)
-        {
-            List<PointData> listStockData = stocksInformation.GetStockData(stockName);
-            addChartSeries(stockName);
-            configureChartSeries();
-            addData(stockName, listStockData);
-        }
-
-        private void addData(string seriesName, List<PointData> listData)
-        {
-            for (int i = 0; i < listData.Count; i++)
-            {
-                // adding date and high
-                chart1.Series[seriesName].Points.AddXY(listData[i].Date, listData[i].Final);
-                // adding low
-                //chart1.Series[seriesName].Points[i].YValues[1] = double.Parse(listData[i].MinPrice);
-                //adding open
-                //chart1.Series[seriesName].Points[i].YValues[2] = double.Parse(listData[i].FirstPrice);
-                // adding close
-                //chart1.Series[seriesName].Points[i].YValues[3] = double.Parse(listData[i].LastPrice);
-            }
-        }
-
-        private void configureChartSeries()
-        {
-            // Set series chart type
-
-            foreach (var sery in chart1.Series)
-            {
-                sery.ChartType = SeriesChartType.Line;
-
-                // Set the style of the open-close marks
-                sery["OpenCloseStyle"] = "Triangle";
-
-                // Show both open and close marks
-                sery["ShowOpenClose"] = "Both";
-
-                // Set point width
-                sery["PointWidth"] = "1.0";
-
-                // Set colors bars
-                sery["PriceUpColor"] = "Green"; // <<== use text indexer for series
-                sery["PriceDownColor"] = "Red"; // <<== use text indexer for series
-            }
-
-        }
-
-        private void addChartSeries(string name)
-        {
-            Series serires = new Series(name);
-            chart1.Series.Add(serires);
-        }
-
-        private void clearChartSeries()
-        {
-            chart1.Series.Clear();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonSeries2_Click(object sender, EventArgs e)
         {
             string stockName = comboBox2.SelectedItem.ToString();
-            showData(stockName);
+            chartDrawer.Draw(stockName);            
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonRatio_Click(object sender, EventArgs e)
         {
             string stockName1 = comboBox1.SelectedItem.ToString();
             string stockName2 = comboBox2.SelectedItem.ToString();
 
-            List<PointData> listStockData1 = stocksInformation.GetStockData(stockName1);
-            listStockData1.Sort((a, b) => a.Date.CompareTo(b.Date));
-            List<PointData> listStockData2 = stocksInformation.GetStockData(stockName2);
-            listStockData2.Sort((a, b) => a.Date.CompareTo(b.Date));
-            List<PointData> listRatio = new List<PointData>();
-            double maxRatio = 1;
-            double lastRatio = 0.5;
-            double ratio = 0.1;
-            foreach (PointData pointData in listStockData1)
-            {
-                DateTime date = pointData.Date;
-                PointData pointDataTemp = listStockData2.Find(x => x.Date == date);
-                if (pointDataTemp != null)
-                {
-                    PointData pointDataRatio = new PointData();
-                    pointDataRatio.Date = date;
-                    ratio = pointData.Final / pointDataTemp.Final;
-                    if (ratio > maxRatio)
-                        maxRatio = ratio;
-                    pointDataRatio.Final = ratio;
-                    listRatio.Add(pointDataRatio);
-                }
-            }
-            lastRatio = ratio;
-            double percentToMax = (maxRatio - lastRatio) * 100 / maxRatio;
-            listBox1.Items.Clear();
-            listBox1.Items.Add("MaxRatio= " + maxRatio);
-            listBox1.Items.Add("CurrentRatio= " + lastRatio);
-            listBox1.Items.Add("percnt to max= " + percentToMax);
-            clearChartSeries();
-            addChartSeries("Ratio");
-            configureChartSeries();
-            addData("Ratio", listRatio);
+            chartDrawer.DrawRatio(stockName1, stockName2);
+
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -224,7 +147,7 @@ namespace StockMarket
         private void comboBoxList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             StockDbContext stockDbContext = new StockDbContext();
-            string selectdListName = comboBoxList1.SelectedItem.ToString();
+            string selectdListName = comboBoxStockGroup.SelectedItem.ToString();
             var temp = stockDbContext.CustomGroups.Where(s => s.Name == selectdListName);
             int listId = stockDbContext.CustomGroups.Where(s => s.Name == selectdListName).First().Id;
             List<CustomGroupMember> stockListStockInfo = stockDbContext.CustomGroupMembers

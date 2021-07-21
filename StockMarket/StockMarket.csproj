@@ -139,6 +139,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chart\ChartDrawer.cs" />
     <Compile Include="Components\SymbolSelector.cs">
       <SubType>UserControl</SubType>
     </Compile>
