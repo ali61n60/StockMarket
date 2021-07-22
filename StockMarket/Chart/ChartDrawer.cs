@@ -20,12 +20,13 @@ namespace StockMarket.Chart
             this.stocksInformation = stocksInformation;
         }
 
-        public void Draw(string stockName)
+        public void Draw(List<PointData> data,string chartName)
         {
-            List<PointData> listStockData = stocksInformation.GetStockData(stockName);
-            addChartSeries(stockName);
-            configureChartSeries();
-            addData(stockName, listStockData);
+            if (addChartSeries(chartName))
+            {
+                configureChartSeries();
+                addData(chartName, data);
+            }
         }
 
         public void DrawRatio(string stockName1, string stockName2)
@@ -71,36 +72,46 @@ namespace StockMarket.Chart
             chart.Series.Clear();
         }
 
-        private void addChartSeries(string name)
+        private bool addChartSeries(string name)
         {
             Series serires = new Series(name);
             
                 if (!chart.Series.Contains(serires))
                 {
+                try
+                {
                     chart.Series.Add(serires);
+                    return true;
                 }
+                catch (Exception ex)
+                {
+                    return false;
+                }                
+                }
+
+            return false;
         }
 
         private void configureChartSeries()
         {
             // Set series chart type
 
-            foreach (var sery in chart.Series)
+            foreach (var serie in chart.Series)
             {
-                sery.ChartType = SeriesChartType.Line;
+                serie.ChartType = SeriesChartType.Line;
 
                 // Set the style of the open-close marks
-                sery["OpenCloseStyle"] = "Triangle";
+                serie["OpenCloseStyle"] = "Triangle";
 
                 // Show both open and close marks
-                sery["ShowOpenClose"] = "Both";
+                serie["ShowOpenClose"] = "Both";
 
                 // Set point width
-                sery["PointWidth"] = "1.0";
+                serie["PointWidth"] = "1.0";
 
                 // Set colors bars
-                sery["PriceUpColor"] = "Green"; // <<== use text indexer for series
-                sery["PriceDownColor"] = "Red"; // <<== use text indexer for series
+                serie["PriceUpColor"] = "Green"; // <<== use text indexer for series
+                serie["PriceDownColor"] = "Red"; // <<== use text indexer for series
             }
 
         }
@@ -112,11 +123,11 @@ namespace StockMarket.Chart
                 // adding date and high
                 chart.Series[seriesName].Points.AddXY(listData[i].Date, listData[i].Final);
                 // adding low
-                //chart1.Series[seriesName].Points[i].YValues[1] = double.Parse(listData[i].MinPrice);
+                //chart.Series[seriesName].Points[i].YValues[1] = listData[i].Min;
                 //adding open
-                //chart1.Series[seriesName].Points[i].YValues[2] = double.Parse(listData[i].FirstPrice);
+                //chart.Series[seriesName].Points[i].YValues[2] = double.Parse(listData[i].FirstPrice);
                 // adding close
-                //chart1.Series[seriesName].Points[i].YValues[3] = double.Parse(listData[i].LastPrice);
+                //chart.Series[seriesName].Points[i].YValues[3] = double.Parse(listData[i].LastPrice);
             }
         }
 
