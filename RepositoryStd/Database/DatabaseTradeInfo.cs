@@ -12,20 +12,20 @@ namespace RepositoryStd.Database
         {
             DataLoaderFileSystem dataLoaderFileSystem = new DataLoaderFileSystem();
             StockDbContext stockDbContext = new StockDbContext();//todo use ioc
-            List<Symbol> listStocksInfo = stockDbContext.Symbols.ToList<Symbol>();
+            List<Symbol> SymbolList = stockDbContext.Symbols.ToList<Symbol>();
 
             //for each stock search for csv file
-            foreach(Symbol stock in listStocksInfo)
+            foreach(Symbol symbol in SymbolList)
             {                
-                List<PointData> listTradeDataFileSystem =  dataLoaderFileSystem.GetStockData(stock.SymbolLatin);
-                List<TradeData> listTradeDataDatabase = stockDbContext.TradeDatas.Where(tradeData => tradeData.SymbolId == stock.Id).ToList<TradeData>();
+                List<PointData> listTradeDataFileSystem =  dataLoaderFileSystem.GetStockData(symbol.SymbolLatin);
+                List<TradeData> listTradeDataDatabase = stockDbContext.TradeDatas.Where(tradeData => tradeData.SymbolId == symbol.Id).ToList<TradeData>();
                 //add new data from file system to database
                 foreach(PointData pointData in listTradeDataFileSystem)
                 {
                     if(!listTradeDataDatabase.Any(tradeData=>tradeData.Date==pointData.Date))
                     {
                         TradeData newTradeData = new TradeData();
-                        newTradeData.SymbolId = stock.Id;
+                        newTradeData.SymbolId = symbol.Id;
                         newTradeData.FillFromPointData(pointData);
                         
                         listTradeDataDatabase.Add(newTradeData);
