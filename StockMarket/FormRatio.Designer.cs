@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.buttonSeries1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.comboBoxStockList1 = new System.Windows.Forms.ComboBox();
@@ -53,7 +53,7 @@
             // 
             this.buttonSeries1.Location = new System.Drawing.Point(14, 90);
             this.buttonSeries1.Name = "buttonSeries1";
-            this.buttonSeries1.Size = new System.Drawing.Size(120, 68);
+            this.buttonSeries1.Size = new System.Drawing.Size(271, 68);
             this.buttonSeries1.TabIndex = 0;
             this.buttonSeries1.Text = "Show";
             this.buttonSeries1.UseVisualStyleBackColor = true;
@@ -64,16 +64,16 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(41, 270);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(981, 407);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -81,16 +81,16 @@
             // comboBoxStockList1
             // 
             this.comboBoxStockList1.FormattingEnabled = true;
-            this.comboBoxStockList1.Location = new System.Drawing.Point(13, 63);
+            this.comboBoxStockList1.Location = new System.Drawing.Point(14, 63);
             this.comboBoxStockList1.Name = "comboBoxStockList1";
-            this.comboBoxStockList1.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxStockList1.Size = new System.Drawing.Size(271, 21);
             this.comboBoxStockList1.TabIndex = 2;
             // 
             // buttonSeries2
             // 
-            this.buttonSeries2.Location = new System.Drawing.Point(202, 90);
+            this.buttonSeries2.Location = new System.Drawing.Point(291, 90);
             this.buttonSeries2.Name = "buttonSeries2";
-            this.buttonSeries2.Size = new System.Drawing.Size(121, 68);
+            this.buttonSeries2.Size = new System.Drawing.Size(271, 68);
             this.buttonSeries2.TabIndex = 3;
             this.buttonSeries2.Text = "Show";
             this.buttonSeries2.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@
             // 
             this.buttonRatio.Location = new System.Drawing.Point(14, 164);
             this.buttonRatio.Name = "buttonRatio";
-            this.buttonRatio.Size = new System.Drawing.Size(309, 70);
+            this.buttonRatio.Size = new System.Drawing.Size(548, 70);
             this.buttonRatio.TabIndex = 5;
             this.buttonRatio.Text = "Ratio";
             this.buttonRatio.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@
             // 
             // buttonPrice
             // 
-            this.buttonPrice.Location = new System.Drawing.Point(558, 189);
+            this.buttonPrice.Location = new System.Drawing.Point(653, 198);
             this.buttonPrice.Name = "buttonPrice";
             this.buttonPrice.Size = new System.Drawing.Size(109, 23);
             this.buttonPrice.TabIndex = 6;
@@ -118,7 +118,7 @@
             // 
             // textBoxNumberOfDays
             // 
-            this.textBoxNumberOfDays.Location = new System.Drawing.Point(607, 218);
+            this.textBoxNumberOfDays.Location = new System.Drawing.Point(702, 227);
             this.textBoxNumberOfDays.Name = "textBoxNumberOfDays";
             this.textBoxNumberOfDays.Size = new System.Drawing.Size(40, 20);
             this.textBoxNumberOfDays.TabIndex = 7;
@@ -127,7 +127,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(555, 221);
+            this.label1.Location = new System.Drawing.Point(650, 230);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 8;
@@ -135,7 +135,7 @@
             // 
             // buttonPriceChange
             // 
-            this.buttonPriceChange.Location = new System.Drawing.Point(673, 189);
+            this.buttonPriceChange.Location = new System.Drawing.Point(768, 198);
             this.buttonPriceChange.Name = "buttonPriceChange";
             this.buttonPriceChange.Size = new System.Drawing.Size(87, 23);
             this.buttonPriceChange.TabIndex = 9;
@@ -148,14 +148,14 @@
             this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(558, 17);
+            this.listBox1.Location = new System.Drawing.Point(653, 17);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(462, 121);
+            this.listBox1.Size = new System.Drawing.Size(367, 121);
             this.listBox1.TabIndex = 10;
             // 
             // buttonClearList
             // 
-            this.buttonClearList.Location = new System.Drawing.Point(558, 155);
+            this.buttonClearList.Location = new System.Drawing.Point(653, 164);
             this.buttonClearList.Name = "buttonClearList";
             this.buttonClearList.Size = new System.Drawing.Size(149, 28);
             this.buttonClearList.TabIndex = 11;
@@ -165,7 +165,7 @@
             // 
             // buttonAverage
             // 
-            this.buttonAverage.Location = new System.Drawing.Point(798, 215);
+            this.buttonAverage.Location = new System.Drawing.Point(893, 224);
             this.buttonAverage.Name = "buttonAverage";
             this.buttonAverage.Size = new System.Drawing.Size(75, 23);
             this.buttonAverage.TabIndex = 13;
@@ -178,13 +178,13 @@
             this.comboBoxStockGroup.FormattingEnabled = true;
             this.comboBoxStockGroup.Location = new System.Drawing.Point(13, 27);
             this.comboBoxStockGroup.Name = "comboBoxStockGroup";
-            this.comboBoxStockGroup.Size = new System.Drawing.Size(310, 21);
+            this.comboBoxStockGroup.Size = new System.Drawing.Size(549, 21);
             this.comboBoxStockGroup.TabIndex = 14;
             this.comboBoxStockGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxList1_SelectedIndexChanged);
             // 
             // buttonAverageVolume
             // 
-            this.buttonAverageVolume.Location = new System.Drawing.Point(653, 216);
+            this.buttonAverageVolume.Location = new System.Drawing.Point(748, 225);
             this.buttonAverageVolume.Name = "buttonAverageVolume";
             this.buttonAverageVolume.Size = new System.Drawing.Size(139, 23);
             this.buttonAverageVolume.TabIndex = 15;
@@ -195,9 +195,9 @@
             // comboBoxStockList2
             // 
             this.comboBoxStockList2.FormattingEnabled = true;
-            this.comboBoxStockList2.Location = new System.Drawing.Point(202, 63);
+            this.comboBoxStockList2.Location = new System.Drawing.Point(291, 63);
             this.comboBoxStockList2.Name = "comboBoxStockList2";
-            this.comboBoxStockList2.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxStockList2.Size = new System.Drawing.Size(271, 21);
             this.comboBoxStockList2.TabIndex = 16;
             // 
             // FormRatio
