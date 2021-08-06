@@ -18,6 +18,7 @@ namespace StockMarket.Chart
         {
             this.chart = chart;
             this.stocksInformation = stocksInformation;
+            this.chart.ChartAreas[0].AxisX.MajorGrid.Interval = 30;
         }
 
         public void Draw(List<PointData> data,string chartName)
@@ -112,6 +113,8 @@ namespace StockMarket.Chart
                 // Set colors bars
                 serie["PriceUpColor"] = "Green"; // <<== use text indexer for series
                 serie["PriceDownColor"] = "Red"; // <<== use text indexer for series
+
+                serie.MarkerStyle = MarkerStyle.Circle;
             }
 
         }
