@@ -24,6 +24,7 @@ namespace StockMarket.Chart
 
         public void Draw(List<PointData> data,string chartName)
         {
+            chartName += new Random().Next(10000).ToString();
             if (addChartSeries(chartName))
             {
                 configureChartSeries();

@@ -78,7 +78,16 @@ namespace StockMarket
 
         private void getDataAndDraw(string stockName)
         {
-            List<PointData> listStockData = _stockInfo.GetStockData(stockName);
+            List<PointData> listStockData;
+            if (checkBoxAdjustedPrice.Checked)
+            {
+                listStockData = _stockInfo.GetAdjustedStockData(stockName);
+            }
+            else
+            {
+                listStockData = _stockInfo.GetStockData(stockName);
+            }
+           
             _chartDrawer.Draw(listStockData, stockName);
         }
 

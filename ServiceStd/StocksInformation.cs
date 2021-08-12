@@ -22,5 +22,11 @@ namespace ServiceStd
             IDataLoader dataLoader = Bootstrapper.container.GetInstance<IDataLoader>();
             return dataLoader.GetStockData(stockName);
         }
+
+       public List<PointData> GetAdjustedStockData(string stockName)
+        {
+            IDataLoader dataLoader = Bootstrapper.container.GetInstance<IDataLoader>();
+            return dataLoader.GetAdjustedStockData(stockName);
+        }
     }
 }

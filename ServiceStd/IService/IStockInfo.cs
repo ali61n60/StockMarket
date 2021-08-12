@@ -9,5 +9,7 @@ namespace ServiceStd.IService
     {
         List<string> GetAllStocksName();
         List<PointData> GetStockData(string stockName);
-        }
+
+        List<PointData> GetAdjustedStockData(string stockName);
+    }
 }

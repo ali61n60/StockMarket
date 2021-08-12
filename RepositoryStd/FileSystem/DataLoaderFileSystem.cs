@@ -14,7 +14,11 @@ namespace RepositoryStd.FileSystem
     {
         private static Dictionary<string, List<PointData>> allStocksData = new Dictionary<string, List<PointData>>();
 
-       
+        public List<PointData> GetAdjustedStockData(string stockName)
+        {
+            throw new NotImplementedException();
+        }
+
         public Dictionary<string, List<PointData>> GetAllStocksData()
         {
             throw new NotImplementedException();
