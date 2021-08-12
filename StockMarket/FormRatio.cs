@@ -65,16 +65,21 @@ namespace StockMarket
         private void buttonSeries1_Click(object sender, EventArgs e)
         {
             string stockName = comboBoxStockList1.SelectedItem.ToString();
-            List<PointData> listStockData = _stockInfo.GetStockData(stockName);
-            _chartDrawer.Draw(listStockData, stockName);            
+            getDataAndDraw(stockName);
+                 
         }
         
        
         private void buttonSeries2_Click(object sender, EventArgs e)
         {
             string stockName = comboBoxStockList2.SelectedItem.ToString();
+            getDataAndDraw(stockName);                   
+        }
+
+        private void getDataAndDraw(string stockName)
+        {
             List<PointData> listStockData = _stockInfo.GetStockData(stockName);
-            _chartDrawer.Draw(listStockData, stockName);            
+            _chartDrawer.Draw(listStockData, stockName);
         }
 
         private void buttonRatio_Click(object sender, EventArgs e)

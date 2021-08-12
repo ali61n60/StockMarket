@@ -46,6 +46,7 @@
             this.comboBoxStockGroup = new System.Windows.Forms.ComboBox();
             this.buttonAverageVolume = new System.Windows.Forms.Button();
             this.comboBoxStockList2 = new System.Windows.Forms.ComboBox();
+            this.checkBoxAdjustedPrice = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,11 +201,22 @@
             this.comboBoxStockList2.Size = new System.Drawing.Size(271, 21);
             this.comboBoxStockList2.TabIndex = 16;
             // 
+            // checkBoxAdjustedPrice
+            // 
+            this.checkBoxAdjustedPrice.AutoSize = true;
+            this.checkBoxAdjustedPrice.Location = new System.Drawing.Point(32, 241);
+            this.checkBoxAdjustedPrice.Name = "checkBoxAdjustedPrice";
+            this.checkBoxAdjustedPrice.Size = new System.Drawing.Size(94, 17);
+            this.checkBoxAdjustedPrice.TabIndex = 17;
+            this.checkBoxAdjustedPrice.Text = "Adjusted Price";
+            this.checkBoxAdjustedPrice.UseVisualStyleBackColor = true;
+            // 
             // FormRatio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1090, 689);
+            this.Controls.Add(this.checkBoxAdjustedPrice);
             this.Controls.Add(this.comboBoxStockList2);
             this.Controls.Add(this.buttonAverageVolume);
             this.Controls.Add(this.comboBoxStockGroup);
@@ -245,6 +257,7 @@
         private System.Windows.Forms.ComboBox comboBoxStockGroup;
         private System.Windows.Forms.Button buttonAverageVolume;
         private System.Windows.Forms.ComboBox comboBoxStockList2;
+        private System.Windows.Forms.CheckBox checkBoxAdjustedPrice;
     }
 }
 
