@@ -10,13 +10,15 @@ using System.Linq;
 using ModelStd.DB.Stock;
 using Microsoft.EntityFrameworkCore;
 using StockMarket.Chart;
+using ServiceStd.IService;
+using ServiceStd.IOC;
 
 namespace StockMarket
 {
     public partial class FormRatio : Form
     {
-        StocksInformation stocksInformation;
-        ChartDrawer chartDrawer ;
+        IStockInfo _stockInfo;
+        ChartDrawer _chartDrawer ;
         public FormRatio()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace StockMarket
 
         private void init()
         {
-            stocksInformation = new StocksInformation();
+            _stockInfo = Bootstrapper.container.GetInstance<IStockInfo>();
             initComboBoxList();
             initCumboBoxStocksName();
             initChartDrawer();
@@ -44,7 +46,7 @@ namespace StockMarket
         }
         private void initCumboBoxStocksName()
         {
-            foreach (string stockName in stocksInformation.GetAllStocksName())
+            foreach (string stockName in _stockInfo.GetAllStocksName())
             {
                 comboBoxStockList1.Items.Add(stockName);
                 comboBoxStockList2.Items.Add(stockName);
@@ -56,24 +58,23 @@ namespace StockMarket
 
         private void initChartDrawer()
         {
-            chartDrawer = new ChartDrawer(chart1,stocksInformation);
+            _chartDrawer = new ChartDrawer(chart1,_stockInfo);
         }
 
 
         private void buttonSeries1_Click(object sender, EventArgs e)
         {
             string stockName = comboBoxStockList1.SelectedItem.ToString();
-            List<PointData> listStockData = stocksInformation.GetStockData(stockName);
-            chartDrawer.Draw(listStockData, stockName);            
+            List<PointData> listStockData = _stockInfo.GetStockData(stockName);
+            _chartDrawer.Draw(listStockData, stockName);            
         }
         
        
-
         private void buttonSeries2_Click(object sender, EventArgs e)
         {
             string stockName = comboBoxStockList2.SelectedItem.ToString();
-            List<PointData> listStockData = stocksInformation.GetStockData(stockName);
-            chartDrawer.Draw(listStockData, stockName);            
+            List<PointData> listStockData = _stockInfo.GetStockData(stockName);
+            _chartDrawer.Draw(listStockData, stockName);            
         }
 
         private void buttonRatio_Click(object sender, EventArgs e)
@@ -81,7 +82,7 @@ namespace StockMarket
             string stockName1 = comboBoxStockList1.SelectedItem.ToString();
             string stockName2 = comboBoxStockList2.SelectedItem.ToString();
 
-            chartDrawer.DrawRatio(stockName1, stockName2);
+            _chartDrawer.DrawRatio(stockName1, stockName2);
 
            
         }
@@ -134,7 +135,7 @@ namespace StockMarket
         private void buttonAverage_Click(object sender, EventArgs e)
         {
             string stockName = comboBoxStockList1.SelectedItem.ToString();
-            List<PointData> listStockData = stocksInformation.GetStockData(stockName);
+            List<PointData> listStockData = _stockInfo.GetStockData(stockName);
 
             
             List<PointData> listMovingAverage = new Averages().MovingAverage(listStockData, average);
@@ -167,7 +168,7 @@ namespace StockMarket
         private void buttonAverageVolume_Click(object sender, EventArgs e)
         {
             string stockName = comboBoxStockList1.SelectedItem.ToString();
-            List<PointData> listStockData = stocksInformation.GetStockData(stockName);
+            List<PointData> listStockData = _stockInfo.GetStockData(stockName);
 
             int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
 

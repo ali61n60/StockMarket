@@ -1,6 +1,7 @@
 ﻿using ModelStd.IRepository;
 using RepositoryStd.Database;
 using RepositoryStd.FileSystem;
+using ServiceStd.IService;
 using StructureMap;
 
 
@@ -34,6 +35,7 @@ namespace ServiceStd.IOC
         {
             x.For<ISymbolInfo>().Use<DatabaseSymbolInfo>();
             x.For<IDataLoader>().Use<DataLoaderDatabase>();
+            x.For<IStockInfo>().Use<StocksInformation>();
         }
 
         private static void configureForFileSystem(ConfigurationExpression x)

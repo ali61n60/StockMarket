@@ -1,5 +1,6 @@
 ﻿using ModelStd;
 using ServiceStd;
+using ServiceStd.IService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace StockMarket.Chart
     public class ChartDrawer
     {
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
-        StocksInformation stocksInformation;
+        IStockInfo stocksInformation;
 
-        public ChartDrawer(System.Windows.Forms.DataVisualization.Charting.Chart chart, StocksInformation stocksInformation)
+        public ChartDrawer(System.Windows.Forms.DataVisualization.Charting.Chart chart, IStockInfo stocksInformation)
         {
             this.chart = chart;
             this.stocksInformation = stocksInformation;

@@ -3,10 +3,11 @@ using ModelStd.IRepository;
 using System.Collections.Generic;
 using ServiceStd.IOC;
 using System.Linq;
+using ServiceStd.IService;
 
 namespace ServiceStd
 {
-    public class StocksInformation
+    public class StocksInformation:IStockInfo
     {
         public List<string> GetAllStocksName()
         {
