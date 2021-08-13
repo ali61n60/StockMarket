@@ -29,7 +29,8 @@ namespace StockMarket
         {
             _stockInfo = Bootstrapper.container.GetInstance<IStockInfo>();
             initComboBoxList();
-            initCumboBoxStocksName();
+            initComboBoxStocksName();
+            initComboBoxSymbolGroup();
             initChartDrawer();
         }
 
@@ -44,7 +45,7 @@ namespace StockMarket
             }
             comboBoxStockGroup.SelectedIndex = 0;
         }
-        private void initCumboBoxStocksName()
+        private void initComboBoxStocksName()
         {
             foreach (string stockName in _stockInfo.GetAllStocksName())
             {
@@ -56,39 +57,31 @@ namespace StockMarket
 
         }
 
+        private void initComboBoxSymbolGroup()
+        {
+            List<SymbolGroup> symbolGroups= _stockInfo.GetAllSymbolGroups();
+            foreach(SymbolGroup symbolGroup in symbolGroups)
+            {
+                comboBoxSymbolGroup.Items.Add(symbolGroup.Name);
+            }
+        }
+
         private void initChartDrawer()
         {
             _chartDrawer = new ChartDrawer(chart1,_stockInfo);
         }
 
-
         private void buttonSeries1_Click(object sender, EventArgs e)
         {
             string stockName = comboBoxStockList1.SelectedItem.ToString();
-            getDataAndDraw(stockName);
+            _chartDrawer.Draw(stockName, checkBoxAdjustedPrice.Checked);           
                  
         }
-        
        
         private void buttonSeries2_Click(object sender, EventArgs e)
         {
             string stockName = comboBoxStockList2.SelectedItem.ToString();
-            getDataAndDraw(stockName);                   
-        }
-
-        private void getDataAndDraw(string stockName)
-        {
-            List<PointData> listStockData;
-            if (checkBoxAdjustedPrice.Checked)
-            {
-                listStockData = _stockInfo.GetAdjustedStockData(stockName);
-            }
-            else
-            {
-                listStockData = _stockInfo.GetStockData(stockName);
-            }
-           
-            _chartDrawer.Draw(listStockData, stockName);
+            _chartDrawer.Draw(stockName, checkBoxAdjustedPrice.Checked);
         }
 
         private void buttonRatio_Click(object sender, EventArgs e)
@@ -190,6 +183,28 @@ namespace StockMarket
             int averageVolume = volume.CalculateAverageVolume(listStockData, numberOfDays);
 
             listBox1.Items.Add(stockName + " Average Volume in Last " + numberOfDays + " Day[s] is " + averageVolume);
+        }
+
+        private void comboBoxSymbolGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            StockDbContext stockDbContext = new StockDbContext();
+            string selectdListName = comboBoxSymbolGroup.SelectedItem.ToString();
+            List<SymbolGroup> temp1 = stockDbContext.SymbolGroups.Include(s=>s.Symbols).Where<SymbolGroup>(s => s.Name == selectdListName).ToList();
+            ICollection<Symbol> symbols = temp1.First().Symbols;
+            try
+            {
+                comboBoxStockList2.Items.Clear();
+                foreach (Symbol s in symbols)
+                {
+                    comboBoxStockList2.Items.Add(s.NamePersian);
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+            
+
         }
     }
 

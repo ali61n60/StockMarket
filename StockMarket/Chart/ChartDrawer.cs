@@ -13,13 +13,28 @@ namespace StockMarket.Chart
     public class ChartDrawer
     {
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
-        IStockInfo stocksInformation;
+        IStockInfo _stockInfo;
 
         public ChartDrawer(System.Windows.Forms.DataVisualization.Charting.Chart chart, IStockInfo stocksInformation)
         {
             this.chart = chart;
-            this.stocksInformation = stocksInformation;
+            this._stockInfo = stocksInformation;
             this.chart.ChartAreas[0].AxisX.MajorGrid.Interval = 30;
+        }
+
+        public void Draw(string stockName,bool adjustedPrice)
+        {
+            List<PointData> listStockData;
+            if (adjustedPrice)
+            {
+                listStockData = _stockInfo.GetAdjustedStockData(stockName);
+            }
+            else
+            {
+                listStockData = _stockInfo.GetStockData(stockName);
+            }
+
+            Draw(listStockData, stockName);
         }
 
         public void Draw(List<PointData> data,string chartName)
@@ -38,16 +53,16 @@ namespace StockMarket.Chart
             List<PointData> listStockData2;
             if (adjustedPrice)
             {
-                listStockData1 = stocksInformation.GetAdjustedStockData(stockName1);
+                listStockData1 = _stockInfo.GetAdjustedStockData(stockName1);
                 listStockData1.Sort((a, b) => a.Date.CompareTo(b.Date));
-                listStockData2 = stocksInformation.GetAdjustedStockData(stockName2);
+                listStockData2 = _stockInfo.GetAdjustedStockData(stockName2);
                 listStockData2.Sort((a, b) => a.Date.CompareTo(b.Date));
             }
             else
             {
-                listStockData1 = stocksInformation.GetStockData(stockName1);
+                listStockData1 = _stockInfo.GetStockData(stockName1);
                 listStockData1.Sort((a, b) => a.Date.CompareTo(b.Date));
-                listStockData2 = stocksInformation.GetStockData(stockName2);
+                listStockData2 = _stockInfo.GetStockData(stockName2);
                 listStockData2.Sort((a, b) => a.Date.CompareTo(b.Date));
             }
             

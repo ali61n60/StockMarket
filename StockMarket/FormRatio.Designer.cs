@@ -47,6 +47,7 @@
             this.buttonAverageVolume = new System.Windows.Forms.Button();
             this.comboBoxStockList2 = new System.Windows.Forms.ComboBox();
             this.checkBoxAdjustedPrice = new System.Windows.Forms.CheckBox();
+            this.comboBoxSymbolGroup = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +76,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(981, 407);
+            this.chart1.Size = new System.Drawing.Size(1119, 407);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
@@ -109,7 +110,7 @@
             // 
             // buttonPrice
             // 
-            this.buttonPrice.Location = new System.Drawing.Point(653, 198);
+            this.buttonPrice.Location = new System.Drawing.Point(800, 198);
             this.buttonPrice.Name = "buttonPrice";
             this.buttonPrice.Size = new System.Drawing.Size(109, 23);
             this.buttonPrice.TabIndex = 6;
@@ -119,7 +120,7 @@
             // 
             // textBoxNumberOfDays
             // 
-            this.textBoxNumberOfDays.Location = new System.Drawing.Point(702, 227);
+            this.textBoxNumberOfDays.Location = new System.Drawing.Point(849, 227);
             this.textBoxNumberOfDays.Name = "textBoxNumberOfDays";
             this.textBoxNumberOfDays.Size = new System.Drawing.Size(40, 20);
             this.textBoxNumberOfDays.TabIndex = 7;
@@ -128,7 +129,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(650, 230);
+            this.label1.Location = new System.Drawing.Point(797, 230);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 8;
@@ -136,7 +137,7 @@
             // 
             // buttonPriceChange
             // 
-            this.buttonPriceChange.Location = new System.Drawing.Point(768, 198);
+            this.buttonPriceChange.Location = new System.Drawing.Point(915, 198);
             this.buttonPriceChange.Name = "buttonPriceChange";
             this.buttonPriceChange.Size = new System.Drawing.Size(87, 23);
             this.buttonPriceChange.TabIndex = 9;
@@ -149,14 +150,14 @@
             this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(653, 17);
+            this.listBox1.Location = new System.Drawing.Point(800, 17);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(367, 121);
+            this.listBox1.Size = new System.Drawing.Size(358, 121);
             this.listBox1.TabIndex = 10;
             // 
             // buttonClearList
             // 
-            this.buttonClearList.Location = new System.Drawing.Point(653, 164);
+            this.buttonClearList.Location = new System.Drawing.Point(800, 164);
             this.buttonClearList.Name = "buttonClearList";
             this.buttonClearList.Size = new System.Drawing.Size(149, 28);
             this.buttonClearList.TabIndex = 11;
@@ -166,7 +167,7 @@
             // 
             // buttonAverage
             // 
-            this.buttonAverage.Location = new System.Drawing.Point(893, 224);
+            this.buttonAverage.Location = new System.Drawing.Point(1040, 224);
             this.buttonAverage.Name = "buttonAverage";
             this.buttonAverage.Size = new System.Drawing.Size(75, 23);
             this.buttonAverage.TabIndex = 13;
@@ -179,13 +180,13 @@
             this.comboBoxStockGroup.FormattingEnabled = true;
             this.comboBoxStockGroup.Location = new System.Drawing.Point(13, 27);
             this.comboBoxStockGroup.Name = "comboBoxStockGroup";
-            this.comboBoxStockGroup.Size = new System.Drawing.Size(549, 21);
+            this.comboBoxStockGroup.Size = new System.Drawing.Size(272, 21);
             this.comboBoxStockGroup.TabIndex = 14;
             this.comboBoxStockGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxList1_SelectedIndexChanged);
             // 
             // buttonAverageVolume
             // 
-            this.buttonAverageVolume.Location = new System.Drawing.Point(748, 225);
+            this.buttonAverageVolume.Location = new System.Drawing.Point(895, 225);
             this.buttonAverageVolume.Name = "buttonAverageVolume";
             this.buttonAverageVolume.Size = new System.Drawing.Size(139, 23);
             this.buttonAverageVolume.TabIndex = 15;
@@ -211,11 +212,21 @@
             this.checkBoxAdjustedPrice.Text = "Adjusted Price";
             this.checkBoxAdjustedPrice.UseVisualStyleBackColor = true;
             // 
+            // comboBoxSymbolGroup
+            // 
+            this.comboBoxSymbolGroup.FormattingEnabled = true;
+            this.comboBoxSymbolGroup.Location = new System.Drawing.Point(291, 27);
+            this.comboBoxSymbolGroup.Name = "comboBoxSymbolGroup";
+            this.comboBoxSymbolGroup.Size = new System.Drawing.Size(271, 21);
+            this.comboBoxSymbolGroup.TabIndex = 18;
+            this.comboBoxSymbolGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxSymbolGroup_SelectedIndexChanged);
+            // 
             // FormRatio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1090, 689);
+            this.ClientSize = new System.Drawing.Size(1228, 689);
+            this.Controls.Add(this.comboBoxSymbolGroup);
             this.Controls.Add(this.checkBoxAdjustedPrice);
             this.Controls.Add(this.comboBoxStockList2);
             this.Controls.Add(this.buttonAverageVolume);
@@ -258,6 +269,7 @@
         private System.Windows.Forms.Button buttonAverageVolume;
         private System.Windows.Forms.ComboBox comboBoxStockList2;
         private System.Windows.Forms.CheckBox checkBoxAdjustedPrice;
+        private System.Windows.Forms.ComboBox comboBoxSymbolGroup;
     }
 }
 

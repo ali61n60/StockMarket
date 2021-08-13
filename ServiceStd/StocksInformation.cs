@@ -5,6 +5,7 @@ using ServiceStd.IOC;
 using System.Linq;
 using ServiceStd.IService;
 using ModelStd.DB.Stock;
+using RepositoryStd;
 
 namespace ServiceStd
 {
@@ -53,8 +54,10 @@ namespace ServiceStd
             
         }
 
-       
-
-
+        public List<SymbolGroup> GetAllSymbolGroups()
+        {
+            StockDbContext stockDbContext = new StockDbContext();
+            return stockDbContext.SymbolGroups.ToList();
+        }
     }
 }
