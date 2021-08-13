@@ -32,12 +32,25 @@ namespace StockMarket.Chart
             }
         }
 
-        public void DrawRatio(string stockName1, string stockName2)
+        public void DrawRatio(string stockName1, string stockName2,bool adjustedPrice)
         {
-            List<PointData> listStockData1 = stocksInformation.GetStockData(stockName1);
-            listStockData1.Sort((a, b) => a.Date.CompareTo(b.Date));
-            List<PointData> listStockData2 = stocksInformation.GetStockData(stockName2);
-            listStockData2.Sort((a, b) => a.Date.CompareTo(b.Date));
+            List<PointData> listStockData1;
+            List<PointData> listStockData2;
+            if (adjustedPrice)
+            {
+                listStockData1 = stocksInformation.GetAdjustedStockData(stockName1);
+                listStockData1.Sort((a, b) => a.Date.CompareTo(b.Date));
+                listStockData2 = stocksInformation.GetAdjustedStockData(stockName2);
+                listStockData2.Sort((a, b) => a.Date.CompareTo(b.Date));
+            }
+            else
+            {
+                listStockData1 = stocksInformation.GetStockData(stockName1);
+                listStockData1.Sort((a, b) => a.Date.CompareTo(b.Date));
+                listStockData2 = stocksInformation.GetStockData(stockName2);
+                listStockData2.Sort((a, b) => a.Date.CompareTo(b.Date));
+            }
+            
             List<PointData> listRatio = new List<PointData>();
             double maxRatio = 1;
             double lastRatio = 0.5;

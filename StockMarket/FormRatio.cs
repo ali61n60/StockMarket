@@ -96,7 +96,7 @@ namespace StockMarket
             string stockName1 = comboBoxStockList1.SelectedItem.ToString();
             string stockName2 = comboBoxStockList2.SelectedItem.ToString();
 
-            _chartDrawer.DrawRatio(stockName1, stockName2);
+            _chartDrawer.DrawRatio(stockName1, stockName2,checkBoxAdjustedPrice.Checked);
 
            
         }

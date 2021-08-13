@@ -10,17 +10,26 @@ namespace RepositoryStd.Database
 {
     public class DataLoaderDatabase : IDataLoader
     {
-        StockDbContext stockDbContext = new StockDbContext();
+        StockDbContext _stockDbContext = new StockDbContext();
         public Dictionary<string, List<PointData>> GetAllStocksData()
         {
             throw new NotImplementedException();
+        }
+
+        public List<Dividend> GetDividend(string stockName)
+        {
+            IQueryable<Dividend> dividend = _stockDbContext.Dividends
+              .Include(d => d.Symbol)
+              .Where(d => d.Symbol.NamePersian == stockName);
+
+            return dividend.ToList<Dividend>();
         }
 
         public List<PointData> GetStockData(string stockName)
         {
             List<PointData> listPointData = new List<PointData>();
             
-            var tradeDataForStockName= stockDbContext.TradeDatas
+            var tradeDataForStockName= _stockDbContext.TradeDatas
                 .Include(tradeData => tradeData.Symbol)
                 .Where(tradeData => tradeData.Symbol.NamePersian == stockName);
 
@@ -34,29 +43,6 @@ namespace RepositoryStd.Database
             return listPointData;
         }
 
-        public List<PointData> GetAdjustedStockData(string stockName)
-        {
-            List<PointData> listPointData = GetStockData(stockName);
-            //adjusting data based on dividend
-            var dividendDataForStockName= stockDbContext.Dividends
-                .Include(dividend => dividend.Symbol)
-                .Where(dividend => dividend.Symbol.NamePersian == stockName);
-            List<double> allD = new List<double>();
-            foreach(Dividend d in dividendDataForStockName)
-            {
-                foreach(PointData pointData in listPointData)
-                {
-                    if(d.Date<=pointData.Date)
-                    {
-                        pointData.Final += d.Value;
-                    }
-                }
-            }
-
-            //adjusting data based on capital increase
-
-
-            return listPointData;
-        }
+       
     }
 }
