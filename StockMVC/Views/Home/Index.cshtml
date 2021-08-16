@@ -4,20 +4,23 @@
 }
 
 <h4>Welcome to StockMvc, Developing</h4>
-
-    @foreach (Symbol symbol in Model.Symbols)
-    {
-        <partial name="SymbolSummary" model="symbol" />
-    }
-    <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
-         page-class="btn" page-class-normal="btn-outline-dark"
-         page-class-selected="btn-primary" page-url-symbolGroup="@Model.CurrentSymbolGroup"
-         class="btn-group pull-right m-1">
-    </div>
-
 <div class="row">
-    <div>
-        <canvas id="myChart"></canvas>
+    <div class="col-6">
+        @foreach (Symbol symbol in Model.Symbols)
+        {
+            <partial name="SymbolSummary" model="symbol" />
+        }
+    <div class="row" style="overflow:hidden">
+        <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
+             page-class="btn" page-class-normal="btn-outline-dark"
+             page-class-selected="btn-primary" page-url-symbolGroup="@Model.CurrentSymbolGroup"
+             class="btn-group">
+        </div>
+    </div>
+        
+    </div>
+    <div class="col-6">
+                <canvas id="myChart"></canvas>
     </div>
 </div>
 

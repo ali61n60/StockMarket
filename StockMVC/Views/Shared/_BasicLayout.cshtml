@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 
@@ -21,12 +21,15 @@
             </div>
         </div>
     </div>
-    <div class="row m-1 p-1">
-        <div id="categories" class="col-3">
-            <vc:navigation-menu />
-        </div>
-        <div class="col-9">
-            @RenderBody()
+    <div class="container-fluid">
+        <div class="row">
+            <div id="categories" class="col-3">
+                <vc:navigation-menu />
+            </div>
+            
+            <div class="col-9">
+                @RenderBody()
+            </div>
         </div>
     </div>
 </body>
