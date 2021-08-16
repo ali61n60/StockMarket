@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ServiceStd.IService
 {
-    interface ISymbolGroup
+    public interface ISymbolGroup
     {
         List<SymbolGroup> GetAllSymbolGroups();
     }

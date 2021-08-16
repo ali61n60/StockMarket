@@ -4,16 +4,53 @@
 }
 
 <h4>Welcome to StockMvc, Developing</h4>
-        @foreach (Symbol symbol in Model.Symbols)
-        {
-            <partial name="SymbolSummary" model="symbol" />
-        }
-        <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
-             page-class="btn" page-class-normal="btn-outline-dark"
-             page-class-selected="btn-primary" page-url-symbolGroup="@Model.CurrentSymbolGroup" 
-             class="btn-group pull-right m-1">
-        </div>
-        
+
+    @foreach (Symbol symbol in Model.Symbols)
+    {
+        <partial name="SymbolSummary" model="symbol" />
+    }
+    <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
+         page-class="btn" page-class-normal="btn-outline-dark"
+         page-class-selected="btn-primary" page-url-symbolGroup="@Model.CurrentSymbolGroup"
+         class="btn-group pull-right m-1">
+    </div>
+
+<div class="row">
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+</div>
+
+<script>
+    const labels = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+    ];
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45],
+        }]
+    };
+
+    const config = {
+        type: 'line',
+        data,
+        options: {}
+    };
+
+
+    var myChart = new Chart(document.getElementById('myChart'), config);
+
+</script>
+     
 
    
 

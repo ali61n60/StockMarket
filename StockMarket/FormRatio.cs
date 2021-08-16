@@ -17,7 +17,8 @@ namespace StockMarket
 {
     public partial class FormRatio : Form
     {
-        ISymbol _stockInfo;
+        ISymbol _symbolService;
+        ISymbolGroup _symbolGroupService;
         ChartDrawer _chartDrawer ;
         public FormRatio()
         {
@@ -27,7 +28,8 @@ namespace StockMarket
 
         private void init()
         {
-            _stockInfo = Bootstrapper.container.GetInstance<ISymbol>();
+            _symbolService = Bootstrapper.container.GetInstance<ISymbol>();
+            _symbolGroupService = Bootstrapper.container.GetInstance<ISymbolGroup>();
             initComboBoxList();
             initComboBoxStocksName();
             initComboBoxSymbolGroup();
@@ -47,7 +49,7 @@ namespace StockMarket
         }
         private void initComboBoxStocksName()
         {
-            foreach (string stockName in _stockInfo.GetAllSymbolsName())
+            foreach (string stockName in _symbolService.GetAllSymbolsName())
             {
                 comboBoxStockList1.Items.Add(stockName);
                 comboBoxStockList2.Items.Add(stockName);
@@ -59,7 +61,7 @@ namespace StockMarket
 
         private void initComboBoxSymbolGroup()
         {
-            List<SymbolGroup> symbolGroups= _stockInfo.GetAllSymbolGroups();
+            List<SymbolGroup> symbolGroups= _symbolGroupService.GetAllSymbolGroups();
             foreach(SymbolGroup symbolGroup in symbolGroups)
             {
                 comboBoxSymbolGroup.Items.Add(symbolGroup.Name);
@@ -68,7 +70,7 @@ namespace StockMarket
 
         private void initChartDrawer()
         {
-            _chartDrawer = new ChartDrawer(chart1,_stockInfo);
+            _chartDrawer = new ChartDrawer(chart1,_symbolService);
         }
 
         private void buttonSeries1_Click(object sender, EventArgs e)
@@ -142,7 +144,7 @@ namespace StockMarket
         private void buttonAverage_Click(object sender, EventArgs e)
         {
             string stockName = comboBoxStockList1.SelectedItem.ToString();
-            List<PointData> listStockData = _stockInfo.GetSymbolTradeData(stockName);
+            List<PointData> listStockData = _symbolService.GetSymbolTradeData(stockName);
 
             
             List<PointData> listMovingAverage = new Averages().MovingAverage(listStockData, average);
@@ -175,7 +177,7 @@ namespace StockMarket
         private void buttonAverageVolume_Click(object sender, EventArgs e)
         {
             string stockName = comboBoxStockList1.SelectedItem.ToString();
-            List<PointData> listStockData = _stockInfo.GetSymbolTradeData(stockName);
+            List<PointData> listStockData = _symbolService.GetSymbolTradeData(stockName);
 
             int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
 
