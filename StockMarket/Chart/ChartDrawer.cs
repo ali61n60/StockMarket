@@ -13,9 +13,9 @@ namespace StockMarket.Chart
     public class ChartDrawer
     {
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
-        ISymbol _stockInfo;
+        ISymbolService _stockInfo;
 
-        public ChartDrawer(System.Windows.Forms.DataVisualization.Charting.Chart chart, ISymbol stocksInformation)
+        public ChartDrawer(System.Windows.Forms.DataVisualization.Charting.Chart chart, ISymbolService stocksInformation)
         {
             this.chart = chart;
             this._stockInfo = stocksInformation;

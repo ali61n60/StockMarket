@@ -9,13 +9,17 @@ using RepositoryStd;
 
 namespace ServiceStd
 {
-    public class SymbolService:ISymbol
+    public class SymbolService:ISymbolService
     {
-        public List<string> GetAllSymbolsName()
+        StockDbContext _stockDbContext;
+        public SymbolService()
         {
-            ISymbolInfo stocksInfo = Bootstrapper.container.GetInstance<ISymbolInfo>();
+            _stockDbContext = new StockDbContext();
+        }
+        public List<string> GetAllSymbolsName()
+        {           
             List<string> allNames = new List<string>();
-            allNames.AddRange(stocksInfo.GetAllSymbols().Select(x => x.NamePersian));
+            allNames.AddRange(GetAllSymbols().Select(x => x.NamePersian));
             return allNames;
         }
 
@@ -54,6 +58,15 @@ namespace ServiceStd
             
         }
 
+        public List<Symbol> GetAllSymbols()
+        {
+            List<Symbol> listStockInfo = _stockDbContext.Symbols.ToList();
+                foreach (Symbol symbol in listStockInfo)
+                {
+                    symbol.SymbolGroup = _stockDbContext.SymbolGroups.Where(x => x.Id == symbol.GroupId).FirstOrDefault();
+                }
+                return listStockInfo;
+        }
         
     }
 }

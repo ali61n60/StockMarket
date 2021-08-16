@@ -17,8 +17,8 @@ namespace StockMarket
 {
     public partial class FormRatio : Form
     {
-        ISymbol _symbolService;
-        ISymbolGroup _symbolGroupService;
+        ISymbolService _symbolService;
+        ISymbolGroupService _symbolGroupService;
         ChartDrawer _chartDrawer ;
         public FormRatio()
         {
@@ -28,8 +28,8 @@ namespace StockMarket
 
         private void init()
         {
-            _symbolService = Bootstrapper.container.GetInstance<ISymbol>();
-            _symbolGroupService = Bootstrapper.container.GetInstance<ISymbolGroup>();
+            _symbolService = Bootstrapper.container.GetInstance<ISymbolService>();
+            _symbolGroupService = Bootstrapper.container.GetInstance<ISymbolGroupService>();
             initComboBoxList();
             initComboBoxStocksName();
             initComboBoxSymbolGroup();

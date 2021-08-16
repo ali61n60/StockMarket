@@ -6,9 +6,10 @@ using System.Text;
 
 namespace ServiceStd.IService
 {
-    public interface ISymbol
+    public interface ISymbolService
     {
         List<string> GetAllSymbolsName();
+        List<Symbol> GetAllSymbols();
         List<PointData> GetSymbolTradeData(string symbolName);
 
         List<PointData> GetAdjustedSymbolTradekData(string symbolName);

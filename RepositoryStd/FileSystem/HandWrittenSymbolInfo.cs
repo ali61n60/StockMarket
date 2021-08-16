@@ -8,7 +8,7 @@ using RepositoryStd.Database;
 
 namespace RepositoryStd.FileSystem
 {
-    public class HandWrittenSymbolInfo : ISymbolInfo
+    public class HandWrittenSymbolInfo 
     {
         public List<Symbol> GetAllSymbols()
         {            

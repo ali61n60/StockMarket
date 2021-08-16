@@ -33,15 +33,15 @@ namespace ServiceStd.IOC
 
         private static void configureForDatabase(ConfigurationExpression x)
         {
-            x.For<ISymbolInfo>().Use<DatabaseSymbolInfo>();
+            
             x.For<IDataLoader>().Use<DataLoaderDatabase>();
-            x.For<ISymbol>().Use<SymbolService>();
-            x.For<ISymbolGroup>().Use<SymbolGroupService>();
+            x.For<ISymbolService>().Use<SymbolService>();
+            x.For<ISymbolGroupService>().Use<SymbolGroupService>();
         }
 
         private static void configureForFileSystem(ConfigurationExpression x)
         {
-            x.For<ISymbolInfo>().Use<HandWrittenSymbolInfo>();
+            
         }        
     }
 }

@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace ServiceStd
 {
-    class SymbolGroupService : ISymbolGroup
+    class SymbolGroupService : ISymbolGroupService
     {
         public List<SymbolGroup> GetAllSymbolGroups()
         {

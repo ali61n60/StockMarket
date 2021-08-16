@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using ModelStd.DB.Stock;
 using ModelStd.IRepository;
 using ServiceStd.IOC;
+using ServiceStd.IService;
 using StockMVC.Models.ViewModels;
 
 
@@ -13,19 +14,20 @@ namespace StockMVC.Controllers
 {
     public class HomeController : Controller
     {
-        ISymbolInfo _symbolInfo;
+        
+        ISymbolService _symbolService;
         public int PageSize = 4;
 
         public HomeController()
         {
-             _symbolInfo = Bootstrapper.container.GetInstance<ISymbolInfo>();
+            _symbolService = Bootstrapper.container.GetInstance<ISymbolService>();
         }
 
         // GET: /<controller>/
         public IActionResult Index(string symbolGroup, int symbolPage = 1)
         {
             //Get All Symbols data            
-            List<Symbol> allSymbols = _symbolInfo.GetAllSymbols()
+            List<Symbol> allSymbols = _symbolService.GetAllSymbols()
                                      .Where(s=> symbolGroup==null || s.SymbolGroup.Id==int.Parse(symbolGroup))
                                      .ToList();
             
@@ -43,7 +45,7 @@ namespace StockMVC.Controllers
 
             };
             viewModel.CurrentSymbolGroup = symbolGroup;
-            viewModel.ChartData=
+            //viewModel.ChartData=_symbolInfo.
             return View(viewModel);
 
             //returning static html files
