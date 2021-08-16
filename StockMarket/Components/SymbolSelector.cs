@@ -12,7 +12,6 @@ namespace StockMarket.Components
         private List<CustomGroupMember> groupMembers;
         private List<CustomGroup> customGroups;
 
-
         public SymbolSelector()
         {
             InitializeComponent();           
@@ -22,7 +21,6 @@ namespace StockMarket.Components
         public void Init()
         {
             initCumboboxGroup();
-
         }
 
         private void initCumboboxGroup()
