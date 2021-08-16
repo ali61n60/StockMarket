@@ -13,9 +13,9 @@ namespace StockMarket.Chart
     public class ChartDrawer
     {
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
-        IStockInfo _stockInfo;
+        ISymbol _stockInfo;
 
-        public ChartDrawer(System.Windows.Forms.DataVisualization.Charting.Chart chart, IStockInfo stocksInformation)
+        public ChartDrawer(System.Windows.Forms.DataVisualization.Charting.Chart chart, ISymbol stocksInformation)
         {
             this.chart = chart;
             this._stockInfo = stocksInformation;
@@ -27,11 +27,11 @@ namespace StockMarket.Chart
             List<PointData> listStockData;
             if (adjustedPrice)
             {
-                listStockData = _stockInfo.GetAdjustedStockData(stockName);
+                listStockData = _stockInfo.GetAdjustedSymbolTradekData(stockName);
             }
             else
             {
-                listStockData = _stockInfo.GetStockData(stockName);
+                listStockData = _stockInfo.GetSymbolTradeData(stockName);
             }
 
             Draw(listStockData, stockName);
@@ -53,16 +53,16 @@ namespace StockMarket.Chart
             List<PointData> listStockData2;
             if (adjustedPrice)
             {
-                listStockData1 = _stockInfo.GetAdjustedStockData(stockName1);
+                listStockData1 = _stockInfo.GetAdjustedSymbolTradekData(stockName1);
                 listStockData1.Sort((a, b) => a.Date.CompareTo(b.Date));
-                listStockData2 = _stockInfo.GetAdjustedStockData(stockName2);
+                listStockData2 = _stockInfo.GetAdjustedSymbolTradekData(stockName2);
                 listStockData2.Sort((a, b) => a.Date.CompareTo(b.Date));
             }
             else
             {
-                listStockData1 = _stockInfo.GetStockData(stockName1);
+                listStockData1 = _stockInfo.GetSymbolTradeData(stockName1);
                 listStockData1.Sort((a, b) => a.Date.CompareTo(b.Date));
-                listStockData2 = _stockInfo.GetStockData(stockName2);
+                listStockData2 = _stockInfo.GetSymbolTradeData(stockName2);
                 listStockData2.Sort((a, b) => a.Date.CompareTo(b.Date));
             }
             

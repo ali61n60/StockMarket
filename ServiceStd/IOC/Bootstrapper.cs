@@ -35,7 +35,8 @@ namespace ServiceStd.IOC
         {
             x.For<ISymbolInfo>().Use<DatabaseSymbolInfo>();
             x.For<IDataLoader>().Use<DataLoaderDatabase>();
-            x.For<IStockInfo>().Use<StocksInformation>();
+            x.For<ISymbol>().Use<SymbolService>();
+            x.For<ISymbolGroup>().Use<SymbolGroupService>();
         }
 
         private static void configureForFileSystem(ConfigurationExpression x)

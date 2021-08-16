@@ -9,9 +9,9 @@ using RepositoryStd;
 
 namespace ServiceStd
 {
-    public class StocksInformation:IStockInfo
+    public class SymbolService:ISymbol
     {
-        public List<string> GetAllStocksName()
+        public List<string> GetAllSymbolsName()
         {
             ISymbolInfo stocksInfo = Bootstrapper.container.GetInstance<ISymbolInfo>();
             List<string> allNames = new List<string>();
@@ -19,13 +19,13 @@ namespace ServiceStd
             return allNames;
         }
 
-        public List<PointData> GetStockData(string stockName)
+        public List<PointData> GetSymbolTradeData(string stockName)
         {
             IDataLoader dataLoader = Bootstrapper.container.GetInstance<IDataLoader>();
             return dataLoader.GetStockData(stockName);
         }
 
-       public List<PointData> GetAdjustedStockData(string stockName)
+       public List<PointData> GetAdjustedSymbolTradekData(string stockName)
         {
             IDataLoader dataLoader = Bootstrapper.container.GetInstance<IDataLoader>();
             //get stock trade data
@@ -54,10 +54,6 @@ namespace ServiceStd
             
         }
 
-        public List<SymbolGroup> GetAllSymbolGroups()
-        {
-            StockDbContext stockDbContext = new StockDbContext();
-            return stockDbContext.SymbolGroups.ToList();
-        }
+        
     }
 }

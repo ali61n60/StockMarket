@@ -17,7 +17,7 @@ namespace StockMarket
 {
     public partial class FormRatio : Form
     {
-        IStockInfo _stockInfo;
+        ISymbol _stockInfo;
         ChartDrawer _chartDrawer ;
         public FormRatio()
         {
@@ -27,7 +27,7 @@ namespace StockMarket
 
         private void init()
         {
-            _stockInfo = Bootstrapper.container.GetInstance<IStockInfo>();
+            _stockInfo = Bootstrapper.container.GetInstance<ISymbol>();
             initComboBoxList();
             initComboBoxStocksName();
             initComboBoxSymbolGroup();
@@ -47,7 +47,7 @@ namespace StockMarket
         }
         private void initComboBoxStocksName()
         {
-            foreach (string stockName in _stockInfo.GetAllStocksName())
+            foreach (string stockName in _stockInfo.GetAllSymbolsName())
             {
                 comboBoxStockList1.Items.Add(stockName);
                 comboBoxStockList2.Items.Add(stockName);
@@ -142,7 +142,7 @@ namespace StockMarket
         private void buttonAverage_Click(object sender, EventArgs e)
         {
             string stockName = comboBoxStockList1.SelectedItem.ToString();
-            List<PointData> listStockData = _stockInfo.GetStockData(stockName);
+            List<PointData> listStockData = _stockInfo.GetSymbolTradeData(stockName);
 
             
             List<PointData> listMovingAverage = new Averages().MovingAverage(listStockData, average);
@@ -175,7 +175,7 @@ namespace StockMarket
         private void buttonAverageVolume_Click(object sender, EventArgs e)
         {
             string stockName = comboBoxStockList1.SelectedItem.ToString();
-            List<PointData> listStockData = _stockInfo.GetStockData(stockName);
+            List<PointData> listStockData = _stockInfo.GetSymbolTradeData(stockName);
 
             int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
 

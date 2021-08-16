@@ -17,8 +17,8 @@ namespace StockMarketTests.ServiceStdTests
         [Test]
         public void GetAllStocksName()
         {
-            StocksInformation stinfo = new StocksInformation();
-            List<string> result = stinfo.GetAllStocksName();
+            SymbolService stinfo = new SymbolService();
+            List<string> result = stinfo.GetAllSymbolsName();
             Assert.IsFalse(result.Count == 0);
         }
         
