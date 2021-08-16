@@ -16,22 +16,22 @@ namespace RepositoryStd.Database
             throw new NotImplementedException();
         }
 
-        public List<Dividend> GetDividend(string stockName)
+        public List<Dividend> GetDividend(int symbolId)
         {
             IQueryable<Dividend> dividend = _stockDbContext.Dividends
               .Include(d => d.Symbol)
-              .Where(d => d.Symbol.NamePersian == stockName);
+              .Where(d => d.Symbol.Id == symbolId);
 
             return dividend.ToList<Dividend>();
         }
 
-        public List<PointData> GetStockData(string stockName)
+        public List<PointData> GetSymbolTradeData(int  symbolId)
         {
             List<PointData> listPointData = new List<PointData>();
             
             var tradeDataForStockName= _stockDbContext.TradeDatas
                 .Include(tradeData => tradeData.Symbol)
-                .Where(tradeData => tradeData.Symbol.NamePersian == stockName);
+                .Where(tradeData => tradeData.Symbol.Id ==symbolId );//Why NamePersian and not id
 
             foreach(TradeData tradeData in tradeDataForStockName)
             {                              

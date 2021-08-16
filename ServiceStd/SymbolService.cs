@@ -23,19 +23,19 @@ namespace ServiceStd
             return allNames;
         }
 
-        public List<PointData> GetSymbolTradeData(string stockName)
+        public List<PointData> GetSymbolTradeData(int symbolId)
         {
             IDataLoader dataLoader = Bootstrapper.container.GetInstance<IDataLoader>();
-            return dataLoader.GetStockData(stockName);
+            return dataLoader.GetSymbolTradeData(symbolId);
         }
 
-       public List<PointData> GetAdjustedSymbolTradekData(string stockName)
+       public List<PointData> GetAdjustedSymbolTradekData(int symbolId)
         {
             IDataLoader dataLoader = Bootstrapper.container.GetInstance<IDataLoader>();
             //get stock trade data
-            List<PointData> listPointData= dataLoader.GetStockData(stockName);
+            List<PointData> listPointData = dataLoader.GetSymbolTradeData(symbolId);
             //get stock dividend data
-            List<Dividend> dividends = dataLoader.GetDividend(stockName);
+            List<Dividend> dividends = dataLoader.GetDividend(symbolId);
             //get stock capital increase data
             //compute adjusted data
             foreach (Dividend d in dividends)

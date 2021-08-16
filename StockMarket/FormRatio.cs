@@ -75,23 +75,22 @@ namespace StockMarket
 
         private void buttonSeries1_Click(object sender, EventArgs e)
         {
-            string stockName = comboBoxStockList1.SelectedItem.ToString();
-            _chartDrawer.Draw(stockName, checkBoxAdjustedPrice.Checked);           
+            int symbolId = comboBoxStockList1.SelectedIndex;
+            _chartDrawer.Draw(symbolId, checkBoxAdjustedPrice.Checked);           
                  
         }
        
         private void buttonSeries2_Click(object sender, EventArgs e)
         {
-            string stockName = comboBoxStockList2.SelectedItem.ToString();
-            _chartDrawer.Draw(stockName, checkBoxAdjustedPrice.Checked);
+            int symbolId = comboBoxStockList2.SelectedIndex;
+            _chartDrawer.Draw(symbolId, checkBoxAdjustedPrice.Checked);
         }
 
         private void buttonRatio_Click(object sender, EventArgs e)
         {
-            string stockName1 = comboBoxStockList1.SelectedItem.ToString();
-            string stockName2 = comboBoxStockList2.SelectedItem.ToString();
-
-            _chartDrawer.DrawRatio(stockName1, stockName2,checkBoxAdjustedPrice.Checked);
+            int symbolId1 = comboBoxStockList1.SelectedIndex;
+            int symbolId2 = comboBoxStockList2.SelectedIndex;
+            _chartDrawer.DrawRatio(symbolId1, symbolId2, checkBoxAdjustedPrice.Checked);
 
            
         }
@@ -99,11 +98,11 @@ namespace StockMarket
         private void button4_Click(object sender, EventArgs e)
         {
             StockStatictics stockStatictics = new StockStatictics();
-            string stockName = comboBoxStockList1.SelectedItem.ToString();
+            int symbolId = comboBoxStockList1.SelectedIndex;
             int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
-            double maxPrice = stockStatictics.MaxPrice(stockName, numberOfDays);
-            double minPrice = stockStatictics.MinPrice(stockName, numberOfDays);
-            listBox1.Items.Add("for " + stockName + " in last " + numberOfDays + " days Max price is " + maxPrice + " and Min price is " + minPrice);
+            double maxPrice = stockStatictics.MaxPrice(symbolId, numberOfDays);
+            double minPrice = stockStatictics.MinPrice(symbolId, numberOfDays);
+            listBox1.Items.Add("for " + symbolId + " in last " + numberOfDays + " days Max price is " + maxPrice + " and Min price is " + minPrice);
 
 
 
@@ -118,7 +117,7 @@ namespace StockMarket
             foreach (var item in comboBoxStockList1.Items)
             {
                 string stockName = item.ToString();
-                double priceChange = stockStatictics.PriceChangePercent(stockName, numberOfDays);
+                double priceChange = stockStatictics.PriceChangePercent(1, numberOfDays);
                 tempMesage = new Message();
                 tempMesage.StockName = stockName;
                 tempMesage.value = priceChange;
@@ -143,8 +142,8 @@ namespace StockMarket
         int average = 7;
         private void buttonAverage_Click(object sender, EventArgs e)
         {
-            string stockName = comboBoxStockList1.SelectedItem.ToString();
-            List<PointData> listStockData = _symbolService.GetSymbolTradeData(stockName);
+            int symbolId = comboBoxStockList1.SelectedIndex;
+            List<PointData> listStockData = _symbolService.GetSymbolTradeData(symbolId);
 
             
             List<PointData> listMovingAverage = new Averages().MovingAverage(listStockData, average);
@@ -176,15 +175,15 @@ namespace StockMarket
 
         private void buttonAverageVolume_Click(object sender, EventArgs e)
         {
-            string stockName = comboBoxStockList1.SelectedItem.ToString();
-            List<PointData> listStockData = _symbolService.GetSymbolTradeData(stockName);
+            int symbolId = comboBoxStockList1.SelectedIndex;
+            List<PointData> listStockData = _symbolService.GetSymbolTradeData(symbolId);
 
             int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
 
             Volume volume = new Volume();
             int averageVolume = volume.CalculateAverageVolume(listStockData, numberOfDays);
 
-            listBox1.Items.Add(stockName + " Average Volume in Last " + numberOfDays + " Day[s] is " + averageVolume);
+            listBox1.Items.Add(symbolId + " Average Volume in Last " + numberOfDays + " Day[s] is " + averageVolume);
         }
 
         private void comboBoxSymbolGroup_SelectedIndexChanged(object sender, EventArgs e)

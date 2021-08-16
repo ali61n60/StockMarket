@@ -21,7 +21,7 @@ namespace RepositoryStd.FileSystem
             throw new NotImplementedException();
         }
 
-        public List<Dividend> GetDividend(string stockName)
+        public List<Dividend> GetDividend(int symbolId)
         {
             throw new NotImplementedException();
         }
@@ -34,7 +34,7 @@ namespace RepositoryStd.FileSystem
             }
 
             List<PointData> listPointData=new List<PointData>();
-            ISymbolInfo stocksInfo = new HandWrittenSymbolInfo();
+            HandWrittenSymbolInfo stocksInfo = new HandWrittenSymbolInfo();
 
             List<string> allStocksName = new List<string>();
             allStocksName.AddRange(stocksInfo.GetAllSymbols().Select(x=>x.NamePersian));
@@ -46,7 +46,12 @@ namespace RepositoryStd.FileSystem
             listPointData = readData(fileName);
             allStocksData.Add(stockName, listPointData);
             return listPointData;
-        }  
+        }
+
+        public List<PointData> GetSymbolTradeData(int symbolId)
+        {
+            throw new NotImplementedException();
+        }
 
         private List<PointData> readData(string fileName)
         {

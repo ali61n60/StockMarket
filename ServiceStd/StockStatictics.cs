@@ -7,11 +7,11 @@ namespace ServiceStd
 {
     public class StockStatictics
     {
-        public double MaxPrice(string stockName,int numberOfDays)
+        public double MaxPrice(int symbolId,int numberOfDays)
         {
             double result = 0;
             IDataLoader dataLoader = Bootstrapper.container.GetInstance<IDataLoader>();
-            List<PointData> stockData = dataLoader.GetStockData(stockName);
+            List<PointData> stockData = dataLoader.GetSymbolTradeData(symbolId);
 
             if (stockData.Count == 0)
                 return result;
@@ -26,11 +26,11 @@ namespace ServiceStd
             return result;
         }
 
-        public double MinPrice(string stockName, int numberOfDays)
+        public double MinPrice(int symbolId, int numberOfDays)
         {
             double result = 10000000;
             IDataLoader dataLoader = Bootstrapper.container.GetInstance<IDataLoader>();
-            List<PointData> stockData = dataLoader.GetStockData(stockName);
+            List<PointData> stockData = dataLoader.GetSymbolTradeData(symbolId);
 
             if (stockData.Count == 0)
                 return result;
@@ -45,11 +45,11 @@ namespace ServiceStd
             return result;
         }
 
-        public double PriceChangePercent(string stockName, int numberOfDays)
+        public double PriceChangePercent(int symbolId, int numberOfDays)
         {
             double priceChange;
-            double maxPrice = MaxPrice(stockName, numberOfDays);
-            double minPrice = MinPrice(stockName, numberOfDays);
+            double maxPrice = MaxPrice(symbolId, numberOfDays);
+            double minPrice = MinPrice(symbolId, numberOfDays);
             priceChange = (maxPrice - minPrice)*100/maxPrice;
 
 

@@ -10,9 +10,9 @@ namespace ServiceStd.IService
     {
         List<string> GetAllSymbolsName();
         List<Symbol> GetAllSymbols();
-        List<PointData> GetSymbolTradeData(string symbolName);
+        List<PointData> GetSymbolTradeData(int symbolId);
 
-        List<PointData> GetAdjustedSymbolTradekData(string symbolName);
+        List<PointData> GetAdjustedSymbolTradekData(int symbolId);
        
     }
 }

@@ -7,9 +7,9 @@ namespace ModelStd.IRepository
 {
     public interface IDataLoader
     {
-        List<PointData> GetStockData(string stockName);    
+        List<PointData> GetSymbolTradeData(int symbolId);    
         
         Dictionary<string, List<PointData>> GetAllStocksData();
-        List<Dividend> GetDividend(string stockName);
+        List<Dividend> GetDividend(int symbolId);
     }
 }

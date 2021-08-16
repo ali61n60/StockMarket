@@ -4,6 +4,7 @@ using ModelStd.Carts;
 using ModelStd.DB.Stock;
 using ModelStd.IRepository;
 using ServiceStd.IOC;
+using ServiceStd.IService;
 using StockMVC.Models.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,13 +13,13 @@ namespace StockMVC.Controllers
 {
     public class CartController : Controller
     {
-        ISymbolInfo _symbolInfo;
+        ISymbolService _symbolService;
         public Cart Cart { get; set; }
         public string ReturnUrl { get; set; }
 
         public CartController(Cart cartService)
         {
-            _symbolInfo = Bootstrapper.container.GetInstance<ISymbolInfo>();
+            _symbolService = Bootstrapper.container.GetInstance<ISymbolService>();
             Cart = cartService;
         }
 
@@ -32,7 +33,7 @@ namespace StockMVC.Controllers
         [HttpPost]
         public IActionResult CartAction(long Id, string returnUrl)
         {
-            Symbol symbol = _symbolInfo.GetAllSymbols()
+            Symbol symbol = _symbolService.GetAllSymbols()
                 .FirstOrDefault(s => s.Id == Id);
             if (symbol != null) symbol.SymbolGroup = null; // self referencing problem
             
