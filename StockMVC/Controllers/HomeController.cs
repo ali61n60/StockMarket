@@ -43,6 +43,7 @@ namespace StockMVC.Controllers
 
             };
             viewModel.CurrentSymbolGroup = symbolGroup;
+            viewModel.ChartData=
             return View(viewModel);
 
             //returning static html files
