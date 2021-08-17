@@ -6,6 +6,9 @@ using ModelStd.IRepository;
 using ServiceStd.IOC;
 using ServiceStd.IService;
 using StockMVC.Models.ViewModels;
+using Newtonsoft.Json;
+using ModelStd;
+using System;
 
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -45,7 +48,27 @@ namespace StockMVC.Controllers
 
             };
             viewModel.CurrentSymbolGroup = symbolGroup;
-            //viewModel.ChartData=_symbolInfo.
+
+
+
+
+
+            List<PointData> chartData = _symbolService.GetSymbolTradeData(1);
+            List<int> dateTimes = new List<int>();
+            List<double> finalPriceList = new List<double>();
+            int i = 1;
+            foreach(PointData p in chartData)
+            {
+                dateTimes.Add(i++);
+                finalPriceList.Add(p.Final);
+            }
+
+            viewModel.ChartDate = JsonConvert.SerializeObject(dateTimes);
+            viewModel.ChartFinalePrice= JsonConvert.SerializeObject(finalPriceList);
+
+
+
+
             return View(viewModel);
 
             //returning static html files
