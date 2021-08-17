@@ -14,7 +14,15 @@
 <body>
     <app>
         <component type="typeof(Routed)" render-mode="Server" />
-    </app>    
+    </app>
     <script src="/_framework/blazor.server.js"></script>
+
+    <script src="~/lib/Chart.js/chart.js"></script>
+    <!-- This is the glue between Blazor and Chart.js -->
+    @*<script src="_content/ChartJs.Blazor.Fork/ChartJsBlazorInterop.js"></script>*@
+
+    
+    <script src="~/lib/content/ChartJsBlazorInterop.js"></script>
+
 </body>
 </html>
