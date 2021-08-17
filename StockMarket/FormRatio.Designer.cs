@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.buttonSeries1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.comboBoxStockList1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCustomGroupMember = new System.Windows.Forms.ComboBox();
             this.buttonSeries2 = new System.Windows.Forms.Button();
             this.buttonRatio = new System.Windows.Forms.Button();
             this.buttonPrice = new System.Windows.Forms.Button();
@@ -43,9 +43,9 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonClearList = new System.Windows.Forms.Button();
             this.buttonAverage = new System.Windows.Forms.Button();
-            this.comboBoxStockGroup = new System.Windows.Forms.ComboBox();
+            this.comboBoxCustomGroup = new System.Windows.Forms.ComboBox();
             this.buttonAverageVolume = new System.Windows.Forms.Button();
-            this.comboBoxStockList2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSymbolGroupMember = new System.Windows.Forms.ComboBox();
             this.checkBoxAdjustedPrice = new System.Windows.Forms.CheckBox();
             this.comboBoxSymbolGroup = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -66,27 +66,27 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(41, 270);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1119, 407);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
-            // comboBoxStockList1
+            // comboBoxCustomGroupMember
             // 
-            this.comboBoxStockList1.FormattingEnabled = true;
-            this.comboBoxStockList1.Location = new System.Drawing.Point(14, 63);
-            this.comboBoxStockList1.Name = "comboBoxStockList1";
-            this.comboBoxStockList1.Size = new System.Drawing.Size(271, 21);
-            this.comboBoxStockList1.TabIndex = 2;
+            this.comboBoxCustomGroupMember.FormattingEnabled = true;
+            this.comboBoxCustomGroupMember.Location = new System.Drawing.Point(14, 63);
+            this.comboBoxCustomGroupMember.Name = "comboBoxCustomGroupMember";
+            this.comboBoxCustomGroupMember.Size = new System.Drawing.Size(271, 21);
+            this.comboBoxCustomGroupMember.TabIndex = 2;
             // 
             // buttonSeries2
             // 
@@ -175,14 +175,14 @@
             this.buttonAverage.UseVisualStyleBackColor = true;
             this.buttonAverage.Click += new System.EventHandler(this.buttonAverage_Click);
             // 
-            // comboBoxStockGroup
+            // comboBoxCustomGroup
             // 
-            this.comboBoxStockGroup.FormattingEnabled = true;
-            this.comboBoxStockGroup.Location = new System.Drawing.Point(13, 27);
-            this.comboBoxStockGroup.Name = "comboBoxStockGroup";
-            this.comboBoxStockGroup.Size = new System.Drawing.Size(272, 21);
-            this.comboBoxStockGroup.TabIndex = 14;
-            this.comboBoxStockGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxList1_SelectedIndexChanged);
+            this.comboBoxCustomGroup.FormattingEnabled = true;
+            this.comboBoxCustomGroup.Location = new System.Drawing.Point(13, 27);
+            this.comboBoxCustomGroup.Name = "comboBoxCustomGroup";
+            this.comboBoxCustomGroup.Size = new System.Drawing.Size(272, 21);
+            this.comboBoxCustomGroup.TabIndex = 14;
+            this.comboBoxCustomGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxCustomGroup_SelectedIndexChanged);
             // 
             // buttonAverageVolume
             // 
@@ -194,13 +194,13 @@
             this.buttonAverageVolume.UseVisualStyleBackColor = true;
             this.buttonAverageVolume.Click += new System.EventHandler(this.buttonAverageVolume_Click);
             // 
-            // comboBoxStockList2
+            // comboBoxSymbolGroupMember
             // 
-            this.comboBoxStockList2.FormattingEnabled = true;
-            this.comboBoxStockList2.Location = new System.Drawing.Point(291, 63);
-            this.comboBoxStockList2.Name = "comboBoxStockList2";
-            this.comboBoxStockList2.Size = new System.Drawing.Size(271, 21);
-            this.comboBoxStockList2.TabIndex = 16;
+            this.comboBoxSymbolGroupMember.FormattingEnabled = true;
+            this.comboBoxSymbolGroupMember.Location = new System.Drawing.Point(291, 63);
+            this.comboBoxSymbolGroupMember.Name = "comboBoxSymbolGroupMember";
+            this.comboBoxSymbolGroupMember.Size = new System.Drawing.Size(271, 21);
+            this.comboBoxSymbolGroupMember.TabIndex = 16;
             // 
             // checkBoxAdjustedPrice
             // 
@@ -228,9 +228,9 @@
             this.ClientSize = new System.Drawing.Size(1228, 689);
             this.Controls.Add(this.comboBoxSymbolGroup);
             this.Controls.Add(this.checkBoxAdjustedPrice);
-            this.Controls.Add(this.comboBoxStockList2);
+            this.Controls.Add(this.comboBoxSymbolGroupMember);
             this.Controls.Add(this.buttonAverageVolume);
-            this.Controls.Add(this.comboBoxStockGroup);
+            this.Controls.Add(this.comboBoxCustomGroup);
             this.Controls.Add(this.buttonAverage);
             this.Controls.Add(this.buttonClearList);
             this.Controls.Add(this.listBox1);
@@ -240,7 +240,7 @@
             this.Controls.Add(this.buttonPrice);
             this.Controls.Add(this.buttonRatio);
             this.Controls.Add(this.buttonSeries2);
-            this.Controls.Add(this.comboBoxStockList1);
+            this.Controls.Add(this.comboBoxCustomGroupMember);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.buttonSeries1);
             this.Name = "FormRatio";
@@ -255,7 +255,7 @@
 
         private System.Windows.Forms.Button buttonSeries1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.ComboBox comboBoxStockList1;
+        private System.Windows.Forms.ComboBox comboBoxCustomGroupMember;
         private System.Windows.Forms.Button buttonSeries2;
         private System.Windows.Forms.Button buttonRatio;
         private System.Windows.Forms.Button buttonPrice;
@@ -265,9 +265,9 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button buttonClearList;
         private System.Windows.Forms.Button buttonAverage;
-        private System.Windows.Forms.ComboBox comboBoxStockGroup;
+        private System.Windows.Forms.ComboBox comboBoxCustomGroup;
         private System.Windows.Forms.Button buttonAverageVolume;
-        private System.Windows.Forms.ComboBox comboBoxStockList2;
+        private System.Windows.Forms.ComboBox comboBoxSymbolGroupMember;
         private System.Windows.Forms.CheckBox checkBoxAdjustedPrice;
         private System.Windows.Forms.ComboBox comboBoxSymbolGroup;
     }

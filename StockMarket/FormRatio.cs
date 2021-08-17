@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 using ModelStd;
 using ServiceStd;
 using ServiceStd.Indicators;
-using RepositoryStd;
 using System.Linq;
 using ModelStd.DB.Stock;
-using Microsoft.EntityFrameworkCore;
 using StockMarket.Chart;
 using ServiceStd.IService;
 using ServiceStd.IOC;
@@ -19,7 +16,13 @@ namespace StockMarket
     {
         ISymbolService _symbolService;
         ISymbolGroupService _symbolGroupService;
+        ICustomGroupService _customGroupService;
         ChartDrawer _chartDrawer ;
+        
+        List<CustomGroup> _customGroupList;
+        List<SymbolGroup> _symbolGroupList;
+        List<CustomGroupMember> _customGroupMembers;
+        List<Symbol> _symbolGroupMembers;
         public FormRatio()
         {
             InitializeComponent();
@@ -30,42 +33,55 @@ namespace StockMarket
         {
             _symbolService = Bootstrapper.container.GetInstance<ISymbolService>();
             _symbolGroupService = Bootstrapper.container.GetInstance<ISymbolGroupService>();
-            initComboBoxList();
-            initComboBoxStocksName();
+            _customGroupService= Bootstrapper.container.GetInstance<ICustomGroupService>();
+            initComboBoxCustomGroup();
+            initComboBoxCustomGroupMember();
             initComboBoxSymbolGroup();
+            initComboBoxSymbolGroupMember();
             initChartDrawer();
         }
 
-        private void initComboBoxList()
+        private void initComboBoxCustomGroup()
         {
-            
-            StockDbContext dbContext = new StockDbContext();
-            List<CustomGroup> stockList = dbContext.CustomGroups.ToList();
-            foreach(CustomGroup s in stockList)
+            _customGroupList = _customGroupService.GetAllGroups();
+            foreach(CustomGroup c in _customGroupList)
             {
-                comboBoxStockGroup.Items.Add(s.Name);
+                comboBoxCustomGroup.Items.Add(c.Name);
             }
-            comboBoxStockGroup.SelectedIndex = 0;
+            comboBoxCustomGroup.SelectedIndex = 0;
         }
-        private void initComboBoxStocksName()
+        private void initComboBoxCustomGroupMember()
         {
-            foreach (string stockName in _symbolService.GetAllSymbolsName())
+            comboBoxCustomGroupMember.Items.Clear();
+            int selectedGroupId = _customGroupList.Where(s => s.Name == comboBoxCustomGroup.SelectedItem.ToString()).First().Id;
+            _customGroupMembers = _customGroupService.GetMembers(selectedGroupId);
+            foreach(CustomGroupMember c in _customGroupMembers)
             {
-                comboBoxStockList1.Items.Add(stockName);
-                comboBoxStockList2.Items.Add(stockName);
-            }
-            comboBoxStockList1.SelectedIndex = 0;
-            comboBoxStockList2.SelectedIndex = 0;
-
+                comboBoxCustomGroupMember.Items.Add(c.Symbol.NamePersian);
+            }           
+            comboBoxCustomGroupMember.SelectedIndex = 0;
         }
 
         private void initComboBoxSymbolGroup()
         {
-            List<SymbolGroup> symbolGroups= _symbolGroupService.GetAllSymbolGroups();
-            foreach(SymbolGroup symbolGroup in symbolGroups)
+            _symbolGroupList= _symbolGroupService.GetAllSymbolGroups();
+            foreach(SymbolGroup symbolGroup in _symbolGroupList)
             {
                 comboBoxSymbolGroup.Items.Add(symbolGroup.Name);
             }
+            comboBoxSymbolGroup.SelectedIndex = 0;
+        }
+
+        private void initComboBoxSymbolGroupMember()
+        {
+            comboBoxSymbolGroupMember.Items.Clear();
+            int selectedGroupId = _symbolGroupList.Where(s => s.Name == comboBoxSymbolGroup.SelectedItem.ToString()).First().Id;
+            _symbolGroupMembers = _symbolGroupService.GetMembers(selectedGroupId);
+            foreach(Symbol s in _symbolGroupMembers)
+            {
+                comboBoxSymbolGroupMember.Items.Add(s.NamePersian);
+            }
+            comboBoxSymbolGroupMember.SelectedIndex = 0;
         }
 
         private void initChartDrawer()
@@ -75,30 +91,29 @@ namespace StockMarket
 
         private void buttonSeries1_Click(object sender, EventArgs e)
         {
-            int symbolId = comboBoxStockList1.SelectedIndex;
+            int symbolId = _customGroupMembers.Where(s => s.Symbol.NamePersian == comboBoxCustomGroupMember.SelectedItem.ToString()).First().SymbolId;
+            
             _chartDrawer.Draw(symbolId, checkBoxAdjustedPrice.Checked);           
                  
         }
        
         private void buttonSeries2_Click(object sender, EventArgs e)
         {
-            int symbolId = comboBoxStockList2.SelectedIndex;
+            int symbolId = _symbolGroupMembers.Where(s => s.NamePersian == comboBoxSymbolGroupMember.SelectedItem.ToString()).First().Id;
             _chartDrawer.Draw(symbolId, checkBoxAdjustedPrice.Checked);
         }
 
         private void buttonRatio_Click(object sender, EventArgs e)
         {
-            int symbolId1 = comboBoxStockList1.SelectedIndex;
-            int symbolId2 = comboBoxStockList2.SelectedIndex;
+            int symbolId1 = _customGroupMembers.Where(s => s.Symbol.NamePersian == comboBoxCustomGroupMember.SelectedItem.ToString()).First().SymbolId;
+            int symbolId2 = _symbolGroupMembers.Where(s => s.NamePersian == comboBoxSymbolGroupMember.SelectedItem.ToString()).First().Id;
             _chartDrawer.DrawRatio(symbolId1, symbolId2, checkBoxAdjustedPrice.Checked);
-
-           
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             StockStatictics stockStatictics = new StockStatictics();
-            int symbolId = comboBoxStockList1.SelectedIndex;
+            int symbolId = comboBoxCustomGroupMember.SelectedIndex;
             int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
             double maxPrice = stockStatictics.MaxPrice(symbolId, numberOfDays);
             double minPrice = stockStatictics.MinPrice(symbolId, numberOfDays);
@@ -114,7 +129,7 @@ namespace StockMarket
             List<Message> messages = new List<Message>();
             Message tempMesage;
             int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
-            foreach (var item in comboBoxStockList1.Items)
+            foreach (var item in comboBoxCustomGroupMember.Items)
             {
                 string stockName = item.ToString();
                 double priceChange = stockStatictics.PriceChangePercent(1, numberOfDays);
@@ -137,12 +152,10 @@ namespace StockMarket
             listBox1.Items.Clear();
         }
 
-        
-
         int average = 7;
         private void buttonAverage_Click(object sender, EventArgs e)
         {
-            int symbolId = comboBoxStockList1.SelectedIndex;
+            int symbolId = comboBoxCustomGroupMember.SelectedIndex;
             List<PointData> listStockData = _symbolService.GetSymbolTradeData(symbolId);
 
             
@@ -155,27 +168,14 @@ namespace StockMarket
             average+=10;
         }
 
-        private void comboBoxList1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxCustomGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            StockDbContext stockDbContext = new StockDbContext();
-            string selectdListName = comboBoxStockGroup.SelectedItem.ToString();
-            var temp = stockDbContext.CustomGroups.Where(s => s.Name == selectdListName);
-            int listId = stockDbContext.CustomGroups.Where(s => s.Name == selectdListName).First().Id;
-            List<CustomGroupMember> stockListStockInfo = stockDbContext.CustomGroupMembers
-                .Include(s=>s.Symbol)
-                .Where(s => s.GroupId == listId).ToList();
-            comboBoxStockList1.Items.Clear();
-            comboBoxStockList2.Items.Clear();
-            foreach (CustomGroupMember s in stockListStockInfo)
-            {
-                comboBoxStockList1.Items.Add(s.Symbol.NamePersian);
-                comboBoxStockList2.Items.Add(s.Symbol.NamePersian);
-            }
+            initComboBoxCustomGroupMember();
         }
 
         private void buttonAverageVolume_Click(object sender, EventArgs e)
         {
-            int symbolId = comboBoxStockList1.SelectedIndex;
+            int symbolId = comboBoxCustomGroupMember.SelectedIndex;
             List<PointData> listStockData = _symbolService.GetSymbolTradeData(symbolId);
 
             int numberOfDays = int.Parse(textBoxNumberOfDays.Text);
@@ -188,24 +188,7 @@ namespace StockMarket
 
         private void comboBoxSymbolGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            StockDbContext stockDbContext = new StockDbContext();
-            string selectdListName = comboBoxSymbolGroup.SelectedItem.ToString();
-            List<SymbolGroup> temp1 = stockDbContext.SymbolGroups.Include(s=>s.Symbols).Where<SymbolGroup>(s => s.Name == selectdListName).ToList();
-            ICollection<Symbol> symbols = temp1.First().Symbols;
-            try
-            {
-                comboBoxStockList2.Items.Clear();
-                foreach (Symbol s in symbols)
-                {
-                    comboBoxStockList2.Items.Add(s.NamePersian);
-                }
-            }
-            catch(Exception ex)
-            {
-
-            }
-            
-
+            initComboBoxSymbolGroupMember();
         }
     }
 

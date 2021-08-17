@@ -37,6 +37,7 @@ namespace ServiceStd.IOC
             x.For<IDataLoader>().Use<DataLoaderDatabase>();
             x.For<ISymbolService>().Use<SymbolService>();
             x.For<ISymbolGroupService>().Use<SymbolGroupService>();
+            x.For<ICustomGroupService>().Use<CustomGroupService>();
         }
 
         private static void configureForFileSystem(ConfigurationExpression x)

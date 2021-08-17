@@ -27,21 +27,5 @@ namespace ModelStd.DB.Stock
         public virtual ICollection<CustomGroupMember> CustomGroupMembers { get; set; }
     }
 
-    [Table("customGroupMember", Schema = "stock")]
-    public class CustomGroupMember
-    {
-        
-        [Column("groupId")]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int GroupId { get; set; }
-
-        public CustomGroup StockList { get; set; }
-
-        [Column("symbolId")]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int SymbolId { get; set; }
-
-        public Symbol Symbol { get; set; }
-
-    }
+   
 }

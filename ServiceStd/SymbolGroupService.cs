@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace ServiceStd
 {
@@ -14,6 +15,12 @@ namespace ServiceStd
         {
             StockDbContext stockDbContext = new StockDbContext();
             return stockDbContext.SymbolGroups.ToList();
+        }
+
+        public List<Symbol> GetMembers(int groupId)
+        {
+            StockDbContext s = new StockDbContext();
+            return s.Symbols.Where(sy => sy.GroupId == groupId).ToList();
         }
     }
 }

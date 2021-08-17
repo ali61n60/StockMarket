@@ -5,9 +5,9 @@ using System.Text;
 
 namespace ServiceStd.IService
 {
-    public interface ISymbolGroupService
+    public interface ICustomGroupService
     {
-        List<SymbolGroup> GetAllSymbolGroups();
-        List<Symbol> GetMembers(int groupId);
+        List<CustomGroup> GetAllGroups();
+        List<CustomGroupMember> GetMembers(int groupId);
     }
 }

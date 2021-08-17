@@ -123,7 +123,7 @@ namespace RepositoryStd
                 .HasKey(s => new { s.GroupId, s.SymbolId });
 
             modelBuilder.Entity<CustomGroupMember>()
-              .HasOne<CustomGroup>(sc => sc.StockList)
+              .HasOne<CustomGroup>(sc => sc.Group)
               .WithMany(s => s.CustomGroupMembers)
               .HasForeignKey(sc => sc.GroupId);
 
