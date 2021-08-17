@@ -50,9 +50,6 @@ namespace StockMVC.Controllers
             viewModel.CurrentSymbolGroup = symbolGroup;
 
 
-
-
-
             List<PointData> chartData = _symbolService.GetSymbolTradeData(1);
             List<int> dateTimes = new List<int>();
             List<double> finalPriceList = new List<double>();
@@ -66,13 +63,8 @@ namespace StockMVC.Controllers
             viewModel.ChartDate = JsonConvert.SerializeObject(dateTimes);
             viewModel.ChartFinalePrice= JsonConvert.SerializeObject(finalPriceList);
 
-
-
-
             return View(viewModel);
 
-            //returning static html files
-            //return File("/html/demo.html", "text/html");
         }       
     }
 }
