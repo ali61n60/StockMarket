@@ -4,7 +4,7 @@
 }
 <h4>Welcome to StockMvc, Developing</h4>
 <div class="row">
-    <div class="col-3">
+    <div class="col-6">
         @foreach (Symbol symbol in Model.Symbols)
         {
             <partial name="SymbolSummary" model="symbol" />
@@ -17,7 +17,7 @@
             </div>
         </div>        
     </div>
-    <div class="col-9">
+    <div class="col-6">
         <canvas id="myChart"></canvas>
     </div>
 </div>

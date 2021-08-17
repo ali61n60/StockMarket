@@ -1,11 +1,20 @@
 ﻿@page "/admin/myChart"
 @using ChartJs.Blazor.PieChart
-@using ChartJs.Blazor.Util
 
+<div class="row">
+    <div class="col-6">
+
+    </div>
+
+    <div class="col-6">
+        <canvas id="myChart"></canvas>
+    </div>
+</div>
 
 
 <p>this is a test</p>
 <Chart Config="_config"></Chart>
+<p>this is another test</p>
 
 @code {
     private PieConfig _config;
