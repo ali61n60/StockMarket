@@ -11,6 +11,7 @@ using ModelStd;
 using System;
 
 
+
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace StockMVC.Controllers
@@ -62,7 +63,7 @@ namespace StockMVC.Controllers
 
             viewModel.ChartDate = JsonConvert.SerializeObject(dateTimes);
             viewModel.ChartFinalePrice= JsonConvert.SerializeObject(finalPriceList);
-
+            //return RedirectToPage("/Admin/Index");
             return View(viewModel);
 
         }       

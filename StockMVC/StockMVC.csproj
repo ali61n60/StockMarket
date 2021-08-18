@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Content Remove="Pages\Admin\_Imports.razor" />
+    <Content Remove="_Imports.razor" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +32,7 @@
 
   <ItemGroup>
     <None Include="Pages\Admin\_Imports.razor" />
+    <None Include="_Imports.razor" />
   </ItemGroup>
 
   <ItemGroup>
