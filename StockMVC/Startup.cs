@@ -86,27 +86,29 @@ namespace StockMVC
 
 
 
+
+
+                //    endpoints.MapGet("/", async context =>
+                //    {
+                //        await context.Response.WriteAsync("Hello World!");
+                //    });
+
+                //    endpoints.MapGet("/hello/{name:alpha}", async context =>
+                //{
+                //    var name = context.Request.RouteValues["name"];
+                //    await context.Response.WriteAsync($"Hello {name}!");
+                //});
+
                 // endpoints.MapDefaultControllerRoute();
                 //endpoints.MapRazorPages();
-                //endpoints.MapBlazorHub();
-                //endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
+                endpoints.MapBlazorHub();
+                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 
                 //endpoints.MapControllers();
 
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-
-                endpoints.MapGet("/hello/{name:alpha}", async context =>
-            {
-                var name = context.Request.RouteValues["name"];
-                await context.Response.WriteAsync($"Hello {name}!");
-            });
-
-             endpoints.MapControllerRoute(
+                endpoints.MapControllerRoute(
                  name: "default",
-                 pattern: "{Controller}/{action}/{symbolGroup=1}/{symbolPage=1}");
+                 pattern: "{Controller=home}/{action=index}/{symbolGroup=1}/{symbolPage=1}");
             });
 
            
