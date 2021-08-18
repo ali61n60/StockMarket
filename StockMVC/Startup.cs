@@ -61,39 +61,52 @@ namespace StockMVC
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
-            
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("symbolPageRoute",
-                    "{symbolGroup}/Page{symbolPage:int}",
-                    new { Controller = "Home", action = "Index" });
+                //endpoints.MapControllerRoute("symbolPageRoute",
+                //    "{symbolGroup}/Page{symbolPage:int}",
+                //    new { Controller = "Home", action = "Index" });
 
-                endpoints.MapControllerRoute("pageRoute",
-                    "Page{symbolPage:int}",
-                new { Controller = "Home", action = "Index", symbolPage = 1 });
+                //endpoints.MapControllerRoute("pageRoute",
+                //"Page{symbolPage:int}",
+                //new { Controller = "Home", action = "Index", symbolPage = 1 });
 
-                endpoints.MapControllerRoute("symbolRoute",
-                    "{symbolGroup}",
-                new { Controller = "Home", action = "Index", symbolPage = 1 });
+                //endpoints.MapControllerRoute("symbolRoute",
+                //    "{symbolGroup}",
+                //new { Controller = "Home", action = "Index", symbolPage = 1 });
 
-                endpoints.MapControllerRoute("pagination",
-                "symbolGroup/Page{symbolPage}",
-                new { Controller = "Home", action = "Index", symbolPage = 1 });
+                //endpoints.MapControllerRoute("pagination",
+                //"symbolGroup/Page{symbolPage}",
+                //new { Controller = "Home", action = "Index", symbolPage = 1 });
 
-                endpoints.MapControllerRoute("MvcDefault",
-                   "{Controller}/{action}",
-                   new { Controller = "Home", action = "Index" });
+                //endpoints.MapControllerRoute("MvcDefault",
+                //   "{Controller}/{action}",
+                //   new { Controller = "Home", action = "Index" });
 
-                endpoints.MapControllerRoute("default",
-                    "",
-                    new { Controller = "Home", action = "Index", symbolPage = 1 });
 
-                endpoints.MapDefaultControllerRoute();
-                endpoints.MapRazorPages();
-                endpoints.MapBlazorHub();
-                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 
-                endpoints.MapControllers();
+                // endpoints.MapDefaultControllerRoute();
+                //endpoints.MapRazorPages();
+                //endpoints.MapBlazorHub();
+                //endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
+
+                //endpoints.MapControllers();
+
+                endpoints.MapGet("/", async context =>
+                {
+                    await context.Response.WriteAsync("Hello World!");
+                });
+
+                endpoints.MapGet("/hello/{name:alpha}", async context =>
+            {
+                var name = context.Request.RouteValues["name"];
+                await context.Response.WriteAsync($"Hello {name}!");
+            });
+
+             endpoints.MapControllerRoute(
+                 name: "default",
+                 pattern: "{Controller}/{action}/{symbolGroup=1}/{symbolPage=1}");
             });
 
            

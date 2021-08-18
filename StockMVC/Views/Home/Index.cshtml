@@ -1,6 +1,4 @@
-﻿@using StockMVC.Shared
-@using StockMVC.Views.Shared
-@model SymbolListViewModel
+﻿@model SymbolListViewModel
 @{
     ViewBag.Title = "Ali Nejati Is Working Hard On View";    
 }
@@ -21,18 +19,8 @@
     </div>
     <div class="col-6">
         <canvas id="myChart"></canvas>
-        <h1>Test</h1>
-        @{
-            string myPar = "How is Blazor working for you?";
-            StockMVC.Parameters.AliCountParameters aliCountParameters = new StockMVC.Parameters.AliCountParameters();
-
-        }
-        <component type="typeof(SurveyPrompt)" render-mode="ServerPrerendered" param-Title="@myPar" />
-        
-        <component type="typeof(AliCount)" render-mode="ServerPrerendered" param-Parameters="@aliCountParameters" />
-
-
-
+        <br />
+        <a href="~/admin">Admin</a>
     </div>
 </div>
 

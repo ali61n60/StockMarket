@@ -18,7 +18,6 @@ namespace StockMVC.Controllers
 {
     public class HomeController : Controller
     {
-        
         ISymbolService _symbolService;
         public int PageSize = 4;
 
