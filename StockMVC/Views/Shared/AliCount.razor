@@ -1,0 +1,10 @@
+﻿<h3>AliCount</h3>
+
+<p>current count: @Parameters.currentCount</p>
+
+<button class="btn btn-primary" @onclick="Parameters.Decrement">Click me</button>
+
+@code {
+    [Parameter]
+    public Parameters.AliCountParameters Parameters { get; set; }
+}
