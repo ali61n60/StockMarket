@@ -12,24 +12,33 @@ namespace StockMVC.Controllers
     [ApiController]
     public class ToDoController : ControllerBase
     {
+        private List<string> data = new List<string>() { "value1", "value2", "vlaue3" };
         // GET: api/<ToDoController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return data;
         }
 
         // GET api/<ToDoController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            return "value";
+            if(id<0 || id > (data.Count()-1))
+            {
+                return "Out of bound id supplied";
+            }
+            return $"data for id({id}) is {data[id]} ";
         }
 
         // POST api/<ToDoController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public string Post([FromBody] Message message)
         {
+            
+            if (!String.IsNullOrEmpty(message.Value))
+                return $"The value that was post is {message.Value}";
+            return "null or empty parameter supplied";
         }
 
         // PUT api/<ToDoController>/5
@@ -43,5 +52,10 @@ namespace StockMVC.Controllers
         public void Delete(int id)
         {
         }
+    }
+
+    public class Message
+    {
+        public string Value { get; set; }
     }
 }
