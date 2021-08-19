@@ -58,6 +58,8 @@ namespace RepositoryStd
 
         public virtual DbSet<ModelStd.AspBook.Order> Orders { get; set; }
 
+        public virtual DbSet<TodoItem> TodoItems { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
