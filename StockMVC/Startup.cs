@@ -29,8 +29,7 @@ namespace StockMVC
 
         public void ConfigureServices(IServiceCollection services)
         {
-            
-            services.AddControllersWithViews();
+            services.AddMvc();
 
             services.AddDbContext<StockDbContext>(opts => {
                 opts.UseSqlServer(
