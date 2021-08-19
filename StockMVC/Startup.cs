@@ -9,11 +9,9 @@ using RepositoryStd;
 using ModelStd.Carts;
 using ModelStd.IRepository;
 using RepositoryStd.Database.Repository;
-using System.Net.WebSockets;
-using System.Net;
-using System.Threading.Tasks;
-using System;
-using System.Threading;
+using Microsoft.AspNetCore.ResponseCompression;
+using System.Linq;
+using StockMVC.Hubs;
 
 namespace StockMVC
 {
@@ -48,11 +46,19 @@ namespace StockMVC
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddServerSideBlazor();
+
+            services.AddResponseCompression(opts =>
+            {
+                opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+                    new[] { "application/octet-stream" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
         {
+            app.UseResponseCompression();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -102,6 +108,7 @@ namespace StockMVC
                 // endpoints.MapDefaultControllerRoute();
                 //endpoints.MapRazorPages();
                 endpoints.MapBlazorHub();
+                endpoints.MapHub<ChatHub>("/chathub");
                 endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 
                 //endpoints.MapControllers();
