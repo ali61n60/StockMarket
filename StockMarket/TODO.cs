@@ -5,6 +5,8 @@ namespace StockMarket
     class TODO
     {
         //Learn route and area URL setting
+        //Review Html
+        //Review CSS and Bootstrap
         //برنامه برای سنکرون کردن اطلاعات 2 عدد دیتا بیس
         //
 
