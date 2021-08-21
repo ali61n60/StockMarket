@@ -99,7 +99,9 @@ namespace StockMarket
        
         private void buttonSeries2_Click(object sender, EventArgs e)
         {
-            int symbolId = _symbolGroupMembers.Where(s => s.NamePersian == comboBoxSymbolGroupMember.SelectedItem.ToString()).First().Id;
+            Symbol selectedSymbol = _symbolGroupMembers.Where(s => s.NamePersian == comboBoxSymbolGroupMember.SelectedItem.ToString()).First();
+            int symbolId = selectedSymbol.Id;
+            labelSymbolDetail.Text=$"{selectedSymbol.NamePersian} ,id={selectedSymbol.Id}";
             _chartDrawer.Draw(symbolId, checkBoxAdjustedPrice.Checked);
         }
 
@@ -190,6 +192,8 @@ namespace StockMarket
         {
             initComboBoxSymbolGroupMember();
         }
+
+       
     }
 
     class Message

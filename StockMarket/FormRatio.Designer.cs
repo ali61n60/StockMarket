@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.buttonSeries1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.comboBoxCustomGroupMember = new System.Windows.Forms.ComboBox();
@@ -48,6 +48,7 @@
             this.comboBoxSymbolGroupMember = new System.Windows.Forms.ComboBox();
             this.checkBoxAdjustedPrice = new System.Windows.Forms.CheckBox();
             this.comboBoxSymbolGroup = new System.Windows.Forms.ComboBox();
+            this.labelSymbolDetail = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,16 +67,16 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(41, 270);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(1119, 407);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -201,6 +202,7 @@
             this.comboBoxSymbolGroupMember.Name = "comboBoxSymbolGroupMember";
             this.comboBoxSymbolGroupMember.Size = new System.Drawing.Size(271, 21);
             this.comboBoxSymbolGroupMember.TabIndex = 16;
+           
             // 
             // checkBoxAdjustedPrice
             // 
@@ -221,11 +223,21 @@
             this.comboBoxSymbolGroup.TabIndex = 18;
             this.comboBoxSymbolGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxSymbolGroup_SelectedIndexChanged);
             // 
+            // labelSymbolDetail
+            // 
+            this.labelSymbolDetail.AutoSize = true;
+            this.labelSymbolDetail.Location = new System.Drawing.Point(590, 63);
+            this.labelSymbolDetail.Name = "labelSymbolDetail";
+            this.labelSymbolDetail.Size = new System.Drawing.Size(13, 13);
+            this.labelSymbolDetail.TabIndex = 19;
+            this.labelSymbolDetail.Text = "[]";
+            // 
             // FormRatio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1228, 689);
+            this.Controls.Add(this.labelSymbolDetail);
             this.Controls.Add(this.comboBoxSymbolGroup);
             this.Controls.Add(this.checkBoxAdjustedPrice);
             this.Controls.Add(this.comboBoxSymbolGroupMember);
@@ -270,6 +282,7 @@
         private System.Windows.Forms.ComboBox comboBoxSymbolGroupMember;
         private System.Windows.Forms.CheckBox checkBoxAdjustedPrice;
         private System.Windows.Forms.ComboBox comboBoxSymbolGroup;
+        private System.Windows.Forms.Label labelSymbolDetail;
     }
 }
 
