@@ -69,59 +69,42 @@ namespace StockMVC
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
+            // Approach 1: Writing a terminal middleware.
+            app.Use(next => async context =>
+            {
+                if (context.Request.Path == "/")
+                {
+                    await context.Response.WriteAsync("Hello terminal middleware!");
+                    return;
+                }
+
+                await next(context);
+            });
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapControllerRoute("symbolPageRoute",
-                //    "{symbolGroup}/Page{symbolPage:int}",
-                //    new { Controller = "Home", action = "Index" });
-
-                //endpoints.MapControllerRoute("pageRoute",
-                //"Page{symbolPage:int}",
-                //new { Controller = "Home", action = "Index", symbolPage = 1 });
-
-                //endpoints.MapControllerRoute("symbolRoute",
-                //    "{symbolGroup}",
-                //new { Controller = "Home", action = "Index", symbolPage = 1 });
-
-                //endpoints.MapControllerRoute("pagination",
-                //"symbolGroup/Page{symbolPage}",
-                //new { Controller = "Home", action = "Index", symbolPage = 1 });
-
-                //endpoints.MapControllerRoute("MvcDefault",
-                //   "{Controller}/{action}",
-                //   new { Controller = "Home", action = "Index" });
-
-
-
-
-
-                //    endpoints.MapGet("/", async context =>
-                //    {
-                //        await context.Response.WriteAsync("Hello World!");
-                //    });
-
-                //    endpoints.MapGet("/hello/{name:alpha}", async context =>
-                //{
-                //    var name = context.Request.RouteValues["name"];
-                //    await context.Response.WriteAsync($"Hello {name}!");
-                //});
-
-                // endpoints.MapDefaultControllerRoute();
-                //endpoints.MapRazorPages();
-                endpoints.MapBlazorHub();
-                endpoints.MapHub<ChatHub>("/chathub");
-                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
-
-                //endpoints.MapControllers();
-
-                endpoints.MapControllerRoute(
-                 name: "default",
-                 pattern: "{Controller=home}/{action=index}/{symbolGroup=1}/{symbolPage=1}");
+                // Approach 2: Using routing.
+                endpoints.MapGet("/Movie", async context =>
+                {
+                    await context.Response.WriteAsync("Hello routing!");
+                });
             });
 
-           
+            //app.UseEndpoints(endpoints =>
+            //{
+
+            //    endpoints.MapBlazorHub();
+            //    endpoints.MapHub<ChatHub>("/chathub");
+            //    endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
+
+            //    endpoints.MapControllerRoute(
+            //     name: "default",
+            //     pattern: "{Controller=home}/{action=index}/{symbolGroup=1}/{symbolPage=1}");
+            //});
+
+
 
         }
 
