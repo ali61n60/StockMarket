@@ -38,6 +38,7 @@
   <ItemGroup>
     <Folder Include="Pages\Chat\" />
     <Folder Include="wwwroot\lib\content\" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
 </Project>

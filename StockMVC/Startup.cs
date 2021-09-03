@@ -90,6 +90,11 @@ namespace StockMVC
                 {
                     await context.Response.WriteAsync("Hello routing!");
                 });
+
+                endpoints.MapGet("/", async context =>
+                {
+                    await context.Response.WriteAsync("....... Hello Root from endpoint");
+                });
             });
 
             //app.UseEndpoints(endpoints =>
