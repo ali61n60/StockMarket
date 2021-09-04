@@ -82,7 +82,7 @@ namespace StockMVC
 
                 endpoints.MapControllerRoute(
                     name: "R1",
-                    pattern: "{controller=RouteTest}/{action=Index}/hello{id}");
+                    pattern: "{controller=RouteTest}/{action=Index}/{x=2}.{z=4}");
 
                 endpoints.MapControllerRoute(
                     name: "default",
