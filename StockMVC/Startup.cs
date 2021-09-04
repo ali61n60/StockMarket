@@ -31,10 +31,10 @@ namespace StockMVC
         {
             services.AddMvc();
 
-            services.AddDbContext<StockDbContext>(opts => {
-                opts.UseSqlServer(
-                Configuration["ConnectionStrings:DefaultConnection"]);
-            });
+            //services.AddDbContext<StockDbContext>(opts => {
+            //    opts.UseSqlServer(
+            //    Configuration["ConnectionStrings:DefaultConnection"]);
+            //});
 
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
@@ -69,50 +69,25 @@ namespace StockMVC
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
-            // Approach 1: Writing a terminal middleware.
-            app.Use(next => async context =>
-            {
-                if (context.Request.Path == "/")
-                {
-                    await context.Response.WriteAsync("Hello terminal middleware!");
-                    return;
-                }
-
-                await next(context);
-            });
+          
 
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                // Approach 2: Using routing.
-                endpoints.MapGet("/Movie", async context =>
-                {
-                    await context.Response.WriteAsync("Hello routing!");
-                });
+                endpoints.MapBlazorHub();
+                endpoints.MapHub<ChatHub>("/chathub");
+                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("....... Hello Root from endpoint");
-                });
+
+                endpoints.MapControllerRoute(
+                    name: "R1",
+                    pattern: "{controller=RouteTest}/{action=Index}/hello{id}");
+
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{symbolGroup=1}/{symbolPage=1}");
             });
-
-            //app.UseEndpoints(endpoints =>
-            //{
-
-            //    endpoints.MapBlazorHub();
-            //    endpoints.MapHub<ChatHub>("/chathub");
-            //    endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
-
-            //    endpoints.MapControllerRoute(
-            //     name: "default",
-            //     pattern: "{Controller=home}/{action=index}/{symbolGroup=1}/{symbolPage=1}");
-            //});
-
-
-
         }
-
-       
     }
 }
