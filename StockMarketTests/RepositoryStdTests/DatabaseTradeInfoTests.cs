@@ -15,7 +15,7 @@ namespace StockMarketTests.RepositoryStdTests
         public void UpdateDatabaseTradeInfoFromCSVFilesTest()
         {
             DatabaseTradeInfo databaseTradeInfo = new DatabaseTradeInfo();
-            databaseTradeInfo.InsertTradeInfoFromCSVFilesIntoDatabse();
+            databaseTradeInfo.InsertTradeInfoFromCSVFilesIntoDatabse();           
             Assert.IsFalse(0==1);
         }
         

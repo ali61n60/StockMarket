@@ -8,10 +8,11 @@ namespace RepositoryStd.Database
 {
     public class DatabaseTradeInfo
     {
+        DataLoaderFileSystem dataLoaderFileSystem = new DataLoaderFileSystem();
+        StockDbContext stockDbContext = new StockDbContext();//todo use ioc
         public void InsertTradeInfoFromCSVFilesIntoDatabse()
         {
-            DataLoaderFileSystem dataLoaderFileSystem = new DataLoaderFileSystem();
-            StockDbContext stockDbContext = new StockDbContext();//todo use ioc
+           
             List<Symbol> SymbolList = stockDbContext.Symbols.ToList<Symbol>();
 
             //for each stock search for csv file
@@ -35,8 +36,6 @@ namespace RepositoryStd.Database
             }
             
             stockDbContext.SaveChanges();
-            
-            //update data
         }
     }
 }
