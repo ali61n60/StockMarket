@@ -65,6 +65,7 @@ namespace RepositoryStd.FileSystem
                     try
                     {
                         string line = reader.ReadLine();
+                        line=line.Trim(new char[] { '"' });
                     string[] values = line.Split(',');
                     tempPoint = new PointData();
                     
@@ -93,7 +94,7 @@ namespace RepositoryStd.FileSystem
                     listA.Add(tempPoint);
 
                     }
-                    catch (Exception )
+                    catch (Exception ex )
                     {
                         continue;
                     }

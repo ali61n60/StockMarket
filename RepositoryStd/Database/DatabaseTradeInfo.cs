@@ -17,23 +17,25 @@ namespace RepositoryStd.Database
 
             //for each stock search for csv file
             foreach(Symbol symbol in SymbolList)
-            {                
-                List<PointData> listTradeDataFileSystem =  dataLoaderFileSystem.GetStockData(symbol.SymbolLatin);
-                List<TradeData> listTradeDataDatabase = stockDbContext.TradeDatas.Where(tradeData => tradeData.SymbolId == symbol.Id).ToList<TradeData>();
-                //add new data from file system to database
-                foreach(PointData pointData in listTradeDataFileSystem)
-                {
-                    if(!listTradeDataDatabase.Any(tradeData=>tradeData.Date==pointData.Date))
+            {
+               
+                    List<PointData> listTradeDataFileSystem = dataLoaderFileSystem.GetStockData(symbol.SymbolLatin);
+                    List<TradeData> listTradeDataDatabase = stockDbContext.TradeDatas.Where(tradeData => tradeData.SymbolId == symbol.Id).ToList<TradeData>();
+                    //add new data from file system to database
+                    foreach (PointData pointData in listTradeDataFileSystem)
                     {
-                        TradeData newTradeData = new TradeData();
-                        newTradeData.SymbolId = symbol.Id;
-                        newTradeData.FillFromPointData(pointData);
-                        
-                        listTradeDataDatabase.Add(newTradeData);
-                        stockDbContext.TradeDatas.Add(newTradeData);
+                        if (!listTradeDataDatabase.Any(tradeData => tradeData.Date == pointData.Date))
+                        {
+                            TradeData newTradeData = new TradeData();
+                            newTradeData.SymbolId = symbol.Id;
+                            newTradeData.FillFromPointData(pointData);
+
+                            listTradeDataDatabase.Add(newTradeData);
+                            stockDbContext.TradeDatas.Add(newTradeData);
+                        }
                     }
                 }
-            }
+            
             
             stockDbContext.SaveChanges();
         }
