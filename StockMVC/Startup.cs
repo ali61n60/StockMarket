@@ -31,10 +31,11 @@ namespace StockMVC
         {
             services.AddMvc();
 
-            //services.AddDbContext<StockDbContext>(opts => {
-            //    opts.UseSqlServer(
-            //    Configuration["ConnectionStrings:DefaultConnection"]);
-            //});
+            services.AddDbContext<StockDbContext>(opts =>
+            {
+                opts.UseSqlServer(
+                Configuration["ConnectionStrings:DefaultConnection"]);
+            });
 
             services.AddRazorPages();
             services.AddDistributedMemoryCache();

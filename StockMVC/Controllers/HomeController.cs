@@ -62,7 +62,7 @@ namespace StockMVC.Controllers
 
             viewModel.ChartDate = JsonConvert.SerializeObject(dateTimes);
             viewModel.ChartFinalePrice= JsonConvert.SerializeObject(finalPriceList);
-            
+
             return View(viewModel);
 
         }       
