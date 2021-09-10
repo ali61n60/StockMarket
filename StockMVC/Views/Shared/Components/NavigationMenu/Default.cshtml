@@ -6,7 +6,7 @@
 @foreach (SymbolGroup symbolGroup in Model)
 {
     <a class="btn btn-block
-       @(symbolGroup.Id == int.Parse(ViewBag.SelectedSymbolGroup)
+       @(symbolGroup.Id == int.Parse(ViewData["SelectedSymbolGroup"].ToString())
        ? "btn-primary": "btn-outline-secondary")"
        asp-action="Index" 
        asp-controller="Home"

@@ -12,6 +12,8 @@ using RepositoryStd.Database.Repository;
 using Microsoft.AspNetCore.ResponseCompression;
 using System.Linq;
 using StockMVC.Hubs;
+using ServiceStd.IService;
+using ServiceStd;
 
 namespace StockMVC
 {
@@ -44,6 +46,9 @@ namespace StockMVC
             services.AddScoped<IOrderRepository, EFOrderRepository>();
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddScoped<ISymbolService, SymbolService>();
+
 
             services.AddServerSideBlazor();
 
@@ -81,9 +86,9 @@ namespace StockMVC
                 endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 
 
-                endpoints.MapControllerRoute(
-                    name: "R1",
-                    pattern: "{controller=RouteTest}/{action=Index}/{x=2}.{z=4}");
+                //endpoints.MapControllerRoute(
+                //    name: "R1",
+                //    pattern: "{controller=RouteTest}/{action=Index}/{x=2}.{z=4}");
 
                 endpoints.MapControllerRoute(
                     name: "default",

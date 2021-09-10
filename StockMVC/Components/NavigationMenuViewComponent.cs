@@ -17,9 +17,9 @@ namespace StockMVC.Components
         }
         public IViewComponentResult Invoke()
         {
-            ViewBag.SelectedSymbolGroup = RouteData?.Values["symbolGroup"];
-            if (ViewBag.SelectedSymbolGroup == null)
-                ViewBag.SelectedSymbolGroup = "-1";
+            ViewData["SelectedSymbolGroup"] = RouteData?.Values["symbolGroup"];
+            if (ViewData["SelectedSymbolGroup"] == null)
+                ViewData["SelectedSymbolGroup"] = "-1";
             return View(_symbolService.GetAllSymbols()
                 .Select(x => x.SymbolGroup)
                 .Distinct()
