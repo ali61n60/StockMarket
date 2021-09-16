@@ -63,6 +63,15 @@
     <div class="col-6">
         <canvas id="myChart"></canvas>
         <br />
+        <div class="row">
+            <div class="col-sm-6">
+                <component type="typeof(MyCounter)" render-mode="Server" param-IncrementAmount=2 />
+            </div>
+            <div class="col-sm-6">
+                @(await Html.RenderComponentAsync<MyCounter>(RenderMode.ServerPrerendered, new { IncrementAmount=3}))
+            </div>
+        </div>
+        <br/>
         <a href="~/admin">Admin</a>
     </div>
 </div>
