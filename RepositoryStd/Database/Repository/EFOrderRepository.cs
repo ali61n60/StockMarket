@@ -1,10 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ModelStd.AspBook;
 using ModelStd.IRepository;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace RepositoryStd.Database.Repository
 {

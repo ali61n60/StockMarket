@@ -2,14 +2,11 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using ModelStd.DB.Stock;
-using ModelStd.IRepository;
 using ServiceStd.IOC;
 using ServiceStd.IService;
 using StockMVC.Models.ViewModels;
 using Newtonsoft.Json;
 using ModelStd;
-using System;
-
 
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -18,7 +15,7 @@ namespace StockMVC.Controllers
 {
     public class HomeController : Controller
     {
-        ISymbolService _symbolService;
+        readonly ISymbolService _symbolService;
         public int PageSize = 4;
 
         public HomeController()
@@ -44,7 +41,7 @@ namespace StockMVC.Controllers
                 ItemsPerPage = PageSize,
                 TotalItems = symbolGroup == null ?
                             allSymbols.Count() :
-                            allSymbols.Where(s => s.SymbolGroup.Id == int.Parse(symbolGroup)).Count()
+                            allSymbols.Count(s => s.SymbolGroup.Id == int.Parse(symbolGroup))
 
             };
             viewModel.CurrentSymbolGroup = symbolGroup;

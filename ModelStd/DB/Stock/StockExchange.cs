@@ -1,7 +1,6 @@
 ﻿//This class is used to CRUD Stock Exchage data. 
 
 using System;
-using System.Text;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

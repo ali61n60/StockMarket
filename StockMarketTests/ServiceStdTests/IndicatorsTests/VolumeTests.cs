@@ -1,9 +1,7 @@
 ﻿using ModelStd;
 using NUnit.Framework;
 using ServiceStd.Indicators;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace StockMarketTests.ServiceStdTests.IndicatorsTests
 {

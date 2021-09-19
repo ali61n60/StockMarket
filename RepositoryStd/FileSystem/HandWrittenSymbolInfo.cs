@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using ModelStd.DB.Stock;
-using ModelStd.IRepository;
 using RepositoryStd.Database;
 
 namespace RepositoryStd.FileSystem

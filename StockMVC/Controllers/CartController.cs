@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ModelStd.Carts;
 using ModelStd.DB.Stock;
-using ModelStd.IRepository;
 using ServiceStd.IOC;
 using ServiceStd.IService;
 using StockMVC.Models.ViewModels;

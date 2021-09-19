@@ -1,5 +1,4 @@
-﻿using ModelStd;
-using ModelStd.DB.Stock;
+﻿using ModelStd.DB.Stock;
 using System.Collections.Generic;
 
 namespace StockMVC.Models.ViewModels

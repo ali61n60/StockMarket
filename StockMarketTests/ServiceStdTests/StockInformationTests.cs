@@ -1,8 +1,6 @@
 ﻿using NUnit.Framework;
 using ServiceStd;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace StockMarketTests.ServiceStdTests
 {
