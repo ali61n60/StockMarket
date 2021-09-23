@@ -1,18 +1,37 @@
-﻿<p>
-    <input @bind="inputValue" />
-</p>
+﻿<div class="row">
+    <div class="col-sm-4">
+        <input  @bind="inputValue" />
+        <br/>
+        
+        <input  @bind="InputValue" />
+        <br/>
+        
+        <ul >
+            <li><code>inputValue</code>: @inputValue</li>
+            <li><code>InputValue</code>: @InputValue</li>
+        </ul>
 
-<p>
-    <input @bind="InputValue" />
-</p>
-
-<ul>
-    <li><code>inputValue</code>: @inputValue</li>
-    <li><code>InputValue</code>: @InputValue</li>
-</ul>
+    </div>
+    <div class="col-sm-4">
+        <input @bind="InputValue2" @bind:event="oninput" />
+        <br/>
+        <code>InputValue</code>: @InputValue2
+        
+    </div>
+    <div class="col-sm-4">
+        <p>Bound to int</p>
+        <input @bind="inputValue3" />
+        <br/>
+        <code>inputValue</code>: @inputValue3
+    </div>
+</div>
 
 @code {
     private string inputValue;
 
     private string InputValue { get; set; }
+    private string InputValue2 { get; set; }
+    private int inputValue3 = 123;
+
+
 }
