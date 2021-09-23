@@ -23,6 +23,11 @@ namespace StockMVC.Controllers
             _symbolService = Bootstrapper.container.GetInstance<ISymbolService>();
         }
 
+        public IActionResult Blazor()
+        {
+            return View("_Host");
+        }
+
         // GET: /<controller>/
         public IActionResult Index(string symbolGroup, int symbolPage = 1)
         {

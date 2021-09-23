@@ -31,26 +31,19 @@ namespace StockMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
             services.AddDbContext<StockDbContext>(opts =>
             {
                 opts.UseSqlServer(
                 Configuration["ConnectionStrings:DefaultConnection"]);
             });
-
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddSession();
-
             services.AddScoped<IOrderRepository, EFOrderRepository>();
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
             services.AddScoped<ISymbolService, SymbolService>();
-
-
             services.AddServerSideBlazor();
-
             services.AddResponseCompression(opts =>
             {
                 opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
@@ -62,7 +55,6 @@ namespace StockMVC
         public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
         {
             app.UseResponseCompression();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -74,15 +66,12 @@ namespace StockMVC
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
-          
-
             app.UseRouting();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapBlazorHub();
                 endpoints.MapHub<ChatHub>("/chathub");
-                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
+               // endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 
 
                 //endpoints.MapControllerRoute(
@@ -90,8 +79,14 @@ namespace StockMVC
                 //    pattern: "{controller=RouteTest}/{action=Index}/{x=2}.{z=4}");
 
                 endpoints.MapControllerRoute(
+                    name: "popular",
+                    pattern: "{controller=Home}/{action=Index}");
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{symbolGroup=1}/{symbolPage=1}");
+
+                endpoints.MapFallbackToController("Blazor", "Home");
             });
         }
     }
