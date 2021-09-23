@@ -31,6 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Pages\Admin\Example\BindExample.razor" />
     <None Include="Pages\Admin\_Imports.razor" />
     <None Include="_Imports.razor" />
   </ItemGroup>
