@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>8fd7acc6-c651-425a-bda1-6947fabcccdc</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Admin\_Imports.razor" />
     <Content Remove="_Imports.razor" />
   </ItemGroup>
 
@@ -23,7 +23,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Pages\_Imports.razor" />
+    <UpToDateCheckInput Remove="Pages\Admin\_Imports.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Admin\_Imports.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Admin\_Imports.razor" />
     <None Include="_Imports.razor" />
   </ItemGroup>
 
