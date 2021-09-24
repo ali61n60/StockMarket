@@ -1,9 +1,9 @@
 ﻿<Router AppAssembly="@typeof(Program).Assembly">
     <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@typeof(AdminLayout)" />
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(BlazorLayout)" />
     </Found>
     <NotFound>
-        <LayoutView Layout="@typeof(AdminLayout)">
+        <LayoutView Layout="@typeof(BlazorLayout)">
             <p>Sorry, there's nothing at this address.</p>
         </LayoutView>
     </NotFound>

@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\Admin\_Imports.razor" />
     <Content Remove="_Imports.razor" />
   </ItemGroup>
 
@@ -23,15 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Admin\_Imports.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Pages\Admin\_Imports.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Pages\Admin\_Imports.razor" />
+    <None Include="Pages\_Imports.razor" />
     <None Include="_Imports.razor" />
   </ItemGroup>
 
