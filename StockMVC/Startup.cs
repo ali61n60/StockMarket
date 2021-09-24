@@ -59,10 +59,6 @@ namespace StockMVC
             {
                 app.UseDeveloperExceptionPage();
             }
-            if(env.IsStaging())
-            {
-                int i = 10;
-            }
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
