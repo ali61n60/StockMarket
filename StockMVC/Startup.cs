@@ -63,10 +63,12 @@ namespace StockMVC
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapBlazorHub();
                 endpoints.MapHub<ChatHub>("/chathub");
+                
                // endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 
 
