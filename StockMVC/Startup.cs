@@ -36,7 +36,6 @@ namespace StockMVC
                 opts.UseSqlServer(
                 Configuration["ConnectionStrings:DefaultConnection"]);
             });
-            services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddSession();
             services.AddScoped<IOrderRepository, EFOrderRepository>();
@@ -84,7 +83,7 @@ namespace StockMVC
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{symbolGroup=1}/{symbolPage=1}");
 
-                endpoints.MapFallbackToController("Blazor", "Home");
+                endpoints.MapFallbackToController("Index", "Blazor");
             });
         }
     }
