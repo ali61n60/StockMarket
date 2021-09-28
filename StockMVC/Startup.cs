@@ -13,6 +13,7 @@ using System.Linq;
 using StockMVC.Hubs;
 using ServiceStd.IService;
 using ServiceStd;
+using StockMVC.Services;
 
 namespace StockMVC
 {
@@ -49,6 +50,7 @@ namespace StockMVC
                     new[] { "application/octet-stream" });
             });
             services.AddSignalR();
+            services.AddHostedService<PushNotificationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
