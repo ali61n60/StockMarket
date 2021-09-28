@@ -26,7 +26,9 @@ namespace StockMVC.Controllers
         // GET: /<controller>/
         public IActionResult Index(string symbolGroup, int symbolPage = 1)
         {
-            //Get All Symbols data            
+
+            return Redirect("~/todo");
+            //Get All Symbols data               
             List<Symbol> allSymbols = _symbolService.GetAllSymbols()
                                      .Where(s=> symbolGroup==null || s.SymbolGroup.Id==int.Parse(symbolGroup))
                                      .ToList();
@@ -60,7 +62,8 @@ namespace StockMVC.Controllers
             viewModel.ChartDate = JsonConvert.SerializeObject(dateTimes);
             viewModel.ChartFinalePrice= JsonConvert.SerializeObject(finalPriceList);
 
-            return View(viewModel);
+            //return View(viewModel);
+            
 
         }       
     }
