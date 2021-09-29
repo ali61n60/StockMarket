@@ -20,7 +20,7 @@
 <hr>
 <h1>@if (messages.Count > 0)
     {
-        @messages.Last()
+        @messages[0]
     }
     </h1>
 <ul id="messagesList">
@@ -45,7 +45,7 @@
         hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
         {
             var encodedMsg = $"{user} has send: {message}";
-            messages.Add(encodedMsg);
+            messages.Insert(0,encodedMsg);
             StateHasChanged();
         });
 

@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Hosting;
+using ServiceStd.LiveData;
 using StockMVC.Hubs;
 
 namespace StockMVC.Services
@@ -44,7 +45,20 @@ namespace StockMVC.Services
         public async void SendMessage(Object state)
         {
             //get stock price and send it to users
-             await _hubContext.Clients.All.SendAsync("ReceiveMessage", "Server", "called from repeating task at " + DateTime.Now.ToLongTimeString());
+             string ParsUrl = "http://www.tsetmc.ir/tsev2/data/instinfodata.aspx?i=6110133418282108&c=44+";
+             TseLiveData tse = new TseLiveData();
+             ReturnData returnData= tse.GetPrice(ParsUrl);
+             string message;
+             if (returnData.resultOk)
+             {
+                 message = $"Pars is {returnData.price} at {DateTime.Now.ToLongTimeString()}";
+             }
+             else
+             {
+                 message = $"Error when getting data at {DateTime.Now.ToLongTimeString()}";
+             }
+             
+             await _hubContext.Clients.All.SendAsync("ReceiveMessage", "Server", message);
 
             Debug.WriteLine("called from repeating task at " + DateTime.Now.ToLongTimeString());
 

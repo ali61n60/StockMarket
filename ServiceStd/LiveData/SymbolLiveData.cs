@@ -4,7 +4,7 @@ using System.IO.Compression;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace ModelStd.LiveData
+namespace ServiceStd.LiveData
 {
     public class SymbolLiveData
     {
@@ -25,9 +25,6 @@ namespace ModelStd.LiveData
             responseStream = new GZipStream(responseStream, CompressionMode.Decompress);
             StreamReader reader = new StreamReader(responseStream);
             string responseText = reader.ReadToEnd();
-
-            
-
 
             return parseResponseText(responseText);
         }

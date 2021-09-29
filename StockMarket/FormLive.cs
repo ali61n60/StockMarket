@@ -3,6 +3,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ServiceStd.LiveData;
 
 
 namespace StockMarket
@@ -10,16 +11,20 @@ namespace StockMarket
 
     public partial class FormLive : Form
     {
-        private string ParsUrl = "http://www.tsetmc.ir/tsev2/data/instinfodata.aspx?i=6110133418282108&c=44+";
-        private string GhadirUrl = "http://www.tsetmc.ir/tsev2/data/instinfofast.aspx?i=26014913469567886&c=39+";
-        private string ZagrosUrl = "http://www.tsetmc.ir/tsev2/data/instinfodata.aspx?i=13235547361447092&c=44+";
+        private readonly string ParsUrl = "http://www.tsetmc.ir/tsev2/data/instinfodata.aspx?i=6110133418282108&c=44+";
+        private readonly string GhadirUrl = "http://www.tsetmc.ir/tsev2/data/instinfofast.aspx?i=26014913469567886&c=39+";
+        private readonly string ZagrosUrl = "http://www.tsetmc.ir/tsev2/data/instinfodata.aspx?i=13235547361447092&c=44+";
+        private int numberOfCalls = 0;
+
+        private readonly TseLiveData tseLiveData;
 
         bool runRatio = false;
 
         
         public FormLive()
         {
-            InitializeComponent();                        
+            InitializeComponent();
+            tseLiveData = new TseLiveData();
         }
 
         private void startLoop()
@@ -27,7 +32,7 @@ namespace StockMarket
             Thread loopTread = new Thread(() => run());
             loopTread.Start();
         }
-        int numberOfCalls = 0;
+        
         private void run()
         {
             
@@ -41,12 +46,12 @@ namespace StockMarket
             {
                 try
                 {
-                ghadirPrice = GetPrice(GhadirUrl);
-                zagrosPrice = GetPrice(ZagrosUrl);
-                parsPrice = GetPrice(ParsUrl);
+                    ghadirPrice = tseLiveData.GetPrice(GhadirUrl);
+                    zagrosPrice = tseLiveData.GetPrice(ZagrosUrl);
+                    parsPrice = tseLiveData.GetPrice(ParsUrl);
 
-                if (ghadirPrice.resultOk && zagrosPrice.resultOk && parsPrice.resultOk)
-                {
+                    if (ghadirPrice.resultOk && zagrosPrice.resultOk && parsPrice.resultOk)
+                    {
                         //TODO write data to excell file
                         labelGhGh.Invoke((MethodInvoker)delegate {
                             
@@ -90,32 +95,7 @@ namespace StockMarket
             }
         }
 
-        private ReturnData GetPrice(string url)
-        {
-            numberOfCalls++;
-            try
-            {
-                SymbolLiveData symbolLiveData = new SymbolLiveData(url);
-                Task<SymbolData> symbolDataTask = symbolLiveData.GetLiveDataAsync();
-
-                SymbolData symbolData = symbolDataTask.Result;
-
-                return new ReturnData()
-                {
-                    price = double.Parse(symbolData.TransactionPrice),
-                    resultOk = true
-                };
-            }
-            catch (Exception ex)
-            {
-               return new ReturnData()
-                {
-                    price = 1,
-                    resultOk = false
-                };
-            }
-            
-        }
+       
 
         
         private void buttonController_Click(object sender, EventArgs e)
@@ -134,9 +114,5 @@ namespace StockMarket
         }       
     }
 
-    class ReturnData
-    {
-        public double price;
-        public bool resultOk;
-    }
+   
 }
