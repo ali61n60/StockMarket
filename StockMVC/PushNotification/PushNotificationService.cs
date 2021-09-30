@@ -9,7 +9,7 @@ using Microsoft.Extensions.Hosting;
 using ServiceStd.LiveData;
 using StockMVC.Hubs;
 
-namespace StockMVC.Services
+namespace StockMVC.PushNotification
 {
     public class PushNotificationService : IHostedService
     {
