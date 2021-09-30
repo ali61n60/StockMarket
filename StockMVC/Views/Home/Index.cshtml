@@ -66,6 +66,12 @@
         <div class="row">
             <div class="col-sm-6">
                 <component type="typeof(MyCounter)" render-mode="Server" param-IncrementAmount=2 />
+                <br />
+                <br />
+                <component type="typeof(SayHello)" render-mode="Server" />
+                <br />
+                <br />
+                <component type="typeof(SayHello)" render-mode="Server" />
             </div>
             <div class="col-sm-6">
                 @(await Html.RenderComponentAsync<MyCounter>(RenderMode.ServerPrerendered, new { IncrementAmount=3}))

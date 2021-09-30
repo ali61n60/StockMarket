@@ -32,6 +32,7 @@
     <Folder Include="Views\Notification\" />
     <Folder Include="wwwroot\lib\content\" />
     <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
 </Project>
