@@ -64,8 +64,9 @@ namespace StockMVC
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
+            app.UseWebSockets();
+
             app.UseRouting();
-            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapBlazorHub();

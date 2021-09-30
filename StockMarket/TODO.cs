@@ -4,6 +4,7 @@ namespace StockMarket
 {
     class TODO
     {
+        //Study about logging
         //Learn route and area URL setting
         //Review Html
         //Review CSS and Bootstrap
