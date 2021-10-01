@@ -45,6 +45,7 @@ namespace StockMarket.Chart
 
         public void DrawRatio(int symbolId1, int symbolId2,bool adjustedPrice)
         {
+            //TODO make ratio calculation a service method to be use here and in mvc
             List<PointData> listStockData1;
             List<PointData> listStockData2;
             if (adjustedPrice)
