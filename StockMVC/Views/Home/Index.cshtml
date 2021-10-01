@@ -4,7 +4,7 @@
 }
 
 @section Scripts {
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="~/lib/Chart.js/chart.js"></script>
     <script>
 
@@ -40,7 +40,7 @@
         $(document).ready(function () {
             var myChart = new Chart(document.getElementById('myChart'), config);
         });
-    
+
 
     </script>
 }
@@ -50,7 +50,7 @@
     <div class="col-6">
         @foreach (Symbol symbol in Model.Symbols)
         {
-            <partial name="SymbolSummary" model="symbol" />
+        <partial name="SymbolSummary" model="symbol" />
         }
         <div class="row" style="overflow:hidden">
             <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
@@ -72,12 +72,16 @@
                 <br />
                 <br />
                 <component type="typeof(SayHello)" render-mode="Server" />
+                <div ng-app="">
+                    <p>Name : <input type="text" ng-model="name"></p>
+                    <h1>Hello {{name}}</h1>
+                </div>
             </div>
             <div class="col-sm-6">
                 @(await Html.RenderComponentAsync<MyCounter>(RenderMode.ServerPrerendered, new { IncrementAmount=3}))
             </div>
         </div>
-        <br/>
+        <br />
         <a href="~/admin">Admin</a>
     </div>
 </div>
