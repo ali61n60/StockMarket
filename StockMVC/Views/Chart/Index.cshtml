@@ -1,6 +1,46 @@
-﻿@section Sidebar{
-    <div>Symbol Selector</div>
+﻿@model ChartData
+
+@section Sidebar{
+    @(await Html.RenderComponentAsync<SymbolSelector>(RenderMode.ServerPrerendered,new { ChartId="chart1"}))
+    @(await Html.RenderComponentAsync<SymbolSelector>(RenderMode.ServerPrerendered,new { ChartId="chart2"}))
 }
 
+<div class="row">
+    <div class="col-sm-6">
+        <canvas id="chart1"></canvas>
+    </div>
+    <div class="col-sm-6">
+        <canvas id="chart2"></canvas>
+    </div>
+
+</div>
 
 <p>Chart Controller</p>
+
+@section Scripts {
+    <script src="~/lib/Chart.js/chart.js"></script>
+    <script>
+        function DrawChart(x, y,chartId) {
+            const data = {
+                labels: x,
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data:y
+                }]
+            };
+
+            const config = {
+                type: 'line',
+                data,
+                options: {}
+            };
+            var myChart = new Chart(document.getElementById(chartId), config);
+        }
+
+        $(document).ready(function () {
+            DrawChart(@Model.ChartDate,@Model.ChartFinalePrice,"chart1");
+        });
+    </script>
+}

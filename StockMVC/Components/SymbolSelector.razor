@@ -1,5 +1,50 @@
-﻿<h3>SymbolSelector</h3>
+﻿@using ServiceStd.IService
+@inject ISymbolService _symbolService
+@inject IJSRuntime JS
+
+<h3>Symbol Selector</h3>
+<p>current count is: @currentSymbolId</p>
+<label>Enter Symbol Id</label>
+<input @bind="newSybmolId" placeholder="SymbolId" />
+<button class="btn btn-primary" @onclick="GetSymbolData">Draw Chart</button>
+<br/>
+<br/>
+<button class="btn btn-primary" @onclick="GetRatioData">Draw Ratio</button>
 
 @code {
+    private int currentSymbolId = 1;
+    private int sybolIdCapture;
+    private string newSybmolId;
+    [Parameter]
+    public string ChartId { get; set; } = "chart1";
 
+    private async Task GetSymbolData()
+    {
+        if (int.TryParse(newSybmolId, out sybolIdCapture))//an int as the input
+        {
+            currentSymbolId = sybolIdCapture;
+            //todo make a method of next 10 lines
+            List<PointData> chartData = _symbolService.GetSymbolTradeData(currentSymbolId);
+            List<int> dateTimes = new List<int>();
+            List<double> finalPriceList = new List<double>();
+            int i = 1;
+            foreach (PointData p in chartData)
+            {
+                dateTimes.Add(i++);
+                finalPriceList.Add(p.Final);
+            }
+
+
+            await JS.InvokeAsync<Task>("DrawChart", dateTimes,finalPriceList,ChartId);
+        }
+        else//not an int as input
+        {
+            newSybmolId = currentSymbolId.ToString();
+        }
+    }
+
+    private void GetRatioData()
+    {
+
+    }
 }

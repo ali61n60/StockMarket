@@ -18,9 +18,9 @@ namespace StockMVC.Controllers
         readonly ISymbolService _symbolService;
         public int PageSize = 4;
 
-        public HomeController()
+        public HomeController(ISymbolService symbolService)
         {
-            _symbolService = Bootstrapper.container.GetInstance<ISymbolService>();
+            _symbolService = symbolService;
         }
 
         // GET: /<controller>/
@@ -49,18 +49,9 @@ namespace StockMVC.Controllers
             viewModel.CurrentSymbolGroup = symbolGroup;
 
 
-            List<PointData> chartData = _symbolService.GetSymbolTradeData(1);
-            List<int> dateTimes = new List<int>();
-            List<double> finalPriceList = new List<double>();
-            int i = 1;
-            foreach(PointData p in chartData)
-            {
-                dateTimes.Add(i++);
-                finalPriceList.Add(p.Final);
-            }
+           
 
-            viewModel.ChartDate = JsonConvert.SerializeObject(dateTimes);
-            viewModel.ChartFinalePrice= JsonConvert.SerializeObject(finalPriceList);
+          
 
             return View(viewModel);
         }       

@@ -5,44 +5,6 @@
 
 @section Scripts {
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="~/lib/Chart.js/chart.js"></script>
-    <script>
-
-    const a = @Model.ChartDate;
-
-    const b=@Model.ChartFinalePrice;
-
-    const labels = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June'
-    ];
-    const data = {
-        labels: a,
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            //data: [0, 10, 5, 2, 20, 30, 45],
-            data:b
-        }]
-    };
-
-    const config = {
-        type: 'line',
-        data,
-        options: {}
-    };
-
-        $(document).ready(function () {
-            var myChart = new Chart(document.getElementById('myChart'), config);
-        });
-
-
-    </script>
 }
 
 @section Sidebar{
@@ -65,7 +27,7 @@
         </div>
     </div>
     <div class="col-6">
-        <canvas id="myChart"></canvas>
+        
         <br />
         <div class="row">
             <div class="col-sm-6">
