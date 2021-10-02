@@ -1,19 +1,19 @@
 ﻿@model ChartData
 
 @section Sidebar{
-    @(await Html.RenderComponentAsync<SymbolSelector>(RenderMode.ServerPrerendered,new { ChartId="chart1"}))
-    @(await Html.RenderComponentAsync<SymbolSelector>(RenderMode.ServerPrerendered,new { ChartId="chart2"}))
-   
+    @(await Html.RenderComponentAsync<SymbolSelector>(RenderMode.ServerPrerendered,new { ChartId1="chart1", ChartId2 = "chart2", ChartId3 = "chart3" }))
 }
 
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <canvas id="chart1"></canvas>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <canvas id="chart2"></canvas>
     </div>
-
+    <div class="col-sm-4">
+        <canvas id="chart3"></canvas>
+    </div>
 </div>
 
 <p>Chart Controller</p>
