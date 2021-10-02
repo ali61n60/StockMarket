@@ -11,6 +11,7 @@ namespace ServiceStd.IService
         List<PointData> GetSymbolTradeData(int symbolId);
 
         List<PointData> GetAdjustedSymbolTradekData(int symbolId);
+        List<PointData> GetRatio(int symbolIdNumerator, int symbolIdDenominator, bool adjustedPrice=false);
        
     }
 }

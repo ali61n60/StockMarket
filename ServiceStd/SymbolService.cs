@@ -6,6 +6,7 @@ using System.Linq;
 using ServiceStd.IService;
 using ModelStd.DB.Stock;
 using RepositoryStd;
+using System;
 
 namespace ServiceStd
 {
@@ -14,7 +15,7 @@ namespace ServiceStd
         StockDbContext _stockDbContext;
         public SymbolService()
         {
-            _stockDbContext = new StockDbContext();
+            _stockDbContext = new StockDbContext();//use dependency injection
         }
         public List<string> GetAllSymbolsName()
         {           
@@ -67,6 +68,49 @@ namespace ServiceStd
                 }
                 return listStockInfo;
         }
-        
+
+        public List<PointData> GetRatio(int symbolIdNumerator, int symbolIdDenominator, bool adjustedPrice)
+        {
+            List<PointData> listStockData1;
+            List<PointData> listStockData2;
+            if (adjustedPrice)
+            {
+                listStockData1 = GetAdjustedSymbolTradekData(symbolIdNumerator);
+                listStockData1.Sort((a, b) => a.Date.CompareTo(b.Date));
+                listStockData2 = GetAdjustedSymbolTradekData(symbolIdDenominator);
+                listStockData2.Sort((a, b) => a.Date.CompareTo(b.Date));
+            }
+            else
+            {
+                listStockData1 = GetSymbolTradeData(symbolIdNumerator);
+                listStockData1.Sort((a, b) => a.Date.CompareTo(b.Date));
+                listStockData2 = GetSymbolTradeData(symbolIdDenominator);
+                listStockData2.Sort((a, b) => a.Date.CompareTo(b.Date));
+            }
+
+            List<PointData> listRatio = new List<PointData>();
+            double maxRatio = 1;
+            double lastRatio = 0.5;
+            double ratio = 0.1;
+            foreach (PointData pointData in listStockData1)
+            {
+                DateTime date = pointData.Date;
+                PointData pointDataTemp = listStockData2.Find(x => x.Date == date);
+                if (pointDataTemp != null)
+                {
+                    PointData pointDataRatio = new PointData();
+                    pointDataRatio.Date = date;
+                    ratio = pointData.Final / pointDataTemp.Final;
+                    if (ratio > maxRatio)
+                        maxRatio = ratio;
+                    pointDataRatio.Final = ratio;
+                    listRatio.Add(pointDataRatio);
+                }
+            }
+            lastRatio = ratio;
+            double percentToMax = (maxRatio - lastRatio) * 100 / maxRatio;
+           
+            return listRatio;
+        }
     }
 }

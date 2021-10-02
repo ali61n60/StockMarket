@@ -17,6 +17,8 @@
     private string newSybmolId;
     [Parameter]
     public string ChartId { get; set; } = "chart1";
+    [Parameter]
+    public SymbolSelector OthersymbolSelector { get; set; }
 
     private async Task GetSymbolData()
     {
