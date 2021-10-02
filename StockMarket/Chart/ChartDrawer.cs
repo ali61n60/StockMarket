@@ -9,12 +9,12 @@ namespace StockMarket.Chart
     public class ChartDrawer
     {
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
-        ISymbolService _stockInfo;
+        ISymbolService _symbolService;
 
-        public ChartDrawer(System.Windows.Forms.DataVisualization.Charting.Chart chart, ISymbolService stocksInformation)
+        public ChartDrawer(System.Windows.Forms.DataVisualization.Charting.Chart chart, ISymbolService symbolService)
         {
             this.chart = chart;
-            this._stockInfo = stocksInformation;
+            this._symbolService = symbolService;
             this.chart.ChartAreas[0].AxisX.MajorGrid.Interval = 30;
         }
 
@@ -23,11 +23,11 @@ namespace StockMarket.Chart
             List<PointData> listStockData;
             if (adjustedPrice)
             {
-                listStockData = _stockInfo.GetAdjustedSymbolTradekData(symbolId);
+                listStockData = _symbolService.GetAdjustedSymbolTradekData(symbolId);
             }
             else
             {
-                listStockData = _stockInfo.GetSymbolTradeData(symbolId);
+                listStockData = _symbolService.GetSymbolTradeData(symbolId);
             }
 
             Draw(listStockData,"SymbolName");
@@ -44,52 +44,9 @@ namespace StockMarket.Chart
         }
 
         public void DrawRatio(int symbolId1, int symbolId2,bool adjustedPrice)
-        {
-            //TODO make ratio calculation a service method to be use here and in mvc
-            List<PointData> listStockData1;
-            List<PointData> listStockData2;
-            if (adjustedPrice)
-            {
-                listStockData1 = _stockInfo.GetAdjustedSymbolTradekData(symbolId1);
-                listStockData1.Sort((a, b) => a.Date.CompareTo(b.Date));
-                listStockData2 = _stockInfo.GetAdjustedSymbolTradekData(symbolId2);
-                listStockData2.Sort((a, b) => a.Date.CompareTo(b.Date));
-            }
-            else
-            {
-                listStockData1 = _stockInfo.GetSymbolTradeData(symbolId1);
-                listStockData1.Sort((a, b) => a.Date.CompareTo(b.Date));
-                listStockData2 = _stockInfo.GetSymbolTradeData(symbolId2);
-                listStockData2.Sort((a, b) => a.Date.CompareTo(b.Date));
-            }
-            
-            List<PointData> listRatio = new List<PointData>();
-            double maxRatio = 1;
-            double lastRatio = 0.5;
-            double ratio = 0.1;
-            foreach (PointData pointData in listStockData1)
-            {
-                DateTime date = pointData.Date;
-                PointData pointDataTemp = listStockData2.Find(x => x.Date == date);
-                if (pointDataTemp != null)
-                {
-                    PointData pointDataRatio = new PointData();
-                    pointDataRatio.Date = date;
-                    ratio = pointData.Final / pointDataTemp.Final;
-                    if (ratio > maxRatio)
-                        maxRatio = ratio;
-                    pointDataRatio.Final = ratio;
-                    listRatio.Add(pointDataRatio);
-                }
-            }
-            lastRatio = ratio;
-            double percentToMax = (maxRatio - lastRatio) * 100 / maxRatio;
-            //listBox1.Items.Clear();
-            //listBox1.Items.Add("MaxRatio= " + maxRatio);
-            //listBox1.Items.Add("CurrentRatio= " + lastRatio);
-            //listBox1.Items.Add("percnt to max= " + percentToMax);
+        {   
+            List<PointData> listRatio = _symbolService.GetRatio(symbolId1, symbolId2, adjustedPrice);
             Clear();
-
             addChartSeries("Ratio");
             configureChartSeries();
             addData("Ratio", listRatio);
