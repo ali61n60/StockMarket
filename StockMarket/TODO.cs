@@ -4,6 +4,7 @@ namespace StockMarket
 {
     class TODO
     {
+        //https://www.typescriptlang.org/docs/handbook/asp-net-core.html
         //Study about logging
         //Learn route and area URL setting
         //Review Html
