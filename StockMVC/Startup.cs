@@ -62,6 +62,7 @@ namespace StockMVC
                 app.UseDeveloperExceptionPage();
             }
             app.UseStatusCodePages();
+            app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseSession();
             app.UseWebSockets();

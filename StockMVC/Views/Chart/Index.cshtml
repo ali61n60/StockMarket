@@ -19,6 +19,12 @@
 <p>Chart Controller</p>
 
 @section Scripts {
+    <script src="~/scripts/app.js"></script>
+    <script>
+        $(document).ready(function() {
+            alertHello();
+        });
+    </script>
     <script src="~/lib/Chart.js/chart.js"></script>
     <script>
         function DrawChart(x, y,chartId) {
