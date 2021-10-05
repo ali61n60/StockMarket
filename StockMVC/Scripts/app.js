@@ -6,6 +6,6 @@ function sayHello() {
     return "Hello from " + compiler + " and " + framework + "!";
 }
 function alertHello() {
-    alert("Hello");
+    alert("Hello Again");
 }
 //# sourceMappingURL=app.js.map

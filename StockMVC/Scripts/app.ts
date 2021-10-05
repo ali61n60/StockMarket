@@ -1,4 +1,6 @@
-﻿function sayHello() {
+﻿var foo = "Hello";
+
+function sayHello() {
     const compiler = (document.getElementById("compiler") as HTMLInputElement)
         .value;
     const framework = (document.getElementById("framework") as HTMLInputElement)
@@ -7,5 +9,5 @@
 }
 
 function alertHello() {
-    alert("Hello");
+    alert("Hello Again");
 }

@@ -7,5 +7,5 @@ function sayHello() {
 }
 
 function alertHello() {
-    alert("Hello");
+    alert("Hello Again");
 }
