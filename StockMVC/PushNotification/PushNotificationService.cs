@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
@@ -23,13 +21,13 @@ namespace StockMVC.PushNotification
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            // timer repeates call to RemoveScheduledAccounts every 24 hours.
+            // timer repeats call to RemoveScheduledAccounts every 24 hours.
             
             _timer = new Timer(
                 SendMessage,
                 null,
                 TimeSpan.Zero,
-                TimeSpan.FromSeconds(2)
+                TimeSpan.FromSeconds(20000)
             );
 
             return Task.CompletedTask;
@@ -59,12 +57,7 @@ namespace StockMVC.PushNotification
              }
              
              await _hubContext.Clients.All.SendAsync("ReceiveMessage", "Server", message);
-
-            Debug.WriteLine("called from repeating task at " + DateTime.Now.ToLongTimeString());
-
-            
+             Debug.WriteLine("called from repeating task at " + DateTime.Now.ToLongTimeString());
         }
-
-        
     }
 }

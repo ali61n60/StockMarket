@@ -1,3 +1,4 @@
+var foo = "Hello";
 function sayHello() {
     var compiler = document.getElementById("compiler")
         .value;

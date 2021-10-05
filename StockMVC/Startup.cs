@@ -88,7 +88,7 @@ namespace StockMVC
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{symbolGroup=1}/{symbolPage=1}");
 
-                endpoints.MapFallbackToController("Index", "Blazor");
+                endpoints.MapFallbackToController("Index", "Todo");
             });
         }
     }

@@ -1,3 +1,5 @@
+var foo = "Hello";
+
 function sayHello() {
     const compiler = (document.getElementById("compiler") as HTMLInputElement)
         .value;

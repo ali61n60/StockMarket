@@ -38,6 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Scripts\TypeScriptTodo\" />
     <Folder Include="Views\Notification\" />
     <Folder Include="wwwroot\lib\content\" />
     <Folder Include="wwwroot\images\" />
