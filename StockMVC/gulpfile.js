@@ -6,7 +6,7 @@ Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
 var gulp = require("gulp");
 var del = require("del");
 var paths = {
-    scripts: ["scripts/**/*.js", "scripts/**/*.ts", "scripts/**/*.map"],
+    scripts: ["scripts/**/*.js", "scripts/**/*.ts", "scripts/**/*.map"]
 };
 gulp.task("clean", function () {
     return del(["wwwroot/scripts/**/*"]);
