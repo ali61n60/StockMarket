@@ -10,10 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Scripts\app.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="ChartJs.Blazor.Fork" Version="2.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.9" />
@@ -38,14 +34,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Scripts\dist\" />
     <Folder Include="Views\Notification\" />
+    <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\lib\content\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\css\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="Scripts\app.ts" />
   </ItemGroup>
 
 </Project>

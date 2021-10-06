@@ -1,15 +1,10 @@
 {
+  "files": [
+    "src/main.ts",
+    "src/greet.ts"
+  ],
   "compilerOptions": {
     "noImplicitAny": true,
-    "noEmitOnError": true,
-    "removeComments": false,
-    "sourceMap": true,
     "target": "es5"
-  },
-  "exclude": [
-    "node_modules",
-    "wwwroot"
-  ],
-  //"files": [ "./app.ts"],
-  "compileOnSave": true
+  }
 }
