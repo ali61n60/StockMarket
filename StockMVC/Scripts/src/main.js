@@ -6,3 +6,4 @@ function showHello(divName, name) {
     elt.innerText = (0, greet_1.sayHello)(name);
 }
 showHello("greeting", "TypeScript in the browser by ali");
+//# sourceMappingURL=main.js.map
