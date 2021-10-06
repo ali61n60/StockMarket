@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StockMVC.Controllers
 {
-    public class TodoController : Controller
+    public class TSDemoController : Controller
     {
         public IActionResult Index()
         {
