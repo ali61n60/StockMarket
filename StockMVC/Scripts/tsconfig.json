@@ -7,8 +7,8 @@
     "target": "es5"
   },
   "exclude": [
-    "node_modules"
-    //"wwwroot"
+    "node_modules",
+    "wwwroot"
   ],
   //"files": [ "./app.ts"],
   "compileOnSave": true
