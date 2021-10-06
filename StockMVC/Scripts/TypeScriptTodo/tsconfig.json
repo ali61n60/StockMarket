@@ -10,6 +10,6 @@
     "node_modules",
     "wwwroot"
   ],
-  "files": [ "./app.ts"],
+  "files": [ "./newApp.ts"],
   "compileOnSave": true
 }

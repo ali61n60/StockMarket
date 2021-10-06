@@ -82,13 +82,13 @@ namespace StockMVC
 
                 endpoints.MapControllerRoute(
                     name: "popular",
-                    pattern: "{controller=Chart}/{action=Index}");
+                    pattern: "{controller=Todo}/{action=Index}");
 
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{symbolGroup=1}/{symbolPage=1}");
 
-                endpoints.MapFallbackToController("Index", "Todo");
+                endpoints.MapFallbackToController("Index", "Blazor");
             });
         }
     }
