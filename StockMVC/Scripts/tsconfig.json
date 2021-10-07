@@ -11,6 +11,7 @@
     "src/greet.ts",
     "src/DrawLib/Drawer.ts"
   ],
+  "include": ["src"],
   "compileOnSave": true,
   "exclude": [
     "node_modules",
