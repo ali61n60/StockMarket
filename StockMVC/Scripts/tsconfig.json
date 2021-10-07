@@ -8,7 +8,8 @@
   },
   "files": [
     "src/main.ts",
-    "src/greet.ts"
+    "src/greet.ts",
+    "src/DrawLib/Drawer.ts"
   ],
   "compileOnSave": true,
   "exclude": [

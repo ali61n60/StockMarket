@@ -40,13 +40,6 @@ watchedBrowserify.on("update", bundle);
 watchedBrowserify.on("log", fancy_log);
 
 
-
-
-//gulp.task("copy-html", function () {
-//    return gulp.src(paths.pages).pipe(gulp.dest("dist"));
-//});
-
-
 gulp.task("clean-wwwroot", function () {
     return del(["wwwroot/scripts/**/*"]);
 });
