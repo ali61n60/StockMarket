@@ -15,6 +15,7 @@ namespace StockMVC.Controllers
 
         public IActionResult ReactDemo()
         {
+            //
             return View();
         }
 

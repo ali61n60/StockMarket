@@ -31,7 +31,9 @@ namespace StockMVC
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            
             services.AddDbContext<StockDbContext>(opts =>
             {
                 opts.UseSqlServer(
@@ -61,6 +63,8 @@ namespace StockMVC
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseBrowserLink();
             app.UseStatusCodePages();
             app.UseDefaultFiles();
             app.UseStaticFiles();
