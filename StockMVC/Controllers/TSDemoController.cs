@@ -12,5 +12,13 @@ namespace StockMVC.Controllers
         {
             return View();
         }
+
+        public IActionResult ReactDemo()
+        {
+            return View();
+        }
+
+
+
     }
 }
