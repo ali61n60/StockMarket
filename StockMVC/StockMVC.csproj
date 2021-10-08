@@ -36,7 +36,6 @@
   <ItemGroup>
     <Folder Include="Scripts\dist\" />
     <Folder Include="Views\Notification\" />
-    <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\lib\content\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\css\" />
