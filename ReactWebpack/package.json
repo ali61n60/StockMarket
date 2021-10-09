@@ -3,8 +3,10 @@
   "name": "asp.net",
   "private": true,
   "devDependencies": {
-    "webpack": "5.58.1",
-    "webpack-cli": "4.9.0"
+    "webpack": "^4.17.1",
+    "webpack-cli": "^4.9.0"
   },
-  "scripts": { "build": "webpack" }
+  "scripts": {
+    "build": "webpack"
+  }
 }
