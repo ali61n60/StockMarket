@@ -1,1 +1,1 @@
-﻿alert("I’m an alert!");
+﻿alert("I’m an alert!Created by webpack");
