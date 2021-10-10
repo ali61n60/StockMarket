@@ -25,7 +25,10 @@ namespace ReactWebpack
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseWebpackDevMiddleware(new Microsoft.AspNetCore.SpaServices.Webpack.WebpackDevMiddlewareOptions
+                { HotModuleReplacement = true });
             }
+            
             
             app.UseStaticFiles();
             
