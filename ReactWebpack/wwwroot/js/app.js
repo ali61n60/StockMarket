@@ -26,3 +26,5 @@ ReactDOM.render(e(LikeButton), domContainer);
 var app = document.getElementById('app2');
 
 ReactDOM.render(<div> <p>Hello, world!</p> </div>, app);
+
+module.hot.accept();
