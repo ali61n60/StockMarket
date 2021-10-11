@@ -225,6 +225,7 @@
     <None Include="Finance\Resume\AliNejatResumeV10En.doc" />
     <None Include="Finance\Resume\AliNejatResumeV10En.pdf" />
     <None Include="Finance\Resume\ToBeCreated.docx" />
+    <None Include="Finance\WhyHowInvestInStock.pptx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
