@@ -1,8 +1,11 @@
 ﻿import React from 'react';
 import ReactDOM from 'react-dom';
-
+import List from   "./List";
 
 const e = React.createElement;
+
+var app1 = document.getElementById("app1");
+ReactDOM.render(e(List), app1);
 
 class LikeButton extends React.Component {
     constructor(props) {
@@ -20,11 +23,11 @@ class LikeButton extends React.Component {
     }
 }
 
-const domContainer = document.querySelector('#app1');
+const domContainer = document.querySelector('#app2');
 ReactDOM.render(e(LikeButton), domContainer);
 
-var app = document.getElementById('app2');
+var app3 = document.getElementById('app3');
 
-ReactDOM.render(<div> <p>Hello, world!</p> </div>, app);
+ReactDOM.render(<div> <p>Hello, world! again1234568</p> </div>, app3);
 
 module.hot.accept();

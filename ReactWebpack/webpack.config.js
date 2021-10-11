@@ -1,12 +1,17 @@
 ﻿const path = require('path');
+
 module.exports = {
-    mode: "development",
+    mode: 'development',
     entry: {
         main: "./wwwroot/js/app.js"
     },
+    devServer: {
+        static: './wwwroot/dist',
+        hot: true,
+    },
     output: {
-        path: path.resolve(__dirname,"./wwwroot/js/dist"),
-        filename: "bundle.js",
+        path: path.resolve(__dirname, "./wwwroot/js/dist"),
+        filename: 'bundle.js',
         publicPath: "dist/"
     },
     module: {
@@ -24,6 +29,8 @@ module.exports = {
     resolve: {
         extensions: ["*", ".js", ".jsx"]
     },
-    
+   
 };
 
+    
+    

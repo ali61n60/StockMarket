@@ -22,19 +22,19 @@ namespace ReactWebpack
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        [Obsolete]
+       
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions()
-                {
-                    ConfigFile = "webpack.config.js" //this is defualt value
-                });
+                //app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions()
+                //{
+                //    HotModuleReplacement = true
+                //});
             }
-             
-            
+
+
             app.UseStaticFiles();
             
 
