@@ -28,11 +28,12 @@ namespace ReactWebpack
             {
                 app.UseDeveloperExceptionPage();
                 app.UseWebpackDevMiddleware(new Microsoft.AspNetCore.SpaServices.Webpack.WebpackDevMiddlewareOptions
-                    {HotModuleReplacement = true});
+                    {HotModuleReplacement = true                      
+                });
             }
              
             
-            app.UseStaticFiles();
+           // app.UseStaticFiles();
             
 
             app.UseRouting();
