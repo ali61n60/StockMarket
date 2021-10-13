@@ -11,8 +11,10 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "./wwwroot/js/dist"),
-        filename: 'bundle.js',
-        publicPath: "dist/"
+        filename: "bundle.js",
+        publicPath: "dist/",
+        libraryTarget: "var",
+        library: "EntryPoint"
     },
     module: {
         rules: [{

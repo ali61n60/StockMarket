@@ -8,18 +8,18 @@
     <title>@ViewData["Title"]</title>
 </head>
 <body>
-<div class="container-fluid" style="margin-top: 30px">
-    <div class="row">
-        <div class="col-sm-4">
-          
-        </div>
-        <div class="col-sm-8">
-            @RenderBody()
+    <div class="container-fluid" style="margin-top: 30px">
+        <div class="row">
+            <div class="col-sm-4">
+
+            </div>
+            <div class="col-sm-8">
+                @RenderBody()
+            </div>
         </div>
     </div>
-</div>
-
-@await RenderSectionAsync("Scripts", required: false)
+    <script src="~/lib/jquery/jquery.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
 

@@ -1,8 +1,18 @@
-﻿@{
+﻿@model List<string>
+@{
     ViewData["Title"] = "WebPack Demo";
 }
 @section Scripts {
     <script src="~/js/dist/bundle.js"></script>  
+    <script>
+
+        $(document).ready(function () {
+             MyAlert();
+             RunList(@Model);
+        });
+
+    </script>
+    
 }
 <div class="row">
     <div class="col-sm-4" id="app1">
