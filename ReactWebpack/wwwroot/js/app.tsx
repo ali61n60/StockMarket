@@ -15,4 +15,4 @@ const items: ListItemProps[] = [{
 { name: "Ryan White", rank: 9, points: 5343 },
 { name: "Jim Barrett", rank: 10, points: 5312 } ];
 
-ReactDOM.render(<List items={items} />, document.getElementById("example")); 
+ReactDOM.render(<List items={items} />, document.getElementById("example"));  
