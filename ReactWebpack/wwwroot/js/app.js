@@ -14,7 +14,7 @@ function RunList(myList) {
 window.RunList = RunList;
 
 function MyAlert(name) {
-    alert("Calling MyAlert"+ name);  
+    alert("Calling MyAlert again"+ name);  
 }
 window.MyAlert = MyAlert;
 
