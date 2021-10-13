@@ -5,7 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Remove="wwwroot\js\LikeButton.tsx" />
+    <TypeScriptCompile Remove="wwwroot\js\List.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="webpack.config.js" />
+    <Content Include="wwwroot\js\LikeButton.tsx" />
+    <Content Include="wwwroot\js\List.tsx" />
   </ItemGroup>
 
   <ItemGroup>
