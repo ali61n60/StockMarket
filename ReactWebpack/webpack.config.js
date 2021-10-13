@@ -3,7 +3,7 @@
 module.exports = {
     mode: 'development',
     entry: {
-        main: "./wwwroot/js/app.js"
+        main: "./wwwroot/js/app.tsx"
     },
     devServer: {
         static: './wwwroot/dist',
@@ -18,21 +18,22 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.(js|jsx)/,
+            test: /\.ts|.\tsx$/,
             exclude: /node_modules/,
-            use: {
+            use:[ {
                 loader: "babel-loader",
                 options: {
-                    "presets": ["@babel/preset-env", "@babel/preset-react"]
+                    "presets": ["@babel/preset-env", "@babel/preset-react","@babel/preset-typescript"]
                 }
-            }
+            }]
         }]
     },
     resolve: {
-        extensions: ["*", ".js", ".jsx"]
-    },
-   
+        extensions: ["*", ".js", ".jsx",".tsx"]
+    },   
 };
+
+ 
 
     
     

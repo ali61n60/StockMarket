@@ -8,8 +8,12 @@
     <script>
        
         $(document).ready(function () {
-            MyAlert("Ali");
-            RunList("2");
+            var items = [];
+            @foreach(string item in Model)
+            {
+                @:items.push("@item");
+            }
+            RunList(items);
         });
 
     </script>
