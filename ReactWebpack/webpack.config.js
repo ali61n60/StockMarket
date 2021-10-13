@@ -17,7 +17,7 @@ module.exports = {
         library: "EntryPoint"
     },
     module: {
-        rules: [{
+        rules:[ {
             test: /\.tsx?$/,
             exclude: /node_modules/,
             use: "ts-loader"
