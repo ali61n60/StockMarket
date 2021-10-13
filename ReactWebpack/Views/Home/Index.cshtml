@@ -3,25 +3,26 @@
     ViewData["Title"] = "WebPack Demo";
 }
 @section Scripts {
-    <script src="~/js/dist/bundle.js"></script>  
+    <script src="~/js/dist/bundle.js"></script>
+   
     <script>
-
+       
         $(document).ready(function () {
-             MyAlert();
-             RunList(@Model);
+            MyAlert("Ali");
+            RunList("2");
         });
 
     </script>
-    
+
 }
 <div class="row">
     <div class="col-sm-4" id="app1">
-     
+
     </div>
     <div class="col-sm-4" id="app2">
-        
+
     </div>
     <div class="col-sm-4" id="app3">
-        
+
     </div>
 </div>

@@ -194,17 +194,6 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 
 /***/ }),
 
-/***/ "./node_modules/webpack/buildin/harmony-module.js":
-/*!*******************************************!*\
-  !*** (webpack)/buildin/harmony-module.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpackPolyfill) {\n\t\tvar module = Object.create(originalModule);\n\t\t// module.parent = undefined by default\n\t\tif (!module.children) module.children = [];\n\t\tObject.defineProperty(module, \"loaded\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.l;\n\t\t\t}\n\t\t});\n\t\tObject.defineProperty(module, \"id\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.i;\n\t\t\t}\n\t\t});\n\t\tObject.defineProperty(module, \"exports\", {\n\t\t\tenumerable: true\n\t\t});\n\t\tmodule.webpackPolyfill = 1;\n\t}\n\treturn module;\n};\n\n\n//# sourceURL=webpack:///(webpack)/buildin/harmony-module.js?");
-
-/***/ }),
-
 /***/ "./wwwroot/js/LikeButton.jsx":
 /*!***********************************!*\
   !*** ./wwwroot/js/LikeButton.jsx ***!
@@ -233,11 +222,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!***************************!*\
   !*** ./wwwroot/js/app.js ***!
   \***************************/
-/*! exports provided: RunList, MyAlert */
+/*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RunList\", function() { return RunList; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"MyAlert\", function() { return MyAlert; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./List */ \"./wwwroot/js/List.jsx\");\n/* harmony import */ var _LikeButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LikeButton */ \"./wwwroot/js/LikeButton.jsx\");\n\n\n\n\nvar e = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;\nvar app1 = document.getElementById(\"app1\"); //ReactDOM.render(e(List), app1);  \n\nfunction RunList(myList) {\n  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_List__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    items: myList\n  }), app1);\n}\nfunction MyAlert() {\n  alert(\"Calling MyAlert\");\n}\nvar domContainer = document.querySelector('#app2');\nreact_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(e(_LikeButton__WEBPACK_IMPORTED_MODULE_3__[\"default\"]), domContainer);\nvar app3 = document.getElementById('app3');\nreact_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \" \", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"p\", null, \"Hello, world! again1234568\"), \" \"), app3);\nmodule.hot.accept();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./wwwroot/js/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _List__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./List */ \"./wwwroot/js/List.jsx\");\n/* harmony import */ var _LikeButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LikeButton */ \"./wwwroot/js/LikeButton.jsx\");\n\n\n\n\nvar e = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;\nvar app1 = document.getElementById(\"app1\"); //ReactDOM.render(e(List), app1);  \n\nfunction RunList(myList) {\n  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(e(_List__WEBPACK_IMPORTED_MODULE_2__[\"default\"]), app1);\n}\n\nwindow.RunList = RunList;\n\nfunction MyAlert(name) {\n  alert(\"Calling MyAlert\" + name);\n}\n\nwindow.MyAlert = MyAlert;\nvar domContainer = document.querySelector('#app2');\nreact_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(e(_LikeButton__WEBPACK_IMPORTED_MODULE_3__[\"default\"]), domContainer);\nvar app3 = document.getElementById('app3');\nreact_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \" \", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"p\", null, \"Hello, world! again1234568\"), \" \"), app3); //module.hot.accept();\n\n//# sourceURL=webpack:///./wwwroot/js/app.js?");
 
 /***/ })
 

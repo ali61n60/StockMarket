@@ -8,12 +8,15 @@ const e = React.createElement;
 var app1 = document.getElementById("app1");
 //ReactDOM.render(e(List), app1);  
 
-export function RunList(myList) {
-    ReactDOM.render(<List items={myList} />, app1);
+function RunList(myList) {
+    ReactDOM.render(e(List), app1);
 }
-export function MyAlert() {
-    alert("Calling MyAlert");
+window.RunList = RunList;
+
+function MyAlert(name) {
+    alert("Calling MyAlert"+ name);  
 }
+window.MyAlert = MyAlert;
 
 
 const domContainer = document.querySelector('#app2');
@@ -23,4 +26,4 @@ var app3 = document.getElementById('app3');
 
 ReactDOM.render(<div> <p>Hello, world! again1234568</p> </div>, app3);
 
-module.hot.accept();
+//module.hot.accept();
