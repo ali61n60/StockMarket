@@ -1,46 +1,23 @@
-﻿const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+﻿const path = require('path');
 
 module.exports = {
-    mode: "development",
-    entry: {
-        main: "./wwwroot/js/index.jsx"
-    },
+    entry: './wwwroot/js/index.tsx',
+    devtool: 'inline-source-map',
     output: {
-        path: path.resolve(__dirname, "./wwwroot/dist"),
-        filename: "bundle.js",
-        publicPath: "dist/"
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, './wwwroot/dist'),
     },
     module: {
         rules: [
+            { test: /\.css$/, use: 'css-loader' },
             {
-                test: /\.(js|jsx)$/,
-                include: path.resolve(__dirname, "./wwwroot/js"),
+                test: /\.(ts|tsx)$/,
+                use: 'ts-loader',
                 exclude: /node_modules/,
-                use: "babel-loader",
-                resolve: {
-                    extensions: [".jsx", ".js", ".json"]
-                }
             },
-            {
-            test: /\.(ts|tsx)?$/,
-            include: path.resolve(__dirname, "./wwwroot/js"),
-            exclude: /node_modules/,
-            use: "ts-loader",
-            resolve: {
-                extensions: [".tsx", ".ts"]
-            },
-            },
-            {
-                test: /\.(css|scss)$/,
-                use: ["style-loader", "css-loader"]
-            },
-            {
-                test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
-                use: ["file-loader"]
-            }
-        ]
+        ],
     },
-   
-    devServer: { contentBase: path.join(__dirname, "dist") },
-};      
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
+};
