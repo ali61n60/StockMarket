@@ -12,10 +12,10 @@
     "noEmit": false
   },
   "compileOnSave": true,
- 
-  "exclude": [
-    "node_modules",
-    "./wwwroot/lib"
+  "exclude": ["node_modules"],
+  "include": [ "file.ts",
+    "./js/index.tsx"
   ]
+  
 }
 

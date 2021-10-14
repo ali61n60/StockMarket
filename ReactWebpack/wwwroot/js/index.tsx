@@ -27,7 +27,7 @@ const domContainer = document.querySelector('#app2');
 ReactDOM.render(<LikeButton />, domContainer);
 
 var app3 = document.getElementById('app3');   
-ReactDOM.render(<div> <p>Hello, world! 123</p> </div>, app3);     
+ReactDOM.render(<div> <p>Hello, world! 12</p> </div>, app3); 
 
 
 
