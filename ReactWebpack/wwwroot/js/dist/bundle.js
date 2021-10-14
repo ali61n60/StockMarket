@@ -81,19 +81,20 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./wwwroot/js/index.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./wwwroot/js/index.tsx");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./wwwroot/js/index.ts":
-/*!*****************************!*\
-  !*** ./wwwroot/js/index.ts ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./wwwroot/js/index.tsx":
+/*!******************************!*\
+  !*** ./wwwroot/js/index.tsx ***!
+  \******************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("alert(\"Hi from Typescript webpack is working at home1\");\r\n\n\n//# sourceURL=webpack:///./wwwroot/js/index.ts?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nalert(\"Hi from Typescript webpack is working at home12345\");\r\n\r\n\n\n//# sourceURL=webpack:///./wwwroot/js/index.tsx?");
 
 /***/ })
 

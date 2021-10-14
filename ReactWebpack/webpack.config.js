@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
     mode: "development",
     entry: {
-        main: "./wwwroot/js/index.ts"
+        main: "./wwwroot/js/index.tsx"
     },
     output: {
         path: path.resolve(__dirname, "./wwwroot/js/dist"),
@@ -14,14 +14,19 @@ module.exports = {
     module: {
         rules: [
             {
-            test: /\.(ts|tsx|js|jsx)?$/,
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ["babel-loader"],
+            },
+            {
+            test: /\.(ts|tsx)?$/,
             include: path.resolve(__dirname, "./wwwroot/js"),
             exclude: /node_modules/,
             use: "ts-loader"
             },
             {
                 test: /\.(css|scss)$/,
-                use: ["style-loader", "css-loader"],
+                use: ["style-loader", "css-loader"]
             },
             {
                 test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
@@ -31,10 +36,6 @@ module.exports = {
     },
     resolve: {
         extensions: [".tsx", ".ts", ".js"]
-    }   
-};
-    
-          //      use: ["babel-loader"]
-    
-          
-   
+    },
+    devServer: { contentBase: path.join(__dirname, "dist") },
+};      
