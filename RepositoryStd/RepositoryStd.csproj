@@ -17,28 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Scripts\alert.js" />
-    <None Remove="Scripts\app.js" />
-    <None Remove="Scripts\LikeButton.js" />
-    <None Remove="Scripts\LikeButton.js.map" />
-    <None Remove="Scripts\LikeButton.tsx" />
-    <None Remove="Scripts\List.js" />
-    <None Remove="Scripts\List.js.map" />
-    <None Remove="Scripts\List.tsx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Scripts\alert.js" />
-    <Content Include="Scripts\app.js" />
-    <Content Include="Scripts\LikeButton.js" />
-    <Content Include="Scripts\LikeButton.js.map" />
-    <Content Include="Scripts\LikeButton.tsx" />
-    <Content Include="Scripts\List.js" />
-    <Content Include="Scripts\List.js.map" />
-    <Content Include="Scripts\List.tsx" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ModelStd\ModelStd.csproj" />
   </ItemGroup>
 
