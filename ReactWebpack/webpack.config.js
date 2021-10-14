@@ -7,7 +7,7 @@ module.exports = {
         main: "./wwwroot/js/index.jsx"
     },
     output: {
-        path: path.resolve(__dirname, "./wwwroot/js/dist"),
+        path: path.resolve(__dirname, "./wwwroot/dist"),
         filename: "bundle.js",
         publicPath: "dist/"
     },
