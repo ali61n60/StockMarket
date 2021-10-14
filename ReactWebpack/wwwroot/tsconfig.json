@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "removeComments": false,
     "sourceMap": true,
     "module": "es6",
@@ -9,10 +9,12 @@
     "jsx": "react",
     "allowJs": true,
     "moduleResolution": "node",
+    "noEmit": true
 
   },
   "compileOnSave": true,
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "./wwwroot/lib/**/*"
   ]
 }

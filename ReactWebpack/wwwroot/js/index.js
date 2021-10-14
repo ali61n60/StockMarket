@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 //function RunList(myList) {
 //    ReactDOM.render(e(List), app1);
 //}
@@ -17,6 +17,6 @@ var domContainer = document.querySelector('#app2');
 var app3 = document.getElementById('app3');
 ReactDOM.render(React.createElement("div", null,
     " ",
-    React.createElement("p", null, "Hello, world! again12345689"),
+    React.createElement("p", null, "Hello, world! 12"),
     " "), app3);
 //# sourceMappingURL=index.js.map

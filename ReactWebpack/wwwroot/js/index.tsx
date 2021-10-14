@@ -1,7 +1,7 @@
-﻿import * as React from 'react';
-import  * as ReactDOM from 'react-dom';
-import  * as List from "./List"; 
-import * as  LikeButton from "./LikeButton";
+﻿import  React from 'react';
+import  ReactDOM from 'react-dom';
+import  List from "./List"; 
+import  LikeButton from "./LikeButton";
 
 
 //function RunList(myList) {
@@ -24,7 +24,7 @@ const domContainer = document.querySelector('#app2');
 //ReactDOM.render(<LikeButton />, domContainer);
 
 var app3 = document.getElementById('app3');   
-ReactDOM.render(<div> <p>Hello, world! again12345689</p> </div>, app3);
+ReactDOM.render(<div> <p>Hello, world! 123</p> </div>, app3);  
 
 
 

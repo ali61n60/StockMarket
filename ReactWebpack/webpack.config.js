@@ -11,6 +11,14 @@ module.exports = {
         rules: [
             { test: /\.css$/, use: 'css-loader' },
             {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                },
+                
+            },
+            {
                 test: /\.(ts|tsx)$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
@@ -18,6 +26,6 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
+        extensions: ['.tsx', '.ts','jsx', '.js'],
     },
 };
