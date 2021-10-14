@@ -18,10 +18,10 @@ import  LikeButton from "./LikeButton";
 const e = React.createElement;
 var app1 = document.getElementById("app1");
 //ReactDOM.render(e(List), app1);  
-//ReactDOM.render(<List />, app1);   
+ReactDOM.render(<List />, app1);   
 
 const domContainer = document.querySelector('#app2');
-//ReactDOM.render(<LikeButton />, domContainer);
+ReactDOM.render(<LikeButton />, domContainer);
 
 var app3 = document.getElementById('app3');   
 ReactDOM.render(<div> <p>Hello, world! 123</p> </div>, app3);  
