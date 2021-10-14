@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "allowJs": true,
+    "allowJs": false,
     "moduleResolution": "node",
     "noImplicitAny": true,
     "removeComments": false,
@@ -14,17 +14,17 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
-    "jsx": "react-jsx"
+    "jsx": "react"
   },
   "files": [ "index.tsx" ],
-  "include": ["./wwwroot/js"],
+  
   "exclude": [ "node_modules" ]
 
 }   
