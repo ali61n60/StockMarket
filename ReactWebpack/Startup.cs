@@ -22,7 +22,7 @@ namespace ReactWebpack
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-       
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -36,16 +36,16 @@ namespace ReactWebpack
 
 
             app.UseStaticFiles();
-            
+
 
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
-                
                 endpoints.MapControllerRoute(
                     name: "popular",
                     pattern: "{controller=Home}/{action=Index}");
             });
         }
+
     }
 }

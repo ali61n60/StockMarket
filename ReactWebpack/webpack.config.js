@@ -1,24 +1,23 @@
-﻿const path = require('path');
+﻿const path = require("path");
 
 module.exports = {
-    mode: 'development',
+    mode: "development",
     entry: {
         main: "./wwwroot/js/index.ts"
     },
     devServer: {
-        static: './wwwroot/dist',
+        static: "./wwwroot/dist",
         hot: true,
     },
     output: {
         path: path.resolve(__dirname, "./wwwroot/js/dist"),
         filename: "bundle.js",
-        publicPath: "dist/",
-        libraryTarget: "var",
-        library: "EntryPoint"
+        publicPath: "dist/"
     },
     module: {
         rules:[ {
-            test: /\.tsx?$/,
+            test: /\.ts?$/,
+            include: path.resolve(__dirname, "./wwwroot/js"),
             exclude: /node_modules/,
             use: "ts-loader"
             }]

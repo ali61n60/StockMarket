@@ -1,4 +1,3 @@
-var EntryPoint =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -94,7 +93,7 @@ var EntryPoint =
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("alert(\"Hi from Typescript webpack\");\r\n\n\n//# sourceURL=webpack://EntryPoint/./wwwroot/js/index.ts?");
+eval("alert(\"Hi from Typescript webpack is working at home\");\r\n\n\n//# sourceURL=webpack:///./wwwroot/js/index.ts?");
 
 /***/ })
 

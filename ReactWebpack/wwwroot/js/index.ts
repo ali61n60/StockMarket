@@ -1,1 +1,1 @@
-﻿alert("Hi from Typescript webpack");
+﻿alert("Hi from Typescript webpack is working at home");

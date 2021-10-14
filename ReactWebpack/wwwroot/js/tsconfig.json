@@ -8,7 +8,7 @@
     "allowJs": true,
     "moduleResolution": "node"
   },
-
+  "files": ["index.ts"],
   "exclude": [ "node_modules" ]
 
 }
