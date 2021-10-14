@@ -13,8 +13,11 @@
   },
   "compileOnSave": true,
   "exclude": ["node_modules"],
-  "include": [ "file.ts",
-    "./js/index.tsx"
+  "include": [
+    "file.ts",
+    "js/index.tsx",
+    "js/LikeButton.jsx",
+    "js/List.jsx"
   ]
   
 }
