@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Scripts\alert.js" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\LikeButton.js" />
+    <Content Include="Scripts\LikeButton.js.map" />
+    <Content Include="Scripts\LikeButton.tsx" />
+    <Content Include="Scripts\List.js" />
+    <Content Include="Scripts\List.js.map" />
+    <Content Include="Scripts\List.tsx" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
 
