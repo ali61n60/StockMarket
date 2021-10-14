@@ -12,13 +12,11 @@
     "noEmit": false
   },
   "compileOnSave": true,
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules","wwwroot"],
   "include": [
     "file.ts",
-    "js/index.tsx",
-    "js/LikeButton.jsx",
-    "js/List.jsx"
-  ]
+    "*.tsx",
+    "*.jsx"]
   
 }
 
