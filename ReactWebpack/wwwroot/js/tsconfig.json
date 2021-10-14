@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
     "noImplicitAny": true,
     "removeComments": false,
-    "sourceMap": true,    
-    "target": "es5",
-    "jsx": "react",
-    "allowJs": true,
-    "moduleResolution": "node"
+    "sourceMap": true,
+    "target": "es5"
   },
   "files": ["index.ts"],
   "exclude": [ "node_modules" ]
