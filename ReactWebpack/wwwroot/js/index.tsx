@@ -4,6 +4,7 @@ import  List from "./List";
 import LikeButton from "./LikeButton";
 
 const globalScope = (window /* browser */ || global /* node */) as any;
+
 function RunList(myList) {
     ReactDOM.render(e(List), app1);
 }

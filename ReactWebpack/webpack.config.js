@@ -1,7 +1,7 @@
 ﻿const path = require('path');
 
 module.exports = {
-    mode:"development",
+    
     entry: './wwwroot/js/index.tsx',
     devtool: 'inline-source-map',
     output: {

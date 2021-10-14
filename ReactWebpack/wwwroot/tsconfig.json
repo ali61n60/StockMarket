@@ -9,12 +9,13 @@
     "jsx": "react",
     "allowJs": true,
     "moduleResolution": "node",
-    "noEmit": true
-
+    "noEmit": false
   },
   "compileOnSave": true,
+  "include": ["./wwwroot/js/**/*"],
   "exclude": [
     "node_modules",
     "./wwwroot/lib/**/*"
   ]
 }
+

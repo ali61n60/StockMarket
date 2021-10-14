@@ -13,5 +13,5 @@ export default class LikeButton extends React.Component {
 
         return React.createElement(
             'button', { onClick: () => this.setState({ liked: true }) }, 'Like');
-    }
+    } 
 }
