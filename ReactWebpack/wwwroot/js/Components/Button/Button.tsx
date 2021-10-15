@@ -1,8 +1,25 @@
 ﻿import * as React from "react";
 
-export default class Button extends React.Component<{}> {
+
+interface Props {
+    type:"primary"|"default";
+}
+
+export default class Button extends React.Component<Props,{}> {
+    constructor(props: Props) {
+        super(props);
+        
+    }
+
     render() {
-        return (<h1> Button </h1>);
+        const className = this.props.type === "primary" ? "btn-primary" : "btn-danger";
+        return (
+                
+            <div>
+                <button className={className} >Button</button>
+                <h1>bu</h1>
+            </div> 
+        );
     }
 }
 

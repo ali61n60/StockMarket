@@ -1,13 +1,13 @@
 ﻿import * as React from "react";
 
-interface MyProps { }
+interface Props { }
 
-interface MyState {
+interface State {
     liked: boolean;
 }
 
-export default class LikeButton extends React.Component<MyProps,MyState > {
-    constructor(props:MyProps) {
+export default class LikeButton extends React.Component<Props,State > {
+    constructor(props:Props) {
         super(props);
         this.state = { liked :false };
     }

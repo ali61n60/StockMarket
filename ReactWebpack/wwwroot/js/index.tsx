@@ -2,7 +2,7 @@
 import * as ReactDOM from "react-dom";
 import List from "./Components/List/List";
 import LikeButton from "./Components/LikeButton/LikeButton";
-import Button from "./Components/Button/Button" 
+import Button from "./Components/Button/Button";
 
 
 
@@ -21,6 +21,11 @@ ReactDOM.render(<div> <p>Hello, world! 1234</p> </div>, app3);
 
  
 var app4 = document.getElementById("app4");
-ReactDOM.render(<Button />, app4);
+ReactDOM.render(
+    <div>
+    <Button type="primary" />
+    <Button type="primary" />
+    </div>
+    , app4);
 
 
