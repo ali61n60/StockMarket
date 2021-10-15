@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\file.ts" />
+    <Content Remove="wwwroot\js\Components\Button\index.jsx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +23,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="wwwroot\file.ts" />
+    <TypeScriptCompile Include="wwwroot\js\Components\Button\index.jsx" />
   </ItemGroup>
 
 </Project>
