@@ -1,6 +1,7 @@
 ﻿const path = require("path");
 
-module.exports = {
+
+module.exports = {   
     mode:"development",
     entry: "./wwwroot/js/index.tsx",
     devtool: "inline-source-map",
@@ -31,5 +32,5 @@ module.exports = {
     },
     resolve: {
         extensions: [".js","jsx", ".ts", ".tsx" ],
-    },
+    }
 };
