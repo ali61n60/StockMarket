@@ -13,8 +13,7 @@ export default class Button extends React.Component<Props,{}> {
 
     render() {
         const className = this.props.type === "primary" ? "btn-primary" : "btn-danger";
-        return (
-                
+        return (                
             <div>
                 <button className={className} >Button</button>
                 <h1>bu</h1>

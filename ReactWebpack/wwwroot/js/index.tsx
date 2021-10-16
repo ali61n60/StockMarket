@@ -23,8 +23,8 @@ ReactDOM.render(<div> <p>Hello, world! 1234</p> </div>, app3);
 var app4 = document.getElementById("app4");
 ReactDOM.render(
     <div>
-    <Button type="primary" />
-    <Button type="primary" />
+        <Button type="primary" />
+        <Button type="default" /> 
     </div>
     , app4);
 
