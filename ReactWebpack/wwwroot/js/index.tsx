@@ -30,4 +30,8 @@ ReactDOM.render(
     , app4);
 
 var app5 = document.getElementById("app5");
-ReactDOM.render(<CounterManagement ownerName="Ali Nejati" />, app5);
+ReactDOM.render(<CounterManagement ownerName="Ali Nejati" CustomCallBack={CallBack} />, app5);
+
+function CallBack(num:number) {
+    alert(`CallBack with number: ${num}`);
+}

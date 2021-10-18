@@ -1,10 +1,13 @@
 ﻿import * as React from "react";
 
 interface Props {
-    ownerName:string;
+    ownerName: string;
+    CustomCallBack(currentNumber:number);
+
 }
 interface State {
-    counter:number;
+    counter: number;
+
 }
 
 export default class CounterManagement extends React.Component<Props, State> {
@@ -13,7 +16,7 @@ export default class CounterManagement extends React.Component<Props, State> {
         super(props);
         this.state = { counter: 0 }
     }
-    
+
     render() {
         const className = "btn btn-block btn-danger";
         return (
@@ -28,12 +31,13 @@ export default class CounterManagement extends React.Component<Props, State> {
     }
 
     handleAddClick = () => {
+        this.setState({ counter: this.state.counter + 1 });
         
-        this.setState({counter:this.state.counter+1});
     }
-    handleMinusClick = () => {
 
-        this.setState({ counter: this.state.counter - 1});
+    handleMinusClick = () => {
+        this.setState({ counter: this.state.counter - 1 });
+        this.props.CustomCallBack(this.state.counter);
     }
 }
 
