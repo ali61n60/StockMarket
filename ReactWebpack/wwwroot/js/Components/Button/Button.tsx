@@ -1,35 +1,34 @@
 ﻿import * as React from "react";
 
-
 interface Props {
     type:"primary"|"default";
 }
 interface State {
-    changed: boolean;
+    buttonClicked: boolean;
 }
 
 export default class Button extends React.Component<Props, State> {
-    i: number=19;
+    i: number=0;
     constructor(props: Props) {
         super(props);
-        this.state = { changed: false };
+        this.state = { buttonClicked: false };
         
     }
     
-
     render() {
-        const className = this.props.type === "primary" ? "btn btn-block btn-primary" : "btn btn-block btn-danger";
-        return (                
-            <div>
+        const className = this.props.type === "primary" ?
+            "btn btn-block btn-primary" : "btn btn-block btn-danger";
+        return (
+            <React.Fragment>
                 <p className="text-center">number is: {this.i}</p>
-                <button className={className} onClick={this.handleClick}  >Button</button>                
-            </div> 
+                <button className={className} onClick={this.handleClick}>{this.props.children}</button>
+            </ React.Fragment>
         );
     }
 
     handleClick = () => {
         this.i++;
-        this.setState({ changed: true });        
+        this.setState({ buttonClicked: true });
     }
 }
 

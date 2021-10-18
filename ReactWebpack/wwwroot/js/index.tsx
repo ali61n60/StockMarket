@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom";
 import List from "./Components/List/List";
 import LikeButton from "./Components/LikeButton/LikeButton";
 import Button from "./Components/Button/Button";
+import CounterManagement from "./Components/CounterManagement/CounterManagement";
 
 
 
@@ -23,9 +24,10 @@ ReactDOM.render(<div> <p>Hello, world! 1234</p> </div>, app3);
 var app4 = document.getElementById("app4");
 ReactDOM.render(
     <div>
-        <Button type="primary" />
-        <Button type="default" /> 
+        <Button type="primary">test1</Button>
+        <Button type="default">test2</Button> 
     </div>
     , app4);
 
-
+var app5 = document.getElementById("app5");
+ReactDOM.render(<CounterManagement ownerName="Ali Nejati" />, app5);
