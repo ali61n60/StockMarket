@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ModelStd.DB.Stock;
+using ServiceStd.IService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +10,13 @@ namespace StockMVC.Controllers
 {
     public class TSDemoController : Controller
     {
+        readonly ISymbolService _symbolService;
+
+        public TSDemoController(ISymbolService symbolService)
+        {
+            _symbolService = symbolService;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -15,8 +24,8 @@ namespace StockMVC.Controllers
 
         public IActionResult ReactDemo()
         {
-            //
-            return View();
+            List<Symbol> allSymbols = _symbolService.GetAllSymbols().ToList();
+            return View(allSymbols);
         }
 
 

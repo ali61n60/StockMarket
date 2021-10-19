@@ -9,7 +9,8 @@
     "jsx": "react",
     "allowJs": true,
     "moduleResolution": "node",
-    "noEmit": false
+    "noEmit": false,
+    "allowSyntheticDefaultImports": true
   },
   "compileOnSave": true,
   "exclude": [ "node_modules", "wwwroot" ],
