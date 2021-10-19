@@ -19,11 +19,5 @@ function DrawLine(canvasId:string,x1:number,y1:number,x2:number,y2:number,color:
     let p2 = new Point();
     p2.x =x2;
     p2.y = y2;
-    drawer.DrawLine(p1, p2,color);
+    drawer.DrawLine(p1, p2, color);
 }
-
-global.ShowHello = showHello;
-global.DrawLine = DrawLine;
-
-
-
