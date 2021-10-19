@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace StockMVC.Controllers
 {
@@ -24,8 +25,13 @@ namespace StockMVC.Controllers
 
         public IActionResult ReactDemo()
         {
-            List<Symbol> allSymbols = _symbolService.GetAllSymbols().ToList();
-            return View(allSymbols);
+            List<Symbol> allSymbols = _symbolService.GetAllSymbols().Take(10).ToList();
+            foreach (Symbol symbol in allSymbols)
+            {
+                symbol.SymbolGroup= null;
+            }
+
+            return View(model:JsonConvert.SerializeObject(allSymbols));
         }
 
 

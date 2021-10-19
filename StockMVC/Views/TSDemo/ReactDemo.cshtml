@@ -1,4 +1,4 @@
-﻿@model List<Symbol>
+﻿@model string
     
     @{
         Layout = "_SimpleFastLayout";
@@ -15,7 +15,7 @@
         </script>
 
     }
-    <input type="hidden" id="Model" name="postId" value="34657">
+    <input type="hidden" id="Model" name="postId" value="@Model">
 
     <div class="row">
         <div class="col-sm-4" id="app1"></div>
