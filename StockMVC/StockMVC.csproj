@@ -48,4 +48,40 @@
 		<Watch Include="**\*.cshtml;*.razor;*.js;*.css" Exclude="**\obj\**\*;bin\**\*" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="webpack.config.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <TypeScriptCompile Remove="wwwroot\js\Components\LikeButton\LikeButton.tsx" />
+	  <TypeScriptCompile Remove="wwwroot\js\Components\List\List.tsx" />
+	  <TypeScriptCompile Remove="wwwroot\js\index.tsx" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Watch Remove="webpack.config.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="webpack.config.js" />
+	  <Content Include="wwwroot\js\Components\LikeButton\LikeButton.tsx">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	  <Content Include="wwwroot\js\Components\List\List.tsx">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	  <Content Include="wwwroot\js\index.tsx">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <TypeScriptCompile Update="wwwroot\js\Components\CounterManagement\CounterManagement.tsx">
+	    <SubType>Code</SubType>
+	  </TypeScriptCompile>
+	</ItemGroup>
+
 </Project>
