@@ -11,7 +11,9 @@ const e = React.createElement;
 let listData = ["a", "b"];
 
 var app1 = document.getElementById("app1");
-ReactDOM.render(<List listData={listData} />, app1);
+ReactDOM.render(<CounterManagement ownerName="Ali Nejati" CustomCallBack={CallBack} />, app1);
+
+
 
 var app2 = document.getElementById("app2");
 ReactDOM.render(<LikeButton />, app2);
@@ -30,9 +32,9 @@ ReactDOM.render(
     , app4);
 
 var app5 = document.getElementById("app5");
-ReactDOM.render(<CounterManagement ownerName="Ali Nejati" CustomCallBack={CallBack} />, app5);
+ReactDOM.render(<List listData={listData} />, app5);
 
 function CallBack(num: number) {
     listData.push(num.toString());
-    ReactDOM.render(<List listData={listData} />, app1);
+    ReactDOM.render(<List listData={listData} />, app5); 
 }
