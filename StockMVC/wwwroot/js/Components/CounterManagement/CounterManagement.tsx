@@ -31,8 +31,7 @@ export default class CounterManagement extends React.Component<Props, State> {
     }
 
     handleAddClick = () => {
-        this.setState({ counter: this.state.counter + 1 });
-        
+        this.setState({ counter: this.state.counter + 1 });   
     }
 
     handleMinusClick = () => {
