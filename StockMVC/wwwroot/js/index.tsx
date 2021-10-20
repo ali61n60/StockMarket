@@ -10,13 +10,13 @@ import SymbolSelector from "./Components/SymbolSelector/SymbolSelector";
 
 $(document).ready(function () {
     const e = React.createElement;
-    let listData = ["a", "b"];
+    let listData = [];
     let ModelData: string;
 
-    let modelString = $("#Model").val().toString();
-    let symbolArray: [Symbol] = $.parseJSON(modelString);
-    symbolArray.forEach((S) => { listData.push(S.NamePersian.toString()); });
+    let allSymbolsJsonString = $("#AllSymbols").val().toString();
+    let symbolArray: [Symbol] = $.parseJSON(allSymbolsJsonString);
     
+    let allSymbolGroupsJsonString = $("#AllSymbolGroups").val().toString();
 
     ReactDOM.render(
         <div>

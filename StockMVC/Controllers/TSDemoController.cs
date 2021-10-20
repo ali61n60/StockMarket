@@ -11,11 +11,13 @@ namespace StockMVC.Controllers
 {
     public class TSDemoController : Controller
     {
-        readonly ISymbolService _symbolService;
+        private readonly ISymbolService _symbolService;
+        readonly ISymbolGroupService _symbolGroupService;
 
-        public TSDemoController(ISymbolService symbolService)
+        public TSDemoController(ISymbolService symbolService, ISymbolGroupService symbolGroupService)
         {
             _symbolService = symbolService;
+            _symbolGroupService = symbolGroupService;
         }
 
         public IActionResult Index()
@@ -25,16 +27,25 @@ namespace StockMVC.Controllers
 
         public IActionResult ReactDemo()
         {
-            List<Symbol> allSymbols = _symbolService.GetAllSymbols().Take(10).ToList();
+            ModelData modelData = new ModelData();
+
+            List<Symbol> allSymbols = _symbolService.GetAllSymbols().ToList();
             foreach (Symbol symbol in allSymbols)
             {
                 symbol.SymbolGroup= null;
             }
+            modelData.AllSymbols = JsonConvert.SerializeObject(allSymbols);
 
-            return View(model:JsonConvert.SerializeObject(allSymbols));
+            List<SymbolGroup> allSymbolGroups= _symbolGroupService.GetAllSymbolGroups();
+            modelData.AllSymbolGroups = JsonConvert.SerializeObject(allSymbolGroups);
+
+            return View(modelData);
         }
+    }
 
-
-
+    public class ModelData
+    {
+        public string AllSymbols { get; set; }
+        public string AllSymbolGroups { get; set; }
     }
 }
