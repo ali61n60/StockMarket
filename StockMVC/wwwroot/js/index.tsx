@@ -18,7 +18,12 @@ $(document).ready(function () {
     symbolArray.forEach((S) => { listData.push(S.NamePersian.toString()); });
     
 
-    ReactDOM.render(<SymbolSelector symbolArray={symbolArray} ownerName="Ali" CustomCallBack={CallBack} />, $("#app1")[0]);
+    ReactDOM.render(
+        <div>
+            <SymbolSelector SymbolArray={symbolArray} OwnerName="Ali" CustomCallBack={CallBack} Id="Selector1" />
+            <SymbolSelector SymbolArray={symbolArray} OwnerName="Reza" CustomCallBack={CallBack} Id="Selector2" />
+        </div>
+        , $("#app1")[0]);
 
     ReactDOM.render(<LikeButton />, $("#app2")[0]); 
 

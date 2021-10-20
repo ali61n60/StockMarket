@@ -5,9 +5,10 @@ import Symbol from "../.././Models/Symbol";
 
 
 interface Props {
-    ownerName: string;
-    symbolArray: [Symbol];
+    OwnerName: string;
+    SymbolArray: [Symbol];
     CustomCallBack(message: string);
+    Id: string;
 
 
 }
@@ -28,10 +29,10 @@ export default class SymbolSelector extends React.Component<Props, State> {
         const className = "btn btn-block btn-primary";
         return (
             <React.Fragment>
-                <select onChange={this.handleSelectOnChange} className="form-control" name="SymbolSelectName" id="SymbolSelectId">
+                <select onChange={this.handleSelectOnChange} className="form-control" name="SymbolSelectName" id={this.props.Id}>
                     {((rows) => {
-                        for (var i = 0; i < this.props.symbolArray.length; i++) {
-                            rows.push(<option value={this.props.symbolArray[i].Id}>{this.props.symbolArray[i].NamePersian}  </option>);
+                        for (var i = 0; i < this.props.SymbolArray.length; i++) {
+                            rows.push(<option value={this.props.SymbolArray[i].Id}>{this.props.SymbolArray[i].NamePersian}  </option>);
                         }
                         return rows;
                     })([])}
@@ -42,7 +43,7 @@ export default class SymbolSelector extends React.Component<Props, State> {
                 </select>
                 <br/>
               
-                <h2>Owner Name: {this.props.ownerName}</h2>
+                <h2>Owner Name: {this.props.OwnerName}</h2>
                 <h3>Counter: {this.state.counter}</h3>
                 <button className={className} onClick={this.handleAddClick}>Add</button>
                 <button className={className} onClick={this.handleMinusClick}>Minus</button>
@@ -63,6 +64,6 @@ export default class SymbolSelector extends React.Component<Props, State> {
 
     handleSelectOnChange = () => {
 
-        this.props.CustomCallBack(`${$("#SymbolSelectId :selected").text()} with id as  ${$("#SymbolSelectId :selected").val()}`);
+        this.props.CustomCallBack(`${$(`#${this.props.Id} :selected`).text()} with id as  ${$(`#${this.props.Id} :selected`).val()}`);
     }
 }
