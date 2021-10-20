@@ -13,13 +13,17 @@ $(document).ready(function () {
 
     let modelElement: HTMLElement = document.getElementById("Model");
 
-    listData.push($("#Model").val().toString());
+    let modelString = $("#Model").val().toString();
+     
+    let modelObject= $.parseJSON(modelString);
 
+
+    listData.push(modelObject.toString());
     
     
     ReactDOM.render(<CounterManagement ownerName="Ali Nejati" CustomCallBack={CallBack} />, $("#app1")[0]);
 
-    ReactDOM.render(<LikeButton />, $("#app2")[0]);
+    ReactDOM.render(<LikeButton />, $("#app2")[0]); 
 
 
     var app3 = document.getElementById("app3");
