@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace ServiceStd
 {
-    class SymbolGroupService : ISymbolGroupService
+    public class SymbolGroupService : ISymbolGroupService
     {
         public List<SymbolGroup> GetAllSymbolGroups()
         {

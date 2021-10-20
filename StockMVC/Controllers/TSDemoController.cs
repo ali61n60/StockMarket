@@ -37,6 +37,10 @@ namespace StockMVC.Controllers
             modelData.AllSymbols = JsonConvert.SerializeObject(allSymbols);
 
             List<SymbolGroup> allSymbolGroups= _symbolGroupService.GetAllSymbolGroups();
+            foreach (SymbolGroup symbolGroup in allSymbolGroups)
+            {
+                symbolGroup.Symbols = null;
+            }
             modelData.AllSymbolGroups = JsonConvert.SerializeObject(allSymbolGroups);
 
             return View(modelData);

@@ -6,9 +6,10 @@ import LikeButton from "./Components/LikeButton/LikeButton";
 import Button from "./Components/Button/Button";
 import CounterManagement from "./Components/CounterManagement/CounterManagement";
 import Symbol from "./Models/Symbol";
+import SymbolGroup from "./Models/SymbolGroup";
 import SymbolSelector from "./Components/SymbolSelector/SymbolSelector";
 
-$(document).ready(function () {
+$(document).ready( ()=> {
     const e = React.createElement;
     let listData = [];
     let ModelData: string;
@@ -17,12 +18,10 @@ $(document).ready(function () {
     let symbolArray: [Symbol] = $.parseJSON(allSymbolsJsonString);
     
     let allSymbolGroupsJsonString = $("#AllSymbolGroups").val().toString();
+    let symbolGroupArray: [SymbolGroup] = $.parseJSON(allSymbolGroupsJsonString);
 
     ReactDOM.render(
-        <div>
-            <SymbolSelector SymbolArray={symbolArray} OwnerName="Ali" CustomCallBack={CallBack} Id="Selector1" />
-            <SymbolSelector SymbolArray={symbolArray} OwnerName="Reza" CustomCallBack={CallBack} Id="Selector2" />
-        </div>
+        <SymbolSelector SymbolArray={symbolArray} SymbolGroupArray={symbolGroupArray} OwnerName="Ali" CustomCallBack={CallBack} Id="Selector1" />
         , $("#app1")[0]);
 
     ReactDOM.render(<LikeButton />, $("#app2")[0]); 

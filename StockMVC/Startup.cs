@@ -45,6 +45,7 @@ namespace StockMVC
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<ISymbolService, SymbolService>();
+            services.AddScoped<ISymbolGroupService, SymbolGroupService>();
             services.AddServerSideBlazor();
             services.AddResponseCompression(opts =>
             {
