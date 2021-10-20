@@ -1,4 +1,4 @@
-﻿export class Symbol {
+﻿export default class Symbol {
     Id: number;
     SymbolLatin: string;
     NameLatin: string;

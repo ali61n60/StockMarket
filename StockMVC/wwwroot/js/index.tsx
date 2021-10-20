@@ -5,23 +5,20 @@ import List from "./Components/List/List";
 import LikeButton from "./Components/LikeButton/LikeButton";
 import Button from "./Components/Button/Button";
 import CounterManagement from "./Components/CounterManagement/CounterManagement";
+import Symbol from "./Models/Symbol";
+import SymbolSelector from "./Components/SymbolSelector/SymbolSelector";
 
 $(document).ready(function () {
     const e = React.createElement;
     let listData = ["a", "b"];
     let ModelData: string;
 
-    let modelElement: HTMLElement = document.getElementById("Model");
-
     let modelString = $("#Model").val().toString();
-     
-    let modelObject= $.parseJSON(modelString);
-
-
-    listData.push(modelObject.toString());
+    let symbolArray: [Symbol] = $.parseJSON(modelString);
+    symbolArray.forEach((S) => { listData.push(S.NamePersian.toString()); });
     
-    
-    ReactDOM.render(<CounterManagement ownerName="Ali Nejati" CustomCallBack={CallBack} />, $("#app1")[0]);
+
+    ReactDOM.render(<SymbolSelector symbolArray={symbolArray} ownerName="Ali" CustomCallBack={CallBack} />, $("#app1")[0]);
 
     ReactDOM.render(<LikeButton />, $("#app2")[0]); 
 
@@ -41,10 +38,12 @@ $(document).ready(function () {
     var app5 = document.getElementById("app5");
     ReactDOM.render(<List listData={listData} />, $("#app5")[0]);
 
-    function CallBack(num: number) {
-        listData.push(num.toString());
+    function CallBack(message: string) {
+        listData.unshift(message)
         ReactDOM.render(<List listData={listData} />, $("#app5")[0]);
     }
 
 });
+
+
 
