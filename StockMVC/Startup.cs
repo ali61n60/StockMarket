@@ -10,6 +10,7 @@ using ModelStd.IRepository;
 using RepositoryStd.Database.Repository;
 using Microsoft.AspNetCore.ResponseCompression;
 using System.Linq;
+using Microsoft.Extensions.Hosting;
 using StockMVC.Hubs;
 using ServiceStd.IService;
 using ServiceStd;
@@ -57,7 +58,7 @@ namespace StockMVC
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseResponseCompression();
             if (env.IsDevelopment())
