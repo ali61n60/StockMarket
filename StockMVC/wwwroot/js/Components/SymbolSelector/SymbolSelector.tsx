@@ -9,7 +9,7 @@ interface Props {
     OwnerName: string;
     SymbolArray: [Symbol];
     SymbolGroupArray:[SymbolGroup];
-    CustomCallBack(message: string);
+    CustomCallBack(newSymbolId: number);
     Id: string;
 }
 interface State {
@@ -51,21 +51,13 @@ export default class SymbolSelector extends React.Component<Props, State> {
                 <br/>
               
                 <h2>Owner Name: {this.props.OwnerName}</h2>
-                <button className={className} onClick={this.handleMinusClick}>Show Data</button>
+                
             </ React.Fragment>
         );
     }
 
-    handleMinusClick = () => {
-        this.setState({ counter: this.state.counter - 1 });
-        var today = new Date();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        this.props.CustomCallBack(`id changed at ${time}`);
-    }
-
     onSymbolChange = () => {
-
-        this.props.CustomCallBack(`${$(`#${this.props.Id} :selected`).text()} with id as  ${$(`#${this.props.Id} :selected`).val()}`);
+        this.props.CustomCallBack(Number($(`#${this.props.Id} :selected`).val()));
     }
 
     onSymbolGroupChange=() => {
