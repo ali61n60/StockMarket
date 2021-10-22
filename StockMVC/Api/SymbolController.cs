@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
+using ModelStd;
 using ServiceStd.IService;
 using Newtonsoft.Json;
 
@@ -20,6 +22,12 @@ namespace StockMVC.Api
 
             return JsonConvert.SerializeObject(_symbolService.GetAllSymbolsName());
 
+        }
+
+        public string GetSymbolTradeData([FromQuery] int symbolId)
+        {
+            List<PointData> tradeData=  _symbolService.GetSymbolTradeData(symbolId);
+            return JsonConvert.SerializeObject(tradeData);
         }
 
         public string SayHello([FromQuery] string Name)
