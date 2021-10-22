@@ -48,7 +48,7 @@ $(document).ready( ()=> {
     }
 
     function RenderChartDraw(symbolId:number) {
-        ReactDOM.render(<ChartDraw SymbolId={symbolId} />, $("#app10")[0]);
+        ReactDOM.render(<ChartDraw SymbolId={symbolId} />, $("#app10")[0]); 
     }
 
 });
