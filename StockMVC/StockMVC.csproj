@@ -49,6 +49,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <TypeScriptCompile Remove="node_modules\**" />
+	  <Watch Remove="node_modules\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="webpack.config.js" />
 	</ItemGroup>
 

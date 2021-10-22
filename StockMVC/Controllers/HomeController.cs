@@ -27,7 +27,7 @@ namespace StockMVC.Controllers
         public IActionResult Index(string symbolGroup, int symbolPage = 1)
         {
 
-            //return Redirect("~/chat");
+           // return Redirect("~/mychart");
             //Get All Symbols data               
             List<Symbol> allSymbols = _symbolService.GetAllSymbols()
                                      .Where(s=> symbolGroup==null || s.SymbolGroup.Id==int.Parse(symbolGroup))

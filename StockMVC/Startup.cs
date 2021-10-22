@@ -34,7 +34,7 @@ namespace StockMVC
         {
             
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-            
+            services.AddRazorPages();
             services.AddDbContext<StockDbContext>(opts =>
             {
                 opts.UseSqlServer(
@@ -88,7 +88,7 @@ namespace StockMVC
 
                 endpoints.MapControllerRoute(
                     name: "popular",
-                    pattern: "{controller=TSDemo}/{action=ReactDemo}");
+                    pattern: "{controller=Home}/{action=Index}");
 
                 endpoints.MapControllerRoute(
                     name: "default",
