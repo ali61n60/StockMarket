@@ -13,7 +13,7 @@
     "allowSyntheticDefaultImports": true
   },
   "compileOnSave": true,
-  "exclude": [ "node_modules", "wwwroot" ],
+  "exclude": [ "node_modules" ],
   "files": ["file.ts"]
 }
 

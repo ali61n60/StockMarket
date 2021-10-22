@@ -39,7 +39,7 @@ $(document).ready( ()=> {
 
     ReactDOM.render(<List listData={listData} />, $("#app5")[0]);
 
-    ReactDOM.render(<ChartDraw ownerName="Ali" CustomCallBack={CallBack}  />, $("#app10")[0]);
+    ReactDOM.render(<ChartDraw SymbolId={1} CustomCallBack={CallBack}  />, $("#app6")[0]);
 
     function CallBack(message: string) {
         listData.unshift(message)
