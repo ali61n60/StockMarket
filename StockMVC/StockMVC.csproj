@@ -40,7 +40,6 @@
     <Folder Include="Views\Notification\" />
     <Folder Include="wwwroot\lib\content\" />
     <Folder Include="wwwroot\images\" />
-    <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
 	<ItemGroup>
@@ -77,7 +76,7 @@
 	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 	  </Content>
-	  <Content Include="wwwroot\js\index.tsx">
+	  <Content Include="wwwroot\js\Views\TSDemo.tsx">
 	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 	  </Content>

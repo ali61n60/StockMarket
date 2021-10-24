@@ -88,7 +88,7 @@ namespace StockMVC
 
                 endpoints.MapControllerRoute(
                     name: "popular",
-                    pattern: "{controller=Home}/{action=Index}");
+                    pattern: "{controller=TSDemo}/{action=ReactDemo}");
 
                 endpoints.MapControllerRoute(
                     name: "default",

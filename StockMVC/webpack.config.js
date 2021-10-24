@@ -3,10 +3,12 @@
 
 module.exports = {   
     mode:"development",
-    entry: "./wwwroot/js/index.tsx",
+    entry: {
+       "TSDemo": "./wwwroot/js/Views/TSDemo.tsx"
+    },
     devtool: "inline-source-map",
     output: {
-        filename: "bundle.js",
+        filename: "[name].js",
         path: path.resolve(__dirname, "./wwwroot/dist"),
     },
     module: {

@@ -5,29 +5,12 @@
 }
 
 @section Scripts {
-    <script src="~/dist/bundle.js"></script>
+    <link href="~/css/TSDemo/StyleSheet.css" rel="stylesheet" />
+    <script src="~/dist/TSdemo.js"></script>
 }
 
 <input type="hidden" id="AllSymbols" name="allSymbols" value="@Model.AllSymbols">
 <input type="hidden" id="AllSymbolGroups" name="allSymbolGroups" value="@Model.AllSymbolGroups">
 
-<div class="row">
-    <div class="col-sm-4" id="app1"></div>
-    <div class="col-sm-4" id="app2"></div>
-    <div class="col-sm-4" id="app3"></div>
-</div>
-<div class="row">
-    <div class="col-sm-4" id="app4"></div>
-    <div class="col-sm-4" id="app5"></div>
-    <div class="col-sm-4" id="app6"></div>
-</div>
-<div class="row">
-    <div class="col-sm-4" id="app7"></div>
-    <div class="col-sm-4" id="app8"></div>
-    <div class="col-sm-4" id="app9"></div>
-</div>
-<div class="row">
-    <div class="col-sm-12" id="app10">
-      
-    </div>
-</div>
+<div id="main"></div>
+
