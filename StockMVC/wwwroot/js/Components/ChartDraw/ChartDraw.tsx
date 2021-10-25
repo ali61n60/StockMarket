@@ -3,7 +3,7 @@ import axios from "axios";
 import Chart from "chart.js/auto";
 import PointData from "../.././Models/PointData";
 
-interface Props {
+interface Props { 
     SymbolId: number;
 }
 interface State {
@@ -15,7 +15,7 @@ export default class ChartDraw extends React.Component<Props, State> {
         super(props);
         this.mounted = false;
     }
-    chartRef = React.createRef() as any;
+    chartRef = React.createRef() as any; 
     mounted: boolean;
     myChart: Chart;
     draw() {
