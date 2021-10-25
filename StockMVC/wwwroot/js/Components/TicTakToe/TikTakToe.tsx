@@ -6,8 +6,9 @@ interface IGameProps {
 }
 
 interface IGameStates {
-    history: [{squares: Array<string>}];
-    xIsNext:boolean;
+    history: {squares: string[]}[];
+    xIsNext: boolean;
+    stepNumber: number;
 }
 export default class Game extends React.Component<IGameProps,IGameStates> {
     constructor(props) {
@@ -16,6 +17,7 @@ export default class Game extends React.Component<IGameProps,IGameStates> {
             history: [{
                 squares: Array(9).fill(null),
             }],
+            stepNumber: 0,
             xIsNext: true,
         };
     }
@@ -23,23 +25,59 @@ export default class Game extends React.Component<IGameProps,IGameStates> {
         const history = this.state.history;
         const current = history[history.length - 1];
         const winner = calculateWinner(current.squares);
+        const moves = history.map((step, move) => {
+            const desc = move ?
+                'Go to move #' + move :
+                'Go to game start';
+            return (
+                 <li key={move}>
+                     <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                 </li>
+                
+            );
+        });
         let status;
         if (winner) {
             status = 'Winner: ' + winner;
         } else {
             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
+                
         return (
             <div className="game">
                 <div className="game-board">
-                    <Board squares={current.squares} xIsNext={true} onClick={() => {}} />
+                    <Board squares={current.squares} xIsNext={true} onClick={(i) => this.handleClick(i)} />
                 </div>
                 <div className="game-info">
-                    <div>{/* status */}</div>
-                    <ol>{/* TODO */}</ol>
+                    <div>{ status }</div>
+                    <ol>{moves}</ol>
                 </div>
             </div>
         );
+    }
+
+    handleClick(i: number) {
+        const history = this.state.history.slice(0, this.state.stepNumber + 1);
+        const current = history[this.state.stepNumber];
+        const squares = current.squares.slice();
+        if (calculateWinner(squares) || squares[i]) {
+            return;
+        }
+        squares[i] = this.state.xIsNext ? 'X' : 'O';
+        this.setState({
+            history: history.concat([{
+                squares: squares,
+            }]),
+            stepNumber: history.length,
+            xIsNext: !this.state.xIsNext,
+        });
+    }
+
+    jumpTo(step) {
+        this.setState({
+            stepNumber: step,
+            xIsNext: (step % 2) === 0,
+        });
     }
 }
 
@@ -48,7 +86,7 @@ interface ISquarProp {
     onClick;
 }
 interface  ISquareState {
-    value:string;
+    value: string;
 }
 class Square extends React.Component<ISquarProp, ISquareState> {
     
@@ -84,24 +122,14 @@ class Board extends React.Component<IBoardProp,IBoardState> {
         }
         squares[i] = this.state.xIsNext ? "X" : "O";
     }
-    renderSquare(i:number) {
+    renderSquare(i: number) {
         return <Square value={this.props.squares[i]}
             onClick={() => this.props.onClick(i)} />;
-    }
+    }   
 
-   
-
-    render() {
-        const winner = calculateWinner(this.props.squares);
-        let status;
-        if (winner) {
-            status = 'Winner: ' + winner;
-        } else {
-            status = 'Next player: ' + (this.props.xIsNext ? 'X' : 'O');
-        }
+    render() {       
         return (
             <div>
-                <div className="status">{status}</div>
                 <div className="board-row">
                     {this.renderSquare(0)}
                     {this.renderSquare(1)}
@@ -121,7 +149,6 @@ class Board extends React.Component<IBoardProp,IBoardState> {
         );
     }
 }
-
 
 // ========================================
 function calculateWinner(squares) {
