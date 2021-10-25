@@ -13,10 +13,6 @@ import DigitalClock from "../Components/DigitalClock/DigitalClock";
 
 $(document).ready(() => {
   
-
-    setInterval(() => { ReactDOM.render(<DigitalClock />, $("#DigitalClock")[0]); }, 1000);// digital clock updates every second
-
-
     ReactDOM.render(<React.Fragment>
         <div className="row">
             <div className="col-sm-4" id="SymbolSelector"></div>
@@ -29,7 +25,9 @@ $(document).ready(() => {
         <div className="row">
             <div className="col-sm-4" id="Button"></div>
             <div className="col-sm-4" id="List"></div>
-            <div className="col-sm-4" id="DigitalClock"></div>
+            <div className="col-sm-4" id="DigitalClock">
+                <DigitalClock />
+            </div>
         </div>
         <div className="row">
             <div className="col-sm-4" id="app7"></div>
