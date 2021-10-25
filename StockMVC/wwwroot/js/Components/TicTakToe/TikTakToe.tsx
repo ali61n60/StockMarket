@@ -31,7 +31,7 @@ export default class Game extends React.Component<IGameProps,IGameStates> {
                 'Go to game start';
             return (
                  <li key={move}>
-                     <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                     <button onClick={() => this.jumpTo(move)}>{desc}</button> 
                  </li>
                 
             );
