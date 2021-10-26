@@ -14,12 +14,13 @@ export default class DigitalClock extends React.Component<Props, State> {
         this.state={date:new Date()}
     }
     divStyle = {
-        color: 'white',
+        color: "#2d6a4f",
         textAlign: "center",
         borderWidth:"10px",
         borderStyle: "solid",
-        borderColor: "green",
-        borderRadius: "30px"
+        borderColor: "#FDE2E4",
+        borderRadius: "30px",
+        backgroundColor:"#BEE1E6"
     } as const;
 
     timerId: any;
@@ -39,8 +40,7 @@ export default class DigitalClock extends React.Component<Props, State> {
     }
 
     render() {
-        return (<div className="bg-primary" style={this.divStyle}>
-            <h1>DigitalClock</h1>
+        return (<div className="" style={this.divStyle}>            
             <h2>{this.state.date.toLocaleTimeString()}</h2>
         </div>);
     }

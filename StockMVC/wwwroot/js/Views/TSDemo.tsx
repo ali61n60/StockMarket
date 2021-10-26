@@ -27,6 +27,10 @@ $(document).ready(() => {
             <div className="col-sm-4" id="List"></div>
             <div className="col-sm-4" id="DigitalClock">
                 <DigitalClock />
+                <br />
+                <DigitalClock />
+                <br/>
+                <DigitalClock />
             </div>
         </div>
         <div className="row">
