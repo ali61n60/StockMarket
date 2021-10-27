@@ -55,6 +55,7 @@
 
 	<ItemGroup>
 	  <TypeScriptCompile Remove="wwwroot\js\Components\LikeButton\LikeButton.tsx" />
+	  <TypeScriptCompile Remove="wwwroot\js\Components\LikeButton\ToggleButton.tsx" />
 	  <TypeScriptCompile Remove="wwwroot\js\Components\List\List.tsx" />
 	  <TypeScriptCompile Remove="wwwroot\js\index.tsx" />
 	</ItemGroup>
@@ -65,6 +66,10 @@
 
 	<ItemGroup>
 	  <Content Include="webpack.config.js" />
+	  <Content Include="wwwroot\js\Components\LikeButton\ToggleButton.tsx">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
 	  <Content Include="wwwroot\js\Components\LikeButton\LikeButton.tsx">
 	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

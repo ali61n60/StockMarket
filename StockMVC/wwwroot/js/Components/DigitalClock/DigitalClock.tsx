@@ -18,7 +18,7 @@ export default class DigitalClock extends React.Component<Props, State> {
         textAlign: "center",
         borderWidth:"10px",
         borderStyle: "solid",
-        borderColor: "#FDE2E4",
+        borderColor: "#00b4d8",
         borderRadius: "30px",
         backgroundColor:"#BEE1E6"
     } as const;

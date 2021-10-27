@@ -1,14 +1,15 @@
 ﻿import * as React from "react";
 import * as ReactDOM from "react-dom";
 import * as $ from "jquery";
-import List from ".././Components/List/List";
-import Button from ".././Components/Button/Button";
-import ChartDraw from ".././Components/ChartDraw/ChartDraw";
-import Symbol from ".././Models/Symbol";
-import SymbolGroup from ".././Models/SymbolGroup";
-import SymbolSelector from ".././Components/SymbolSelector/SymbolSelector";
+import List from "../Components/List/List";
+import Button from "../Components/Button/Button";
+import ChartDraw from "../Components/ChartDraw/ChartDraw";
+import Symbol from "../Models/Symbol";
+import SymbolGroup from "../Models/SymbolGroup";
+import SymbolSelector from "../Components/SymbolSelector/SymbolSelector";
 import Game from ".././Components/TicTakToe/TikTakToe";
 import DigitalClock from "../Components/DigitalClock/DigitalClock";
+import ToggleButton from "../Components/LikeButton/ToggleButton"
 
 
 $(document).ready(() => {
@@ -20,7 +21,9 @@ $(document).ready(() => {
                 <Game />
             </div>
            
-            <div className="col-sm-4" id="app3"></div>
+            <div className="col-sm-4" id="ToggleButton">
+                <ToggleButton />
+            </div>
         </div>
         <div className="row">
             <div className="col-sm-4" id="Button"></div>
