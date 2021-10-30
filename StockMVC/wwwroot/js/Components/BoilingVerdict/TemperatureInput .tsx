@@ -10,8 +10,7 @@ interface Props {
     temperature: string;
     onTemperatureChange;
 }
-interface State {
-    
+interface State {    
 }
 
 export default class TemperatureInput extends React.Component <Props,State>{
