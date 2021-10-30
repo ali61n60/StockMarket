@@ -10,6 +10,7 @@ import SymbolSelector from "../Components/SymbolSelector/SymbolSelector";
 import Game from ".././Components/TicTakToe/TikTakToe";
 import DigitalClock from "../Components/DigitalClock/DigitalClock";
 import ToggleButton from "../Components/LikeButton/ToggleButton"
+import Calculator from "../Components/BoilingVerdict/Calculator";
 
 
 $(document).ready(() => {
@@ -37,7 +38,9 @@ $(document).ready(() => {
             </div>
         </div>
         <div className="row">
-            <div className="col-sm-4" id="app7"></div>
+            <div className="col-sm-4" id="BoilingVerdict">
+                <Calculator celsius={20} />
+            </div>
             <div className="col-sm-4" id="app8"></div>
             <div className="col-sm-4" id="app9"></div>
         </div>
