@@ -39,7 +39,7 @@ $(document).ready(() => {
         </div>
         <div className="row">
             <div className="col-sm-4" id="BoilingVerdict">
-                <Calculator celsius={20} />
+                <Calculator />
             </div>
             <div className="col-sm-4" id="app8"></div>
             <div className="col-sm-4" id="app9"></div>

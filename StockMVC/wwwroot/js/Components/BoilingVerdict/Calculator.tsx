@@ -3,7 +3,7 @@ import BoilingVerdict from "../BoilingVerdict/BoilingVerdict";
 import TemperatureInput from "../BoilingVerdict/TemperatureInput ";
 
 interface Props {
-    celsius: number;
+    
 }
 interface State {
     temperature: string;
