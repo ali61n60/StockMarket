@@ -78,7 +78,7 @@ $(document).ready(() => {
     }
 
     function RenderButton() {
-        ReactDOM.render(
+        ReactDOM.render( 
             <div>
                 <Button type="primary">test1</Button>
                 <Button type="default">test2</Button>
