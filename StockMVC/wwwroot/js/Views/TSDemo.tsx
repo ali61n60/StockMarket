@@ -11,6 +11,7 @@ import Game from ".././Components/TicTakToe/TikTakToe";
 import DigitalClock from "../Components/DigitalClock/DigitalClock";
 import ToggleButton from "../Components/LikeButton/ToggleButton"
 import Calculator from "../Components/BoilingVerdict/Calculator";
+import RandomDrawer from "../Components/RandomDrawer/RandomDrawer";
 
 
 $(document).ready(() => {
@@ -18,30 +19,17 @@ $(document).ready(() => {
     ReactDOM.render(<React.Fragment>
         <div className="row">
             <div className="col-sm-4" id="SymbolSelector"></div>  
-            <div className="col-sm-4" id="app2">
-                <Game />
-            </div>
-           
-            <div className="col-sm-4" id="ToggleButton">
-                <ToggleButton />
-            </div>
+            <div className="col-sm-4" id="app2"><Game /></div>           
+            <div className="col-sm-4" id="ToggleButton"><ToggleButton /></div>
         </div>
         <div className="row">
             <div className="col-sm-4" id="Button"></div>
             <div className="col-sm-4" id="List"></div>
-            <div className="col-sm-4" id="DigitalClock">
-                <DigitalClock />
-                <br />
-                <DigitalClock />
-                <br/>
-                <DigitalClock />
-            </div>
+            <div className="col-sm-4" id="DigitalClock"><DigitalClock /></div>
         </div>
         <div className="row">
-            <div className="col-sm-4" id="BoilingVerdict">
-                <Calculator />
-            </div>
-            <div className="col-sm-4" id="app8"></div>
+            <div className="col-sm-4" id="BoilingVerdict"><Calculator /></div>
+            <div className="col-sm-4" id="RandomDrawer"><RandomDrawer /></div>
             <div className="col-sm-4" id="app9"></div>
         </div>
         <div className="row">

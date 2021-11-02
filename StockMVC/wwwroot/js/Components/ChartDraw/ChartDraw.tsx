@@ -55,8 +55,7 @@ export default class ChartDraw extends React.Component<Props, State> {
     }
 
     render() {
-        console.log(`Render for ${this.props.SymbolId}`);
-        const className = "btn btn-block btn-danger";
+        console.log(`Render for ${this.props.SymbolId}`);        
         if (this.mounted) {
             this.draw();
         }
@@ -65,7 +64,6 @@ export default class ChartDraw extends React.Component<Props, State> {
                 <h2>Symbold Id: {this.props.SymbolId}</h2>
                 <canvas id="chart1" ref={this.chartRef}/>
             </ React.Fragment>
-        );
-        
+        );        
     }
 }

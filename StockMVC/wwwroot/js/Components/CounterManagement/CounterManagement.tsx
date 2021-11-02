@@ -2,7 +2,7 @@
 
 interface Props {
     ownerName: string;
-    CustomCallBack(currentNumber:number);
+    CustomCallBack(currentNumber: number);
 
 }
 interface State {

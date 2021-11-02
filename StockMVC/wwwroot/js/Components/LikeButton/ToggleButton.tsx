@@ -14,9 +14,7 @@ export default class ToggleButton extends React.Component<Props,State > {
        
        
     }
-    //<button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
-    //<button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
-
+   
     handleClick=()=> {
         this.setState((prevState) => ({
             isToggleOn: !prevState.isToggleOn
