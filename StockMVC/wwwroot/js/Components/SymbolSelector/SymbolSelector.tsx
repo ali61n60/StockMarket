@@ -8,14 +8,14 @@ import SymbolGroup from "../.././Models/SymbolGroup";
 interface Props {
     OwnerName: string;
     SymbolArray: [Symbol];
-    SymbolGroupArray:[SymbolGroup];
+    SymbolGroupArray: [SymbolGroup];
     CustomCallBack(newSymbolId: number);
     Id: string;
 }
 interface State {
     counter: number;
     selectedSymbolId: number;
-    selectedGroupId:number;
+    selectedGroupId: number;
 }
 
 export default class SymbolSelector extends React.Component<Props, State> {
@@ -30,7 +30,7 @@ export default class SymbolSelector extends React.Component<Props, State> {
             <React.Fragment>
                 <select onChange={this.onSymbolGroupChange} className="form-control" name="SymbolSelectName" id="symbolGroupSelect">
                     {((rows) => {
-                        for (var i = 0; i < this.props.SymbolGroupArray.length; i++) {
+                        for (let i = 0; i < this.props.SymbolGroupArray.length; i++) {
                             rows.push(<option value={this.props.SymbolGroupArray[i].Id}> {this.props.SymbolGroupArray[i].Name} </option> as any);
                         }
                         return rows;
@@ -39,7 +39,7 @@ export default class SymbolSelector extends React.Component<Props, State> {
                 <br/>
                 <select onChange={this.onSymbolChange} className="form-control" name="SymbolSelectName" id={this.props.Id}>
                     {((rows,selectedGroup) => {
-                        for (var i = 0; i < this.props.SymbolArray.length; i++) {
+                        for (let i = 0; i < this.props.SymbolArray.length; i++) {
                             if (this.props.SymbolArray[i].GroupId == selectedGroup) {
                                 rows.push(<option value={this.props.SymbolArray[i].Id}> {this.props.SymbolArray[i]
                                     .NamePersian} </option> as any);

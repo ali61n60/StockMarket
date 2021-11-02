@@ -19,8 +19,8 @@ $(document).ready(() => {
     ReactDOM.render(<React.Fragment>
         <div className="row">
             <div className="col-sm-4" id="SymbolSelector"></div>  
-            <div className="col-sm-4" id="app2"><Game /></div>           
-            <div className="col-sm-4" id="ToggleButton"><ToggleButton /></div>
+            <div className="col-sm-4" id="Game"><Game /></div>           
+            <div className="col-sm-4" id="ToggleButton"><ToggleButton /></div> 
         </div>
         <div className="row">
             <div className="col-sm-4" id="Button"></div>
@@ -33,7 +33,8 @@ $(document).ready(() => {
             <div className="col-sm-4" id="app9"></div>
         </div>
         <div className="row">
-            <div className="col-sm-12" id="ChartDraw"></div>
+            <div className="col-sm-12" id="ChartDraw">
+                <ChartDraw SymbolId={1} /></div>
         </div>
     </React.Fragment>,
         $("#main")[0]); 

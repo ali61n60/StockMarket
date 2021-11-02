@@ -23,8 +23,8 @@ export default class ChartDraw extends React.Component<Props, State> {
             this.myChart.destroy();
         }
         const myChartRef = this.chartRef.current.getContext("2d");
-        //Get symbol data from server based on symbolId
-        axios.get(`http://localhost:2333/api/symbol/GetSymbolTradeData?symbolId=${this.props.SymbolId}`).then(response => {
+        //Get symbol data from server based on symbolId   http://localhost:2333
+        axios.get(`/api/symbol/GetSymbolTradeData?symbolId=${this.props.SymbolId}`).then(response => {
             let PointDataArray: [PointData] = response.data as [PointData];
             const data = {
                 labels: [],
