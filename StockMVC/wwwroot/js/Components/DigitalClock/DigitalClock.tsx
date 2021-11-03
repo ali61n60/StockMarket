@@ -20,7 +20,8 @@ export default class DigitalClock extends React.Component<Props, State> {
         borderStyle: "solid",
         borderColor: "#00b4d8",
         borderRadius: "30px",
-        backgroundColor:"#BEE1E6"
+        backgroundColor: "#BEE1E6",
+        width: "100%"
     } as const;
 
     timerId: any;

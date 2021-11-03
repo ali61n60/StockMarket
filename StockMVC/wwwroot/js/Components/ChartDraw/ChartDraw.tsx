@@ -61,8 +61,20 @@ export default class ChartDraw extends React.Component<Props, State> {
         }
         return (
             <React.Fragment>
-                <h2>Symbold Id: {this.props.SymbolId}</h2>
-                <canvas id="chart1" ref={this.chartRef}/>
+                <div className="row">
+                    <div className="col-sm-4">
+                    </div>
+                    <div className="col-sm-4">
+                        <h4>Symbold Id: {this.props.SymbolId}</h4>
+                    </div>
+                    <div className="col-sm-4">
+                    </div>
+                </div>
+                <div className="row">
+                    <canvas id="chart1" ref={this.chartRef} />
+                </div>
+                
+                
             </ React.Fragment>
         );        
     }

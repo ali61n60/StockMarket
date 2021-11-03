@@ -1,35 +1,33 @@
 ﻿import * as React from "react";
 import * as ReactDOM from "react-dom";
 import * as $ from "jquery";
-import List from "../Components/List/List";
-import Button from "../Components/Button/Button";
 import ChartDraw from "../Components/ChartDraw/ChartDraw";
 import Symbol from "../Models/Symbol";
 import SymbolGroup from "../Models/SymbolGroup";
 import SymbolSelector from "../Components/SymbolSelector/SymbolSelector";
-import Game from ".././Components/TicTakToe/TikTakToe";
 import DigitalClock from "../Components/DigitalClock/DigitalClock";
-import ToggleButton from "../Components/LikeButton/ToggleButton"
-import Calculator from "../Components/BoilingVerdict/Calculator";
-import RandomDrawer from "../Components/RandomDrawer/RandomDrawer";
-
 
 $(document).ready(() => {
   
     ReactDOM.render(<React.Fragment>
         <div className="row">
-            <div className="col-sm-4" id="SymbolSelector"></div>  
-            <div className="col-sm-4" id="Game"><Game /></div>           
-            <div className="col-sm-4" id="ToggleButton"><ToggleButton /></div> 
+            <div className="col-sm-4" >
+                <div className="row" id="DigitalClock"><DigitalClock /></div>
+                <br/>
+                 <div className="row" id="SymbolSelector">
+                </div>
+            </div>
+            <div className="col-sm-4" id="ToggleButton"></div>
+            <div className="col-sm-4" id="app1"></div>
         </div>
         <div className="row">
             <div className="col-sm-4" id="Button"></div>
             <div className="col-sm-4" id="List"></div>
-            <div className="col-sm-4" id="DigitalClock"><DigitalClock /></div>
+            <div className="col-sm-4" id="Game"></div>           
         </div>
         <div className="row">
-            <div className="col-sm-4" id="BoilingVerdict"><Calculator /></div>
-            <div className="col-sm-4" id="RandomDrawer"><RandomDrawer /></div>
+            <div className="col-sm-4" id="BoilingVerdict"></div>
+            <div className="col-sm-4" id="RandomDrawer"></div>
             <div className="col-sm-4" id="app9"></div>
         </div>
         <div className="row">
@@ -38,9 +36,7 @@ $(document).ready(() => {
         </div>
     </React.Fragment>,
         $("#main")[0]); 
-    RenderSymbolSelector();
-    RenderList();
-    RenderButton();
+    RenderSymbolSelector();   
     RenderChartDraw(1);
 
     function SelectedSymbolChanged(newSymbolId: number) {
@@ -48,32 +44,27 @@ $(document).ready(() => {
     }
 
     function RenderSymbolSelector() {
-        let allSymbolsJsonString = $("#AllSymbols").val().toString();
-        let symbolArray: [Symbol] = $.parseJSON(allSymbolsJsonString);
-        let allSymbolGroupsJsonString = $("#AllSymbolGroups").val().toString();
-        let symbolGroupArray: [SymbolGroup] = $.parseJSON(allSymbolGroupsJsonString);
+        const allSymbolsJsonString = $("#AllSymbols").val().toString();
+        const symbolArray: [Symbol] = $.parseJSON(allSymbolsJsonString);
+        const allSymbolGroupsJsonString = $("#AllSymbolGroups").val().toString();
+        const symbolGroupArray: [SymbolGroup] = $.parseJSON(allSymbolGroupsJsonString);
         ReactDOM.render(
-            <SymbolSelector SymbolArray={symbolArray}
-                SymbolGroupArray={symbolGroupArray}
-                OwnerName="Ali"
-                CustomCallBack={SelectedSymbolChanged}
-                Id="Selector1" />,
+            <div className="row">
+                <div className="col-sm-6">
+                    <SymbolSelector SymbolArray={symbolArray}
+                        SymbolGroupArray={symbolGroupArray}
+                        CustomCallBack={SelectedSymbolChanged}
+                        Id="Selector1" />
+                </div>
+                <div className="col-sm-6">
+                    <SymbolSelector SymbolArray={symbolArray}
+                        SymbolGroupArray={symbolGroupArray}
+                        CustomCallBack={SelectedSymbolChanged}
+                        Id="Selector2" />
+                </div>                   
+            </div>,
             $("#SymbolSelector")[0]);
-    }
-
-    function RenderList() {
-        let listData = [];
-        ReactDOM.render(<List listData={listData} />, $("#List")[0]);
-    }
-
-    function RenderButton() {
-        ReactDOM.render( 
-            <div>
-                <Button type="primary">test1</Button>
-                <Button type="default">test2</Button>
-            </div>
-            , $("#Button")[0]);
-    }
+    }   
 
     function RenderChartDraw(symbolId: number) {
         ReactDOM.render(<ChartDraw SymbolId={symbolId} />, $("#ChartDraw")[0]);

@@ -5,8 +5,7 @@ import Symbol from "../.././Models/Symbol";
 import SymbolGroup from "../.././Models/SymbolGroup";
 
 
-interface Props {
-    OwnerName: string;
+interface Props {   
     SymbolArray: [Symbol];
     SymbolGroupArray: [SymbolGroup];
     CustomCallBack(newSymbolId: number);
@@ -24,8 +23,7 @@ export default class SymbolSelector extends React.Component<Props, State> {
         this.state = { counter: 0, selectedSymbolId: 0, selectedGroupId:1 };
     }
 
-    render() {
-        const className = "btn btn-block btn-primary";
+    render() {        
         return (
             <React.Fragment>
                 <select onChange={this.onSymbolGroupChange} className="form-control" name="SymbolSelectName" id="symbolGroupSelect">
@@ -48,10 +46,6 @@ export default class SymbolSelector extends React.Component<Props, State> {
                         return rows;
                     })([],this.state.selectedGroupId)}
                 </select>
-                <br/>
-              
-                <h2>Owner Name: {this.props.OwnerName}</h2>
-                
             </ React.Fragment>
         );
     }
