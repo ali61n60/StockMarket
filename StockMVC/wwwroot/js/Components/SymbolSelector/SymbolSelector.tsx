@@ -1,14 +1,12 @@
 ﻿import * as React from "react";
-import * as ReactDOM from "react-dom";
 import * as $ from "jquery";
 import Symbol from "../.././Models/Symbol";
 import SymbolGroup from "../.././Models/SymbolGroup";
 
-
 interface Props {   
     SymbolArray: [Symbol];
     SymbolGroupArray: [SymbolGroup];
-    CustomCallBack(newSymbolId: number);
+    CustomCallBack(newSymbolId: number, id: string);
     Id: string;
 }
 interface State {
@@ -22,11 +20,12 @@ export default class SymbolSelector extends React.Component<Props, State> {
         super(props);
         this.state = { counter: 0, selectedSymbolId: 0, selectedGroupId:1 };
     }
+    selectRef = React.createRef() as any;
 
     render() {        
         return (
             <React.Fragment>
-                <select onChange={this.onSymbolGroupChange} className="form-control" name="SymbolSelectName" id="symbolGroupSelect">
+                <select onChange={this.onSymbolGroupChange} className="form-control" name="SymbolSelectName" ref={this.selectRef}>
                     {((rows) => {
                         for (let i = 0; i < this.props.SymbolGroupArray.length; i++) {
                             rows.push(<option value={this.props.SymbolGroupArray[i].Id}> {this.props.SymbolGroupArray[i].Name} </option> as any);
@@ -51,12 +50,8 @@ export default class SymbolSelector extends React.Component<Props, State> {
     }
 
     onSymbolChange = () => {
-        this.props.CustomCallBack(Number($(`#${this.props.Id} :selected`).val()));
+        this.props.CustomCallBack(Number($(`#${this.props.Id} :selected`).val()),this.props.Id);
     }
 
-    onSymbolGroupChange=() => {
-        this.setState({
-            selectedGroupId: $("#symbolGroupSelect :selected").val() as number
-    });
-    }
+    onSymbolGroupChange=(e) => { this.setState({ selectedGroupId: e.target.value as number }); }
 }

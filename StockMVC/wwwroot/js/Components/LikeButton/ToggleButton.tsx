@@ -10,9 +10,6 @@ export default class ToggleButton extends React.Component<Props,State > {
     constructor(props) {
         super(props);
         this.state = { isToggleOn: true };
-
-       
-       
     }
    
     handleClick=()=> {
