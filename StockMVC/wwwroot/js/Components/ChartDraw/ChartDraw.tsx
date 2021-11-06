@@ -1,9 +1,9 @@
 ﻿import * as React from "react";
 import Chart from "chart.js/auto";
-import PointData from "../.././Models/PointData";
+import PointData from "../../Models/PointData";
 
 interface Props { 
-    PointDataArray: [PointData];
+    PointDataArray: PointData[];
 }
 interface State {}
 
