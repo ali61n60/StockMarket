@@ -1,14 +1,11 @@
 ﻿import * as React from "react";
-import axios from "axios";
 import Chart from "chart.js/auto";
 import PointData from "../.././Models/PointData";
 
 interface Props { 
-    SymbolId: number;
+    PointDataArray: [PointData];
 }
-interface State {
-    
-}
+interface State {}
 
 export default class ChartDraw extends React.Component<Props, State> {
     constructor(props: Props) {
@@ -23,9 +20,7 @@ export default class ChartDraw extends React.Component<Props, State> {
             this.myChart.destroy();
         }
         const myChartRef = this.chartRef.current.getContext("2d");
-        //Get symbol data from server based on symbolId   http://localhost:2333
-        axios.get(`/api/symbol/GetSymbolTradeData?symbolId=${this.props.SymbolId}`).then(response => {
-            let PointDataArray: [PointData] = response.data as [PointData];
+        
             const data = {
                 labels: [],
                 datasets: [{
@@ -35,9 +30,9 @@ export default class ChartDraw extends React.Component<Props, State> {
                     data: [],
                 }]
             };
-            for (var i = 0; i < PointDataArray.length; i++) {
-                data.labels.push(PointDataArray[i].Date);
-                data.datasets[0].data.push(PointDataArray[i].Final);
+        for (var i = 0; i < this.props.PointDataArray.length; i++) {
+            data.labels.push(this.props.PointDataArray[i].Date);
+            data.datasets[0].data.push(this.props.PointDataArray[i].Final);
             }
             const config = {
                 type: 'line',
@@ -45,11 +40,9 @@ export default class ChartDraw extends React.Component<Props, State> {
                 options: {}
             };
             this.myChart= new Chart(myChartRef, config as any);
-        });
-    }
-
-    componentDidMount(): void {
-        console.log(`Didmount for ${this.props.SymbolId}`);
+        }
+    
+    componentDidMount(): void {       
         this.draw();
         this.mounted = true;
     }

@@ -45,6 +45,8 @@ $(document).ready(() => {
     RenderChart1(1);
 
     function SelectedSymbolChanged(newSymbolId: number, id: string) {
+        //TODO get data from server and give data to ChartDraw component
+
         if (id === "Selector1") {
             RenderChart1(newSymbolId);
         } else {
