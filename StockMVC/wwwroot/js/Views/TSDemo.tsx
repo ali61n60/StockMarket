@@ -6,6 +6,8 @@ import Symbol from "../Models/Symbol";
 import SymbolGroup from "../Models/SymbolGroup";
 import SymbolSelector from "../Components/SymbolSelector/SymbolSelector";
 import DigitalClock from "../Components/DigitalClock/DigitalClock";
+import SymbolData from "../Components/SymbolData/SymbolData";
+import PointData from "../Models/PointData";
 
 $(document).ready(() => {
 
@@ -31,7 +33,7 @@ $(document).ready(() => {
                 <div className="col-sm-4" id="app9"></div>
             </div>
             <div className="row">
-                <div className="col-sm-4" id="Chart1"><ChartDraw SymbolId={1} /></div>
+                <div className="col-sm-4" id="Chart1"></div>
                 <div className="col-sm-4" id="Chart2"></div>
                 <div className="col-sm-4" id="Chart3"></div>
             </div>
@@ -41,16 +43,16 @@ $(document).ready(() => {
             </div>
         </React.Fragment>,
         $("#main")[0]);
-    RenderSymbolSelector();
-    RenderChart1(1);
+    RenderSymbolSelector();    
 
     function SelectedSymbolChanged(newSymbolId: number, id: string) {
         //TODO get data from server and give data to ChartDraw component
-
+        let symbolData = new SymbolData();
+        let PointDataArray= symbolData.GetSymbolTradeData(newSymbolId);
         if (id === "Selector1") {
-            RenderChart1(newSymbolId);
+            RenderChart1(PointDataArray);
         } else {
-            RenderChart2(newSymbolId);
+            RenderChart2(PointDataArray);
         }
     }
 
@@ -85,11 +87,11 @@ $(document).ready(() => {
             $("#SymbolSelector")[0]);
     }
 
-    function RenderChart1(symbolId: number) {
-        ReactDOM.render(<ChartDraw SymbolId={symbolId} />, $("#Chart1")[0]);
+    function RenderChart1(PointDataArray: [PointData]) {
+        ReactDOM.render(<ChartDraw PointDataArray={PointDataArray} />, $("#Chart1")[0]);
     }
-    function RenderChart2(symbolId: number) {
-        ReactDOM.render(<ChartDraw SymbolId={symbolId} />, $("#Chart2")[0]);
+    function RenderChart2(PointDataArray: [PointData]) {
+        ReactDOM.render(<ChartDraw PointDataArray={PointDataArray} />, $("#Chart2")[0]);
     }
 });
 

@@ -30,7 +30,7 @@ export default class ChartDraw extends React.Component<Props, State> {
                     data: [],
                 }]
             };
-        for (var i = 0; i < this.props.PointDataArray.length; i++) {
+        for (let i = 0; i < this.props.PointDataArray.length; i++) {
             data.labels.push(this.props.PointDataArray[i].Date);
             data.datasets[0].data.push(this.props.PointDataArray[i].Final);
             }
@@ -47,8 +47,7 @@ export default class ChartDraw extends React.Component<Props, State> {
         this.mounted = true;
     }
 
-    render() {
-        console.log(`Render for ${this.props.SymbolId}`);        
+    render() {              
         if (this.mounted) {
             this.draw();
         }
@@ -58,7 +57,7 @@ export default class ChartDraw extends React.Component<Props, State> {
                     <div className="col-sm-4">
                     </div>
                     <div className="col-sm-4">
-                        <h4>Symbold Id: {this.props.SymbolId}</h4>
+                        <h4>Symbold Id:</h4>
                     </div>
                     <div className="col-sm-4">
                     </div>
@@ -66,8 +65,6 @@ export default class ChartDraw extends React.Component<Props, State> {
                 <div className="row">
                     <canvas id="chart1" ref={this.chartRef} />
                 </div>
-                
-                
             </ React.Fragment>
         );        
     }
