@@ -30,6 +30,13 @@ namespace StockMVC.Api
             return JsonConvert.SerializeObject(tradeData);
         }
 
+        public string GetRatioTradeData([FromQuery] int symbolId1, [FromQuery] int symbolId2)
+        {
+            List<PointData> tradeData = _symbolService.GetRatio(symbolId1, symbolId2);
+            return JsonConvert.SerializeObject(tradeData);
+            //return "s1:" + symbolId1 + " , s2=" + symbolId2;
+        }
+
         public string SayHello([FromQuery] string Name)
         {
             string ret = String.IsNullOrEmpty(Name) ? "A Name parameter is needed as query string. ie.: /sayhello?name=John" 

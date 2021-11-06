@@ -45,15 +45,25 @@ $(document).ready(() => {
         $("#main")[0]);
     RenderSymbolSelector();    
 
+    let selectedSymbol1 = 1;
+    let selectedSymbol2 = 283;
     async function SelectedSymbolChanged(newSymbolId: number, id: string) {
         //TODO get data from server and give data to ChartDraw component
+        let PointDataArrayRatio;
         let symbolData = new SymbolData();
-        let PointDataArray = await symbolData.GetSymbolTradeData(newSymbolId);
+        let PointDataArray = await symbolData.GetSymbolTradeData(newSymbolId);        
+
         if (id === "Selector1") {
+            selectedSymbol1 = newSymbolId;            
             RenderChart1(PointDataArray);
-        } else {
+        }
+        else {
+            selectedSymbol2 = newSymbolId;
             RenderChart2(PointDataArray);
         }
+
+        PointDataArrayRatio = await symbolData.GetRatioTradeData(selectedSymbol1, selectedSymbol2);
+        RenderChart3(PointDataArrayRatio);
     }
 
     function RenderSymbolSelector() {
@@ -92,6 +102,9 @@ $(document).ready(() => {
     }
     function RenderChart2(PointDataArray: PointData[]) {
         ReactDOM.render(<ChartDraw PointDataArray={PointDataArray} />, $("#Chart2")[0]);
+    }
+    function RenderChart3(PointDataArray: PointData[]) {
+        ReactDOM.render(<ChartDraw PointDataArray={PointDataArray} />, $("#Chart3")[0]);
     }
 });
 
