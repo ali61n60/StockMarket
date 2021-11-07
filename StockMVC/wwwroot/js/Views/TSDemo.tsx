@@ -8,6 +8,7 @@ import SymbolSelector from "../Components/SymbolSelector/SymbolSelector";
 import DigitalClock from "../Components/DigitalClock/DigitalClock";
 import SymbolData from "../Components/SymbolData/SymbolData";
 import PointData from "../Models/PointData";
+import RandomDrawer from "../Components/RandomDrawer/RandomDrawer";
 
 $(document).ready(() => {
 
@@ -29,7 +30,7 @@ $(document).ready(() => {
             </div>
             <div className="row">
                 <div className="col-sm-4" id="BoilingVerdict"></div>
-                <div className="col-sm-4" id="RandomDrawer"></div>
+                <div className="col-sm-4" id="RandomDrawer"><RandomDrawer /></div>
                 <div className="col-sm-4" id="app9"></div>
             </div>
             <div className="row">

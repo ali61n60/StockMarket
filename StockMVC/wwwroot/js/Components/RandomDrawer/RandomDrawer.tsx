@@ -17,18 +17,23 @@ export default class RandomDrawer extends React.Component<Props, State> {
         super(props);
        
     }
+    canvasStyle = {
+        width: "50%",
+        height: "50%"
+    } as const;
     drawerId: any;
     chartRef = React.createRef() as any;
     p1: Point;
     p2: Point;
+    canvasW: any;
+    canvasH: any ;
    
     tick = () => {
-        //create rondom point and draw it
-        var maxSize = 100;
+        //create rondom point and draw it        
         this.p1.x = this.p2.x;
         this.p1.y = this.p2.y;
-        this.p2.x = Math.floor(Math.random() * maxSize);
-        this.p2.y = Math.floor(Math.random() * maxSize);
+        this.p2.x = Math.floor(Math.random() * this.canvasW);
+        this.p2.y = Math.floor(Math.random() * this.canvasH);
         this.DrawLine(this.p1, this.p2, "#" + Math.floor(Math.random() * 16777215).toString());
     
     }
@@ -36,11 +41,12 @@ export default class RandomDrawer extends React.Component<Props, State> {
     componentDidMount() {
         this.p1 = new Point();
         this.p2 = new Point();
-        this.p1.x = 0;
-        this.p1.y = 0; 
         this.p2.x = 0;
         this.p2.y = 0;
-        this.drawerId = setInterval(() => this.tick(), 500); 
+        this.canvasW = this.chartRef.current.getBoundingClientRect().width;
+        this.canvasH = this.chartRef.current.getBoundingClientRect().height;
+        console.log("W=" + this.canvasW + ", H=" + this.canvasH);
+        this.drawerId = setInterval(() => this.tick(), 100); 
     }
 
     componentWillUnmount() {
@@ -48,8 +54,8 @@ export default class RandomDrawer extends React.Component<Props, State> {
     }
 
     render() {
-        return (                         
-                <canvas id="chart1" ref={this.chartRef}/>           
+        return (
+            <canvas id="chart1" ref={this.chartRef} style={this.canvasStyle} />
         );        
     }
 
