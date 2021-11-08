@@ -16,7 +16,7 @@ $(document).ready(() => {
         <React.Fragment>
             <div className="row">
                 <div className="col-sm-4" >
-                    <div className="row" id="DigitalClock"><DigitalClock /></div>
+                    <div className="row" id="DigitalClock"><DigitalClock /></div >
                     <br />
                     <div className="row" id="SymbolSelector"></div>
                 </div>
