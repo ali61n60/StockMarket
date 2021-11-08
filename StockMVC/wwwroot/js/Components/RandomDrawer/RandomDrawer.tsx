@@ -46,7 +46,7 @@ export default class RandomDrawer extends React.Component<Props, State> {
         this.canvasW = this.chartRef.current.getBoundingClientRect().width;
         this.canvasH = this.chartRef.current.getBoundingClientRect().height;
         console.log("W=" + this.canvasW + ", H=" + this.canvasH);
-        this.drawerId = setInterval(() => this.tick(), 100); 
+        this.drawerId = setInterval(() => this.tick(), 1000); 
     }
 
     componentWillUnmount() {
