@@ -14,7 +14,7 @@ $(document).ready(() => {
 
     ReactDOM.render(
         <React.Fragment>
-            <div className="row">
+            <div className="row"> 
                 <div className="col-sm-4" >
                     <div className="row" id="DigitalClock"><DigitalClock /></div >
                     <br />
