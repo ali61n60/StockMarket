@@ -54,7 +54,7 @@ export default class Calculator extends React.Component<Props,State> {
     }
 
     tryConvert(temperature, convert) {
-        const input = parseFloat(temperature);
+        const input = parseFloat(temperature) as any;
         if (Number.isNaN(input)) {
             return '';
         }

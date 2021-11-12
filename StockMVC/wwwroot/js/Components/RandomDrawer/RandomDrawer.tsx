@@ -18,8 +18,9 @@ export default class RandomDrawer extends React.Component<Props, State> {
        
     }
     canvasStyle = {
-        width: "50%",
-        height: "50%"
+        width: "200px",
+        height: "200px",
+        border:"1px solid blue"
     } as const;
     drawerId: any;
     chartRef = React.createRef() as any;

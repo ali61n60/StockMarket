@@ -9,6 +9,8 @@ import DigitalClock from "../Components/DigitalClock/DigitalClock";
 import SymbolData from "../Components/SymbolData/SymbolData";
 import PointData from "../Models/PointData";
 import RandomDrawer from "../Components/RandomDrawer/RandomDrawer";
+import IntrestRate from "../Components/IntrestRate/IntrestRate";
+import Calculator from "../Components/BoilingVerdict/Calculator";
 
 $(document).ready(() => {
 
@@ -20,7 +22,7 @@ $(document).ready(() => {
                     <br />
                     <div className="row" id="SymbolSelector"></div>
                 </div>
-                <div className="col-sm-4" id="ToggleButton"></div>
+                <div className="col-sm-4" id="IntrestRate"><IntrestRate /></div>
                 <div className="col-sm-4" id="app1"></div>
             </div>
             <div className="row">
@@ -29,7 +31,7 @@ $(document).ready(() => {
                 <div className="col-sm-4" id="Game"></div>
             </div>
             <div className="row">
-                <div className="col-sm-4" id="BoilingVerdict"></div>
+                <div className="col-sm-4" id="BoilingVerdict"><Calculator /></div>
                 <div className="col-sm-4" id="RandomDrawer"><RandomDrawer /></div>
                 <div className="col-sm-4" id="app9"></div>
             </div>
