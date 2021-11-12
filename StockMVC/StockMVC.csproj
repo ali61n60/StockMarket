@@ -51,6 +51,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <TypeScriptCompile Remove="wwwroot\js\Components\IntrestRate\IntrestRate.tsx" />
 	  <TypeScriptCompile Remove="wwwroot\js\Components\LikeButton\LikeButton.tsx" />
 	  <TypeScriptCompile Remove="wwwroot\js\Components\LikeButton\ToggleButton.tsx" />
 	  <TypeScriptCompile Remove="wwwroot\js\Components\List\List.tsx" />
@@ -63,6 +64,10 @@
 
 	<ItemGroup>
 	  <Content Include="webpack.config.js" />
+	  <Content Include="wwwroot\js\Components\IntrestRate\IntrestRate.tsx">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
 	  <Content Include="wwwroot\js\Components\LikeButton\ToggleButton.tsx">
 	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
