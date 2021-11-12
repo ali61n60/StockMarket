@@ -37,7 +37,7 @@
         }
         GreetMe() {
             super.GreetMe();
-            console.log(`A ${this.grade} student`)
+            console.log(`A ${this.grade} student`);
         }
     }
 
