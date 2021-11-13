@@ -14,12 +14,13 @@ export default class IntrestRate extends React.Component<Props, State> {
         super(props);
     }
 
-    TotalLoan: number;
-    NumberOfInstallments: number;
-    PayPerMonth: number;
+    TotalLoan: number=10;
+    NumberOfInstallments: number=1;
+    PayPerMonth: number=1;
     IntrestRate: number;
     IntrestRateRef = React.createRef() as any;
     PayPerMonthRef = React.createRef() as any;
+    LabelMessageRef = React.createRef() as any;
 
     handleIntrestRateChange = () => {
         console.log("Intrest Rate Input element changed");
@@ -35,7 +36,7 @@ export default class IntrestRate extends React.Component<Props, State> {
         let responseCalculteRate = new LoanCalculotor().CalculateRate(this.TotalLoan, this.PayPerMonth, this.NumberOfInstallments);
         if (responseCalculteRate.Status == ResponseStatus.Error) {
             //show error message to user
-
+            this.LabelMessageRef.current.innerText = responseCalculteRate.Message;
             return;
         }
 
@@ -45,17 +46,16 @@ export default class IntrestRate extends React.Component<Props, State> {
 
     UpdateUserInput(): Response<void> {
         let response = new Response<void>();
-        response.Status = ResponseStatus.Ok;
+        response.Status = ResponseStatus.Ok; 
 
         return response;
     }
 
     labelStyle = {
-        visibility: "hidden",
+        visibility: "visible",
     } as const;
 
-    render() {
-        const className = "btn btn-block btn-primary";
+    render() {       
         return (
             <React.Fragment>
                 <fieldset>
@@ -74,7 +74,7 @@ export default class IntrestRate extends React.Component<Props, State> {
                     <legend>نرخ سود</legend>
                     <input ref={this.IntrestRateRef} onChange={this.handleIntrestRateChange} />
                 </fieldset>
-                <label style={this.labelStyle} >hello</label>
+                <label ref={this.LabelMessageRef} style={this.labelStyle} >h</label>
             </React.Fragment>
         );
     }
