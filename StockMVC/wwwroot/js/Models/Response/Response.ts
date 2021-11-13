@@ -1,4 +1,4 @@
-﻿import {ResponseStatus} from "ResponseStatus";
+﻿import {ResponseStatus} from "../Response/ResponseStatus";
 
 export class Response<T>{
     public Data: T;
