@@ -3,6 +3,6 @@
 export class Response<T>{
     public Data: T;
     public Status: ResponseStatus;
-    public Message: string;
+    public Message: string="Ok";
 }
 

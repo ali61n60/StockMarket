@@ -14,22 +14,29 @@ export default class IntrestRate extends React.Component<Props, State> {
         super(props);
     }
 
-    TotalLoan: number=10;
-    NumberOfInstallments: number=1;
+    TotalLoan: number = 10;
+    TotalLoanRef = React.createRef() as any;
+
+    NumberOfInstallments: number = 1;
+    NumberOfInstallmentsRef = React.createRef() as any;
+
     PayPerMonth: number=1;
+    PayPerMonthRef = React.createRef() as any;
+
     IntrestRate: number;
     IntrestRateRef = React.createRef() as any;
-    PayPerMonthRef = React.createRef() as any;
+    
     LabelMessageRef = React.createRef() as any;
 
     handleIntrestRateChange = () => {
         console.log("Intrest Rate Input element changed");
     }
 
-    handlePayPerMonthChange = ()=>{
-        let responseUserInput = this.UpdateUserInput();
-        if (responseUserInput.Status == ResponseStatus.Error) {
-            //show error message to user
+    handlePayPerMonthChange = () => {
+
+        let responseUserInput = this.UpdateUserInput();//check user input text is number
+        if (responseUserInput.Status === ResponseStatus.Error) {
+            //ToDo
 
             return;
         }
@@ -46,6 +53,10 @@ export default class IntrestRate extends React.Component<Props, State> {
 
     UpdateUserInput(): Response<void> {
         let response = new Response<void>();
+        this.TotalLoan = parseFloat(this.TotalLoanRef.current.value);
+        this.NumberOfInstallments = parseFloat(this.NumberOfInstallmentsRef.current.value);
+        this.PayPerMonth = parseFloat(this.PayPerMonthRef.current.value);
+        this.IntrestRate = parseFloat(this.IntrestRateRef.current.value);
         response.Status = ResponseStatus.Ok; 
 
         return response;
@@ -60,11 +71,11 @@ export default class IntrestRate extends React.Component<Props, State> {
             <React.Fragment>
                 <fieldset>
                     <legend>مبلغ وام</legend>
-                    <input />
+                    <input ref={this.TotalLoanRef} />
                 </fieldset>
                  <fieldset>
                     <legend>تعداد اقساط</legend>
-                    <input />
+                    <input ref={this.NumberOfInstallmentsRef}/>
                 </fieldset>
                 <fieldset>
                     <legend>قسط هر ماه</legend>
