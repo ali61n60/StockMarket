@@ -20,7 +20,7 @@ export default class ChartDraw extends React.Component<Props, State> {
             this.myChart.destroy();
         }
         const myChartRef = this.chartRef.current.getContext("2d");
-        
+       
             const data = {
                 labels: [],
                 datasets: [{
@@ -28,11 +28,19 @@ export default class ChartDraw extends React.Component<Props, State> {
                     backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(255, 99, 132)',
                     data: [],
-                }]
+                },
+                    {
+                        label: 'ConstLine',
+                        backgroundColor: 'rgb(0, 99, 255)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: [],
+                    }
+                ]
             };
         for (let i = 0; i < this.props.PointDataArray.length; i++) {
             data.labels.push(this.props.PointDataArray[i].Date);
             data.datasets[0].data.push(this.props.PointDataArray[i].Final);
+            data.datasets[1].data.push(1.2);
             }
             const config = {
                 type: 'line',

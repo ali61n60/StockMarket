@@ -38,7 +38,7 @@ $(document).ready(() => {
             <div className="row">
                 <div className="col-sm-4" id="Chart1"></div>
                 <div className="col-sm-4" id="Chart2"></div>
-                <div className="col-sm-4" id="Chart3"></div>
+                <div className="col-sm-12" id="Chart3"></div>
             </div>
 
             <div className="jumbotron text-center">
