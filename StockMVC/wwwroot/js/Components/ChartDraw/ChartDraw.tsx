@@ -40,7 +40,7 @@ export default class ChartDraw extends React.Component<Props, State> {
         for (let i = 0; i < this.props.PointDataArray.length; i++) {
             data.labels.push(this.props.PointDataArray[i].Date);
             data.datasets[0].data.push(this.props.PointDataArray[i].Final);
-            data.datasets[1].data.push(1.2);
+            //data.datasets[1].data.push(1.2);
             }
             const config = {
                 type: 'line',

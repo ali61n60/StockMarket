@@ -27,7 +27,9 @@ export default class IntrestRate extends React.Component<Props, State> {
     IntrestRateRef = React.createRef() as any;
     
     LabelMessageRef = React.createRef() as any;
-
+    showMessageToUser(message: string) {
+        this.LabelMessageRef.current.innerText = message;
+    }
     handleIntrestRateChange = () => {
         console.log("Intrest Rate Input element changed");
     }
@@ -35,24 +37,23 @@ export default class IntrestRate extends React.Component<Props, State> {
     handlePayPerMonthChange = () => {
 
         let responseUserInput = this.UpdateUserInput();//check user input text is number
-        if (responseUserInput.Status === ResponseStatus.Error) {
-            //ToDo
-
+                if (responseUserInput.Status === ResponseStatus.Error) {
+                    this.showMessageToUser(responseUserInput.Message); //show error message to user
             return;
         }
+
         let responseCalculteRate = new LoanCalculotor().CalculateRate(this.TotalLoan, this.PayPerMonth, this.NumberOfInstallments);
-        if (responseCalculteRate.Status == ResponseStatus.Error) {
-            //show error message to user
-            this.LabelMessageRef.current.innerText = responseCalculteRate.Message;
+        if (responseCalculteRate.Status === ResponseStatus.Error) {
+            this.showMessageToUser(responseCalculteRate.Message); //show error message to user
             return;
         }
-
         //update intrest rate fied
         this.IntrestRateRef.current.value = responseCalculteRate.Data;
     }
 
     UpdateUserInput(): Response<void> {
         let response = new Response<void>();
+        //Todo check for input format and characters
         this.TotalLoan = parseFloat(this.TotalLoanRef.current.value);
         this.NumberOfInstallments = parseFloat(this.NumberOfInstallmentsRef.current.value);
         this.PayPerMonth = parseFloat(this.PayPerMonthRef.current.value);
