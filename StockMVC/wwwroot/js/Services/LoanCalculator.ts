@@ -29,12 +29,12 @@ export default class LoanCalculotor {
             } else if (currentTotal > PayPerMonth) {
                 currentTotal = TotalLoan;
                 this.decrementRate();
-                console.log("decrement");
+                console.log("decrement"); 
             }
             else {
                 currentTotal = TotalLoan;
                 this.incrementRate();
-                console.log("increment");                
+                console.log("increment");                 
             }
         }
         if (problemSolved) {
