@@ -215,6 +215,13 @@
     <None Include="Finance\EmbededLinux\esys.ir_Embedded.Linux.System.Design.and.Development.pdf" />
     <None Include="Finance\EmbededLinux\Linux-Driver-Development-for-Embedded-Processors-Second-Edition-www.EBooksWorld.ir.pdf" />
     <None Include="Finance\finance.xlsx" />
+    <None Include="Finance\FPGA\Books\Circuit_Design_with_VHDL_Pedroni.pdf" />
+    <None Include="Finance\FPGA\Books\Pedroni_VHDL_1ed_exercise_solutions.pdf" />
+    <None Include="Finance\FPGA\Books\Verilog Quickstart - Practical Guide to Simulation &amp; Synthesis in Verilog.[2002].3rd Ed.pdf" />
+    <None Include="Finance\FPGA\Circuit_Design_with_VHDL_Pedroni.pdf" />
+    <None Include="Finance\FPGA\Pedroni_VHDL_1ed_exercise_solutions.pdf" />
+    <None Include="Finance\FPGA\ToDo.docx" />
+    <None Include="Finance\FPGA\Verilog Quickstart - Practical Guide to Simulation &amp; Synthesis in Verilog.[2002].3rd Ed.pdf" />
     <None Include="Finance\HB 1_1833973795.pdf" />
     <None Include="Finance\HomeRent1399.docx" />
     <None Include="Finance\HomeRent1399.pdf" />
@@ -260,6 +267,7 @@
     <Content Include="Finance\Resume\20190702_122009.jpg" />
     <Content Include="Finance\Resume\20190702_122017.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
