@@ -216,6 +216,7 @@
     <None Include="Finance\EmbededLinux\Linux-Driver-Development-for-Embedded-Processors-Second-Edition-www.EBooksWorld.ir.pdf" />
     <None Include="Finance\finance.xlsx" />
     <None Include="Finance\FPGA\Books\Circuit_Design_with_VHDL_Pedroni.pdf" />
+    <None Include="Finance\FPGA\Books\MorrisManoComputerSystemArchitecture---[codento.ir].pdf" />
     <None Include="Finance\FPGA\Books\Pedroni_VHDL_1ed_exercise_solutions.pdf" />
     <None Include="Finance\FPGA\Books\Verilog Quickstart - Practical Guide to Simulation &amp; Synthesis in Verilog.[2002].3rd Ed.pdf" />
     <None Include="Finance\FPGA\ToDo.docx" />
