@@ -1,0 +1,30 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "WebPack Demo";
+}
+@section Scripts {
+    <script src="~/dist/bundle.js"></script>
+    <script>
+
+        $(document).ready(function () {
+          
+        });
+
+    </script>
+
+}
+<div class="row">
+    <div class="col-sm-4" id="app1"></div>
+    <div class="col-sm-4" id="app2"></div>
+    <div class="col-sm-4" id="app3"></div>
+</div>
+<div class="row">
+    <div class="col-sm-4" id="app4"></div>
+    <div class="col-sm-4" id="app5"></div>
+    <div class="col-sm-4" id="app6"></div>
+</div>
+<div class="row">
+    <div class="col-sm-4" id="app7"></div>
+    <div class="col-sm-4" id="app8"></div>
+    <div class="col-sm-4" id="app9"></div>
+</div>

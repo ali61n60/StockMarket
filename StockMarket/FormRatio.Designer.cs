@@ -1,0 +1,288 @@
+﻿namespace StockMarket
+{
+    partial class FormRatio
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.buttonSeries1 = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.comboBoxCustomGroupMember = new System.Windows.Forms.ComboBox();
+            this.buttonSeries2 = new System.Windows.Forms.Button();
+            this.buttonRatio = new System.Windows.Forms.Button();
+            this.buttonPrice = new System.Windows.Forms.Button();
+            this.textBoxNumberOfDays = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonPriceChange = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.buttonClearList = new System.Windows.Forms.Button();
+            this.buttonAverage = new System.Windows.Forms.Button();
+            this.comboBoxCustomGroup = new System.Windows.Forms.ComboBox();
+            this.buttonAverageVolume = new System.Windows.Forms.Button();
+            this.comboBoxSymbolGroupMember = new System.Windows.Forms.ComboBox();
+            this.checkBoxAdjustedPrice = new System.Windows.Forms.CheckBox();
+            this.comboBoxSymbolGroup = new System.Windows.Forms.ComboBox();
+            this.labelSymbolDetail = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // buttonSeries1
+            // 
+            this.buttonSeries1.Location = new System.Drawing.Point(14, 90);
+            this.buttonSeries1.Name = "buttonSeries1";
+            this.buttonSeries1.Size = new System.Drawing.Size(271, 68);
+            this.buttonSeries1.TabIndex = 0;
+            this.buttonSeries1.Text = "Show";
+            this.buttonSeries1.UseVisualStyleBackColor = true;
+            this.buttonSeries1.Click += new System.EventHandler(this.buttonSeries1_Click);
+            // 
+            // chart1
+            // 
+            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(41, 270);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(1119, 407);
+            this.chart1.TabIndex = 1;
+            this.chart1.Text = "chart1";
+            // 
+            // comboBoxCustomGroupMember
+            // 
+            this.comboBoxCustomGroupMember.FormattingEnabled = true;
+            this.comboBoxCustomGroupMember.Location = new System.Drawing.Point(14, 63);
+            this.comboBoxCustomGroupMember.Name = "comboBoxCustomGroupMember";
+            this.comboBoxCustomGroupMember.Size = new System.Drawing.Size(271, 21);
+            this.comboBoxCustomGroupMember.TabIndex = 2;
+            // 
+            // buttonSeries2
+            // 
+            this.buttonSeries2.Location = new System.Drawing.Point(291, 90);
+            this.buttonSeries2.Name = "buttonSeries2";
+            this.buttonSeries2.Size = new System.Drawing.Size(271, 68);
+            this.buttonSeries2.TabIndex = 3;
+            this.buttonSeries2.Text = "Show";
+            this.buttonSeries2.UseVisualStyleBackColor = true;
+            this.buttonSeries2.Click += new System.EventHandler(this.buttonSeries2_Click);
+            // 
+            // buttonRatio
+            // 
+            this.buttonRatio.Location = new System.Drawing.Point(14, 164);
+            this.buttonRatio.Name = "buttonRatio";
+            this.buttonRatio.Size = new System.Drawing.Size(548, 70);
+            this.buttonRatio.TabIndex = 5;
+            this.buttonRatio.Text = "Ratio";
+            this.buttonRatio.UseVisualStyleBackColor = true;
+            this.buttonRatio.Click += new System.EventHandler(this.buttonRatio_Click);
+            // 
+            // buttonPrice
+            // 
+            this.buttonPrice.Location = new System.Drawing.Point(800, 198);
+            this.buttonPrice.Name = "buttonPrice";
+            this.buttonPrice.Size = new System.Drawing.Size(109, 23);
+            this.buttonPrice.TabIndex = 6;
+            this.buttonPrice.Text = "Min Max Price";
+            this.buttonPrice.UseVisualStyleBackColor = true;
+            this.buttonPrice.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // textBoxNumberOfDays
+            // 
+            this.textBoxNumberOfDays.Location = new System.Drawing.Point(849, 227);
+            this.textBoxNumberOfDays.Name = "textBoxNumberOfDays";
+            this.textBoxNumberOfDays.Size = new System.Drawing.Size(40, 20);
+            this.textBoxNumberOfDays.TabIndex = 7;
+            this.textBoxNumberOfDays.Text = "7";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(797, 230);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Days";
+            // 
+            // buttonPriceChange
+            // 
+            this.buttonPriceChange.Location = new System.Drawing.Point(915, 198);
+            this.buttonPriceChange.Name = "buttonPriceChange";
+            this.buttonPriceChange.Size = new System.Drawing.Size(87, 23);
+            this.buttonPriceChange.TabIndex = 9;
+            this.buttonPriceChange.Text = "Price Change";
+            this.buttonPriceChange.UseVisualStyleBackColor = true;
+            this.buttonPriceChange.Click += new System.EventHandler(this.buttonPriceChange_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(800, 17);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(358, 121);
+            this.listBox1.TabIndex = 10;
+            // 
+            // buttonClearList
+            // 
+            this.buttonClearList.Location = new System.Drawing.Point(800, 164);
+            this.buttonClearList.Name = "buttonClearList";
+            this.buttonClearList.Size = new System.Drawing.Size(149, 28);
+            this.buttonClearList.TabIndex = 11;
+            this.buttonClearList.Text = "Clear List";
+            this.buttonClearList.UseVisualStyleBackColor = true;
+            this.buttonClearList.Click += new System.EventHandler(this.buttonClearList_Click);
+            // 
+            // buttonAverage
+            // 
+            this.buttonAverage.Location = new System.Drawing.Point(1040, 224);
+            this.buttonAverage.Name = "buttonAverage";
+            this.buttonAverage.Size = new System.Drawing.Size(75, 23);
+            this.buttonAverage.TabIndex = 13;
+            this.buttonAverage.Text = "Average";
+            this.buttonAverage.UseVisualStyleBackColor = true;
+            this.buttonAverage.Click += new System.EventHandler(this.buttonAverage_Click);
+            // 
+            // comboBoxCustomGroup
+            // 
+            this.comboBoxCustomGroup.FormattingEnabled = true;
+            this.comboBoxCustomGroup.Location = new System.Drawing.Point(13, 27);
+            this.comboBoxCustomGroup.Name = "comboBoxCustomGroup";
+            this.comboBoxCustomGroup.Size = new System.Drawing.Size(272, 21);
+            this.comboBoxCustomGroup.TabIndex = 14;
+            this.comboBoxCustomGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxCustomGroup_SelectedIndexChanged);
+            // 
+            // buttonAverageVolume
+            // 
+            this.buttonAverageVolume.Location = new System.Drawing.Point(895, 225);
+            this.buttonAverageVolume.Name = "buttonAverageVolume";
+            this.buttonAverageVolume.Size = new System.Drawing.Size(139, 23);
+            this.buttonAverageVolume.TabIndex = 15;
+            this.buttonAverageVolume.Text = "Average Volume";
+            this.buttonAverageVolume.UseVisualStyleBackColor = true;
+            this.buttonAverageVolume.Click += new System.EventHandler(this.buttonAverageVolume_Click);
+            // 
+            // comboBoxSymbolGroupMember
+            // 
+            this.comboBoxSymbolGroupMember.FormattingEnabled = true;
+            this.comboBoxSymbolGroupMember.Location = new System.Drawing.Point(291, 63);
+            this.comboBoxSymbolGroupMember.Name = "comboBoxSymbolGroupMember";
+            this.comboBoxSymbolGroupMember.Size = new System.Drawing.Size(271, 21);
+            this.comboBoxSymbolGroupMember.TabIndex = 16;
+           
+            // 
+            // checkBoxAdjustedPrice
+            // 
+            this.checkBoxAdjustedPrice.AutoSize = true;
+            this.checkBoxAdjustedPrice.Location = new System.Drawing.Point(32, 241);
+            this.checkBoxAdjustedPrice.Name = "checkBoxAdjustedPrice";
+            this.checkBoxAdjustedPrice.Size = new System.Drawing.Size(94, 17);
+            this.checkBoxAdjustedPrice.TabIndex = 17;
+            this.checkBoxAdjustedPrice.Text = "Adjusted Price";
+            this.checkBoxAdjustedPrice.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxSymbolGroup
+            // 
+            this.comboBoxSymbolGroup.FormattingEnabled = true;
+            this.comboBoxSymbolGroup.Location = new System.Drawing.Point(291, 27);
+            this.comboBoxSymbolGroup.Name = "comboBoxSymbolGroup";
+            this.comboBoxSymbolGroup.Size = new System.Drawing.Size(271, 21);
+            this.comboBoxSymbolGroup.TabIndex = 18;
+            this.comboBoxSymbolGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxSymbolGroup_SelectedIndexChanged);
+            // 
+            // labelSymbolDetail
+            // 
+            this.labelSymbolDetail.AutoSize = true;
+            this.labelSymbolDetail.Location = new System.Drawing.Point(590, 63);
+            this.labelSymbolDetail.Name = "labelSymbolDetail";
+            this.labelSymbolDetail.Size = new System.Drawing.Size(13, 13);
+            this.labelSymbolDetail.TabIndex = 19;
+            this.labelSymbolDetail.Text = "[]";
+            // 
+            // FormRatio
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1228, 689);
+            this.Controls.Add(this.labelSymbolDetail);
+            this.Controls.Add(this.comboBoxSymbolGroup);
+            this.Controls.Add(this.checkBoxAdjustedPrice);
+            this.Controls.Add(this.comboBoxSymbolGroupMember);
+            this.Controls.Add(this.buttonAverageVolume);
+            this.Controls.Add(this.comboBoxCustomGroup);
+            this.Controls.Add(this.buttonAverage);
+            this.Controls.Add(this.buttonClearList);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.buttonPriceChange);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxNumberOfDays);
+            this.Controls.Add(this.buttonPrice);
+            this.Controls.Add(this.buttonRatio);
+            this.Controls.Add(this.buttonSeries2);
+            this.Controls.Add(this.comboBoxCustomGroupMember);
+            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.buttonSeries1);
+            this.Name = "FormRatio";
+            this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button buttonSeries1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.ComboBox comboBoxCustomGroupMember;
+        private System.Windows.Forms.Button buttonSeries2;
+        private System.Windows.Forms.Button buttonRatio;
+        private System.Windows.Forms.Button buttonPrice;
+        private System.Windows.Forms.TextBox textBoxNumberOfDays;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonPriceChange;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button buttonClearList;
+        private System.Windows.Forms.Button buttonAverage;
+        private System.Windows.Forms.ComboBox comboBoxCustomGroup;
+        private System.Windows.Forms.Button buttonAverageVolume;
+        private System.Windows.Forms.ComboBox comboBoxSymbolGroupMember;
+        private System.Windows.Forms.CheckBox checkBoxAdjustedPrice;
+        private System.Windows.Forms.ComboBox comboBoxSymbolGroup;
+        private System.Windows.Forms.Label labelSymbolDetail;
+    }
+}
+

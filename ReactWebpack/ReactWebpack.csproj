@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\file.ts" />
+    <Content Remove="wwwroot\js\Components\Button\Button.tsx" />
+    <Content Remove="wwwroot\js\Components\CounterManagement\CounterManagement.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="webpack.config.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\dist\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="3.1.19" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\file.ts" />
+    <TypeScriptCompile Include="wwwroot\js\Components\Button\Button.tsx" />
+    <TypeScriptCompile Include="wwwroot\js\Components\CounterManagement\CounterManagement.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+
+</Project>

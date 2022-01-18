@@ -1,0 +1,19 @@
+﻿@for (var i = 0; i < 4; i++)
+{
+    <p>
+        <button @onclick="ReportPointerLocation">
+            Where's my mouse pointer for this button?
+        </button>
+    </p>
+}
+
+<p>@mousePointerMessage</p>
+
+@code {
+    private string mousePointerMessage;
+
+    private void ReportPointerLocation(MouseEventArgs e)
+    {
+        mousePointerMessage = $"Mouse coordinates: {e.ScreenX}:{e.ScreenY}";
+    }
+}

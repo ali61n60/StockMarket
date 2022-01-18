@@ -1,0 +1,54 @@
+﻿@model CartViewModel
+@{
+    Layout = "_CartLayout";
+    ViewBag.Title = "Ali Nejati Is Working Hard On View";
+}
+
+<h2>Your cart</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Quantity</th>
+            <th>Item</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Subtotal</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Cart.Lines)
+        {
+        <tr>
+            <td class="text-center">@line.Quantity</td>
+            <td class="text-left">@line.Symbol.NamePersian</td>
+            <td class="text-right">@line.Symbol.NameLatin</td>
+            <td class="text-right">
+                @((line.Quantity * line.Symbol.GroupId).ToString())
+            </td>
+
+            <td class="text-center">
+                <form asp-controller="Cart" asp-action="Remove" method="post">
+                    <input type="hidden" name="SymbolID"
+                           value="@line.Symbol.Id" />
+                    <input type="hidden" name="returnUrl"
+                           value="@Model.ReturnUrl" />
+                    <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                </form>
+            </td>
+        </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">
+                @Model.Cart.ComputeTotalValue().ToString()
+            </td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
+    <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">Checkout</a>
+</div>

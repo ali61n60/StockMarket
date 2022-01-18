@@ -1,0 +1,55 @@
+﻿@inherits LayoutComponentBase
+<div class="bg-info text-white p-2">
+    <span class="navbar-brand ml-2">SPORTS STORE Administration</span>
+</div>
+<div class="container-fluid">
+    <div class="row p-2">
+        <div class="col-3">
+            <NavLink class="btn btn-outline-primary btn-block"
+                     href="/admin"
+                     ActiveClass="btn-primary text-white"
+                     Match="NavLinkMatch.Prefix">
+                Home
+            </NavLink>
+            <NavLink class="btn btn-outline-primary btn-block"
+                     href="/products"
+                     ActiveClass="btn-primary text-white"
+                     Match="NavLinkMatch.Prefix">
+                Products
+            </NavLink>
+            <NavLink class="btn btn-outline-primary btn-block"
+                     href="/orders"
+                     ActiveClass="btn-primary text-white"
+                     Match="NavLinkMatch.Prefix">
+                Orders
+            </NavLink>
+            <NavLink class="btn btn-outline-primary btn-block"
+                     href="/counter"
+                     ActiveClass="btn-primary text-white"
+                     Match="NavLinkMatch.Prefix">
+                Counter
+            </NavLink>
+            <NavLink class="btn btn-outline-primary btn-block"
+                     href="/myChart"
+                     ActiveClass="btn-primary text-white"
+                     Match="NavLinkMatch.Prefix">
+                My Chart
+            </NavLink>
+            <NavLink class="btn btn-outline-primary btn-block"
+                     href="/todo"
+                     ActiveClass="btn-primary text-white"
+                     Match="NavLinkMatch.Prefix">
+                To DO
+            </NavLink>
+            <NavLink class="btn btn-outline-primary btn-block"
+                     href="/chat"
+                     ActiveClass="btn-primary text-white"
+                     Match="NavLinkMatch.Prefix">
+                Chat
+            </NavLink>
+        </div>
+        <div class="col-9">           
+            @Body
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject></StartupObject>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>2.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200514165736_step13.cs" />
+    <Compile Remove="Migrations\20200514225230_step18.cs" />
+    <Compile Remove="Migrations\20200514233353_step19.cs" />
+    <Compile Remove="Migrations\20200514233614_step19.cs" />
+    <Compile Remove="Migrations\20200515001101_step20.cs" />
+    <Compile Remove="Migrations\20200515142547_step21.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ModelStd" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ModelStd\ModelStd.csproj" />
+  </ItemGroup>
+
+</Project>

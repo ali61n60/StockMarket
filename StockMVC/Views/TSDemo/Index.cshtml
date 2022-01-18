@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "TypeScript Demo";
+}
+
+@section Scripts {
+    <script src="~/scripts/bundle.js"></script>
+    <script>
+        
+        $(document).ready(function() {
+            ShowHello("greeting", "TypeScript in index file");
+            var x1 = 0;
+            var y1 = 0;
+            var x2 = 0;
+            var y2 = 0;
+            setInterval(function () {
+                var maxSize = 200;
+                 x1 = x2;
+                y1 = y2;
+                 x2 = Math.floor(Math.random() * maxSize);
+                 y2 = Math.floor(Math.random() * maxSize);
+                DrawLine("chart1", x1, y1, x2, y2,"#"+ Math.floor(Math.random() * 16777215).toString());
+            }, 50);
+        });
+
+    </script>
+}
+<div class="row">
+    <div class="col-sm-4">
+        <canvas id="chart1" width="300" height="300"></canvas>
+    </div>
+    <div class="col-sm-4">
+        <p id="greeting">Loading ...</p>
+    </div>
+    <div class="col-sm-4">
+        <canvas id="chart3"></canvas>
+    </div>
+</div>
