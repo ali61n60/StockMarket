@@ -2,7 +2,7 @@
 {
     public class DatabaseInfoClass
     {
-        private static WhereAreYou whereAreYou = WhereAreYou.desktop;
+        private static WhereAreYou whereAreYou = WhereAreYou.work;
         private static DatabaseLocation databaseLocation = DatabaseLocation.local;
 
         public static string DefaultConnectionString()
@@ -22,7 +22,7 @@
             switch (whereAreYou)
             {
                 case WhereAreYou.work:
-                    return @"E:\Ali\Projects\Website\WebAliNejati\Last\StockMarket\RepositoryStd\FileSystem\CSVFiles\";//work
+                    return @"I:\Ali\Projects\Websites\WebAliNejati\Last\StockMarket\RepositoryStd\FileSystem\CSVFiles\";//work
                 case WhereAreYou.desktop:
                     return @"C:\Users\test\Source\Repos\StockMarket\RepositoryStd\FileSystem\CSVFiles\";//desktop
                 case WhereAreYou.laptop:
