@@ -38,7 +38,22 @@ namespace ServiceStd
             //get stock dividend data
             List<Dividend> dividends = dataLoader.GetDividend(symbolId);
             //get stock capital increase data
+            List<CapitalIncrease> capitalIncreases = dataLoader.GetCapitalIncrease(symbolId);
+
             //compute adjusted data
+            //compute capital increase
+            foreach(CapitalIncrease ci in capitalIncreases)
+            {
+                double ciFactor = 1 + ci.Percent / 100;                
+                foreach(PointData p in listPointData)
+                {
+                    if (p.Date < ci.Date)
+                    {
+                        p.Final /= ciFactor;
+                    }
+                }
+            }
+            //compute dividend
             foreach (Dividend d in dividends)
             {
                 double dividendFactor = 0;
@@ -51,7 +66,7 @@ namespace ServiceStd
                 {   
                     if (d.Date < pointData.Date)
                     {
-                        pointData.Final *=(1+dividendFactor);
+                        pointData.Final /=(1+dividendFactor);
                     }
                 }
             }

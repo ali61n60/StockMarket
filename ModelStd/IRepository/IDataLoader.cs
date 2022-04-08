@@ -9,5 +9,6 @@ namespace ModelStd.IRepository
         
         Dictionary<string, List<PointData>> GetAllStocksData();
         List<Dividend> GetDividend(int symbolId);
+        List<CapitalIncrease> GetCapitalIncrease(int symbolId);
     }
 }

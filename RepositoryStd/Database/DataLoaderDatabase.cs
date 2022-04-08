@@ -16,6 +16,15 @@ namespace RepositoryStd.Database
             throw new NotImplementedException();
         }
 
+        public List<CapitalIncrease> GetCapitalIncrease(int symbolId)
+        {
+            IQueryable<CapitalIncrease> capitalIncreases = _stockDbContext.CapitalIncreases
+                .Include(d => d.Symbol)
+                .Where(d => d.Symbol.Id == symbolId);
+
+            return capitalIncreases.ToList<CapitalIncrease>();
+        }
+
         public List<Dividend> GetDividend(int symbolId)
         {
             IQueryable<Dividend> dividend = _stockDbContext.Dividends
