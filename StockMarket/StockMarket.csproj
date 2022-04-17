@@ -198,74 +198,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="cst\ali36\ModelCache\Hneg.ipd" />
-    <None Include="cst\ali36\ModelCache\Hneg.psd" />
-    <None Include="cst\ali36\ModelCache\Model.afi" />
-    <None Include="cst\ali36\ModelCache\Model.cha" />
-    <None Include="cst\ali36\ModelCache\Model.crd" />
-    <None Include="cst\ali36\ModelCache\Model.cwr" />
-    <None Include="cst\ali36\ModelCache\Model.dbp" />
-    <None Include="cst\ali36\ModelCache\Model.dpt" />
-    <None Include="cst\ali36\ModelCache\Model.exp" />
-    <None Include="cst\ali36\ModelCache\Model.fct" />
-    <None Include="cst\ali36\ModelCache\Model.het" />
-    <None Include="cst\ali36\ModelCache\Model.lmp" />
-    <None Include="cst\ali36\ModelCache\Model.mif" />
-    <None Include="cst\ali36\ModelCache\Model.mst" />
-    <None Include="cst\ali36\ModelCache\Model.pck" />
-    <None Include="cst\ali36\ModelCache\Model.pik" />
-    <None Include="cst\ali36\ModelCache\Model.pin" />
-    <None Include="cst\ali36\ModelCache\Model.plc" />
-    <None Include="cst\ali36\ModelCache\Model.pmg" />
-    <None Include="cst\ali36\ModelCache\Model.pot" />
-    <None Include="cst\ali36\ModelCache\Model.ptc" />
-    <None Include="cst\ali36\ModelCache\Model.rpp" />
-    <None Include="cst\ali36\ModelCache\Model.sat" />
-    <None Include="cst\ali36\ModelCache\Model.scp" />
-    <None Include="cst\ali36\ModelCache\Model.tem" />
-    <None Include="cst\ali36\ModelCache\Model.tri" />
-    <None Include="cst\ali36\ModelCache\Model.tsp" />
-    <None Include="cst\ali36\ModelCache\Model.vde" />
-    <None Include="cst\ali36\ModelCache\Model.vol" />
-    <None Include="cst\ali36\ModelCache\Model.vwr" />
-    <None Include="cst\ali36\ModelCache\Model.wcs" />
-    <None Include="cst\ali36\ModelCache\Model.wir" />
-    <None Include="cst\ali36\ModelCache\SurfaceTriag.pts" />
-    <None Include="cst\ali36\Model\3D\.log" />
-    <None Include="cst\ali36\Model\3D\1.cpy" />
-    <None Include="cst\ali36\Model\3D\10.cpy" />
-    <None Include="cst\ali36\Model\3D\11.cpy" />
-    <None Include="cst\ali36\Model\3D\2.cpy" />
-    <None Include="cst\ali36\Model\3D\3.cpy" />
-    <None Include="cst\ali36\Model\3D\4.cpy" />
-    <None Include="cst\ali36\Model\3D\5.cpy" />
-    <None Include="cst\ali36\Model\3D\6.cpy" />
-    <None Include="cst\ali36\Model\3D\7.cpy" />
-    <None Include="cst\ali36\Model\3D\8.cpy" />
-    <None Include="cst\ali36\Model\3D\9.cpy" />
-    <None Include="cst\ali36\Model\3D\Angle_x_max.r1d" />
-    <None Include="cst\ali36\Model\3D\Angle_x_max_1.r1d" />
-    <None Include="cst\ali36\Model\3D\Angle_y_max.r1d" />
-    <None Include="cst\ali36\Model\3D\Current.r1d" />
-    <None Include="cst\ali36\Model\3D\Emittance_x.r1d" />
-    <None Include="cst\ali36\Model\3D\Model.ads" />
-    <None Include="cst\ali36\Model\3D\Model.bwc" />
-    <None Include="cst\ali36\Model\3D\Model.dsn" />
-    <None Include="cst\ali36\Model\3D\Model.gdc" />
-    <None Include="cst\ali36\Model\3D\Model.par" />
-    <None Include="cst\ali36\Model\3D\Model.pfc" />
-    <None Include="cst\ali36\Model\3D\Model.prj" />
-    <None Include="cst\ali36\Model\3D\Model.psf" />
-    <None Include="cst\ali36\Model\3D\Model.rpp" />
-    <None Include="cst\ali36\Model\3D\Position_x_max.r1d" />
-    <None Include="cst\ali36\Model\3D\PT - Get EmittedCurrent.r0d" />
-    <None Include="cst\ali36\Model\3D\PT - Get Perveance.r0d" />
-    <None Include="cst\ali36\Model\3D\test.mcr" />
-    <None Include="cst\ali36\Model\3D\test1.mcr" />
-    <None Include="cst\ali36\Model\3D\test2.mcr" />
-    <None Include="cst\ali36\Model\3D\x-Coordinate at Plot Maximum.r0d" />
-    <None Include="cst\ali36\Model\DS\Model.dss" />
-    <None Include="cst\ali36\Result\Model.mss" />
     <None Include="cst\Iter38.zip" />
     <None Include="Finance\ARM\C++ Complete Reference,3rd Ed.pdf" />
     <None Include="Finance\ARM\Discovering_STM32_Microcontroller_ElectroVolt.ir_.pdf" />
@@ -333,20 +265,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="cst\ali36\ModelCache\Model.cur" />
-    <Content Include="cst\ali36\Model\3D\Model.dib" />
-    <Content Include="cst\ali36\Model\DS\Model.dib" />
     <Content Include="Finance\Resume\20190702_122009.jpg" />
     <Content Include="Finance\Resume\20190702_122017.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="cst\ali36\DC\" />
-    <Folder Include="cst\ali36\Model\CBLS\Harness\" />
-    <Folder Include="cst\ali36\Model\DS\Image\" />
-    <Folder Include="cst\ali36\Model\PCBS\Design\" />
-    <Folder Include="cst\ali36\Result\DS\2DEMTables\" />
-    <Folder Include="cst\ali36\Temp\DS\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
