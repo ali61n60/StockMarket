@@ -198,8 +198,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="cst\ali36.cst" />
-    <None Include="cst\ali36.cs~" />
     <None Include="cst\ali36\ModelCache\Hneg.ipd" />
     <None Include="cst\ali36\ModelCache\Hneg.psd" />
     <None Include="cst\ali36\ModelCache\Model.afi" />
@@ -268,7 +266,7 @@
     <None Include="cst\ali36\Model\3D\x-Coordinate at Plot Maximum.r0d" />
     <None Include="cst\ali36\Model\DS\Model.dss" />
     <None Include="cst\ali36\Result\Model.mss" />
-    <None Include="cst\cst.zip" />
+    <None Include="cst\Iter38.zip" />
     <None Include="Finance\ARM\C++ Complete Reference,3rd Ed.pdf" />
     <None Include="Finance\ARM\Discovering_STM32_Microcontroller_ElectroVolt.ir_.pdf" />
     <None Include="Finance\ARM\Freescale_ARM_Cortex_M_Embedded_ElectroVolt.ir_.pdf" />
