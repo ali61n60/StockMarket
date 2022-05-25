@@ -200,6 +200,9 @@
     </Compile>
     <None Include="cst\Iter38.zip" />
     <None Include="Finance\ARM\C++ Complete Reference,3rd Ed.pdf" />
+    <None Include="Finance\ARM\DataSheets\STM32_SmartV2\STM32F103C8T6 - SMT32 Smart V2.0 _ STM32-base project_files\matomo.js.download" />
+    <None Include="Finance\ARM\DataSheets\STM32_SmartV2\STM32F103C8T6 - SMT32 Smart V2.0 _ STM32-base project_files\menu.js.download" />
+    <None Include="Finance\ARM\DataSheets\STM32_SmartV2\STM32F103C8T6 - SMT32 Smart V2.0 _ STM32-base project_files\scale.fix.js.download" />
     <None Include="Finance\ARM\Discovering_STM32_Microcontroller_ElectroVolt.ir_.pdf" />
     <None Include="Finance\ARM\Freescale_ARM_Cortex_M_Embedded_ElectroVolt.ir_.pdf" />
     <None Include="Finance\ARM\Programming-with-Stm32-Getting-Started-with-the-Nucleo.pdf" />
@@ -266,6 +269,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Finance\ARM\DataSheets\STM32_SmartV2\STM32F103C8T6 - SMT32 Smart V2.0 _ STM32-base project.html" />
+    <Content Include="Finance\ARM\DataSheets\STM32_SmartV2\STM32F103C8T6 - SMT32 Smart V2.0 _ STM32-base project_files\STM32-base_logo_no_text_transparent.png" />
+    <Content Include="Finance\ARM\DataSheets\STM32_SmartV2\STM32F103C8T6 - SMT32 Smart V2.0 _ STM32-base project_files\STM32F103C8T6_STM32_Smart_V2.0-1.jpg" />
+    <Content Include="Finance\ARM\DataSheets\STM32_SmartV2\STM32F103C8T6 - SMT32 Smart V2.0 _ STM32-base project_files\STM32F103C8T6_STM32_Smart_V2.0-2.jpg" />
+    <Content Include="Finance\ARM\DataSheets\STM32_SmartV2\STM32F103C8T6 - SMT32 Smart V2.0 _ STM32-base project_files\STM32F103C8T6_STM32_Smart_V2.0-3.jpg" />
+    <Content Include="Finance\ARM\DataSheets\STM32_SmartV2\STM32F103C8T6 - SMT32 Smart V2.0 _ STM32-base project_files\style.css" />
+    <Content Include="Finance\ARM\DataSheets\STM32_SmartV2\ulinkpro_jtag_20pin_swm.gif" />
     <Content Include="Finance\Resume\20190702_122009.jpg" />
     <Content Include="Finance\Resume\20190702_122017.jpg" />
   </ItemGroup>
