@@ -621,6 +621,10 @@
     <None Include="Finance\FPGA\Books\System Verilog for Verification_ A Guide to Learning the Testbench Language Features %28 CPENTalk.com %29.pdf" />
     <None Include="Finance\FPGA\Books\Verilog Quickstart - Practical Guide to Simulation &amp; Synthesis in Verilog.[2002].3rd Ed.pdf" />
     <None Include="Finance\FPGA\Learning.docx" />
+    <None Include="Finance\FPGA\PosedgeDataSheets\DS_FT2232H.pdf" />
+    <None Include="Finance\FPGA\PosedgeDataSheets\P1_UG1p1.pdf" />
+    <None Include="Finance\FPGA\PosedgeDataSheets\posedge-LogiX1_megawing_1V2_sch.pdf" />
+    <None Include="Finance\FPGA\PosedgeDataSheets\posedgeone_1V2_sch.pdf" />
     <None Include="Finance\FPGA\ToDo.docx" />
     <None Include="Finance\FPGA\XilinxDataSheets\ds160.pdf" />
     <None Include="Finance\HB 1_1833973795.pdf" />
