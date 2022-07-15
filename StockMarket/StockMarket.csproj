@@ -199,6 +199,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="cst\Iter38.zip" />
+    <None Include="Finance\ARM\C++ - The Complete Reference 4e.pdf" />
     <None Include="Finance\ARM\C++ Complete Reference,3rd Ed.pdf" />
     <None Include="Finance\ARM\DataSheets\Esp8266\Interfacing ESP8266 with STM32F103C8_ Creating a Webserver_files\0.0a035390359aab65eb82.js.download" />
     <None Include="Finance\ARM\DataSheets\Esp8266\Interfacing ESP8266 with STM32F103C8_ Creating a Webserver_files\1.0a035390359aab65eb82.js.download" />
@@ -615,16 +616,24 @@
     <None Include="Finance\EmbededLinux\esys.ir_Embedded.Linux.System.Design.and.Development.pdf" />
     <None Include="Finance\EmbededLinux\Linux-Driver-Development-for-Embedded-Processors-Second-Edition-www.EBooksWorld.ir.pdf" />
     <None Include="Finance\finance.xlsx" />
+    <None Include="Finance\FPGA\Books\Adam_Taylor\zynq_book_v2.pdf" />
     <None Include="Finance\FPGA\Books\Circuit_Design_with_VHDL_Pedroni.pdf" />
     <None Include="Finance\FPGA\Books\MorrisManoComputerSystemArchitecture---[codento.ir].pdf" />
     <None Include="Finance\FPGA\Books\Pedroni_VHDL_1ed_exercise_solutions.pdf" />
     <None Include="Finance\FPGA\Books\System Verilog for Verification_ A Guide to Learning the Testbench Language Features %28 CPENTalk.com %29.pdf" />
+    <None Include="Finance\FPGA\Books\The-Zynq-Book-ElectroVolt.ir_.pdf" />
     <None Include="Finance\FPGA\Books\Verilog Quickstart - Practical Guide to Simulation &amp; Synthesis in Verilog.[2002].3rd Ed.pdf" />
     <None Include="Finance\FPGA\Learning.docx" />
     <None Include="Finance\FPGA\PosedgeDataSheets\DS_FT2232H.pdf" />
     <None Include="Finance\FPGA\PosedgeDataSheets\P1_UG1p1.pdf" />
     <None Include="Finance\FPGA\PosedgeDataSheets\posedge-LogiX1_megawing_1V2_sch.pdf" />
     <None Include="Finance\FPGA\PosedgeDataSheets\posedgeone_1V2_sch.pdf" />
+    <None Include="Finance\FPGA\QMTech\Software_matrix.pdf" />
+    <None Include="Finance\FPGA\QMTech\Starter_Kit_User_Manual%28Linux%29_V01.pdf" />
+    <None Include="Finance\FPGA\QMTech\USB Cable Installation Guide-UG344.pdf" />
+    <None Include="Finance\FPGA\QMTech\xc7z010-starter-kit-Schematic-V05.pdf" />
+    <None Include="Finance\FPGA\QMTech\XILINX USB CABLE II datasheet-DS593.pdf" />
+    <None Include="Finance\FPGA\QMTech\Xilinx_cable说明.pdf" />
     <None Include="Finance\FPGA\ToDo.docx" />
     <None Include="Finance\FPGA\XilinxDataSheets\ds160.pdf" />
     <None Include="Finance\HB 1_1833973795.pdf" />
