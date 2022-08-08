@@ -1,0 +1,1 @@
+sudo mount -t cifs -o rw,vers=3.0,sec=ntlmv2,credentials=/root/.examplecredentials //192.168.221.1/vivado /media/share

@@ -1,7 +1,7 @@
 
 `timescale 1 ns / 1 ps
 
-	module PwmIp_v1_0_S00_AXI #
+	module AxiPwm_v1_0_S00_AXI #
 	(
 		// Users to add parameters here
 
@@ -398,11 +398,12 @@
 	end    
 
 	// Add user logic here
-pwm pwm_io(
-    .clk(S_AXI_ACLK),
-    .rst_n(_AXI_ARESETN),
-    .duty_cycle(slv_reg0[9:0]),
-    .pwm(pwm));
+    pwm pwm_i0(
+        .clk(S_AXI_ACLK),
+        .rst_n(S_AXI_ARESETN),
+        .duty_cycle(slv_reg0[9:0]),
+        .pwm(pwm)
+    );
 	// User logic ends
 
 	endmodule

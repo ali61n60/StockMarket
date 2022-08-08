@@ -1,26 +1,26 @@
 
-#ifndef PWMIP_H
-#define PWMIP_H
+#ifndef AXIPWM_H
+#define AXIPWM_H
 
 
 /****************** Include Files ********************/
 #include "xil_types.h"
 #include "xstatus.h"
 
-#define PWMIP_S00_AXI_SLV_REG0_OFFSET 0
-#define PWMIP_S00_AXI_SLV_REG1_OFFSET 4
-#define PWMIP_S00_AXI_SLV_REG2_OFFSET 8
-#define PWMIP_S00_AXI_SLV_REG3_OFFSET 12
+#define AXIPWM_S00_AXI_SLV_REG0_OFFSET 0
+#define AXIPWM_S00_AXI_SLV_REG1_OFFSET 4
+#define AXIPWM_S00_AXI_SLV_REG2_OFFSET 8
+#define AXIPWM_S00_AXI_SLV_REG3_OFFSET 12
 
 
 /**************************** Type Definitions *****************************/
 /**
  *
- * Write a value to a PWMIP register. A 32 bit write is performed.
+ * Write a value to a AXIPWM register. A 32 bit write is performed.
  * If the component is implemented in a smaller width, only the least
  * significant data is written.
  *
- * @param   BaseAddress is the base address of the PWMIPdevice.
+ * @param   BaseAddress is the base address of the AXIPWMdevice.
  * @param   RegOffset is the register offset from the base to write to.
  * @param   Data is the data written to the register.
  *
@@ -28,30 +28,30 @@
  *
  * @note
  * C-style signature:
- * 	void PWMIP_mWriteReg(u32 BaseAddress, unsigned RegOffset, u32 Data)
+ * 	void AXIPWM_mWriteReg(u32 BaseAddress, unsigned RegOffset, u32 Data)
  *
  */
-#define PWMIP_mWriteReg(BaseAddress, RegOffset, Data) \
+#define AXIPWM_mWriteReg(BaseAddress, RegOffset, Data) \
   	Xil_Out32((BaseAddress) + (RegOffset), (u32)(Data))
 
 /**
  *
- * Read a value from a PWMIP register. A 32 bit read is performed.
+ * Read a value from a AXIPWM register. A 32 bit read is performed.
  * If the component is implemented in a smaller width, only the least
  * significant data is read from the register. The most significant data
  * will be read as 0.
  *
- * @param   BaseAddress is the base address of the PWMIP device.
+ * @param   BaseAddress is the base address of the AXIPWM device.
  * @param   RegOffset is the register offset from the base to write to.
  *
  * @return  Data is the data from the register.
  *
  * @note
  * C-style signature:
- * 	u32 PWMIP_mReadReg(u32 BaseAddress, unsigned RegOffset)
+ * 	u32 AXIPWM_mReadReg(u32 BaseAddress, unsigned RegOffset)
  *
  */
-#define PWMIP_mReadReg(BaseAddress, RegOffset) \
+#define AXIPWM_mReadReg(BaseAddress, RegOffset) \
     Xil_In32((BaseAddress) + (RegOffset))
 
 /************************** Function Prototypes ****************************/
@@ -63,7 +63,7 @@
  * If the hardware system is not built correctly, this function may never
  * return to the caller.
  *
- * @param   baseaddr_p is the base address of the PWMIP instance to be worked on.
+ * @param   baseaddr_p is the base address of the AXIPWM instance to be worked on.
  *
  * @return
  *
@@ -74,6 +74,6 @@
  * @note    Self test may fail if data memory and device are not on the same bus.
  *
  */
-XStatus PWMIP_Reg_SelfTest(void * baseaddr_p);
+XStatus AXIPWM_Reg_SelfTest(void * baseaddr_p);
 
-#endif // PWMIP_H
+#endif // AXIPWM_H
