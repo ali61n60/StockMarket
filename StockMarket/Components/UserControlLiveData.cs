@@ -35,7 +35,7 @@ namespace StockMarket.Components
             labelSymbol.Text = SymbolName;
             labelSellPrice.Text = SellPrice;
             labelBuyPrice.Text = BuyPrice;
-            labelSellPrice.Text = StrikePrice;
+            labelStrikePrice.Text = StrikePrice;
             labelBasePrice.Text = BasePrice;
             labelDaysToApply.Text = DaysToApply;
             labelProfitInPercent.Text = ProfitInPercent;
@@ -65,13 +65,16 @@ namespace StockMarket.Components
 
         private void run()
         {
-            SellPrice = SellPrice + "0";
-            labelSymbol.Invoke((MethodInvoker)delegate
+            while (isRunning)
             {
-                UpdateData();
-            });
+                SellPrice = SellPrice + "0";
+                labelSymbol.Invoke((MethodInvoker)delegate
+                {
+                    UpdateData();
+                });
 
-            Thread.Sleep(2000);
+                Thread.Sleep(2000);
+            }
 
         }
     }
