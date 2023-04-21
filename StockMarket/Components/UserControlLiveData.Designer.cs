@@ -36,6 +36,7 @@ namespace StockMarket.Components
             this.labelDaysToApply = new System.Windows.Forms.Label();
             this.labelProfitInPercent = new System.Windows.Forms.Label();
             this.labelStrikePrice = new System.Windows.Forms.Label();
+            this.buttonRun = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelSymbol
@@ -101,10 +102,21 @@ namespace StockMarket.Components
             this.labelStrikePrice.TabIndex = 6;
             this.labelStrikePrice.Text = "StrikePrice";
             // 
+            // buttonRun
+            // 
+            this.buttonRun.Location = new System.Drawing.Point(614, 9);
+            this.buttonRun.Name = "buttonRun";
+            this.buttonRun.Size = new System.Drawing.Size(75, 23);
+            this.buttonRun.TabIndex = 7;
+            this.buttonRun.Text = "Start";
+            this.buttonRun.UseVisualStyleBackColor = true;
+            this.buttonRun.Click += new System.EventHandler(this.buttonRun_Click);
+            // 
             // UserControlLiveData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonRun);
             this.Controls.Add(this.labelStrikePrice);
             this.Controls.Add(this.labelProfitInPercent);
             this.Controls.Add(this.labelDaysToApply);
@@ -113,7 +125,7 @@ namespace StockMarket.Components
             this.Controls.Add(this.labelSellPrice);
             this.Controls.Add(this.labelSymbol);
             this.Name = "UserControlLiveData";
-            this.Size = new System.Drawing.Size(629, 76);
+            this.Size = new System.Drawing.Size(724, 76);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,5 +140,6 @@ namespace StockMarket.Components
         private System.Windows.Forms.Label labelDaysToApply;
         private System.Windows.Forms.Label labelProfitInPercent;
         private System.Windows.Forms.Label labelStrikePrice;
+        private System.Windows.Forms.Button buttonRun;
     }
 }

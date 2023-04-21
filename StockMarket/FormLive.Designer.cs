@@ -262,11 +262,11 @@
             // 
             // userControlLiveData1
             // 
-            this.userControlLiveData1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.userControlLiveData1.BackColor = System.Drawing.SystemColors.HotTrack;
             this.userControlLiveData1.BasePrice = null;
             this.userControlLiveData1.BuyPrice = null;
             this.userControlLiveData1.DaysToApply = null;
-            this.userControlLiveData1.Location = new System.Drawing.Point(31, 313);
+            this.userControlLiveData1.Location = new System.Drawing.Point(31, 345);
             this.userControlLiveData1.Name = "userControlLiveData1";
             this.userControlLiveData1.ProfitInPercent = null;
             this.userControlLiveData1.SellPrice = null;
@@ -276,6 +276,7 @@
             this.userControlLiveData1.SymbolName = null;
             this.userControlLiveData1.TabIndex = 24;
             this.userControlLiveData1.Url = null;
+            this.userControlLiveData1.UrlBase = null;
             // 
             // FormLive
             // 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,6 +13,7 @@ namespace StockMarket.Components
 {
     public partial class UserControlLiveData : UserControl
     {
+        private bool isRunning = false;
         public string SymbolName { get; set; }  //ضستا
         public string SymbolBaseName { get; set; }  //شستا
         public string BasePrice { get; set; }
@@ -28,6 +30,49 @@ namespace StockMarket.Components
             InitializeComponent();
         }
 
-       
+        public void UpdateData()
+        {
+            labelSymbol.Text = SymbolName;
+            labelSellPrice.Text = SellPrice;
+            labelBuyPrice.Text = BuyPrice;
+            labelSellPrice.Text = StrikePrice;
+            labelBasePrice.Text = BasePrice;
+            labelDaysToApply.Text = DaysToApply;
+            labelProfitInPercent.Text = ProfitInPercent;
+        }
+
+        private void buttonRun_Click(object sender, EventArgs e)
+        {
+
+            if (isRunning)
+            {
+                isRunning = false;
+                buttonRun.Text = "Start";
+            }
+            else
+            {
+                isRunning = true;
+                buttonRun.Text = "Stop";
+                startLoop();
+            }
+        }
+
+        private void startLoop()
+        {
+            Thread loopTread = new Thread(() => run());
+            loopTread.Start();
+        }
+
+        private void run()
+        {
+            SellPrice = SellPrice + "0";
+            labelSymbol.Invoke((MethodInvoker)delegate
+            {
+                UpdateData();
+            });
+
+            Thread.Sleep(2000);
+
+        }
     }
 }
