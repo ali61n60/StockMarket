@@ -51,6 +51,7 @@
             this.textBoxGhPaBest = new System.Windows.Forms.TextBox();
             this.labelGhPatoBest = new System.Windows.Forms.Label();
             this.labelGhZatoBest = new System.Windows.Forms.Label();
+            this.userControlLiveData1 = new StockMarket.Components.UserControlLiveData();
             this.SuspendLayout();
             // 
             // labelVaGhdirC
@@ -259,11 +260,29 @@
             this.labelGhZatoBest.TabIndex = 23;
             this.labelGhZatoBest.Text = "1";
             // 
-            // FormRatio
+            // userControlLiveData1
+            // 
+            this.userControlLiveData1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.userControlLiveData1.BasePrice = null;
+            this.userControlLiveData1.BuyPrice = null;
+            this.userControlLiveData1.DaysToApply = null;
+            this.userControlLiveData1.Location = new System.Drawing.Point(31, 313);
+            this.userControlLiveData1.Name = "userControlLiveData1";
+            this.userControlLiveData1.ProfitInPercent = null;
+            this.userControlLiveData1.SellPrice = null;
+            this.userControlLiveData1.Size = new System.Drawing.Size(629, 76);
+            this.userControlLiveData1.StrikePrice = null;
+            this.userControlLiveData1.SymbolBaseName = null;
+            this.userControlLiveData1.SymbolName = null;
+            this.userControlLiveData1.TabIndex = 24;
+            this.userControlLiveData1.Url = null;
+            // 
+            // FormLive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(911, 536);
+            this.Controls.Add(this.userControlLiveData1);
             this.Controls.Add(this.labelGhZatoBest);
             this.Controls.Add(this.labelGhPatoBest);
             this.Controls.Add(this.textBoxGhPaBest);
@@ -287,7 +306,7 @@
             this.Controls.Add(this.labelGhZa);
             this.Controls.Add(this.labelGhPa);
             this.Controls.Add(this.labelVaGhdirC);
-            this.Name = "FormRatio";
+            this.Name = "FormLive";
             this.Text = "FormRatio";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -319,5 +338,6 @@
         private System.Windows.Forms.TextBox textBoxGhPaBest;
         private System.Windows.Forms.Label labelGhPatoBest;
         private System.Windows.Forms.Label labelGhZatoBest;
+        private Components.UserControlLiveData userControlLiveData1;
     }
 }

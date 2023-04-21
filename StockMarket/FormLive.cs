@@ -23,7 +23,23 @@ namespace StockMarket
         public FormLive()
         {
             InitializeComponent();
+            InitUserControlLiveData();
             tseLiveData = new TseLiveData();
+        }
+
+        private void InitUserControlLiveData()
+        {
+            userControlLiveData1.SymbolName = "ضستا2018";
+            userControlLiveData1.SymbolBaseName = "شستا";
+            userControlLiveData1.BasePrice = "";
+
+            userControlLiveData1.SellPrice = "";
+            userControlLiveData1.BuyPrice = "";
+            userControlLiveData1.StrikePrice = "";
+            userControlLiveData1.DaysToApply = "";
+            userControlLiveData1.ProfitInPercent = "";
+            userControlLiveData1.Url = "";
+            userControlLiveData1.UrlBase = "";
         }
 
         private void startLoop()

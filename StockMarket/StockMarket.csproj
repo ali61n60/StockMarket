@@ -93,6 +93,9 @@
     <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="StockMarket">
+      <HintPath>obj\Debug\StockMarket.exe</HintPath>
+    </Reference>
     <Reference Include="StructureMap, Version=4.3.0.442, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\StructureMap.4.3.0\lib\net45\StructureMap.dll</HintPath>
     </Reference>
@@ -146,6 +149,12 @@
     <Compile Include="Components\SymbolSelector.Designer.cs">
       <DependentUpon>SymbolSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\UserControlLiveData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\UserControlLiveData.Designer.cs">
+      <DependentUpon>UserControlLiveData.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRatio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +184,9 @@
     <Compile Include="TODO.cs" />
     <EmbeddedResource Include="Components\SymbolSelector.resx">
       <DependentUpon>SymbolSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\UserControlLiveData.resx">
+      <DependentUpon>UserControlLiveData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRatio.resx">
       <DependentUpon>FormRatio.cs</DependentUpon>
