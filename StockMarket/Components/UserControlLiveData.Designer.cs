@@ -37,6 +37,7 @@ namespace StockMarket.Components
             this.labelProfitInPercent = new System.Windows.Forms.Label();
             this.labelStrikePrice = new System.Windows.Forms.Label();
             this.buttonRun = new System.Windows.Forms.Button();
+            this.labelMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelSymbol
@@ -112,10 +113,20 @@ namespace StockMarket.Components
             this.buttonRun.UseVisualStyleBackColor = true;
             this.buttonRun.Click += new System.EventHandler(this.buttonRun_Click);
             // 
+            // labelMessage
+            // 
+            this.labelMessage.AutoSize = true;
+            this.labelMessage.Location = new System.Drawing.Point(19, 46);
+            this.labelMessage.Name = "labelMessage";
+            this.labelMessage.Size = new System.Drawing.Size(50, 13);
+            this.labelMessage.TabIndex = 8;
+            this.labelMessage.Text = "Message";
+            // 
             // UserControlLiveData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.buttonRun);
             this.Controls.Add(this.labelStrikePrice);
             this.Controls.Add(this.labelProfitInPercent);
@@ -141,5 +152,6 @@ namespace StockMarket.Components
         private System.Windows.Forms.Label labelProfitInPercent;
         private System.Windows.Forms.Label labelStrikePrice;
         private System.Windows.Forms.Button buttonRun;
+        private System.Windows.Forms.Label labelMessage;
     }
 }

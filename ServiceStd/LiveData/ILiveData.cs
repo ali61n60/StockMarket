@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ServiceStd.LiveData
 {
-    interface ILiveData
+    public interface ILiveDataWorker
     {
         Task<LiveDataResponse> GetPriceAsync();
     }

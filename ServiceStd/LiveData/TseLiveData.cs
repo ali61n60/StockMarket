@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ServiceStd.LiveData
 {
-    public class TseLiveData:ILiveData
+    public class TseLiveData:ILiveDataWorker
     {
         private string _url;
 
@@ -18,11 +18,7 @@ namespace ServiceStd.LiveData
         public async Task<LiveDataResponse> GetPriceAsync()
         {
             try
-            {
-                SymbolLiveData symbolLiveData = new SymbolLiveData(_url);
-                // Task<SymbolData> symbolDataTask = symbolLiveData.GetLiveDataAsync();
-
-                //SymbolData symbolData = symbolDataTask.Result;
+            {                
                 SymbolData symbolData = await GetLiveDataAsync();
 
                 return new LiveDataResponse()

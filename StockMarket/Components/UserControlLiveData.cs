@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceStd.LiveData;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace StockMarket.Components
     public partial class UserControlLiveData : UserControl
     {
         private bool isRunning = false;
+        private string _message="ok";
         public string SymbolName { get; set; }  //ضستا
         public string SymbolBaseName { get; set; }  //شستا
         public string BasePrice { get; set; }
@@ -25,6 +27,7 @@ namespace StockMarket.Components
         public string ProfitInPercent { get; set; }
         public string Url { get; set; }
         public string UrlBase { get; set; }
+        public ILiveDataWorker liveDataWorker { get; set; }
         public UserControlLiveData()
         {
             InitializeComponent();
@@ -39,6 +42,7 @@ namespace StockMarket.Components
             labelBasePrice.Text = BasePrice;
             labelDaysToApply.Text = DaysToApply;
             labelProfitInPercent.Text = ProfitInPercent;
+            labelMessage.Text = _message;
         }
 
         private void buttonRun_Click(object sender, EventArgs e)
@@ -67,7 +71,9 @@ namespace StockMarket.Components
         {
             while (isRunning)
             {
+                //TODO get live data from internet and update view
                 SellPrice = SellPrice + "0";
+                _message = DateTime.Now.ToString();
                 labelSymbol.Invoke((MethodInvoker)delegate
                 {
                     UpdateData();
