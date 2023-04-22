@@ -50,7 +50,7 @@ namespace ServiceStd.LiveData
             StreamReader sreader = new StreamReader(stream, Encoding.UTF8);
             string responseString = sreader.ReadToEnd();
 
-
+            
             QueueRoot orders = JsonConvert.DeserializeObject<QueueRoot>(responseString);
             return orders;            
         }

@@ -73,22 +73,34 @@ namespace StockMarket.Components
             while (isRunning)
             {
                 //TODO get live data from internet and update view
-                LiveDataResponse liveDataResponse=await liveDataWorker.GetDataAsync();
-                if (liveDataResponse.IsResultOk)
+                try
                 {
-                    BuyPrice = liveDataResponse.Orders.bestLimits[0].pMeDem.ToString();
-                    _message = DateTime.Now.ToString();
+                    LiveDataResponse liveDataResponse = await liveDataWorker.GetDataAsync();
+                    if (liveDataResponse.IsResultOk)
+                    {
+                        BuyPrice = liveDataResponse.Orders.bestLimits[0].pMeDem.ToString();
+                        _message = DateTime.Now.ToString();
+                    }
+                    else
+                    {
+                        _message = liveDataResponse.Message;
+                    }
+
+                    labelSymbol.Invoke((MethodInvoker)delegate
+                    {
+                        UpdateData();
+                    });
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    _message = liveDataResponse.Message;
+                    _message = ex.Message;
+                    labelSymbol.Invoke((MethodInvoker)delegate
+                    {
+                        UpdateData();
+                    });
                 }
                 
-                labelSymbol.Invoke((MethodInvoker)delegate
-                {
-                    UpdateData();
-                });
-
                 Thread.Sleep(2000);
             }
 
