@@ -15,7 +15,7 @@ namespace ServiceStd.LiveData
         {
             _url = url;
         }
-        public async Task<LiveDataResponse> GetPriceAsync()
+        public async Task<LiveDataResponse> GetDataAsync()
         {
             try
             {                
@@ -23,7 +23,7 @@ namespace ServiceStd.LiveData
 
                 return new LiveDataResponse()
                 {
-                    Price = double.Parse(symbolData.TransactionPrice),
+                    LastPrice = double.Parse(symbolData.TransactionPrice),
                     IsResultOk = true,
                     Message="OK"
                 };
@@ -32,14 +32,14 @@ namespace ServiceStd.LiveData
             {
                 return new LiveDataResponse()
                 {
-                    Price = 1,
+                    LastPrice = 1,
                     IsResultOk = false,
                     Message = ex.Message
                 };
             }
         }
 
-        public async Task<SymbolData> GetLiveDataAsync()
+        private async Task<SymbolData> GetLiveDataAsync()
         {
 
             WebRequest request = HttpWebRequest.Create(_url);

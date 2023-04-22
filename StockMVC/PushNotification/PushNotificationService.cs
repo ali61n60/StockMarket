@@ -46,11 +46,11 @@ namespace StockMVC.PushNotification
             //get stock price and send it to users
              string ParsUrl = "http://www.tsetmc.ir/tsev2/data/instinfodata.aspx?i=6110133418282108&c=44+";
              TseLiveData tse = new TseLiveData(ParsUrl);
-             LiveDataResponse returnData= await tse.GetPriceAsync();
+             LiveDataResponse returnData= await tse.GetDataAsync();
              string message;
              if (returnData.IsResultOk)
              {
-                 message = $"Pars is {returnData.Price} at {DateTime.Now.ToLongTimeString()}";
+                 message = $"Pars is {returnData.LastPrice} at {DateTime.Now.ToLongTimeString()}";
              }
              else
              {

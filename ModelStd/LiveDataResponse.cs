@@ -6,9 +6,10 @@ namespace ModelStd
 {
     public class LiveDataResponse
     {
-        public double Price;
+        public double LastPrice;
         public bool IsResultOk;
         public string Message;
+        public QueueRoot Orders;
     }
 
     public class SymbolData
@@ -50,4 +51,31 @@ namespace ModelStd
         public string NotDiscovered16;
         public string NotDiscovered17;
     }
+
+    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
+    public class BestLimit
+    {
+        public int number { get; set; }
+        public int qTitMeDem { get; set; }
+        public int zOrdMeDem { get; set; }
+        public double pMeDem { get; set; }
+        public double pMeOf { get; set; }
+        public int zOrdMeOf { get; set; }
+        public int qTitMeOf { get; set; }
+        public object insCode { get; set; }
+    }
+
+    public class QueueRoot
+    {
+        public List<BestLimit> bestLimits { get; set; }
+    }
+
+    
+        //{"bestLimits":
+        //               [{"number":1,"qTitMeDem":100,"zOrdMeDem":1,"pMeDem":57.000,"pMeOf":63.000,"zOrdMeOf":2,"qTitMeOf":550,"insCode":null},
+        //                {"number":2,"qTitMeDem":1000,"zOrdMeDem":1,"pMeDem":51.000,"pMeOf":68.000,"zOrdMeOf":1,"qTitMeOf":200,"insCode":null},
+        //                { "number":3,"qTitMeDem":500,"zOrdMeDem":1,"pMeDem":50.000,"pMeOf":69.000,"zOrdMeOf":1,"qTitMeOf":500,"insCode":null},
+        //                { "number":4,"qTitMeDem":2000,"zOrdMeDem":2,"pMeDem":41.000,"pMeOf":73.000,"zOrdMeOf":1,"qTitMeOf":500,"insCode":null},
+        //                { "number":5,"qTitMeDem":5000,"zOrdMeDem":5,"pMeDem":1.000,"pMeOf":75.000,"zOrdMeOf":1,"qTitMeOf":200,"insCode":null}]}
+    
 }

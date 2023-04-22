@@ -73,10 +73,10 @@ namespace StockMarket.Components
             while (isRunning)
             {
                 //TODO get live data from internet and update view
-                LiveDataResponse liveDataResponse=await liveDataWorker.GetPriceAsync();
+                LiveDataResponse liveDataResponse=await liveDataWorker.GetDataAsync();
                 if (liveDataResponse.IsResultOk)
                 {                    
-                    SellPrice = liveDataResponse.Price.ToString();
+                    SellPrice = liveDataResponse.LastPrice.ToString();
                     _message = DateTime.Now.ToString();
                 }
                 else
