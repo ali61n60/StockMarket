@@ -1,4 +1,5 @@
-﻿using ServiceStd.LiveData;
+﻿using ModelStd;
+using ServiceStd.LiveData;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,17 +64,26 @@ namespace StockMarket.Components
 
         private void startLoop()
         {
-            Thread loopTread = new Thread(() => run());
+            Thread loopTread = new Thread(() => runAsync());
             loopTread.Start();
         }
 
-        private void run()
+        private async Task runAsync()
         {
             while (isRunning)
             {
                 //TODO get live data from internet and update view
-                SellPrice = SellPrice + "0";
-                _message = DateTime.Now.ToString();
+                LiveDataResponse liveDataResponse=await liveDataWorker.GetPriceAsync();
+                if (liveDataResponse.IsResultOk)
+                {                    
+                    SellPrice = liveDataResponse.Price.ToString();
+                    _message = DateTime.Now.ToString();
+                }
+                else
+                {
+                    _message = liveDataResponse.Message;
+                }
+                
                 labelSymbol.Invoke((MethodInvoker)delegate
                 {
                     UpdateData();

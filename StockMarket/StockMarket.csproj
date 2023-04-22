@@ -210,6 +210,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="cst\Iter38.zip" />
     <None Include="Finance\ARM\C++ - The Complete Reference 4e.pdf" />
     <None Include="Finance\ARM\C++ Complete Reference,3rd Ed.pdf" />

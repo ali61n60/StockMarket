@@ -33,11 +33,11 @@
             // 
             // userControlLiveData1
             // 
-            this.userControlLiveData1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.userControlLiveData1.BasePrice = null;
             this.userControlLiveData1.BuyPrice = null;
             this.userControlLiveData1.DaysToApply = null;
-            this.userControlLiveData1.Location = new System.Drawing.Point(45, 58);
+            this.userControlLiveData1.liveDataWorker = null;
+            this.userControlLiveData1.Location = new System.Drawing.Point(34, 32);
             this.userControlLiveData1.Name = "userControlLiveData1";
             this.userControlLiveData1.ProfitInPercent = null;
             this.userControlLiveData1.SellPrice = null;
@@ -60,6 +60,7 @@
             this.ResumeLayout(false);
 
         }
+
 
         #endregion
 
