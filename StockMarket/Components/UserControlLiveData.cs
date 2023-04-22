@@ -75,8 +75,8 @@ namespace StockMarket.Components
                 //TODO get live data from internet and update view
                 LiveDataResponse liveDataResponse=await liveDataWorker.GetDataAsync();
                 if (liveDataResponse.IsResultOk)
-                {                    
-                    SellPrice = liveDataResponse.LastPrice.ToString();
+                {
+                    BuyPrice = liveDataResponse.Orders.bestLimits[0].pMeDem.ToString();
                     _message = DateTime.Now.ToString();
                 }
                 else

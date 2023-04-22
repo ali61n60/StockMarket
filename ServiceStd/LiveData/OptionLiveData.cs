@@ -46,19 +46,16 @@ namespace ServiceStd.LiveData
 
             WebRequest request = HttpWebRequest.Create(_url);
             WebResponse response = await request.GetResponseAsync();
-            Stream responseStream = response.GetResponseStream();
-            responseStream = new GZipStream(responseStream, CompressionMode.Decompress);
-            StreamReader reader = new StreamReader(responseStream);
-            string responseText = reader.ReadToEnd();
+            Stream stream = response.GetResponseStream();
+            StreamReader sreader = new StreamReader(stream, Encoding.UTF8);
+            string responseString = sreader.ReadToEnd();
 
-            return parseResponseText(responseText);
+
+            QueueRoot orders = JsonConvert.DeserializeObject<QueueRoot>(responseString);
+            return orders;            
         }
 
-        private QueueRoot parseResponseText(string responseText)
-        {
-            QueueRoot orders = JsonConvert.DeserializeObject<QueueRoot>(responseText);
-            return orders;
-        }
+       
     }
 
     
