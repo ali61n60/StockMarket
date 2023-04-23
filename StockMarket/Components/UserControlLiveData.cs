@@ -19,13 +19,12 @@ namespace StockMarket.Components
         private string _message="ok";
         public string SymbolName { get; set; }  //ضستا
         public string SymbolBaseName { get; set; }  //شستا
-        public string BasePrice { get; set; }
-
-        public string SellPrice { get; set; }
-        public string BuyPrice { get; set; }
-        public string StrikePrice { get; set; }
-        public string DaysToApply { get; set; }
-        public string ProfitInPercent { get; set; }
+        public double BasePrice { get; set; }
+        public double SellPrice { get; set; }
+        public double BuyPrice { get; set; }
+        public double StrikePrice { get; set; }
+        public int DaysToApply { get; set; }
+        public double ProfitInPercent { get; set; }
         public string Url { get; set; }
         public string UrlBase { get; set; }
         public ILiveDataWorker liveDataWorker { get; set; }
@@ -37,33 +36,32 @@ namespace StockMarket.Components
         public void UpdateData()
         {
             labelSymbol.Text = SymbolName;
-            labelSellPrice.Text = SellPrice;
-            labelBuyPrice.Text = BuyPrice;
-            labelStrikePrice.Text = StrikePrice;
-            labelBasePrice.Text = BasePrice;
-            labelDaysToApply.Text = DaysToApply;
-            labelProfitInPercent.Text = ProfitInPercent;
+            labelSellPrice.Text = SellPrice.ToString();
+            labelBuyPrice.Text = BuyPrice.ToString();
+            labelStrikePrice.Text = StrikePrice.ToString();
+            labelBasePrice.Text = BasePrice.ToString();
+            labelDaysToApply.Text = DaysToApply.ToString();
+            labelProfitInPercent.Text = ProfitInPercent.ToString();
             labelMessage.Text = _message;
         }
 
         private void buttonRun_Click(object sender, EventArgs e)
         {
 
-            if (isRunning)
-            {
-                isRunning = false;
-                buttonRun.Text = "Start";
-            }
-            else
-            {
-                isRunning = true;
-                buttonRun.Text = "Stop";
-                startLoop();
-            }
+            if (isRunning){ StopLoop();}
+            else  {StartLoop();}
         }
 
-        private void startLoop()
+        public void StopLoop()
         {
+            isRunning = false;
+            buttonRun.Text = "Start";
+        }
+
+        public void StartLoop()
+        {
+            isRunning = true;
+            buttonRun.Text = "Stop";
             Thread loopTread = new Thread(() => runAsync());
             loopTread.Start();
         }
@@ -78,7 +76,7 @@ namespace StockMarket.Components
                     LiveDataResponse liveDataResponse = await liveDataWorker.GetDataAsync();
                     if (liveDataResponse.IsResultOk)
                     {
-                        BuyPrice = liveDataResponse.Orders.bestLimits[0].pMeDem.ToString();
+                        BuyPrice = liveDataResponse.Orders.bestLimits[0].pMeDem;
                         _message = DateTime.Now.ToString();
                     }
                     else

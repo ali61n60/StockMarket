@@ -8,6 +8,9 @@ namespace RepositoryStd.FileSystem.Option
     public class OptionChain
     {
         public List<OptionSymbol> AllOptionsChain { get; set; }
+        public readonly string BaseLimit = "http://cdn.tsetmc.com/api/BestLimits/";
+        public readonly string Closing = "http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceInfo/";
+
 
         public OptionChain()
         {
