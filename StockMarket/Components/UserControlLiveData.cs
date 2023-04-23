@@ -20,8 +20,8 @@ namespace StockMarket.Components
         public string SymbolName { get; set; }  //ضستا
         public string SymbolBaseName { get; set; }  //شستا
         public double BasePrice { get; set; }
-        public double SellPrice { get; set; }
-        public double BuyPrice { get; set; }
+        public double AskPrice { get; set; }
+        public double BidPrice { get; set; }
         public double StrikePrice { get; set; }
         public int DaysToApply { get; set; }
         public double ProfitInPercent { get; set; }
@@ -35,14 +35,32 @@ namespace StockMarket.Components
 
         public void UpdateData()
         {
+            setProfitInPercent();
             labelSymbol.Text = SymbolName;
-            labelSellPrice.Text = SellPrice.ToString();
-            labelBuyPrice.Text = BuyPrice.ToString();
-            labelStrikePrice.Text = StrikePrice.ToString();
-            labelBasePrice.Text = BasePrice.ToString();
-            labelDaysToApply.Text = DaysToApply.ToString();
-            labelProfitInPercent.Text = ProfitInPercent.ToString();
+            labelAskPrice.Text = "Ask: "+ AskPrice.ToString();
+            labelBidPrice.Text = "Bid: "+ BidPrice.ToString();
+            labelStrikePrice.Text = "strike: "+StrikePrice.ToString();
+            labelBasePrice.Text = "base: "+ BasePrice.ToString();
+            labelDaysToApply.Text = "days: "+ DaysToApply.ToString();
+            labelProfitInPercent.Text ="profit: "+ ProfitInPercent.ToString();
             labelMessage.Text = _message;
+        }
+
+        private void setProfitInPercent()
+        {
+            try
+            {
+                double investMoney = BasePrice - AskPrice; //how much invested
+                double profit = StrikePrice - investMoney;// sell price - investment
+                double profitPercent = profit * 100 / investMoney;//percent
+                profitPercent = profitPercent * 31 / DaysToApply; //normalize to per month
+
+                ProfitInPercent = profitPercent;
+            }
+            catch(Exception ex)
+            {
+                labelMessage.Text = ex.Message;
+            }
         }
 
         private void buttonRun_Click(object sender, EventArgs e)
@@ -76,7 +94,8 @@ namespace StockMarket.Components
                     BestLimitsResponse liveDataResponse = await liveDataWorker.GetBestLimitsAsync(Url);
                     if (liveDataResponse.IsResultOk)
                     {
-                        BuyPrice = liveDataResponse.bestLimits.bestLimits[0].pMeDem;
+                        BidPrice = liveDataResponse.bestLimits.bestLimits[0].pMeDem;
+                        AskPrice = liveDataResponse.bestLimits.bestLimits[0].pMeOf;
                         _message = DateTime.Now.ToString();
                     }
                     else

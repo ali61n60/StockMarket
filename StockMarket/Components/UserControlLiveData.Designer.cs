@@ -30,8 +30,8 @@ namespace StockMarket.Components
         private void InitializeComponent()
         {
             this.labelSymbol = new System.Windows.Forms.Label();
-            this.labelSellPrice = new System.Windows.Forms.Label();
-            this.labelBuyPrice = new System.Windows.Forms.Label();
+            this.labelAskPrice = new System.Windows.Forms.Label();
+            this.labelBidPrice = new System.Windows.Forms.Label();
             this.labelBasePrice = new System.Windows.Forms.Label();
             this.labelDaysToApply = new System.Windows.Forms.Label();
             this.labelProfitInPercent = new System.Windows.Forms.Label();
@@ -49,23 +49,23 @@ namespace StockMarket.Components
             this.labelSymbol.TabIndex = 0;
             this.labelSymbol.Text = "SymbolName";
             // 
-            // labelSellPrice
+            // labelAskPrice
             // 
-            this.labelSellPrice.AutoSize = true;
-            this.labelSellPrice.Location = new System.Drawing.Point(95, 14);
-            this.labelSellPrice.Name = "labelSellPrice";
-            this.labelSellPrice.Size = new System.Drawing.Size(48, 13);
-            this.labelSellPrice.TabIndex = 1;
-            this.labelSellPrice.Text = "SellPrice";
+            this.labelAskPrice.AutoSize = true;
+            this.labelAskPrice.Location = new System.Drawing.Point(95, 14);
+            this.labelAskPrice.Name = "labelAskPrice";
+            this.labelAskPrice.Size = new System.Drawing.Size(25, 13);
+            this.labelAskPrice.TabIndex = 1;
+            this.labelAskPrice.Text = "Ask";
             // 
-            // labelBuyPrice
+            // labelBidPrice
             // 
-            this.labelBuyPrice.AutoSize = true;
-            this.labelBuyPrice.Location = new System.Drawing.Point(186, 14);
-            this.labelBuyPrice.Name = "labelBuyPrice";
-            this.labelBuyPrice.Size = new System.Drawing.Size(49, 13);
-            this.labelBuyPrice.TabIndex = 2;
-            this.labelBuyPrice.Text = "BuyPrice";
+            this.labelBidPrice.AutoSize = true;
+            this.labelBidPrice.Location = new System.Drawing.Point(186, 14);
+            this.labelBidPrice.Name = "labelBidPrice";
+            this.labelBidPrice.Size = new System.Drawing.Size(22, 13);
+            this.labelBidPrice.TabIndex = 2;
+            this.labelBidPrice.Text = "Bid";
             // 
             // labelBasePrice
             // 
@@ -132,8 +132,8 @@ namespace StockMarket.Components
             this.Controls.Add(this.labelProfitInPercent);
             this.Controls.Add(this.labelDaysToApply);
             this.Controls.Add(this.labelBasePrice);
-            this.Controls.Add(this.labelBuyPrice);
-            this.Controls.Add(this.labelSellPrice);
+            this.Controls.Add(this.labelBidPrice);
+            this.Controls.Add(this.labelAskPrice);
             this.Controls.Add(this.labelSymbol);
             this.Name = "UserControlLiveData";
             this.Size = new System.Drawing.Size(724, 76);
@@ -145,8 +145,8 @@ namespace StockMarket.Components
         #endregion
 
         private System.Windows.Forms.Label labelSymbol;
-        private System.Windows.Forms.Label labelSellPrice;
-        private System.Windows.Forms.Label labelBuyPrice;
+        private System.Windows.Forms.Label labelAskPrice;
+        private System.Windows.Forms.Label labelBidPrice;
         private System.Windows.Forms.Label labelBasePrice;
         private System.Windows.Forms.Label labelDaysToApply;
         private System.Windows.Forms.Label labelProfitInPercent;
