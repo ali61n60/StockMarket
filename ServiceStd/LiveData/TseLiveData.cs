@@ -9,40 +9,43 @@ namespace ServiceStd.LiveData
 {
     public class TseLiveData:ILiveDataWorker
     {
-        private string _url;
+        
 
-        public TseLiveData(string url)
+       
+        public async Task<BestLimitsResponse> GetBestLimitsAsync(string url)
         {
-            _url = url;
-        }
-        public async Task<LiveDataResponse> GetDataAsync()
-        {
-            try
-            {                
-                SymbolData symbolData = await GetLiveDataAsync();
+            throw new NotImplementedException();
+            //try
+            //{                
+            //    SymbolData symbolData = await GetLiveDataAsync();
 
-                return new LiveDataResponse()
-                {
-                    LastPrice = double.Parse(symbolData.TransactionPrice),
-                    IsResultOk = true,
-                    Message="OK"
-                };
-            }
-            catch (Exception ex)
-            {
-                return new LiveDataResponse()
-                {
-                    LastPrice = 1,
-                    IsResultOk = false,
-                    Message = ex.Message
-                };
-            }
+            //    return new BestLimitsResponse()
+            //    {
+            //        LastPrice = double.Parse(symbolData.TransactionPrice),
+            //        IsResultOk = true,
+            //        Message="OK"
+            //    };
+            //}
+            //catch (Exception ex)
+            //{
+            //    return new BestLimitsResponse()
+            //    {
+            //        LastPrice = 1,
+            //        IsResultOk = false,
+            //        Message = ex.Message
+            //    };
+            //}
         }
 
-        private async Task<SymbolData> GetLiveDataAsync()
+        public Task<ClosingPriceInfoResponse> GetClosingPriceInfoAsync(string url)
+        {
+            throw new NotImplementedException();
+        }
+
+        private async Task<SymbolData> GetLiveDataAsync(string url)
         {
 
-            WebRequest request = HttpWebRequest.Create(_url);
+            WebRequest request = HttpWebRequest.Create(url);
             WebResponse response = await request.GetResponseAsync();
             Stream responseStream = response.GetResponseStream();
             responseStream = new GZipStream(responseStream, CompressionMode.Decompress);

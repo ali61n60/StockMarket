@@ -8,6 +8,7 @@ namespace ServiceStd.LiveData
 {
     public interface ILiveDataWorker
     {
-        Task<LiveDataResponse> GetDataAsync();
+        Task<BestLimitsResponse> GetBestLimitsAsync(string url);
+        Task<ClosingPriceInfoResponse> GetClosingPriceInfoAsync(string url);
     }
 }

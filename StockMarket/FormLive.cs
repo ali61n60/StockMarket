@@ -11,11 +11,7 @@ namespace StockMarket
 
     public partial class FormLive : Form
     {
-        private readonly string ParsUrl = "http://www.tsetmc.ir/tsev2/data/instinfodata.aspx?i=6110133418282108&c=44+";
-        private readonly string GhadirUrl = "http://www.tsetmc.ir/tsev2/data/instinfofast.aspx?i=26014913469567886&c=39+";
-        private readonly string ZagrosUrl = "http://www.tsetmc.ir/tsev2/data/instinfodata.aspx?i=13235547361447092&c=44+";
-        private readonly string Zasta2018BestLimits = "http://cdn.tsetmc.com/api/BestLimits/17494496342776868";
-        private readonly string Zasta2018Closing = "http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceInfo/1749449634277686";
+        
         private int numberOfCalls = 0;
 
         
@@ -35,7 +31,8 @@ namespace StockMarket
                 temp.StrikePrice = optionSymbol.StrikePrice;
                 temp.DaysToApply = ( optionSymbol.EnforcementDate.Date- DateTime.Now.Date).Days;
                 temp.Url = AllOptions.BaseLimit + optionSymbol.TseId;
-                temp.liveDataWorker = new OptionLiveData(temp.Url);
+                temp.UrlBase = AllOptions.Closing + optionSymbol.TseBaseSymbolId;
+                temp.liveDataWorker = new OptionLiveData();
 
                 temp.UpdateData();
                 temp.StartLoop();
@@ -63,10 +60,14 @@ namespace StockMarket
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(51, 41);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(27, 41);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(742, 431);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(836, 462);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // FormLive

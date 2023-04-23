@@ -11,5 +11,6 @@ namespace ModelStd.Option
         public double StrikePrice { get; set; }
         public double BaseStockPrice;
         public string TseId { get; set; }        
+        public string TseBaseSymbolId { get; set; }
     }
 }
