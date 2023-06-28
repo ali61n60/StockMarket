@@ -146,6 +146,12 @@
     <Compile Include="Components\SymbolSelector.Designer.cs">
       <DependentUpon>SymbolSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\UserControlLiveData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\UserControlLiveData.Designer.cs">
+      <DependentUpon>UserControlLiveData.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRatio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     <Compile Include="TODO.cs" />
     <EmbeddedResource Include="Components\SymbolSelector.resx">
       <DependentUpon>SymbolSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\UserControlLiveData.resx">
+      <DependentUpon>UserControlLiveData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRatio.resx">
       <DependentUpon>FormRatio.cs</DependentUpon>
