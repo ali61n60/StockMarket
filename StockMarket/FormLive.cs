@@ -1,8 +1,9 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using ModelStd.Option;
+using RepositoryStd.FileSystem.Option;
 using ServiceStd.LiveData;
+using StockMarket.Components;
+using System.Windows.Forms;
+using System;
 
 
 namespace StockMarket
@@ -10,108 +11,77 @@ namespace StockMarket
 
     public partial class FormLive : Form
     {
-        private readonly string ParsUrl = "http://www.tsetmc.ir/tsev2/data/instinfodata.aspx?i=6110133418282108&c=44+";
-        private readonly string GhadirUrl = "http://www.tsetmc.ir/tsev2/data/instinfofast.aspx?i=26014913469567886&c=39+";
-        private readonly string ZagrosUrl = "http://www.tsetmc.ir/tsev2/data/instinfodata.aspx?i=13235547361447092&c=44+";
+        
         private int numberOfCalls = 0;
-
-        private readonly TseLiveData tseLiveData;
-
-        bool runRatio = false;
 
         
         public FormLive()
         {
             InitializeComponent();
-            tseLiveData = new TseLiveData();
+            InitUserControlLiveData();
         }
 
-        private void startLoop()
+        private void InitUserControlLiveData()
         {
-            Thread loopTread = new Thread(() => run());
-            loopTread.Start();
-        }
-        
-        private void run()
-        {
-            
-            ReturnData ghadirPrice;
-            ReturnData zagrosPrice;
-            ReturnData parsPrice;
-            double GhZaBest = double.Parse(textBoxGhZaBest.Text);
-            double GhPaBest = double.Parse(textBoxGhPaBest.Text);
-            string formatter = "#,#.0000#;(#,#.0000#)";
-            while (runRatio)
+            OptionChain AllOptions = new OptionChain();
+            foreach(OptionSymbol optionSymbol in AllOptions.AllOptionsChain)
             {
-                try
-                {
-                    ghadirPrice = tseLiveData.GetPrice(GhadirUrl);
-                    zagrosPrice = tseLiveData.GetPrice(ZagrosUrl);
-                    parsPrice = tseLiveData.GetPrice(ParsUrl);
+                UserControlLiveData temp = new UserControlLiveData();
+                temp.SymbolName = optionSymbol.SymbolName;
+                temp.StrikePrice = optionSymbol.StrikePrice;
+                temp.DaysToApply = ( optionSymbol.EnforcementDate.Date- DateTime.Now.Date).Days;
+                temp.Url = AllOptions.BaseLimit + optionSymbol.TseId;
+                temp.UrlBase = AllOptions.Closing + optionSymbol.TseBaseSymbolId;
+                temp.liveDataWorker = new OptionLiveData();
 
-                    if (ghadirPrice.resultOk && zagrosPrice.resultOk && parsPrice.resultOk)
-                    {
-                        //TODO write data to excell file
-                        labelGhGh.Invoke((MethodInvoker)delegate {
-                            
-                            labelGhGh.Text = (ghadirPrice.price / ghadirPrice.price).ToString(formatter);
-                            labelGhPa.Text = (ghadirPrice.price / parsPrice.price).ToString(formatter);
-                            labelGhZa.Text = (ghadirPrice.price / zagrosPrice.price).ToString(formatter);
-                            labelPaGh.Text = (parsPrice.price / ghadirPrice.price).ToString(formatter);
-                            labelPaPa.Text = (parsPrice.price / parsPrice.price).ToString(formatter);
-                            labelPaZa.Text = (parsPrice.price / zagrosPrice.price).ToString(formatter);
-                            labelZaGh.Text = (zagrosPrice.price / ghadirPrice.price).ToString(formatter);
-                            labelZaPa.Text = (zagrosPrice.price / parsPrice.price).ToString(formatter);
-                            labelZaZa.Text = (zagrosPrice.price / zagrosPrice.price).ToString(formatter);
-
-                            labelSummary.Text= numberOfCalls+" ,ghadr=" + ghadirPrice.price + " , zagros=" + zagrosPrice.price + "  ,pars=" + parsPrice.price + " , " + DateTime.Now.ToString();
-                            if ((ghadirPrice.price / zagrosPrice.price) > GhZaBest || GhZaBest / (ghadirPrice.price / zagrosPrice.price) > 1.03)
-                            {
-                                labelSummary.Text += " ,GhZa";
-                            }
-                            if ((ghadirPrice.price / parsPrice.price) > GhPaBest || GhPaBest / (ghadirPrice.price / parsPrice.price) > 1.03)
-                            {
-                                labelSummary.Text += " ,GhPa";
-                            }
-                            labelGhZatoBest.Text = ((ghadirPrice.price / zagrosPrice.price) / GhZaBest).ToString()+"   ,"+(0.97- ((ghadirPrice.price / zagrosPrice.price) / GhZaBest))*100;
-                            labelGhPatoBest.Text= ((ghadirPrice.price / parsPrice.price) / GhPaBest).ToString() + "   ," + (0.97 - ((ghadirPrice.price / parsPrice.price) / GhPaBest)) * 100;
-                        });
-                    }
-                    else
-                    {
-                        labelGhGh.Invoke((MethodInvoker)delegate {
-                            labelSummary.Text += numberOfCalls+ " ,Error";
-                        });
-                    }
-                }
-                catch(Exception ex)
-                {
-                    labelGhGh.Invoke((MethodInvoker)delegate {
-                        labelSummary.Text = ex.Message;
-                    });
-                }
-                Thread.Sleep(10000);
+                temp.UpdateData();
+                temp.StartLoop();
+                flowLayoutPanel1.Controls.Add(temp);                
             }
+           // panelContainer.Controls[0].
+            //userControlLiveData1.SymbolName = "ضستا2018";
+            //userControlLiveData1.SymbolBaseName = "شستا";
+            //userControlLiveData1.BasePrice = "10";
+            //userControlLiveData1.SellPrice = "11";
+            //userControlLiveData1.BuyPrice = "12";
+            //userControlLiveData1.StrikePrice = "13";
+            //userControlLiveData1.DaysToApply = "14";
+            //userControlLiveData1.ProfitInPercent = "15";
+            //userControlLiveData1.Url = Zasta2018BestLimits;
+            //userControlLiveData1.UrlBase = "";
+            //userControlLiveData1.liveDataWorker = new OptionLiveData(userControlLiveData1.Url);
+            //userControlLiveData1.UpdateData();
         }
 
-       
-
-        
-        private void buttonController_Click(object sender, EventArgs e)
+        private void InitializeComponent()
         {
-            if (runRatio)
-            {
-                runRatio = false;
-                buttonController.Text = "Start";
-            }
-            else
-            {
-                runRatio = true;
-                buttonController.Text = "Stop";
-                startLoop();
-            }
-        }       
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.SuspendLayout();
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(27, 41);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(836, 462);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // FormLive
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(911, 536);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Name = "FormLive";
+            this.Text = "FormRatio";
+            this.ResumeLayout(false);
+
+        }
     }
 
-   
+
 }

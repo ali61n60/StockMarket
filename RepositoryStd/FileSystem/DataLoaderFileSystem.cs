@@ -21,6 +21,11 @@ namespace RepositoryStd.FileSystem
             throw new NotImplementedException();
         }
 
+        public List<CapitalIncrease> GetCapitalIncrease(int symbolId)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Dividend> GetDividend(int symbolId)
         {
             throw new NotImplementedException();

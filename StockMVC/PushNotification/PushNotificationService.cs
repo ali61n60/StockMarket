@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Hosting;
+using ModelStd;
 using ServiceStd.LiveData;
 using StockMVC.Hubs;
 
@@ -44,12 +45,12 @@ namespace StockMVC.PushNotification
         {
             //get stock price and send it to users
              string ParsUrl = "http://www.tsetmc.ir/tsev2/data/instinfodata.aspx?i=6110133418282108&c=44+";
-             TseLiveData tse = new TseLiveData();
-             ReturnData returnData= tse.GetPrice(ParsUrl);
+             TseLiveData tse = new TseLiveData(ParsUrl);
+             LiveDataResponse returnData= await tse.GetDataAsync();
              string message;
-             if (returnData.resultOk)
+             if (returnData.IsResultOk)
              {
-                 message = $"Pars is {returnData.price} at {DateTime.Now.ToLongTimeString()}";
+                 message = $"Pars is {returnData.LastPrice} at {DateTime.Now.ToLongTimeString()}";
              }
              else
              {
