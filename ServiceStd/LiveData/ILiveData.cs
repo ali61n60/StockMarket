@@ -10,5 +10,6 @@ namespace ServiceStd.LiveData
     {
         Task<BestLimitsResponse> GetBestLimitsAsync(string url);
         Task<ClosingPriceInfoResponse> GetClosingPriceInfoAsync(string url);
+        Task<SymbolData> GetLiveDataAsync(string url);
     }
 }

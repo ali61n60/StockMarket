@@ -45,20 +45,21 @@ namespace StockMVC.PushNotification
         {
             //get stock price and send it to users
              string ParsUrl = "http://www.tsetmc.ir/tsev2/data/instinfodata.aspx?i=6110133418282108&c=44+";
-             TseLiveData tse = new TseLiveData(ParsUrl);
-             LiveDataResponse returnData= await tse.GetDataAsync();
-             string message;
-             if (returnData.IsResultOk)
-             {
-                 message = $"Pars is {returnData.LastPrice} at {DateTime.Now.ToLongTimeString()}";
-             }
-             else
-             {
-                 message = $"Error when getting data at {DateTime.Now.ToLongTimeString()}";
-             }
+            // TseLiveData tse = new TseLiveData(ParsUrl);
+            
+            //LiveDataResponse returnData= await tse.GetDataAsync();
+             //string message;
+             //if (returnData.IsResultOk)
+             //{
+             //    message = $"Pars is {returnData.LastPrice} at {DateTime.Now.ToLongTimeString()}";
+             //}
+             //else
+             //{
+             //    message = $"Error when getting data at {DateTime.Now.ToLongTimeString()}";
+             //}
              
-             await _hubContext.Clients.All.SendAsync("ReceiveMessage", "Server", message);
-             Debug.WriteLine("called from repeating task at " + DateTime.Now.ToLongTimeString());
+             //await _hubContext.Clients.All.SendAsync("ReceiveMessage", "Server", message);
+             //Debug.WriteLine("called from repeating task at " + DateTime.Now.ToLongTimeString());
         }
     }
 }

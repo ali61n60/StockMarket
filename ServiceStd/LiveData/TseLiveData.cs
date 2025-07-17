@@ -42,7 +42,7 @@ namespace ServiceStd.LiveData
             throw new NotImplementedException();
         }
 
-        private async Task<SymbolData> GetLiveDataAsync(string url)
+        public async Task<SymbolData> GetLiveDataAsync(string url)
         {
 
             WebRequest request = HttpWebRequest.Create(url);

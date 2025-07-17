@@ -69,9 +69,10 @@ namespace ServiceStd.LiveData
             }
         }
 
-        
-
-       
+        public Task<SymbolData> GetLiveDataAsync(string url)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     

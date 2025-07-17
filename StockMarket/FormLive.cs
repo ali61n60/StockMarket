@@ -38,7 +38,20 @@ namespace StockMarket
                 temp.StartLoop();
                 flowLayoutPanel1.Controls.Add(temp);                
             }
-           // panelContainer.Controls[0].
+            UserControlLiveData temp2 = new UserControlLiveData();
+            temp2.SymbolName = "Shasta";
+            temp2.StrikePrice = 0;
+            temp2.DaysToApply = 0;
+            temp2.Url = "http://old.tsetmc.com/tsev2/data/instinfofast.aspx?i=2400322364771558&c=39%2";
+            temp2.UrlBase = "http://old.tsetmc.com/tsev2/data/instinfofast.aspx?i=2400322364771558&c=39%2";
+            temp2.liveDataWorker = new TseLiveData();
+
+            temp2.UpdateData();
+            temp2.StartLoop();
+            flowLayoutPanel1.Controls.Add(temp2);
+
+            //public readonly string Shasta = "http://www.tsetmc.com/tsev2/data/instinfofast.aspx?i=2400322364771558&c=39%2";
+            // panelContainer.Controls[0].
             //userControlLiveData1.SymbolName = "ضستا2018";
             //userControlLiveData1.SymbolBaseName = "شستا";
             //userControlLiveData1.BasePrice = "10";
