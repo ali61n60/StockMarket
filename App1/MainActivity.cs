@@ -21,12 +21,14 @@ namespace App1
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-        Button mainButton;
+        Button buttonPrice;
+        Button buttonSms;
         TextView text1;
-        MainJob mainJob = new MainJob();
+        MainJob mainJob;
         private int NumberOfTextViewUpdates = 0;
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
@@ -41,10 +43,16 @@ namespace App1
 
         private void initComponents()
         {
-            mainButton = FindViewById<Button>(Resource.Id.button1);
-            mainButton.Text = "Start";
-            mainButton.Click += ButtonClick;
-            
+            mainJob = new MainJob(this);
+
+            buttonPrice = FindViewById<Button>(Resource.Id.buttonPrice);
+            buttonPrice.Text = "Start Update Price";
+            buttonPrice.Click += ButtonPriceClick;
+
+            buttonSms = FindViewById<Button>(Resource.Id.buttonSms);
+            buttonSms.Text = "Start Send Sms";
+            buttonSms.Click += ButtonSmsClick;
+
             text1 = FindViewById<TextView>(Resource.Id.text1);
 
             Thread textViewUpdatesTread = new Thread(() => runTextViewUpdate());
@@ -53,32 +61,64 @@ namespace App1
 
         private async Task runTextViewUpdate()
         {
-            while (true)
+            try
             {
-                NumberOfTextViewUpdates++;
-                text1.Text = "view: " + NumberOfTextViewUpdates.ToString() + ", Price: " + MainJob.NubmerOfPriceUpdates.ToString() + ", Sms: " + MainJob.NumberOfSentSms.ToString();
-                Thread.Sleep(1000);
+                while (true)
+                {
+                    NumberOfTextViewUpdates++;
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        text1.Text = "view: " + NumberOfTextViewUpdates.ToString() + ", Price: "+MainJob.ShastaPrice+" ," + MainJob.NubmerOfPriceUpdates.ToString() + ", Sms: " + MainJob.NumberOfSentSms.ToString();
+                    });
+                   
+                    Thread.Sleep(100);
+                }
+            }
+            catch(Exception ex)
+            {
+                Toast.MakeText(this, ex.Message, ToastLength.Long).Show();
             }
         }
         
-            
-                private void ButtonClick(object sender,EventArgs e)
+        private void ButtonPriceClick(object sender,EventArgs e)
         {
             try
             {
 
-                if (mainJob.IsRunning)
+                if (mainJob.IsRunningPrice)
                 {
-                    mainButton.Text = "Start";
-                    mainJob.Stop();
+                    buttonPrice.Text = "Start Update Price";
+                    mainJob.StopPrice();
                 }
                 else
                 {
-                    mainButton.Text = "Stop";
-                    mainJob.Start();
+                    buttonPrice.Text = "Stop Update Price";
+                    mainJob.StartPrice();
                 }
             }
             catch(Exception ex)
+            {
+                Toast.MakeText(this, ex.Message, ToastLength.Long).Show();
+            }
+        }
+
+        private void ButtonSmsClick(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (mainJob.IsRunningSms)
+                {
+                    buttonSms.Text = "Start Send Sms";
+                    mainJob.StopSms();
+                }
+                else
+                {
+                    buttonSms.Text = "Stop Send Sms";
+                    mainJob.StartSms();
+                }
+            }
+            catch (Exception ex)
             {
                 Toast.MakeText(this, ex.Message, ToastLength.Long).Show();
             }

@@ -18,72 +18,126 @@ namespace App1
 {
     public class MainJob
     {
-        public bool IsRunning = false;
+        
+        
+
         public static int NumberOfSentSms = 0;
         public static int NubmerOfPriceUpdates = 0;
         public static string ShastaPrice = "0";
-        private readonly string Url = "http://old.tsetmc.com/tsev2/data/instinfofast.aspx?i=2400322364771558&c=39%2";
+        private string timeOfPriceUpdate="1.1";
+        //private readonly string Url = "http://old.tsetmc.com/tsev2/data/instinfofast.aspx?i=2400322364771558&c=39%2";
+        private readonly string Url = "https://cdn.tsetmc.com/api/BestLimits/2400322364771558";
         private ILiveDataWorker liveDataWorker= new TseLiveData();
 
-        public void Start()
-        {
-            IsRunning = true;
-            
-            Thread sendSmsTread = new Thread(() => runSendSmsAsync());
-            Thread updatePrice = new Thread(() => runUpdatePriceAsync());
-           
-            sendSmsTread.Start();
-            updatePrice.Start();
+        private Thread updatePriceThread;
+        public bool IsRunningPrice = false;
 
+        private Thread sendSmsTread;
+        public bool IsRunningSms = false;
+
+        private Context context;
+
+        public MainJob(Context co)
+        {
+            context = co;
+        }
+
+        public void StartPrice()
+        {
+            updatePriceThread = new Thread(() => runUpdatePriceAsync());
+           
+            IsRunningPrice = true;
+            updatePriceThread.Start();
+        }
+
+        public void StartSms()
+        {
+            sendSmsTread = new Thread(() => runSendSmsAsync());            
+
+            IsRunningSms = true;
+            sendSmsTread.Start();
         }
 
         private async Task runUpdatePriceAsync()
         {
-            while (IsRunning)
+            while (IsRunningPrice)
             {
                 try
                 {
-                    SymbolData symbolData = await liveDataWorker.GetLiveDataAsync(Url);
-                    ShastaPrice = symbolData.TransactionPrice;
+                    BestLimitsResponse bestLimitsResponse = await liveDataWorker.GetBestLimitsAsync(Url);
+                    if (bestLimitsResponse.IsResultOk)
+                    {
+                        //pMeDem":1296.000,"pMeOf":1297.000
+                        ShastaPrice= bestLimitsResponse.bestLimits.bestLimits[0].pMeDem.ToString();
 
-                    NubmerOfPriceUpdates++;
+                        NubmerOfPriceUpdates++;
+                        timeOfPriceUpdate = DateTime.Now.ToShortTimeString();
+                        Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+                        {
+                            Toast.MakeText(context, "Shasta: " + ShastaPrice.ToString(), ToastLength.Long).Show();
+                        });
+                    }
+                    else
+                    {
+                        Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+                        {
+                            Toast.MakeText(context, bestLimitsResponse.Message, ToastLength.Long).Show();
+                        });
+                    }
 
+                    
+                    
                 }
-
                 catch(Exception ex)
                 {
-
+                    Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        Toast.MakeText(context, ex.Message, ToastLength.Long).Show();
+                    });
+                   
                 }
 
-                Thread.Sleep(30000); //30 seconds
+                Thread.Sleep(10000); //10 seconds
             }
 
         }
         
         private async Task runSendSmsAsync()
         {
-            while (IsRunning)
+            while (IsRunningSms)
             {
                 try
                 {
-                    senSms("Shasta : " + ShastaPrice + " " + DateTime.Now.ToShortTimeString());
+                    string smsMessage = "Shasta : " + ShastaPrice + " " + timeOfPriceUpdate ;
+                    senSms(smsMessage);
                     NumberOfSentSms++;
+                    Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        Toast.MakeText(context, "Sms Sent: "+ smsMessage, ToastLength.Long).Show();
+                    });                   
                 }
                 catch(Exception ex)
                 {
-
+                    Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        Toast.MakeText(context, ex.Message, ToastLength.Long).Show();
+                    });                    
                 }
 
                 Thread.Sleep(600000); //10 minutes
             }
         }
         
-        public void Stop()
+        public void StopPrice()
         {
-            IsRunning = false;
+            IsRunningPrice = false;
         }
-        
-                
+        public void StopSms()
+        {
+            IsRunningSms = false;
+        }
+
+
         private void senSms(string text)
         {
             string number = "09216440148";
